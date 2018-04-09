@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="edu.gzmu.mapper.UserMapper">
+	<select id="selectIdPage" resultType="java.lang.Long" useCache="false">
+		select id_ from user
+		<where>
+			<if test="cm.sourceOfUser != null and cm.sourceOfUser != ''">
+					and source_of_user=#{cm.sourceOfUser}
+			</if>
+			<if test="cm.userEntityId != null and cm.userEntityId != ''">
+					and user_entity_id=#{cm.userEntityId}
+			</if>
+			<if test="cm.loginName != null and cm.loginName != ''">
+					and login_name=#{cm.loginName}
+			</if>
+			<if test="cm.password != null and cm.password != ''">
+					and password_=#{cm.password}
+			</if>
+			<if test="cm.salt != null and cm.salt != ''">
+					and salt_=#{cm.salt}
+			</if>
+			<if test="cm.headImgId != null and cm.headImgId != ''">
+					and head_img_id=#{cm.headImgId}
+			</if>
+			<if test="cm.phone != null and cm.phone != ''">
+					and phone_=#{cm.phone}
+			</if>
+			<if test="cm.email != null and cm.email != ''">
+					and email_=#{cm.email}
+			</if>
+			<if test="cm.genderId != null and cm.genderId != ''">
+					and gender_id=#{cm.genderId}
+			</if>
+			<if test="cm.isLocked != null and cm.isLocked != ''">
+					and is_locked=#{cm.isLocked}
+			</if>
+			<if test="cm.remark != null and cm.remark != ''">
+					and remark_=#{cm.remark}
+			</if>
+			<if test="cm.keyword != null and cm.keyword != ''">
+				and (
+                	name_ like CONCAT('%','${cm.keyword}','%')
+                	or spell_ like CONCAT('%','${cm.keyword}','%')
+					or source_of_user like CONCAT('%','${cm.keyword}','%')
+					or user_entity_id like CONCAT('%','${cm.keyword}','%')
+					or login_name like CONCAT('%','${cm.keyword}','%')
+					or password_ like CONCAT('%','${cm.keyword}','%')
+					or salt_ like CONCAT('%','${cm.keyword}','%')
+					or head_img_id like CONCAT('%','${cm.keyword}','%')
+					or phone_ like CONCAT('%','${cm.keyword}','%')
+					or email_ like CONCAT('%','${cm.keyword}','%')
+					or gender_id like CONCAT('%','${cm.keyword}','%')
+					or is_locked like CONCAT('%','${cm.keyword}','%')
+					or remark_ like CONCAT('%','${cm.keyword}','%')
+				)
+			</if>
+		</where>
+		<if test="cm.orderBy != null and cm.orderBy != ''">
+			order by ${cm.orderBy}
+		</if>
+		<if test="cm.sortAsc != null and cm.sortAsc != ''">
+			${cm.sortAsc}
+		</if>
+	</select>
+</mapper>

@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="edu.gzmu.mapper.CourseMapper">
+	<select id="selectIdPage" resultType="java.lang.Long" useCache="false">
+		select id_ from course
+		<where>
+			<if test="cm.specialtyId != null and cm.specialtyId != ''">
+					and specialty_id=#{cm.specialtyId}
+			</if>
+			<if test="cm.code != null and cm.code != ''">
+					and code_=#{cm.code}
+			</if>
+			<if test="cm.credit != null and cm.credit != ''">
+					and credit_=#{cm.credit}
+			</if>
+			<if test="cm.classHours != null and cm.classHours != ''">
+					and class_hours=#{cm.classHours}
+			</if>
+			<if test="cm.startTime != null and cm.startTime != ''">
+					and start_time=#{cm.startTime}
+			</if>
+			<if test="cm.theoryHours != null and cm.theoryHours != ''">
+					and theory_hours=#{cm.theoryHours}
+			</if>
+			<if test="cm.practicalHours != null and cm.practicalHours != ''">
+					and practical_hours=#{cm.practicalHours}
+			</if>
+			<if test="cm.typeId != null and cm.typeId != ''">
+					and type_id=#{cm.typeId}
+			</if>
+			<if test="cm.courseProperty != null and cm.courseProperty != ''">
+					and course_property=#{cm.courseProperty}
+			</if>
+			<if test="cm.isBoutiqueCourse != null and cm.isBoutiqueCourse != ''">
+					and is_boutique_course=#{cm.isBoutiqueCourse}
+			</if>
+			<if test="cm.introduction != null and cm.introduction != ''">
+					and introduction_=#{cm.introduction}
+			</if>
+			<if test="cm.target != null and cm.target != ''">
+					and target_=#{cm.target}
+			</if>
+			<if test="cm.remark != null and cm.remark != ''">
+					and remark_=#{cm.remark}
+			</if>
+			<if test="cm.keyword != null and cm.keyword != ''">
+				and (
+                	name_ like CONCAT('%','${cm.keyword}','%')
+                	or spell_ like CONCAT('%','${cm.keyword}','%')
+					or specialty_id like CONCAT('%','${cm.keyword}','%')
+					or code_ like CONCAT('%','${cm.keyword}','%')
+					or credit_ like CONCAT('%','${cm.keyword}','%')
+					or class_hours like CONCAT('%','${cm.keyword}','%')
+					or start_time like CONCAT('%','${cm.keyword}','%')
+					or theory_hours like CONCAT('%','${cm.keyword}','%')
+					or practical_hours like CONCAT('%','${cm.keyword}','%')
+					or type_id like CONCAT('%','${cm.keyword}','%')
+					or course_property like CONCAT('%','${cm.keyword}','%')
+					or is_boutique_course like CONCAT('%','${cm.keyword}','%')
+					or introduction_ like CONCAT('%','${cm.keyword}','%')
+					or target_ like CONCAT('%','${cm.keyword}','%')
+					or remark_ like CONCAT('%','${cm.keyword}','%')
+				)
+			</if>
+		</where>
+		<if test="cm.orderBy != null and cm.orderBy != ''">
+			order by ${cm.orderBy}
+		</if>
+		<if test="cm.sortAsc != null and cm.sortAsc != ''">
+			${cm.sortAsc}
+		</if>
+	</select>
+</mapper>

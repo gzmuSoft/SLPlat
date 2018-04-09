@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="edu.gzmu.mapper.SysUserRoleMapper">
+	<select id="selectIdPage" resultType="java.lang.Long" useCache="false">
+		select id_ from sys_user_role
+		<where>
+			<if test="cm.userId != null and cm.userId != ''">
+				and user_id=#{cm.userId}
+			</if>
+			<if test="cm.roleId != null and cm.roleId != ''">
+				and role_id=#{cm.roleId}
+			</if>
+			<if test="cm.remark != null and cm.remark != ''">
+				and remark_=#{cm.remark}
+			</if>
+			<if test="cm.keyword != null and cm.keyword != ''">
+				and (
+				name_ like CONCAT('%','${cm.keyword}','%')
+				or spell_ like CONCAT('%','${cm.keyword}','%')
+				or user_id like CONCAT('%','${cm.keyword}','%')
+				or role_id like CONCAT('%','${cm.keyword}','%')
+				or remark_ like CONCAT('%','${cm.keyword}','%')
+				)
+			</if>
+		</where>
+		<if test="cm.orderBy != null and cm.orderBy != ''">
+			order by ${cm.orderBy}
+		</if>
+		<if test="cm.sortAsc != null and cm.sortAsc != ''">
+			${cm.sortAsc}
+		</if>
+	</select>
+</mapper>

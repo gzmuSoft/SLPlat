@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="edu.gzmu.mapper.CollegeMapper">
+	<select id="selectIdPage" resultType="java.lang.Long" useCache="false">
+		select id_ from college
+		<where>
+			<if test="cm.schoolId != null and cm.schoolId != ''">
+					and school_id=#{cm.schoolId}
+			</if>
+			<if test="cm.collegeProfile != null and cm.collegeProfile != ''">
+					and college_profile=#{cm.collegeProfile}
+			</if>
+			<if test="cm.collegeCode != null and cm.collegeCode != ''">
+					and college_code=#{cm.collegeCode}
+			</if>
+			<if test="cm.studentsNumber != null and cm.studentsNumber != ''">
+					and students_number=#{cm.studentsNumber}
+			</if>
+			<if test="cm.remark != null and cm.remark != ''">
+					and remark_=#{cm.remark}
+			</if>
+			<if test="cm.keyword != null and cm.keyword != ''">
+				and (
+                	name_ like CONCAT('%','${cm.keyword}','%')
+                	or spell_ like CONCAT('%','${cm.keyword}','%')
+					or school_id like CONCAT('%','${cm.keyword}','%')
+					or college_profile like CONCAT('%','${cm.keyword}','%')
+					or college_code like CONCAT('%','${cm.keyword}','%')
+					or students_number like CONCAT('%','${cm.keyword}','%')
+					or remark_ like CONCAT('%','${cm.keyword}','%')
+				)
+			</if>
+		</where>
+		<if test="cm.orderBy != null and cm.orderBy != ''">
+			order by ${cm.orderBy}
+		</if>
+		<if test="cm.sortAsc != null and cm.sortAsc != ''">
+			${cm.sortAsc}
+		</if>
+	</select>
+</mapper>

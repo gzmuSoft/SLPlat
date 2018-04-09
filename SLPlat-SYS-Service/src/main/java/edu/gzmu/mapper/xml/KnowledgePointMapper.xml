@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="edu.gzmu.mapper.KnowledgePointMapper">
+	<select id="selectIdPage" resultType="java.lang.Long" useCache="false">
+		select id_ from knowledge_point
+		<where>
+			<if test="cm.overview != null and cm.overview != ''">
+					and overview_=#{cm.overview}
+			</if>
+			<if test="cm.difficultDegree != null and cm.difficultDegree != ''">
+					and difficult_degree=#{cm.difficultDegree}
+			</if>
+			<if test="cm.parentKnowledgePointId != null and cm.parentKnowledgePointId != ''">
+					and parent_knowledge_point_id=#{cm.parentKnowledgePointId}
+			</if>
+			<if test="cm.remark != null and cm.remark != ''">
+					and remark_=#{cm.remark}
+			</if>
+			<if test="cm.keyword != null and cm.keyword != ''">
+				and (
+                	name_ like CONCAT('%','${cm.keyword}','%')
+                	or spell_ like CONCAT('%','${cm.keyword}','%')
+					or overview_ like CONCAT('%','${cm.keyword}','%')
+					or difficult_degree like CONCAT('%','${cm.keyword}','%')
+					or parent_knowledge_point_id like CONCAT('%','${cm.keyword}','%')
+					or remark_ like CONCAT('%','${cm.keyword}','%')
+				)
+			</if>
+		</where>
+		<if test="cm.orderBy != null and cm.orderBy != ''">
+			order by ${cm.orderBy}
+		</if>
+		<if test="cm.sortAsc != null and cm.sortAsc != ''">
+			${cm.sortAsc}
+		</if>
+	</select>
+</mapper>

@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="edu.gzmu.mapper.EducationProgramMapper">
+	<select id="selectIdPage" resultType="java.lang.Long" useCache="false">
+		select id_ from education_program
+		<where>
+			<if test="cm.year != null and cm.year != ''">
+					and year_=#{cm.year}
+			</if>
+			<if test="cm.specialtyId != null and cm.specialtyId != ''">
+					and specialty_id=#{cm.specialtyId}
+			</if>
+			<if test="cm.theoreticalTeachingCredit != null and cm.theoreticalTeachingCredit != ''">
+					and theoretical_teaching_credit=#{cm.theoreticalTeachingCredit}
+			</if>
+			<if test="cm.practiceTeachingCredit != null and cm.practiceTeachingCredit != ''">
+					and practice_teaching_credit=#{cm.practiceTeachingCredit}
+			</if>
+			<if test="cm.briefIntroduction != null and cm.briefIntroduction != ''">
+					and brief_introduction=#{cm.briefIntroduction}
+			</if>
+			<if test="cm.attachmentId != null and cm.attachmentId != ''">
+					and attachment_id=#{cm.attachmentId}
+			</if>
+			<if test="cm.remark != null and cm.remark != ''">
+					and remark_=#{cm.remark}
+			</if>
+			<if test="cm.keyword != null and cm.keyword != ''">
+				and (
+                	name_ like CONCAT('%','${cm.keyword}','%')
+                	or spell_ like CONCAT('%','${cm.keyword}','%')
+					or year_ like CONCAT('%','${cm.keyword}','%')
+					or specialty_id like CONCAT('%','${cm.keyword}','%')
+					or theoretical_teaching_credit like CONCAT('%','${cm.keyword}','%')
+					or practice_teaching_credit like CONCAT('%','${cm.keyword}','%')
+					or brief_introduction like CONCAT('%','${cm.keyword}','%')
+					or attachment_id like CONCAT('%','${cm.keyword}','%')
+					or remark_ like CONCAT('%','${cm.keyword}','%')
+				)
+			</if>
+		</where>
+		<if test="cm.orderBy != null and cm.orderBy != ''">
+			order by ${cm.orderBy}
+		</if>
+		<if test="cm.sortAsc != null and cm.sortAsc != ''">
+			${cm.sortAsc}
+		</if>
+	</select>
+</mapper>

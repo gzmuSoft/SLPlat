@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="edu.gzmu.mapper.QuestionKnowledgePointMapper">
+	<select id="selectIdPage" resultType="java.lang.Long" useCache="false">
+		select id_ from question_knowledge_point
+		<where>
+			<if test="cm.questionType != null and cm.questionType != ''">
+					and question_type=#{cm.questionType}
+			</if>
+			<if test="cm.questionId != null and cm.questionId != ''">
+					and question_id=#{cm.questionId}
+			</if>
+			<if test="cm.knowledgePointId != null and cm.knowledgePointId != ''">
+					and knowledge_point_id=#{cm.knowledgePointId}
+			</if>
+			<if test="cm.remark != null and cm.remark != ''">
+					and remark_=#{cm.remark}
+			</if>
+			<if test="cm.keyword != null and cm.keyword != ''">
+				and (
+                	name_ like CONCAT('%','${cm.keyword}','%')
+                	or spell_ like CONCAT('%','${cm.keyword}','%')
+					or question_type like CONCAT('%','${cm.keyword}','%')
+					or question_id like CONCAT('%','${cm.keyword}','%')
+					or knowledge_point_id like CONCAT('%','${cm.keyword}','%')
+					or remark_ like CONCAT('%','${cm.keyword}','%')
+				)
+			</if>
+		</where>
+		<if test="cm.orderBy != null and cm.orderBy != ''">
+			order by ${cm.orderBy}
+		</if>
+		<if test="cm.sortAsc != null and cm.sortAsc != ''">
+			${cm.sortAsc}
+		</if>
+	</select>
+</mapper>

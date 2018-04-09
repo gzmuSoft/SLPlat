@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="edu.gzmu.mapper.CourseTeachingMapper">
+	<select id="selectIdPage" resultType="java.lang.Long" useCache="false">
+		select id_ from course_teaching
+		<where>
+			<if test="cm.courseId != null and cm.courseId != ''">
+					and course_id=#{cm.courseId}
+			</if>
+			<if test="cm.tutorId != null and cm.tutorId != ''">
+					and tutor_id=#{cm.tutorId}
+			</if>
+			<if test="cm.counselorId != null and cm.counselorId != ''">
+					and counselor_id=#{cm.counselorId}
+			</if>
+			<if test="cm.lecturerId != null and cm.lecturerId != ''">
+					and lecturer_id=#{cm.lecturerId}
+			</if>
+			<if test="cm.semesterId != null and cm.semesterId != ''">
+					and semester_id=#{cm.semesterId}
+			</if>
+			<if test="cm.courseMaterialId != null and cm.courseMaterialId != ''">
+					and course_material_id=#{cm.courseMaterialId}
+			</if>
+			<if test="cm.remark != null and cm.remark != ''">
+					and remark_=#{cm.remark}
+			</if>
+			<if test="cm.keyword != null and cm.keyword != ''">
+				and (
+                	name_ like CONCAT('%','${cm.keyword}','%')
+                	or spell_ like CONCAT('%','${cm.keyword}','%')
+					or course_id like CONCAT('%','${cm.keyword}','%')
+					or tutor_id like CONCAT('%','${cm.keyword}','%')
+					or counselor_id like CONCAT('%','${cm.keyword}','%')
+					or lecturer_id like CONCAT('%','${cm.keyword}','%')
+					or semester_id like CONCAT('%','${cm.keyword}','%')
+					or course_material_id like CONCAT('%','${cm.keyword}','%')
+					or remark_ like CONCAT('%','${cm.keyword}','%')
+				)
+			</if>
+		</where>
+		<if test="cm.orderBy != null and cm.orderBy != ''">
+			order by ${cm.orderBy}
+		</if>
+		<if test="cm.sortAsc != null and cm.sortAsc != ''">
+			${cm.sortAsc}
+		</if>
+	</select>
+</mapper>

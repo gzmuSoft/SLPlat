@@ -1,0 +1,153 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="edu.gzmu.mapper.TeacherMapper">
+	<select id="selectIdPage" resultType="java.lang.Long" useCache="false">
+		select id_ from teacher
+		<where>
+			<if test="cm.jobNo != null and cm.jobNo != ''">
+					and job_no=#{cm.jobNo}
+			</if>
+			<if test="cm.type != null and cm.type != ''">
+					and type_=#{cm.type}
+			</if>
+			<if test="cm.collegeId != null and cm.collegeId != ''">
+					and college_id=#{cm.collegeId}
+			</if>
+			<if test="cm.entryData != null and cm.entryData != ''">
+					and entry_data=#{cm.entryData}
+			</if>
+			<if test="cm.researchArea != null and cm.researchArea != ''">
+					and research_area=#{cm.researchArea}
+			</if>
+			<if test="cm.genderId != null and cm.genderId != ''">
+					and gender_id=#{cm.genderId}
+			</if>
+			<if test="cm.nationId != null and cm.nationId != ''">
+					and nation_id=#{cm.nationId}
+			</if>
+			<if test="cm.politicalStatusId != null and cm.politicalStatusId != ''">
+					and political_status_id=#{cm.politicalStatusId}
+			</if>
+			<if test="cm.certificateType != null and cm.certificateType != ''">
+					and certificate_type=#{cm.certificateType}
+			</if>
+			<if test="cm.certificateNo != null and cm.certificateNo != ''">
+					and certificate_no=#{cm.certificateNo}
+			</if>
+			<if test="cm.birthday != null and cm.birthday != ''">
+					and birthday_=#{cm.birthday}
+			</if>
+			<if test="cm.administrativePostId != null and cm.administrativePostId != ''">
+					and administrative_post_id=#{cm.administrativePostId}
+			</if>
+			<if test="cm.professionalTitleId != null and cm.professionalTitleId != ''">
+					and professional_title_id=#{cm.professionalTitleId}
+			</if>
+			<if test="cm.isExternal != null and cm.isExternal != ''">
+					and is_external=#{cm.isExternal}
+			</if>
+			<if test="cm.terminalDegree != null and cm.terminalDegree != ''">
+					and terminal_degree=#{cm.terminalDegree}
+			</if>
+			<if test="cm.undergraduateMajor != null and cm.undergraduateMajor != ''">
+					and undergraduate_major=#{cm.undergraduateMajor}
+			</if>
+			<if test="cm.gainTimeOfTerminalDegree != null and cm.gainTimeOfTerminalDegree != ''">
+					and gain_time_of_terminal_degree=#{cm.gainTimeOfTerminalDegree}
+			</if>
+			<if test="cm.gainTimeOfUndergraduate != null and cm.gainTimeOfUndergraduate != ''">
+					and gain_time_of_Undergraduate=#{cm.gainTimeOfUndergraduate}
+			</if>
+			<if test="cm.bachelorDegree != null and cm.bachelorDegree != ''">
+					and bachelor_degree=#{cm.bachelorDegree}
+			</if>
+			<if test="cm.isMasterTutor != null and cm.isMasterTutor != ''">
+					and is_master_tutor=#{cm.isMasterTutor}
+			</if>
+			<if test="cm.isStudyAbroad != null and cm.isStudyAbroad != ''">
+					and is_study_abroad=#{cm.isStudyAbroad}
+			</if>
+			<if test="cm.isAcademician != null and cm.isAcademician != ''">
+					and is_academician=#{cm.isAcademician}
+			</if>
+			<if test="cm.isChangjiangScholar != null and cm.isChangjiangScholar != ''">
+					and is_changjiang_scholar=#{cm.isChangjiangScholar}
+			</if>
+			<if test="cm.isToyp != null and cm.isToyp != ''">
+					and is_tOYP=#{cm.isToyp}
+			</if>
+			<if test="cm.isProvinceTubeExpert != null and cm.isProvinceTubeExpert != ''">
+					and is_province_tube_expert=#{cm.isProvinceTubeExpert}
+			</if>
+			<if test="cm.isIndustryExperience != null and cm.isIndustryExperience != ''">
+					and is_industry_experience=#{cm.isIndustryExperience}
+			</if>
+			<if test="cm.isPracticeTrain != null and cm.isPracticeTrain != ''">
+					and is_practice_train=#{cm.isPracticeTrain}
+			</if>
+			<if test="cm.otherHonoraryTitle != null and cm.otherHonoraryTitle != ''">
+					and other_honorary_title=#{cm.otherHonoraryTitle}
+			</if>
+			<if test="cm.phone != null and cm.phone != ''">
+					and phone_=#{cm.phone}
+			</if>
+			<if test="cm.email != null and cm.email != ''">
+					and email_=#{cm.email}
+			</if>
+			<if test="cm.individualResume != null and cm.individualResume != ''">
+					and individual_resume=#{cm.individualResume}
+			</if>
+			<if test="cm.headImgId != null and cm.headImgId != ''">
+					and head_img_id=#{cm.headImgId}
+			</if>
+			<if test="cm.remark != null and cm.remark != ''">
+					and remark_=#{cm.remark}
+			</if>
+			<if test="cm.keyword != null and cm.keyword != ''">
+				and (
+                	name_ like CONCAT('%','${cm.keyword}','%')
+                	or spell_ like CONCAT('%','${cm.keyword}','%')
+					or job_no like CONCAT('%','${cm.keyword}','%')
+					or type_ like CONCAT('%','${cm.keyword}','%')
+					or college_id like CONCAT('%','${cm.keyword}','%')
+					or entry_data like CONCAT('%','${cm.keyword}','%')
+					or research_area like CONCAT('%','${cm.keyword}','%')
+					or gender_id like CONCAT('%','${cm.keyword}','%')
+					or nation_id like CONCAT('%','${cm.keyword}','%')
+					or political_status_id like CONCAT('%','${cm.keyword}','%')
+					or certificate_type like CONCAT('%','${cm.keyword}','%')
+					or certificate_no like CONCAT('%','${cm.keyword}','%')
+					or birthday_ like CONCAT('%','${cm.keyword}','%')
+					or administrative_post_id like CONCAT('%','${cm.keyword}','%')
+					or professional_title_id like CONCAT('%','${cm.keyword}','%')
+					or is_external like CONCAT('%','${cm.keyword}','%')
+					or terminal_degree like CONCAT('%','${cm.keyword}','%')
+					or undergraduate_major like CONCAT('%','${cm.keyword}','%')
+					or gain_time_of_terminal_degree like CONCAT('%','${cm.keyword}','%')
+					or gain_time_of_Undergraduate like CONCAT('%','${cm.keyword}','%')
+					or bachelor_degree like CONCAT('%','${cm.keyword}','%')
+					or is_master_tutor like CONCAT('%','${cm.keyword}','%')
+					or is_study_abroad like CONCAT('%','${cm.keyword}','%')
+					or is_academician like CONCAT('%','${cm.keyword}','%')
+					or is_changjiang_scholar like CONCAT('%','${cm.keyword}','%')
+					or is_tOYP like CONCAT('%','${cm.keyword}','%')
+					or is_province_tube_expert like CONCAT('%','${cm.keyword}','%')
+					or is_industry_experience like CONCAT('%','${cm.keyword}','%')
+					or is_practice_train like CONCAT('%','${cm.keyword}','%')
+					or other_honorary_title like CONCAT('%','${cm.keyword}','%')
+					or phone_ like CONCAT('%','${cm.keyword}','%')
+					or email_ like CONCAT('%','${cm.keyword}','%')
+					or individual_resume like CONCAT('%','${cm.keyword}','%')
+					or head_img_id like CONCAT('%','${cm.keyword}','%')
+					or remark_ like CONCAT('%','${cm.keyword}','%')
+				)
+			</if>
+		</where>
+		<if test="cm.orderBy != null and cm.orderBy != ''">
+			order by ${cm.orderBy}
+		</if>
+		<if test="cm.sortAsc != null and cm.sortAsc != ''">
+			${cm.sortAsc}
+		</if>
+	</select>
+</mapper>

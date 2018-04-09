@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="edu.gzmu.mapper.StudentMapper">
+	<select id="selectIdPage" resultType="java.lang.Long" useCache="false">
+		select id_ from student
+		<where>
+			<if test="cm.no != null and cm.no != ''">
+					and no_=#{cm.no}
+			</if>
+			<if test="cm.birthdady != null and cm.birthdady != ''">
+					and birthdady_=#{cm.birthdady}
+			</if>
+			<if test="cm.genderId != null and cm.genderId != ''">
+					and gender_id=#{cm.genderId}
+			</if>
+			<if test="cm.nationId != null and cm.nationId != ''">
+					and nation_id=#{cm.nationId}
+			</if>
+			<if test="cm.politicalStatusId != null and cm.politicalStatusId != ''">
+					and political_status_id=#{cm.politicalStatusId}
+			</if>
+			<if test="cm.collegeId != null and cm.collegeId != ''">
+					and college_id=#{cm.collegeId}
+			</if>
+			<if test="cm.specialtyId != null and cm.specialtyId != ''">
+					and specialty_id=#{cm.specialtyId}
+			</if>
+			<if test="cm.classOwnId != null and cm.classOwnId != ''">
+					and class_own_id=#{cm.classOwnId}
+			</if>
+			<if test="cm.entranceDate != null and cm.entranceDate != ''">
+					and entrance_date=#{cm.entranceDate}
+			</if>
+			<if test="cm.age != null and cm.age != ''">
+					and age_=#{cm.age}
+			</if>
+			<if test="cm.idcardNo != null and cm.idcardNo != ''">
+					and idcard_no=#{cm.idcardNo}
+			</if>
+			<if test="cm.phone != null and cm.phone != ''">
+					and phone_=#{cm.phone}
+			</if>
+			<if test="cm.email != null and cm.email != ''">
+					and email_=#{cm.email}
+			</if>
+			<if test="cm.collegeEnexamScores != null and cm.collegeEnexamScores != ''">
+					and college_enexam_scores=#{cm.collegeEnexamScores}
+			</if>
+			<if test="cm.provinceId != null and cm.provinceId != ''">
+					and province_id=#{cm.provinceId}
+			</if>
+			<if test="cm.cityId != null and cm.cityId != ''">
+					and city_id=#{cm.cityId}
+			</if>
+			<if test="cm.countyId != null and cm.countyId != ''">
+					and county_id=#{cm.countyId}
+			</if>
+			<if test="cm.townId != null and cm.townId != ''">
+					and town_id=#{cm.townId}
+			</if>
+			<if test="cm.address != null and cm.address != ''">
+					and address_=#{cm.address}
+			</if>
+			<if test="cm.highSchool != null and cm.highSchool != ''">
+					and high_school=#{cm.highSchool}
+			</if>
+			<if test="cm.highSchoolCategoryId != null and cm.highSchoolCategoryId != ''">
+					and high_school_category_id=#{cm.highSchoolCategoryId}
+			</if>
+			<if test="cm.postgraduateInfoId != null and cm.postgraduateInfoId != ''">
+					and postgraduate_info_id=#{cm.postgraduateInfoId}
+			</if>
+			<if test="cm.headImgId != null and cm.headImgId != ''">
+					and head_img_id=#{cm.headImgId}
+			</if>
+			<if test="cm.remark != null and cm.remark != ''">
+					and remark_=#{cm.remark}
+			</if>
+			<if test="cm.keyword != null and cm.keyword != ''">
+				and (
+                	name_ like CONCAT('%','${cm.keyword}','%')
+                	or spell_ like CONCAT('%','${cm.keyword}','%')
+					or no_ like CONCAT('%','${cm.keyword}','%')
+					or birthdady_ like CONCAT('%','${cm.keyword}','%')
+					or gender_id like CONCAT('%','${cm.keyword}','%')
+					or nation_id like CONCAT('%','${cm.keyword}','%')
+					or political_status_id like CONCAT('%','${cm.keyword}','%')
+					or college_id like CONCAT('%','${cm.keyword}','%')
+					or specialty_id like CONCAT('%','${cm.keyword}','%')
+					or class_own_id like CONCAT('%','${cm.keyword}','%')
+					or entrance_date like CONCAT('%','${cm.keyword}','%')
+					or age_ like CONCAT('%','${cm.keyword}','%')
+					or idcard_no like CONCAT('%','${cm.keyword}','%')
+					or phone_ like CONCAT('%','${cm.keyword}','%')
+					or email_ like CONCAT('%','${cm.keyword}','%')
+					or college_enexam_scores like CONCAT('%','${cm.keyword}','%')
+					or province_id like CONCAT('%','${cm.keyword}','%')
+					or city_id like CONCAT('%','${cm.keyword}','%')
+					or county_id like CONCAT('%','${cm.keyword}','%')
+					or town_id like CONCAT('%','${cm.keyword}','%')
+					or address_ like CONCAT('%','${cm.keyword}','%')
+					or high_school like CONCAT('%','${cm.keyword}','%')
+					or high_school_category_id like CONCAT('%','${cm.keyword}','%')
+					or postgraduate_info_id like CONCAT('%','${cm.keyword}','%')
+					or head_img_id like CONCAT('%','${cm.keyword}','%')
+					or remark_ like CONCAT('%','${cm.keyword}','%')
+				)
+			</if>
+		</where>
+		<if test="cm.orderBy != null and cm.orderBy != ''">
+			order by ${cm.orderBy}
+		</if>
+		<if test="cm.sortAsc != null and cm.sortAsc != ''">
+			${cm.sortAsc}
+		</if>
+	</select>
+</mapper>

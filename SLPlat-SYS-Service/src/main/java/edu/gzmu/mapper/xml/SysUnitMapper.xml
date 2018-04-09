@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="edu.gzmu.mapper.SysUnitMapper">
+	<select id="selectIdPage" resultType="java.lang.Long" useCache="false">
+		select id_ from sys_unit
+		<where>
+			<if test="cm.principal != null and cm.principal != ''">
+				and principal_=#{cm.principal}
+			</if>
+			<if test="cm.phone != null and cm.phone != ''">
+				and phone_=#{cm.phone}
+			</if>
+			<if test="cm.address != null and cm.address != ''">
+				and address_=#{cm.address}
+			</if>
+			<if test="cm.remark != null and cm.remark != ''">
+				and remark_=#{cm.remark}
+			</if>
+			<if test="cm.keyword != null and cm.keyword != ''">
+				and (
+				name_ like CONCAT('%','${cm.keyword}','%')
+				or spell_ like CONCAT('%','${cm.keyword}','%')
+				or principal_ like CONCAT('%','${cm.keyword}','%')
+				or phone_ like CONCAT('%','${cm.keyword}','%')
+				or address_ like CONCAT('%','${cm.keyword}','%')
+				or remark_ like CONCAT('%','${cm.keyword}','%')
+				)
+			</if>
+		</where>
+		<if test="cm.orderBy != null and cm.orderBy != ''">
+			order by ${cm.orderBy}
+		</if>
+		<if test="cm.sortAsc != null and cm.sortAsc != ''">
+			${cm.sortAsc}
+		</if>
+	</select>
+</mapper>

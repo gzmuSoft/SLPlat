@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="edu.gzmu.mapper.SysEmailConfigMapper">
+	<select id="selectIdPage" resultType="java.lang.Long" useCache="false">
+		select id_ from sys_email_config
+		<where>
+			<if test="cm.smtpHost != null and cm.smtpHost != ''">
+				and smtp_host=#{cm.smtpHost}
+			</if>
+			<if test="cm.smtpPort != null and cm.smtpPort != ''">
+				and smtp_port=#{cm.smtpPort}
+			</if>
+			<if test="cm.sendMethod != null and cm.sendMethod != ''">
+				and send_method=#{cm.sendMethod}
+			</if>
+			<if test="cm.senderName != null and cm.senderName != ''">
+				and sender_name=#{cm.senderName}
+			</if>
+			<if test="cm.senderAccount != null and cm.senderAccount != ''">
+				and sender_account=#{cm.senderAccount}
+			</if>
+			<if test="cm.senderPassword != null and cm.senderPassword != ''">
+				and sender_password=#{cm.senderPassword}
+			</if>
+			<if test="cm.remark != null and cm.remark != ''">
+				and remark_=#{cm.remark}
+			</if>
+			<if test="cm.keyword != null and cm.keyword != ''">
+				and (
+				name_ like CONCAT('%','${cm.keyword}','%')
+				or spell_ like CONCAT('%','${cm.keyword}','%')
+				or smtp_host like CONCAT('%','${cm.keyword}','%')
+				or smtp_port like CONCAT('%','${cm.keyword}','%')
+				or send_method like CONCAT('%','${cm.keyword}','%')
+				or sender_name like CONCAT('%','${cm.keyword}','%')
+				or sender_account like CONCAT('%','${cm.keyword}','%')
+				or sender_password like CONCAT('%','${cm.keyword}','%')
+				or remark_ like CONCAT('%','${cm.keyword}','%')
+				)
+			</if>
+		</where>
+		<if test="cm.orderBy != null and cm.orderBy != ''">
+			order by ${cm.orderBy}
+		</if>
+		<if test="cm.sortAsc != null and cm.sortAsc != ''">
+			${cm.sortAsc}
+		</if>
+	</select>
+</mapper>

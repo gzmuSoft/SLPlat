@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="edu.gzmu.mapper.TextBookMapper">
+	<select id="selectIdPage" resultType="java.lang.Long" useCache="false">
+		select id_ from text_book
+		<where>
+			<if test="cm.chiefEditorId != null and cm.chiefEditorId != ''">
+					and chief_editor_id=#{cm.chiefEditorId}
+			</if>
+			<if test="cm.domain != null and cm.domain != ''">
+					and domain_=#{cm.domain}
+			</if>
+			<if test="cm.publisherId != null and cm.publisherId != ''">
+					and publisher_id=#{cm.publisherId}
+			</if>
+			<if test="cm.introduction != null and cm.introduction != ''">
+					and introduction_=#{cm.introduction}
+			</if>
+			<if test="cm.isbn != null and cm.isbn != ''">
+					and ISBN_=#{cm.isbn}
+			</if>
+			<if test="cm.isNationalPlan != null and cm.isNationalPlan != ''">
+					and is_national_plan=#{cm.isNationalPlan}
+			</if>
+			<if test="cm.awardSituation != null and cm.awardSituation != ''">
+					and award_situation=#{cm.awardSituation}
+			</if>
+			<if test="cm.publishDate != null and cm.publishDate != ''">
+					and publish_date=#{cm.publishDate}
+			</if>
+			<if test="cm.attachmentId != null and cm.attachmentId != ''">
+					and attachment_id=#{cm.attachmentId}
+			</if>
+			<if test="cm.remark != null and cm.remark != ''">
+					and remark_=#{cm.remark}
+			</if>
+			<if test="cm.keyword != null and cm.keyword != ''">
+				and (
+                	name_ like CONCAT('%','${cm.keyword}','%')
+                	or spell_ like CONCAT('%','${cm.keyword}','%')
+					or chief_editor_id like CONCAT('%','${cm.keyword}','%')
+					or domain_ like CONCAT('%','${cm.keyword}','%')
+					or publisher_id like CONCAT('%','${cm.keyword}','%')
+					or introduction_ like CONCAT('%','${cm.keyword}','%')
+					or ISBN_ like CONCAT('%','${cm.keyword}','%')
+					or is_national_plan like CONCAT('%','${cm.keyword}','%')
+					or award_situation like CONCAT('%','${cm.keyword}','%')
+					or publish_date like CONCAT('%','${cm.keyword}','%')
+					or attachment_id like CONCAT('%','${cm.keyword}','%')
+					or remark_ like CONCAT('%','${cm.keyword}','%')
+				)
+			</if>
+		</where>
+		<if test="cm.orderBy != null and cm.orderBy != ''">
+			order by ${cm.orderBy}
+		</if>
+		<if test="cm.sortAsc != null and cm.sortAsc != ''">
+			${cm.sortAsc}
+		</if>
+	</select>
+</mapper>

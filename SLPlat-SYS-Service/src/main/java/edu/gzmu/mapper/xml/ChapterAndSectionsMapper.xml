@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="edu.gzmu.mapper.ChapterAndSectionsMapper">
+	<select id="selectIdPage" resultType="java.lang.Long" useCache="false">
+		select id_ from chapter_and_sections
+		<where>
+			<if test="cm.courseId != null and cm.courseId != ''">
+					and course_id=#{cm.courseId}
+			</if>
+			<if test="cm.overview != null and cm.overview != ''">
+					and overview_=#{cm.overview}
+			</if>
+			<if test="cm.parentId != null and cm.parentId != ''">
+					and parent_id=#{cm.parentId}
+			</if>
+			<if test="cm.remark != null and cm.remark != ''">
+					and remark_=#{cm.remark}
+			</if>
+			<if test="cm.keyword != null and cm.keyword != ''">
+				and (
+                	name_ like CONCAT('%','${cm.keyword}','%')
+                	or spell_ like CONCAT('%','${cm.keyword}','%')
+					or course_id like CONCAT('%','${cm.keyword}','%')
+					or overview_ like CONCAT('%','${cm.keyword}','%')
+					or parent_id like CONCAT('%','${cm.keyword}','%')
+					or remark_ like CONCAT('%','${cm.keyword}','%')
+				)
+			</if>
+		</where>
+		<if test="cm.orderBy != null and cm.orderBy != ''">
+			order by ${cm.orderBy}
+		</if>
+		<if test="cm.sortAsc != null and cm.sortAsc != ''">
+			${cm.sortAsc}
+		</if>
+	</select>
+</mapper>

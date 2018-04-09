@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="edu.gzmu.mapper.SemesterMapper">
+	<select id="selectIdPage" resultType="java.lang.Long" useCache="false">
+		select id_ from semester
+		<where>
+			<if test="cm.startDate != null and cm.startDate != ''">
+					and start_date=#{cm.startDate}
+			</if>
+			<if test="cm.endDate != null and cm.endDate != ''">
+					and end_date=#{cm.endDate}
+			</if>
+			<if test="cm.totalWeeks != null and cm.totalWeeks != ''">
+					and total_Weeks=#{cm.totalWeeks}
+			</if>
+			<if test="cm.remark != null and cm.remark != ''">
+					and remark_=#{cm.remark}
+			</if>
+			<if test="cm.keyword != null and cm.keyword != ''">
+				and (
+                	name_ like CONCAT('%','${cm.keyword}','%')
+                	or spell_ like CONCAT('%','${cm.keyword}','%')
+					or start_date like CONCAT('%','${cm.keyword}','%')
+					or end_date like CONCAT('%','${cm.keyword}','%')
+					or total_Weeks like CONCAT('%','${cm.keyword}','%')
+					or remark_ like CONCAT('%','${cm.keyword}','%')
+				)
+			</if>
+		</where>
+		<if test="cm.orderBy != null and cm.orderBy != ''">
+			order by ${cm.orderBy}
+		</if>
+		<if test="cm.sortAsc != null and cm.sortAsc != ''">
+			${cm.sortAsc}
+		</if>
+	</select>
+</mapper>

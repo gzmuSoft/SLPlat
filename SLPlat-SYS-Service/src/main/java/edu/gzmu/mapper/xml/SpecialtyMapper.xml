@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="edu.gzmu.mapper.SpecialtyMapper">
+	<select id="selectIdPage" resultType="java.lang.Long" useCache="false">
+		select id_ from specialty
+		<where>
+			<if test="cm.majorCode != null and cm.majorCode != ''">
+					and major_code=#{cm.majorCode}
+			</if>
+			<if test="cm.collegeId != null and cm.collegeId != ''">
+					and college_id=#{cm.collegeId}
+			</if>
+			<if test="cm.schoolYear != null and cm.schoolYear != ''">
+					and school_year=#{cm.schoolYear}
+			</if>
+			<if test="cm.category != null and cm.category != ''">
+					and category_=#{cm.category}
+			</if>
+			<if test="cm.majorLeaderId != null and cm.majorLeaderId != ''">
+					and major_leader_id=#{cm.majorLeaderId}
+			</if>
+			<if test="cm.introduction != null and cm.introduction != ''">
+					and introduction_=#{cm.introduction}
+			</if>
+			<if test="cm.studentsNumber != null and cm.studentsNumber != ''">
+					and students_number=#{cm.studentsNumber}
+			</if>
+			<if test="cm.remark != null and cm.remark != ''">
+					and remark_=#{cm.remark}
+			</if>
+			<if test="cm.keyword != null and cm.keyword != ''">
+				and (
+                	name_ like CONCAT('%','${cm.keyword}','%')
+                	or spell_ like CONCAT('%','${cm.keyword}','%')
+					or major_code like CONCAT('%','${cm.keyword}','%')
+					or college_id like CONCAT('%','${cm.keyword}','%')
+					or school_year like CONCAT('%','${cm.keyword}','%')
+					or category_ like CONCAT('%','${cm.keyword}','%')
+					or major_leader_id like CONCAT('%','${cm.keyword}','%')
+					or introduction_ like CONCAT('%','${cm.keyword}','%')
+					or students_number like CONCAT('%','${cm.keyword}','%')
+					or remark_ like CONCAT('%','${cm.keyword}','%')
+				)
+			</if>
+		</where>
+		<if test="cm.orderBy != null and cm.orderBy != ''">
+			order by ${cm.orderBy}
+		</if>
+		<if test="cm.sortAsc != null and cm.sortAsc != ''">
+			${cm.sortAsc}
+		</if>
+	</select>
+</mapper>
