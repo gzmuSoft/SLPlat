@@ -19,6 +19,7 @@ angular.module('app')
 		        $scope.loading = false;
 				if (result.code == 200) {
 					$scope.pageInfo = result;
+                    console.log($scope.pageInfo.rows);
 				} else {
 					$scope.msg = result.msg;
 				}

@@ -18,49 +18,59 @@ import io.swagger.annotations.ApiModelProperty;
 @SuppressWarnings("serial")
 public class College extends SLPlatBaseModel {
     @ApiModelProperty(value = "学校编号")
-	@TableField("school_id")
-	private Long schoolId;
+    @TableField("school_id")
+    private Long schoolId;
+    @TableField(exist = false)
+    private String schoolName;
     @ApiModelProperty(value = "学院概况")
-	@TableField("college_profile")
-	private String collegeProfile;
+    @TableField("college_profile")
+    private String collegeProfile;
     @ApiModelProperty(value = "学院代码")
-	@TableField("college_code")
-	private String collegeCode;
+    @TableField("college_code")
+    private String collegeCode;
     @ApiModelProperty(value = "在校生人数")
-	@TableField("students_number")
-	private Long studentsNumber;
+    @TableField("students_number")
+    private Long studentsNumber;
 
-	public Long getSchoolId() {
-		return schoolId;
-	}
+    public Long getSchoolId() {
+        return schoolId;
+    }
 
-	public void setSchoolId(Long schoolId) {
-		this.schoolId = schoolId;
-	}
+    public void setSchoolId(Long schoolId) {
+        this.schoolId = schoolId;
+    }
 
-	public String getCollegeProfile() {
-		return collegeProfile;
-	}
+    public String getSchoolName() {
+        return schoolName;
+    }
 
-	public void setCollegeProfile(String collegeProfile) {
-		this.collegeProfile = collegeProfile;
-	}
+    public void setSchoolName(String schoolName) {
+        this.schoolName = schoolName;
+    }
 
-	public String getCollegeCode() {
-		return collegeCode;
-	}
+    public String getCollegeProfile() {
+        return collegeProfile;
+    }
 
-	public void setCollegeCode(String collegeCode) {
-		this.collegeCode = collegeCode;
-	}
+    public void setCollegeProfile(String collegeProfile) {
+        this.collegeProfile = collegeProfile;
+    }
 
-	public Long getStudentsNumber() {
-		return studentsNumber;
-	}
+    public String getCollegeCode() {
+        return collegeCode;
+    }
 
-	public void setStudentsNumber(Long studentsNumber) {
-		this.studentsNumber = studentsNumber;
-	}
+    public void setCollegeCode(String collegeCode) {
+        this.collegeCode = collegeCode;
+    }
+
+    public Long getStudentsNumber() {
+        return studentsNumber;
+    }
+
+    public void setStudentsNumber(Long studentsNumber) {
+        this.studentsNumber = studentsNumber;
+    }
 
     /**
      * 返回当前对象信息的字符串表示，该信息能够直接转换成JSON数据
@@ -71,6 +81,7 @@ public class College extends SLPlatBaseModel {
         sb.append(getClass().getSimpleName());
         sb.append(super.getSubToString());
         sb.append(", schoolId=").append(schoolId);
+        sb.append(", schoolName=").append(schoolName);
         sb.append(", collegeProfile=").append(collegeProfile);
         sb.append(", collegeCode=").append(collegeCode);
         sb.append(", studentsNumber=").append(studentsNumber);
@@ -85,10 +96,10 @@ public class College extends SLPlatBaseModel {
     public boolean equals(Object that) {
         if (!super.equals(that)) {
             return false;
-        }
-        else {
+        } else {
             College other = (College) that;
             return (this.getSchoolId() == null ? other.getSchoolId() == null : this.getSchoolId().equals(other.getSchoolId()))
+                    && (this.getSchoolName() == null ? other.getSchoolName() == null : this.getSchoolName().equals(other.getSchoolName()))
                     && (this.getCollegeProfile() == null ? other.getCollegeProfile() == null : this.getCollegeProfile().equals(other.getCollegeProfile()))
                     && (this.getCollegeCode() == null ? other.getCollegeCode() == null : this.getCollegeCode().equals(other.getCollegeCode()))
                     && (this.getStudentsNumber() == null ? other.getStudentsNumber() == null : this.getStudentsNumber().equals(other.getStudentsNumber()));
@@ -103,6 +114,7 @@ public class College extends SLPlatBaseModel {
         final int prime = 31;
         int result = super.hashCode();
         result = prime * result + ((getSchoolId() == null) ? 0 : getSchoolId().hashCode());
+        result = prime * result + ((getSchoolName() == null) ? 0 : getSchoolName().hashCode());
         result = prime * result + ((getCollegeProfile() == null) ? 0 : getCollegeProfile().hashCode());
         result = prime * result + ((getCollegeCode() == null) ? 0 : getCollegeCode().hashCode());
         result = prime * result + ((getStudentsNumber() == null) ? 0 : getStudentsNumber().hashCode());

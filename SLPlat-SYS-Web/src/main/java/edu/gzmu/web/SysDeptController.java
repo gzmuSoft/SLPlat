@@ -24,42 +24,42 @@ import java.util.Map;
 @RequestMapping(value = "dept")
 @Api(value = "部门接口", description = "部门接口")
 public class SysDeptController extends BaseController<ISysProvider> {
-	public String getService() {
-		return "sysDeptService";
-	}
+    public String getService() {
+        return "sysDeptService";
+    }
 
-	@ApiOperation(value = "查询部门", produces = MediaType.APPLICATION_JSON_VALUE)
-	@RequiresPermissions("sys.base.dept.read")
-	@PutMapping(value = "/read/list")
-	public Object list(ModelMap modelMap, @RequestBody Map<String, Object> param) {
-		return super.queryList(modelMap, param);
-	}
+    @ApiOperation(value = "查询部门", produces = MediaType.APPLICATION_JSON_VALUE)
+    @RequiresPermissions("sys.base.dept.read")
+    @PutMapping(value = "/read/list")
+    public Object list(ModelMap modelMap, @RequestBody Map<String, Object> param) {
+        return super.queryList(modelMap, param);
+    }
 
-	@ApiOperation(value = "查询部门", produces = MediaType.APPLICATION_JSON_VALUE)
-	@RequiresPermissions("sys.base.dept.read")
-	@PutMapping(value = "/read/page")
-	public Object query(ModelMap modelMap, @RequestBody Map<String, Object> param) {
-		return super.query(modelMap, param);
-	}
+    @ApiOperation(value = "查询部门", produces = MediaType.APPLICATION_JSON_VALUE)
+    @RequiresPermissions("sys.base.dept.read")
+    @PutMapping(value = "/read/page")
+    public Object query(ModelMap modelMap, @RequestBody Map<String, Object> param) {
+        return super.query(modelMap, param);
+    }
 
-	@ApiOperation(value = "部门详情", produces = MediaType.APPLICATION_JSON_VALUE)
-	@RequiresPermissions("sys.base.dept.read")
-	@PutMapping(value = "/read/detail")
-	public Object get(ModelMap modelMap, @RequestBody SysDept param) {
-		return super.get(modelMap, param);
-	}
+    @ApiOperation(value = "部门详情", produces = MediaType.APPLICATION_JSON_VALUE)
+    @RequiresPermissions("sys.base.dept.read")
+    @PutMapping(value = "/read/detail")
+    public Object get(ModelMap modelMap, @RequestBody SysDept param) {
+        return super.get(modelMap, param);
+    }
 
-	@PostMapping
-	@ApiOperation(value = "修改部门", produces = MediaType.APPLICATION_JSON_VALUE)
-	@RequiresPermissions("sys.base.dept.update")
-	public Object update(ModelMap modelMap, @RequestBody SysDept param) {
-		return super.update(modelMap, param);
-	}
+    @PostMapping
+    @ApiOperation(value = "修改部门", produces = MediaType.APPLICATION_JSON_VALUE)
+    @RequiresPermissions("sys.base.dept.update")
+    public Object update(ModelMap modelMap, @RequestBody SysDept param) {
+        return super.update(modelMap, param);
+    }
 
-	@DeleteMapping
-	@ApiOperation(value = "删除部门", produces = MediaType.APPLICATION_JSON_VALUE)
-	@RequiresPermissions("sys.base.dept.delete")
-	public Object delete(ModelMap modelMap, @RequestBody SysDept param) {
-		return super.delete(modelMap, param);
-	}
+    @DeleteMapping
+    @ApiOperation(value = "删除部门", produces = MediaType.APPLICATION_JSON_VALUE)
+    @RequiresPermissions("sys.base.dept.delete")
+    public Object delete(ModelMap modelMap, @RequestBody SysDept param) {
+        return super.delete(modelMap, param);
+    }
 }

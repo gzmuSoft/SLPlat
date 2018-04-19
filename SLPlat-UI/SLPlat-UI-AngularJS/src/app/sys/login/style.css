@@ -1,0 +1,58 @@
+
+#form1 {
+    background: 0, 0, 0, 0;
+    margin: auto;
+    text-align: center
+
+}
+
+#xieyin1 {
+    font-family: "楷体";
+    font-size: 40px;
+    color: rgba(211, 148, 148, 0.96);
+    margin-top: 50px;
+    text-align: center;
+}
+
+/*大字标题*/
+.divForm {
+    position: absolute; /*绝对定位*/
+    width: 300px;
+    height: 200px;
+    text-align: center; /*(让div中的内容居中)*/
+    top: 50%;
+    left: 50%;
+    margin-top: -150px;
+    margin-left: -150px;
+}
+
+.test {
+    padding: 15px;
+    border: 2px solid rgba(112, 180, 160, 0.8);
+    border-radius: 50px;
+    width: 100%;
+    box-sizing: border-box;
+    font-family: "Microsoft YaHei", montserrat;
+    font-size: 15px;
+}
+
+#btn1 {
+    width: 100px;
+    background: rgba(87, 147, 149, 0.51);
+    color: white;
+    border: 0 none;
+    border-radius: 50px;
+    cursor: pointer;
+    padding: 5px 5px;
+    margin: 10px 10px;
+}
+#a1 {
+    width: 100px;
+    background: rgba(87, 147, 149, 0.51);
+    border: 0 none;
+    border-radius: 50px;
+    cursor: pointer;
+    padding: 5px 5px;
+    margin: 10px 10px;
+}
+
