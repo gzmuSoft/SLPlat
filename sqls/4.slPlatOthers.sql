@@ -44,7 +44,7 @@ create index administrative_post_name_index on administrative_post
 /*==============================================================*/
 create table answer_for_completion
 (
-   `id_`                   bigint not null comment '编号',
+   `id_`                   bigint not null auto_increment comment '编号',
    `name_`                 varchar(254) comment '名称',
    `spell_`                varchar(254) comment '名称的全拼',
    `completion_id`         bigint comment '填空题编号',
@@ -83,7 +83,7 @@ create index answer_for_completion_completion_index on answer_for_completion
 /*==============================================================*/
 create table attachment
 (
-   `id_`                   bigint not null comment '编号',
+   `id_`                   bigint not null auto_increment comment '编号',
    `name_`                 varchar(254) comment '名称',
    `spell_`                varchar(254) comment '名称的全拼',
    `type_id`               bigint not null comment '类型',
@@ -121,7 +121,7 @@ create index attachment_name_index on attachment
 /*==============================================================*/
 create table attachment_type
 (
-   `id_`                   bigint not null comment '编号',
+   `id_`                   bigint not null auto_increment comment '编号',
    `name_`                 varchar(254) not null comment '名称',
    `spell_`                varchar(254) comment '名称的全拼',
    `create_by`             bigint comment '创建用户编号',
@@ -157,7 +157,7 @@ create index attachment_type_name_index on attachment_type
 /*==============================================================*/
 create table authority
 (
-   `id_`                   bigint not null comment '编号',
+   `id_`                   bigint not null auto_increment comment '编号',
    `name_`                 varchar(254) comment '名称',
    `spell_`                varchar(254) comment '名称的全拼',
    `prent_id`              bigint not null default 0 comment '所属上级',
@@ -251,7 +251,7 @@ create index batch_name_index on batch
 /*==============================================================*/
 create table book_resource
 (
-   `id_`                   bigint not null comment '编号',
+   `id_`                   bigint not null auto_increment comment '编号',
    `name_`                 varchar(254) comment '名称',
    `spell_`                varchar(254) comment '名称的全拼',
    `specialty_id`          bigint comment '专业编号',
@@ -280,7 +280,7 @@ alter table book_resource comment '图书资料';
 /*==============================================================*/
 create table cee_annual_score
 (
-   `id_`                   bigint not null comment '编号',
+   `id_`                   bigint not null auto_increment comment '编号',
    `name_`                 varchar(254) comment '名称',
    `spell_`                varchar(254) comment '名称的全拼',
    `year_`                  bigint not null comment '年份',
@@ -345,7 +345,7 @@ create index cee_annual_score_batch_index on cee_annual_score
 /*==============================================================*/
 create table certificate
 (
-   `id_`                   bigint not null comment '编号',
+   `id_`                   bigint not null auto_increment comment '编号',
    `name_`                 varchar(254) comment '名称',
    `spell_`                varchar(254) comment '名称全拼',
    `certificate_no`        varchar(254) comment '证书编号',
@@ -371,7 +371,7 @@ alter table certificate comment '相关行业证书';
 /*==============================================================*/
 create table chapter_and_sections
 (
-   `id_`                   bigint not null comment '编号',
+   `id_`                   bigint not null auto_increment comment '编号',
    `course_id`             bigint not null comment '课程编号',
    `name_`                 varchar(254) not null comment '名称',
    `spell_`                varchar(254) comment '名称的全拼',
@@ -426,7 +426,7 @@ create index chapter_and_sections_parent_index on chapter_and_sections
 /*==============================================================*/
 create table city
 (
-   `id_`                   bigint not null comment '编号',
+   `id_`                   bigint not null auto_increment comment '编号',
    `name_`                 varchar(254) not null comment '名称',
    `spell_`                varchar(254) comment '名称的全拼',
    `province_id`           bigint not null comment '省份编号',
@@ -471,7 +471,7 @@ create index city_province_index on city
 /*==============================================================*/
 create table class
 (
-   `id_`                   bigint not null comment '编号',
+   `id_`                   bigint not null auto_increment comment '编号',
    `name_`                 varchar(254) not null comment '名称',
    `spell_`                varchar(254) comment '名称的全拼',
    `specialty_id`          bigint not null comment '专业编号',
@@ -529,7 +529,7 @@ create index class_specialty_index on class
 /*==============================================================*/
 create table college
 (
-   `id_`                   bigint not null comment '编号',
+   `id_`                   bigint not null auto_increment comment '编号',
    `name_`                 varchar(254) not null comment '名称',
    `spell_`                varchar(254) comment '名称的全拼',
    `school_id`             bigint not null comment '学校编号',
@@ -585,7 +585,7 @@ create index college_school_index on college
 /*==============================================================*/
 create table completion
 (
-   `id_`                   bigint not null comment '编号',
+   `id_`                   bigint not null auto_increment comment '编号',
    `name_`                 varchar(1000) comment '名称',
    `spell_`                varchar(1000) comment '名称的全拼',
    `difficult_degree`      bigint comment '难度系数',
@@ -640,7 +640,7 @@ create index completion_section_index on completion
 /*==============================================================*/
 create table content
 (
-   `id_`                   bigint not null comment '编号',
+   `id_`                   bigint not null auto_increment comment '编号',
    `name_`                 varchar(254) comment '名称',
    `spell_`                varchar(254) comment '名称的全拼',
    `year_`                 bigint not null comment '年份',
@@ -818,7 +818,7 @@ create index copyright_owner_owner_index on copyright_owner
 /*==============================================================*/
 create table county
 (
-   `id_`                   bigint not null comment '编号',
+   `id_`                   bigint not null auto_increment comment '编号',
    `name_`                 varchar(254) not null comment '名称',
    `spell_`                varchar(254) comment '名称的全拼',
    `city_id`              bigint not null comment '市编号',
@@ -863,7 +863,7 @@ create index county_city_index on county
 /*==============================================================*/
 create table course
 (
-   `id_`                   bigint not null comment '编号',
+   `id_`                   bigint not null auto_increment comment '编号',
    `name_`                 varchar(254) not null comment '名称',
    `spell_`                varchar(254) comment '名称的全拼',
    `specialty_id`         bigint not null comment '专业编号',
@@ -1001,7 +1001,7 @@ create index course_material_iSBN_index on course_material
 /*==============================================================*/
 create table course_teaching
 (
-   `id_`                   bigint not null comment '编号',
+   `id_`                   bigint not null auto_increment comment '编号',
    `name_`                 varchar(254) comment '名称',
    `spell_`                varchar(254) comment '名称的全拼',
    `course_id`             bigint comment '课程编号',
@@ -1119,7 +1119,7 @@ create index course_type_name_index on course_type
 /*==============================================================*/
 create table detailed_grading_item
 (
-   `id_`                   bigint not null comment '编号',
+   `id_`                   bigint not null auto_increment comment '编号',
    `name_`                 varchar(5000) comment '名称',
    `spell_`                varchar(5000) comment '名称的全拼',
    `description_`          varchar(10000) comment '规则说明',
@@ -1212,7 +1212,7 @@ create index education_program_specialty_index on education_program
 /*==============================================================*/
 create table employment_situation
 (
-   `id_`                   bigint not null comment '编号',
+   `id_`                   bigint not null auto_increment comment '编号',
    `name_`                 varchar(254) comment '名称',
    `spell_`                varchar(254) comment '名称的全拼',
    `student_id`            bigint not null comment '学生编号',
@@ -1253,7 +1253,7 @@ create index employment_situation_student_index on employment_situation
 /*==============================================================*/
 create table equipment
 (
-   `id_`                   bigint not null comment '编号',
+   `id_`                   bigint not null auto_increment comment '编号',
    `name_`                 varchar(254) comment '名称',
    `spell_`                varchar(254) comment '名称的全拼',
    `number_`               bigint comment '台数',
@@ -1386,7 +1386,7 @@ create index high_school_category_name_index on high_school_category
 /*==============================================================*/
 create table judgment
 (
-   `id_`                   bigint not null comment '编号',
+   `id_`                   bigint not null auto_increment comment '编号',
    `name_`                 varchar(2000) not null comment '名称',
    `spell_`                varchar(2000) comment '名称的全拼',
    `answer_`               tinyint comment '参考答案',
@@ -1497,7 +1497,7 @@ create index knowledge_point_parent_index on knowledge_point
 /*==============================================================*/
 create table multi_select
 (
-   `id_`                   bigint not null comment '编号',
+   `id_`                   bigint not null auto_increment comment '编号',
    `name_`                 varchar(2000) not null comment '名称',
    `spell_`                varchar(2000) comment '名称的全拼',
    `difficult_degree`      bigint comment '难度系数',
@@ -1588,7 +1588,7 @@ create index nation_name_index on nation
 /*==============================================================*/
 create table owner
 (
-   `id_`                   bigint not null comment '编号',
+   `id_`                   bigint not null auto_increment comment '编号',
    `name_`                 varchar(254) comment '名称',
    `spell_`                varchar(254) comment '名称的全拼',
    `flag_`                 bigint not null default 0 comment '值为0代表学生，1代表教师，2代表学院，3代表学校',
@@ -1873,7 +1873,7 @@ create index project_owner_owner_index on project_owner
 /*==============================================================*/
 create table person
 (
-   `id_`                   bigint not null comment '编号',
+   `id_`                   bigint not null auto_increment comment '编号',
    `name_`                 varchar(254) comment '名称',
    `spell_`                varchar(254) comment '名称的全拼',
    `is_teacher`            tinyint not null default false comment '值为false代表学生，true代表教师',
@@ -1956,7 +1956,7 @@ create index political_status_name_index on political_status
 /*==============================================================*/
 create table postgraduate_situation
 (
-   `id_`                   bigint not null comment '编号',
+   `id_`                   bigint not null auto_increment comment '编号',
    `name_`                 varchar(254) comment '名称',
    `spell_`                varchar(254) comment '名称的全拼',
    `student_id`           bigint not null comment '学生编号',
@@ -1998,7 +1998,7 @@ create index postgraduate_situation_student_index on postgraduate_situation
 /*==============================================================*/
 create table practice_basement
 (
-   `id_`                   bigint not null comment '编号',
+   `id_`                   bigint not null auto_increment comment '编号',
    `name_`                 varchar(254) comment '名称',
    `spell_`                varchar(254) comment '名称的全拼',
    `enterprise_`           varchar(254) comment '依托企业',
@@ -2057,7 +2057,7 @@ create index professional_title_name_index on professional_title
 /*==============================================================*/
 create table professor
 (
-   `id_`                   bigint not null comment '编号',
+   `id_`                   bigint not null auto_increment comment '编号',
    `name_`                 varchar(254) not null comment '名称',
    `spell_`                varchar(254) comment '名称的全拼',
    `gender_id`             bigint not null comment '性别编号',
@@ -2101,7 +2101,7 @@ create index professor_name_index on professor
 /*==============================================================*/
 create table program
 (
-   `id_`                   bigint not null comment '编号',
+   `id_`                   bigint not null auto_increment comment '编号',
    `name_`                 varchar(2000) not null comment '名称',
    `spell_`                varchar(2000) comment '名称的全拼',
    `answer_`               text comment '参考答案',
@@ -2267,7 +2267,7 @@ create index publisher_name_index on publisher
 /*==============================================================*/
 create table question_knowledge_point
 (
-   `id_`                   bigint not null comment '编号',
+   `id_`                   bigint not null auto_increment comment '编号',
    `name_`                 varchar(254) comment '名称',
    `spell_`                varchar(254) comment '名称的全拼',
    `question_type`         bigint not null default 0 comment '0：单项选择题，1：多项选择题，2：填空题，3：填空题，4：简答题，5：编程题',
@@ -2447,7 +2447,7 @@ create index reward_type_name_index on reward_type
 /*==============================================================*/
 create table role
 (
-   `id_`                   bigint not null comment '编号',
+   `id_`                   bigint not null auto_increment comment '编号',
    `name_`                 varchar(254) not null comment '名称',
    `spell_`                varchar(254) comment '名称的全拼',
    `description_`          varchar(1000) comment '角色描述',
@@ -2484,7 +2484,7 @@ create index role_name_index on role
 /*==============================================================*/
 create table role_authority
 (
-   `id_`                   bigint not null comment '编号',
+   `id_`                   bigint not null auto_increment comment '编号',
    `name_`                 varchar(254) comment '名称',
    `spell_`                varchar(254) comment '名称的全拼',
    `role_id`               bigint not null comment '角色编号',
@@ -2559,7 +2559,7 @@ create index school_name_index on school
 /*==============================================================*/
 create table second_rule_categories
 (
-   `id_`                   bigint not null comment '编号',
+   `id_`                   bigint not null auto_increment comment '编号',
    `name_`                 varchar(5000) not null comment '名称',
    `spell_`                varchar(5000) comment '名称的全拼',
    `top_rule_id`           bigint not null comment '一级目录编号',
@@ -2683,7 +2683,7 @@ create index semester_name_index on semester
 /*==============================================================*/
 create table short_answer_question
 (
-   `id_`                   bigint not null comment '编号',
+   `id_`                   bigint not null auto_increment comment '编号',
    `name_`                 varchar(2000) not null comment '名称',
    `spell_`                varchar(2000) comment '名称的全拼',
    `answer_`               varchar(10000) comment '参考答案',
@@ -2739,7 +2739,7 @@ create index short_answer_question_section_index on short_answer_question
 /*==============================================================*/
 create table single_select
 (
-   `id_`                   bigint not null comment '编号',
+   `id_`                   bigint not null auto_increment comment '编号',
    `name_`                 varchar(2000) not null comment '名称',
    `spell_`                varchar(2000) comment '名称的全拼',
    `difficult_degree`      bigint comment '难度系数',
@@ -2794,7 +2794,7 @@ create index single_select_section_index on single_select
 /*==============================================================*/
 create table specialty
 (
-   `id_`                   bigint not null comment '编号',
+   `id_`                   bigint not null auto_increment comment '编号',
    `major_code`            varchar(254),
    `name_`                 varchar(254) not null comment '名称',
    `spell_`                varchar(254) comment '名称的全拼',
@@ -2845,7 +2845,7 @@ create index specialty_college_index on specialty
 /*==============================================================*/
 create table student
 (
-   `id_`                   bigint not null comment '编号',
+   `id_`                   bigint not null auto_increment comment '编号',
    `name_`                 varchar(254) not null comment '名称',
    `spell_`                varchar(254) comment '名称的全拼',
    `no_`                   varchar(254) comment '学号',
@@ -3241,7 +3241,7 @@ create index thesis_type_name_index on thesis_type
 /*==============================================================*/
 create table Third_rule_categories
 (
-   `id_`                   bigint not null comment '编号',
+   `id_`                   bigint not null auto_increment comment '编号',
    `name_`                 varchar(5000) not null comment '名称',
    `spell_`                varchar(5000) comment '名称的全拼',
    `second_rule_id`        bigint not null comment '二级目录编号',
@@ -3271,7 +3271,7 @@ create unique index second_rule_categories_index on Third_rule_categories
 /*==============================================================*/
 create table top_rule_categories
 (
-   `id_`                   bigint not null comment '编号',
+   `id_`                   bigint not null auto_increment comment '编号',
    `name_`                 varchar(5000) not null comment '名称',
    `spell_`                varchar(5000) comment '名称的全拼',
    `year_`                 int not null comment '年份',
@@ -3309,7 +3309,7 @@ create index top_rule_categories_year_index on top_rule_categories
 /*==============================================================*/
 create table town
 (
-   `id_`                   bigint not null comment '编号',
+   `id_`                   bigint not null auto_increment comment '编号',
    `name_`                 varchar(254) not null comment '名称',
    `spell_`                varchar(254) comment '名称的全拼',
    `county_id`             bigint not null comment '区县编号',
@@ -3405,7 +3405,7 @@ create index treatises_author_index on treatises
 /*==============================================================*/
 create table user
 (
-   `id_`                   bigint not null comment '编号',
+   `id_`                   bigint not null auto_increment comment '编号',
    `name_`                 varchar(254) comment '名称',
    `spell_`                varchar(254) comment '名称的全拼',
    `source_of_user`        bigint not null default 0 comment '用户来源（0：学生、1：教师、2：专家）',
@@ -3467,7 +3467,7 @@ create index user_entity_index on user
 /*==============================================================*/
 create table user_role
 (
-   `id_`                   bigint not null comment '编号',
+   `id_`                   bigint not null auto_increment comment '编号',
    `name_`                 varchar(254) comment '名称',
    `spell_`                varchar(254) comment '名称的全拼',
    `user_id`               bigint not null comment '用户编号',
@@ -3506,17 +3506,18 @@ alter table answer_for_completion add constraint fk_answer_for_completion_comple
 alter table attachment add constraint fk_attachment_createByuser_reference foreign key (create_by)
       references user (id_) on delete cascade on update cascade;
 
+alter table attachment_type add constraint fk_attachment_type_createByuser_reference foreign key (create_by)
+      references user (id_) on delete cascade on update cascade;
+
+alter table attachment_type add constraint fk_attachment_type_UpdateByuser_reference foreign key (update_by)
+      references user (id_) on delete cascade on update cascade;
+
 alter table attachment add constraint fk_attachment_type_reference foreign key (type_id)
       references attachment_type (id_) on delete cascade on update cascade;
 
 alter table attachment add constraint fk_attachment_UpdateByuser_reference foreign key (update_by)
       references user (id_) on delete restrict on update restrict;
 
-alter table attachment_type add constraint fk_attachment_type_createByuser_reference foreign key (create_by)
-      references user (id_) on delete cascade on update cascade;
-
-alter table attachment_type add constraint fk_attachment_type_UpdateByuser_reference foreign key (update_by)
-      references user (id_) on delete cascade on update cascade;
 
 alter table authority add constraint fk_authority_createByuser_reference foreign key (create_by)
       references user (id_) on delete cascade on update cascade;
@@ -3919,3 +3920,5 @@ alter table user_role add constraint fk_user_role_UpdateByuser_reference foreign
 
 alter table user_role add constraint fk_user_role_user_reference foreign key (user_id)
       references user (id_) on delete cascade on update cascade;
+      
+commit; 
