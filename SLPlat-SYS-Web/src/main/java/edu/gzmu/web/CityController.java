@@ -6,11 +6,13 @@ import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import org.apache.shiro.authz.annotation.RequiresPermissions;
 import org.springframework.http.MediaType;
+import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.*;
 import top.ibase4j.core.base.provider.BaseController;
 import top.ibase4j.core.util.WebUtil;
-
+import top.ibase4j.core.base.provider.Parameter;
 import javax.servlet.http.HttpServletRequest;
+import java.util.List;
 import java.util.Map;
 
 /**
@@ -29,7 +31,17 @@ public class CityController extends BaseController<ISysProvider> {
 		return "cityService";
 	}
 
-	@RequiresPermissions("city.read")
+	@ApiOperation(value = "根据省会Id修改城市")
+	@RequiresPermissions("sys.site.city.read")
+	@PutMapping(value = "/read/listByProvinceId")
+	public Object listByProvinceId(ModelMap modelMap, @RequestBody Map<String, Object> param) {
+		Parameter parameter = new Parameter(getService(), "queryListByProvinceId", param);
+		logger.info("{} execute queryList start...", parameter.getNo());
+		List<?> list = (List<?>) provider.execute(parameter).getResult();
+		logger.info("{} execute queryList end.", parameter.getNo());
+		return setSuccessModelMap(modelMap, list);
+	}
+	@RequiresPermissions("sys.site.city.read")
 	@PutMapping(value = "/read/list")
 	@ApiOperation(value = "查询市", produces = MediaType.APPLICATION_JSON_VALUE)
 	public Object query(HttpServletRequest request) {
@@ -37,16 +49,23 @@ public class CityController extends BaseController<ISysProvider> {
 		return super.query(param);
 	}
 
-	@RequiresPermissions("city.read")
+	@RequiresPermissions("sys.site.city.read")
 	@PutMapping(value = "/read/detail")
 	@ApiOperation(value = "市详情", produces = MediaType.APPLICATION_JSON_VALUE)
 	public Object get(HttpServletRequest request) {
 		City param = WebUtil.getParameter(request, City.class);
 		return super.get(param);
 	}
+	@ApiOperation(value = "查询市", produces = MediaType.APPLICATION_JSON_VALUE)
+	@RequiresPermissions("sys.site.city.read")
+	@PutMapping(value = "/read/page")
+	public Object query(ModelMap modelMap, @RequestBody Map<String, Object> param)
+	{
+		return super.query(modelMap, param);
+	}
 
 	@PostMapping
-	@RequiresPermissions("city.update")
+	@RequiresPermissions("sys.site.city.update")
 	@ApiOperation(value = "修改市", produces = MediaType.APPLICATION_JSON_VALUE)
 	public Object update(HttpServletRequest request) {
 		City param = WebUtil.getParameter(request, City.class);
@@ -54,7 +73,7 @@ public class CityController extends BaseController<ISysProvider> {
 	}
 
 	@DeleteMapping
-	@RequiresPermissions("city.delete")
+	@RequiresPermissions("sys.site.city.delete")
 	@ApiOperation(value = "删除市", produces = MediaType.APPLICATION_JSON_VALUE)
 	public Object del(HttpServletRequest request) {
 		City param = WebUtil.getParameter(request, City.class);

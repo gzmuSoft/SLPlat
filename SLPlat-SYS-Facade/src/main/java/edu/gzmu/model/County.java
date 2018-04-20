@@ -18,16 +18,42 @@ import io.swagger.annotations.ApiModelProperty;
 @SuppressWarnings("serial")
 public class County extends SLPlatBaseModel {
     @ApiModelProperty(value = "市编号")
-	@TableField("city_id")
-	private Long cityId;
+    @TableField("city_id")
+    private Long cityId;
+    @TableField(exist = false)
+    private String cityName;
+    @TableField(exist = false)
+    private String provinceName;
+    @TableField(exist = false)
+    private Long provinceId;
 
-	public Long getCityId() {
-		return cityId;
-	}
+    public Long getCityId() {
+        return cityId;
+    }
 
-	public void setCityId(Long cityId) {
-		this.cityId = cityId;
-	}
+    public void setCityId(Long cityId) {
+        this.cityId = cityId;
+    }
+
+    public String getCityName() {
+        return cityName;
+    }
+
+    public void setCityName(String cityName) {
+        this.cityName = cityName;
+    }
+
+    public String getProvinceName() {
+        return provinceName;
+    }
+
+    public void setProvinceName(String provinceName) {
+        this.provinceName = provinceName;
+    }
+
+    public Long getProvinceId() { return provinceId; }
+
+    public void setProvinceId(Long provinceId) { this.provinceId = provinceId; }
 
     /**
      * 返回当前对象信息的字符串表示，该信息能够直接转换成JSON数据
@@ -66,4 +92,6 @@ public class County extends SLPlatBaseModel {
         result = prime * result + ((getCityId() == null) ? 0 : getCityId().hashCode());
         return result;
     }
+
+
 }

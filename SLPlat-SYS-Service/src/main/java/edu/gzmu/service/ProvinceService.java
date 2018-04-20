@@ -1,9 +1,9 @@
 package edu.gzmu.service;
 
 import edu.gzmu.model.Province;
-import top.ibase4j.core.base.BaseService;
 import org.springframework.cache.annotation.CacheConfig;
 import org.springframework.stereotype.Service;
+import top.ibase4j.core.base.BaseService;
 
 /**
  * <p>
@@ -16,5 +16,5 @@ import org.springframework.stereotype.Service;
 @Service
 @CacheConfig(cacheNames = "Province")
 public class ProvinceService extends BaseService<Province> {
-	
+
 }

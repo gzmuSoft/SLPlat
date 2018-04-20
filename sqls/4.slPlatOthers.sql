@@ -8,20 +8,20 @@
 /*==============================================================*/
 create table administrative_post
 (
-   `id_`                   bigint not null auto_increment comment '±àºÅ',
-   `name_`                 varchar(254) not null comment 'Ãû³Æ',
-   `spell_`                varchar(254) comment 'Ãû³ÆµÄÈ«Æ´',
-   `create_by`             bigint comment '´´½¨ÓÃ»§±àºÅ',
-   `create_time`           datetime not null default CURRENT_TIMESTAMP comment '´´½¨Ê±¼ä',
-   `update_by`             bigint comment '¸üĞÂÓÃ»§±àºÅ',
-   `update_time`           datetime not null default CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP comment '¸üĞÂÊ±¼ä',
-   `sort_no`               int default 1 comment 'ÅÅĞò',
-   `remark_`               varchar(254) comment '±¸×¢',
-   `enable_`               tinyint default 1 comment 'ÊÇ·ñ¿ÉÓÃ(true:ÊÇ, false:·ñ)',
+   `id_`                   bigint not null auto_increment comment 'ç¼–å·',
+   `name_`                 varchar(254) not null comment 'åç§°',
+   `spell_`                varchar(254) comment 'åç§°çš„å…¨æ‹¼',
+   `create_by`             bigint comment 'åˆ›å»ºç”¨æˆ·ç¼–å·',
+   `create_time`           datetime not null default CURRENT_TIMESTAMP comment 'åˆ›å»ºæ—¶é—´',
+   `update_by`             bigint comment 'æ›´æ–°ç”¨æˆ·ç¼–å·',
+   `update_time`           datetime not null default CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP comment 'æ›´æ–°æ—¶é—´',
+   `sort_no`               int default 1 comment 'æ’åº',
+   `remark_`               varchar(254) comment 'å¤‡æ³¨',
+   `enable_`               tinyint default 1 comment 'æ˜¯å¦å¯ç”¨(true:æ˜¯, false:å¦)',
    primary key (id_)
 );
 
-alter table administrative_post comment 'ĞĞÕşÖ°Îñ';
+alter table administrative_post comment 'è¡Œæ”¿èŒåŠ¡';
 
 /*==============================================================*/
 /* Index: administrative_post_index                             */
@@ -44,23 +44,23 @@ create index administrative_post_name_index on administrative_post
 /*==============================================================*/
 create table answer_for_completion
 (
-   `id_`                   bigint not null auto_increment comment '±àºÅ',
-   `name_`                 varchar(254) comment 'Ãû³Æ',
-   `spell_`                varchar(254) comment 'Ãû³ÆµÄÈ«Æ´',
-   `completion_id`         bigint comment 'Ìî¿ÕÌâ±àºÅ',
-   `answer_`                varchar(254) comment '´ğ°¸',
-   `synonyms`              varchar(500) comment 'Í¬Òå´Ê(´ğ°¸µÄÍ¬Òå´Ê×é)',
-   `create_by`             bigint comment '´´½¨ÓÃ»§±àºÅ',
-   `create_time`           datetime not null default CURRENT_TIMESTAMP comment '´´½¨Ê±¼ä',
-   `update_by`             bigint comment '¸üĞÂÓÃ»§±àºÅ',
-   `update_time`           datetime not null default CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP comment '¸üĞÂÊ±¼ä',
-   `sort_no`               int default 1 comment 'ÅÅĞò',
-   `remark_`               varchar(254) comment '±¸×¢',
-   `enable_`               tinyint default 1 comment 'ÊÇ·ñ¿ÉÓÃ(true:ÊÇ, false:·ñ)',
+   `id_`                   bigint not null auto_increment comment 'ç¼–å·',
+   `name_`                 varchar(254) comment 'åç§°',
+   `spell_`                varchar(254) comment 'åç§°çš„å…¨æ‹¼',
+   `completion_id`         bigint comment 'å¡«ç©ºé¢˜ç¼–å·',
+   `answer_`                varchar(254) comment 'ç­”æ¡ˆ',
+   `synonyms`              varchar(500) comment 'åŒä¹‰è¯(ç­”æ¡ˆçš„åŒä¹‰è¯ç»„)',
+   `create_by`             bigint comment 'åˆ›å»ºç”¨æˆ·ç¼–å·',
+   `create_time`           datetime not null default CURRENT_TIMESTAMP comment 'åˆ›å»ºæ—¶é—´',
+   `update_by`             bigint comment 'æ›´æ–°ç”¨æˆ·ç¼–å·',
+   `update_time`           datetime not null default CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP comment 'æ›´æ–°æ—¶é—´',
+   `sort_no`               int default 1 comment 'æ’åº',
+   `remark_`               varchar(254) comment 'å¤‡æ³¨',
+   `enable_`               tinyint default 1 comment 'æ˜¯å¦å¯ç”¨(true:æ˜¯, false:å¦)',
    primary key (id_)
 );
 
-alter table answer_for_completion comment 'Ìî¿ÕÌâ´ğ°¸';
+alter table answer_for_completion comment 'å¡«ç©ºé¢˜ç­”æ¡ˆ';
 
 /*==============================================================*/
 /* Index: answer_for_completion_index                           */
@@ -83,22 +83,22 @@ create index answer_for_completion_completion_index on answer_for_completion
 /*==============================================================*/
 create table attachment
 (
-   `id_`                   bigint not null auto_increment comment '±àºÅ',
-   `name_`                 varchar(254) comment 'Ãû³Æ',
-   `spell_`                varchar(254) comment 'Ãû³ÆµÄÈ«Æ´',
-   `type_id`               bigint not null comment 'ÀàĞÍ',
-   `path_`                 varchar(1000) not null comment 'Â·¾¶',
-   `create_by`             bigint comment '´´½¨ÓÃ»§±àºÅ',
-   `create_time`           datetime not null default CURRENT_TIMESTAMP comment '´´½¨Ê±¼ä',
-   `update_by`             bigint comment '¸üĞÂÓÃ»§±àºÅ',
-   `update_time`           datetime not null default CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP comment '¸üĞÂÊ±¼ä',
-   `sort_no`               int default 1 comment 'ÅÅĞò',
-   `remark_`               varchar(254) comment '±¸×¢',
-   `enable_`               tinyint default 1 comment 'ÊÇ·ñ¿ÉÓÃ(true:ÊÇ, false:·ñ)',
+   `id_`                   bigint not null auto_increment comment 'ç¼–å·',
+   `name_`                 varchar(254) comment 'åç§°',
+   `spell_`                varchar(254) comment 'åç§°çš„å…¨æ‹¼',
+   `type_id`               bigint not null comment 'ç±»å‹',
+   `path_`                 varchar(1000) not null comment 'è·¯å¾„',
+   `create_by`             bigint comment 'åˆ›å»ºç”¨æˆ·ç¼–å·',
+   `create_time`           datetime not null default CURRENT_TIMESTAMP comment 'åˆ›å»ºæ—¶é—´',
+   `update_by`             bigint comment 'æ›´æ–°ç”¨æˆ·ç¼–å·',
+   `update_time`           datetime not null default CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP comment 'æ›´æ–°æ—¶é—´',
+   `sort_no`               int default 1 comment 'æ’åº',
+   `remark_`               varchar(254) comment 'å¤‡æ³¨',
+   `enable_`               tinyint default 1 comment 'æ˜¯å¦å¯ç”¨(true:æ˜¯, false:å¦)',
    primary key (id_)
 );
 
-alter table attachment comment '¸½¼şÎÄµµ';
+alter table attachment comment 'é™„ä»¶æ–‡æ¡£';
 
 /*==============================================================*/
 /* Index: attachment_index                                      */
@@ -121,20 +121,20 @@ create index attachment_name_index on attachment
 /*==============================================================*/
 create table attachment_type
 (
-   `id_`                   bigint not null auto_increment comment '±àºÅ',
-   `name_`                 varchar(254) not null comment 'Ãû³Æ',
-   `spell_`                varchar(254) comment 'Ãû³ÆµÄÈ«Æ´',
-   `create_by`             bigint comment '´´½¨ÓÃ»§±àºÅ',
-   `create_time`           datetime not null default CURRENT_TIMESTAMP comment '´´½¨Ê±¼ä',
-   `update_by`             bigint comment '¸üĞÂÓÃ»§±àºÅ',
-   `update_time`           datetime not null default CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP comment '¸üĞÂÊ±¼ä',
-   `sort_no`               int default 1 comment 'ÅÅĞò',
-   `remark_`               varchar(254) comment '±¸×¢',
-   `enable_`               tinyint default 1 comment 'ÊÇ·ñ¿ÉÓÃ(true:ÊÇ, false:·ñ)',
+   `id_`                   bigint not null auto_increment comment 'ç¼–å·',
+   `name_`                 varchar(254) not null comment 'åç§°',
+   `spell_`                varchar(254) comment 'åç§°çš„å…¨æ‹¼',
+   `create_by`             bigint comment 'åˆ›å»ºç”¨æˆ·ç¼–å·',
+   `create_time`           datetime not null default CURRENT_TIMESTAMP comment 'åˆ›å»ºæ—¶é—´',
+   `update_by`             bigint comment 'æ›´æ–°ç”¨æˆ·ç¼–å·',
+   `update_time`           datetime not null default CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP comment 'æ›´æ–°æ—¶é—´',
+   `sort_no`               int default 1 comment 'æ’åº',
+   `remark_`               varchar(254) comment 'å¤‡æ³¨',
+   `enable_`               tinyint default 1 comment 'æ˜¯å¦å¯ç”¨(true:æ˜¯, false:å¦)',
    primary key (id_)
 );
 
-alter table attachment_type comment '¸½¼şÀàĞÍ';
+alter table attachment_type comment 'é™„ä»¶ç±»å‹';
 
 /*==============================================================*/
 /* Index: attachment_type_index                                 */
@@ -157,26 +157,26 @@ create index attachment_type_name_index on attachment_type
 /*==============================================================*/
 create table authority
 (
-   `id_`                   bigint not null auto_increment comment '±àºÅ',
-   `name_`                 varchar(254) comment 'Ãû³Æ',
-   `spell_`                varchar(254) comment 'Ãû³ÆµÄÈ«Æ´',
-   `prent_id`              bigint not null default 0 comment 'ËùÊôÉÏ¼¶',
-   `type_`                 bigint not null default 1 comment 'ÀàĞÍ(1:Ä¿Â¼,2:²Ëµ¥,3:°´Å¥)',
-   `permission_value`      varchar(254) comment 'È¨ÏŞÖµ',
-   `uri_`                  varchar(1000) not null comment 'Â·¾¶',
-   `icon_`                 varchar(254) comment 'Í¼±ê',
-   `status_`               tinyint not null default true comment '×´Ì¬(true:Õı³£, false:½ûÖ¹)',
-   `create_by`             bigint comment '´´½¨ÓÃ»§±àºÅ',
-   `create_time`           datetime not null default CURRENT_TIMESTAMP comment '´´½¨Ê±¼ä',
-   `update_by`             bigint comment '¸üĞÂÓÃ»§±àºÅ',
-   `update_time`           datetime not null default CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP comment '¸üĞÂÊ±¼ä',
-   `sort_no`               int default 1 comment 'ÅÅĞò',
-   `remark_`               varchar(254) comment '±¸×¢',
-   `enable_`               tinyint default 1 comment 'ÊÇ·ñ¿ÉÓÃ(true:ÊÇ, false:·ñ)',
+   `id_`                   bigint not null auto_increment comment 'ç¼–å·',
+   `name_`                 varchar(254) comment 'åç§°',
+   `spell_`                varchar(254) comment 'åç§°çš„å…¨æ‹¼',
+   `prent_id`              bigint not null default 0 comment 'æ‰€å±ä¸Šçº§',
+   `type_`                 bigint not null default 1 comment 'ç±»å‹(1:ç›®å½•,2:èœå•,3:æŒ‰é’®)',
+   `permission_value`      varchar(254) comment 'æƒé™å€¼',
+   `uri_`                  varchar(1000) not null comment 'è·¯å¾„',
+   `icon_`                 varchar(254) comment 'å›¾æ ‡',
+   `status_`               tinyint not null default true comment 'çŠ¶æ€(true:æ­£å¸¸, false:ç¦æ­¢)',
+   `create_by`             bigint comment 'åˆ›å»ºç”¨æˆ·ç¼–å·',
+   `create_time`           datetime not null default CURRENT_TIMESTAMP comment 'åˆ›å»ºæ—¶é—´',
+   `update_by`             bigint comment 'æ›´æ–°ç”¨æˆ·ç¼–å·',
+   `update_time`           datetime not null default CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP comment 'æ›´æ–°æ—¶é—´',
+   `sort_no`               int default 1 comment 'æ’åº',
+   `remark_`               varchar(254) comment 'å¤‡æ³¨',
+   `enable_`               tinyint default 1 comment 'æ˜¯å¦å¯ç”¨(true:æ˜¯, false:å¦)',
    primary key (id_)
 );
 
-alter table authority comment 'È¨ÏŞ';
+alter table authority comment 'æƒé™';
 
 /*==============================================================*/
 /* Index: authority_index                                       */
@@ -215,20 +215,20 @@ create index authority_type_index on authority
 /*==============================================================*/
 create table batch
 (
-   `id_`                   bigint not null auto_increment comment '±àºÅ',
-   `name_`                 varchar(254) comment 'Ãû³Æ',
-   `spell_`                varchar(254) comment 'Ãû³ÆµÄÈ«Æ´',
-   `create_by`             bigint comment '´´½¨ÓÃ»§±àºÅ',
-   `create_time`           datetime not null default CURRENT_TIMESTAMP comment '´´½¨Ê±¼ä',
-   `update_by`             bigint comment '¸üĞÂÓÃ»§±àºÅ',
-   `update_time`           datetime not null default CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP comment '¸üĞÂÊ±¼ä',
-   `sort_no`               int default 1 comment 'ÅÅĞò',
-   `remark_`               varchar(254) comment '±¸×¢',
-   `enable_`               tinyint default 1 comment 'ÊÇ·ñ¿ÉÓÃ(true:ÊÇ, false:·ñ)',
+   `id_`                   bigint not null auto_increment comment 'ç¼–å·',
+   `name_`                 varchar(254) comment 'åç§°',
+   `spell_`                varchar(254) comment 'åç§°çš„å…¨æ‹¼',
+   `create_by`             bigint comment 'åˆ›å»ºç”¨æˆ·ç¼–å·',
+   `create_time`           datetime not null default CURRENT_TIMESTAMP comment 'åˆ›å»ºæ—¶é—´',
+   `update_by`             bigint comment 'æ›´æ–°ç”¨æˆ·ç¼–å·',
+   `update_time`           datetime not null default CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP comment 'æ›´æ–°æ—¶é—´',
+   `sort_no`               int default 1 comment 'æ’åº',
+   `remark_`               varchar(254) comment 'å¤‡æ³¨',
+   `enable_`               tinyint default 1 comment 'æ˜¯å¦å¯ç”¨(true:æ˜¯, false:å¦)',
    primary key (id_)
 );
 
-alter table batch comment 'Åú´Î';
+alter table batch comment 'æ‰¹æ¬¡';
 
 /*==============================================================*/
 /* Index: batch_index                                           */
@@ -251,54 +251,54 @@ create index batch_name_index on batch
 /*==============================================================*/
 create table book_resource
 (
-   `id_`                   bigint not null auto_increment comment '±àºÅ',
-   `name_`                 varchar(254) comment 'Ãû³Æ',
-   `spell_`                varchar(254) comment 'Ãû³ÆµÄÈ«Æ´',
-   `specialty_id`          bigint comment '×¨Òµ±àºÅ',
-   `type_`                 varchar(254) comment 'Í¼ÊéĞÎÊ½£ºµç×ÓÍ¼Êé¡¢Ö½ÖÊÍ¼Êé',
-   `number_`               bigint comment 'Í¼ÊéÊıÁ¿',
-   `publisher_id`          bigint comment '³ö°æÉç',
-   `publish_time`          date comment '³ö°æÊ±¼ä',
+   `id_`                   bigint not null auto_increment comment 'ç¼–å·',
+   `name_`                 varchar(254) comment 'åç§°',
+   `spell_`                varchar(254) comment 'åç§°çš„å…¨æ‹¼',
+   `specialty_id`          bigint comment 'ä¸“ä¸šç¼–å·',
+   `type_`                 varchar(254) comment 'å›¾ä¹¦å½¢å¼ï¼šç”µå­å›¾ä¹¦ã€çº¸è´¨å›¾ä¹¦',
+   `number_`               bigint comment 'å›¾ä¹¦æ•°é‡',
+   `publisher_id`          bigint comment 'å‡ºç‰ˆç¤¾',
+   `publish_time`          date comment 'å‡ºç‰ˆæ—¶é—´',
    `ISBN_`                 varchar(254) comment 'ISBN',
-   `introdution_`          varchar(5000) comment '¼ò½é',
-   `authors_`              varchar(254) comment '±àÕß',
-   `href_`                 varchar(254) comment 'µç×ÓÊé³¬Á´½Ó',
-   `create_by`             bigint comment '´´½¨ÓÃ»§±àºÅ',
-   `create_time`           datetime not null default CURRENT_TIMESTAMP comment '´´½¨Ê±¼ä',
-   `update_by`             bigint comment '¸üĞÂÓÃ»§±àºÅ',
-   `update_time`           datetime not null default CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP comment '¸üĞÂÊ±¼ä',
-   `sort_no`               int default 1 comment 'ÅÅĞò',
-   `remark_`               varchar(254) comment '±¸×¢',
-   `enable_`               tinyint default 1 comment 'ÊÇ·ñ¿ÉÓÃ(true:ÊÇ, false:·ñ)',
+   `introdution_`          varchar(5000) comment 'ç®€ä»‹',
+   `authors_`              varchar(254) comment 'ç¼–è€…',
+   `href_`                 varchar(254) comment 'ç”µå­ä¹¦è¶…é“¾æ¥',
+   `create_by`             bigint comment 'åˆ›å»ºç”¨æˆ·ç¼–å·',
+   `create_time`           datetime not null default CURRENT_TIMESTAMP comment 'åˆ›å»ºæ—¶é—´',
+   `update_by`             bigint comment 'æ›´æ–°ç”¨æˆ·ç¼–å·',
+   `update_time`           datetime not null default CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP comment 'æ›´æ–°æ—¶é—´',
+   `sort_no`               int default 1 comment 'æ’åº',
+   `remark_`               varchar(254) comment 'å¤‡æ³¨',
+   `enable_`               tinyint default 1 comment 'æ˜¯å¦å¯ç”¨(true:æ˜¯, false:å¦)',
    primary key (id_)
 );
 
-alter table book_resource comment 'Í¼Êé×ÊÁÏ';
+alter table book_resource comment 'å›¾ä¹¦èµ„æ–™';
 
 /*==============================================================*/
 /* Table: cee_annual_score                                      */
 /*==============================================================*/
 create table cee_annual_score
 (
-   `id_`                   bigint not null auto_increment comment '±àºÅ',
-   `name_`                 varchar(254) comment 'Ãû³Æ',
-   `spell_`                varchar(254) comment 'Ãû³ÆµÄÈ«Æ´',
-   `year_`                  bigint not null comment 'Äê·İ',
-   `province_id`           bigint not null comment 'Ê¡·İ±àºÅ',
-   `category_id`           bigint not null comment '¿¼ÉúÀà±ğ±àºÅ',
-   `batch_id`              bigint not null comment 'Åú´Î±àºÅ',
-   `min_score_line`        float not null comment '×îµÍ·ÖÊıÏß',
-   `create_by`             bigint comment '´´½¨ÓÃ»§±àºÅ',
-   `create_time`           datetime not null default CURRENT_TIMESTAMP comment '´´½¨Ê±¼ä',
-   `update_by`             bigint comment '¸üĞÂÓÃ»§±àºÅ',
-   `update_time`           datetime not null default CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP comment '¸üĞÂÊ±¼ä',
-   `sort_no`               int default 1 comment 'ÅÅĞò',
-   `remark_`               varchar(254) comment '±¸×¢',
-   `enable_`               tinyint default 1 comment 'ÊÇ·ñ¿ÉÓÃ(true:ÊÇ, false:·ñ)',
+   `id_`                   bigint not null auto_increment comment 'ç¼–å·',
+   `name_`                 varchar(254) comment 'åç§°',
+   `spell_`                varchar(254) comment 'åç§°çš„å…¨æ‹¼',
+   `year_`                  bigint not null comment 'å¹´ä»½',
+   `province_id`           bigint not null comment 'çœä»½ç¼–å·',
+   `category_id`           bigint not null comment 'è€ƒç”Ÿç±»åˆ«ç¼–å·',
+   `batch_id`              bigint not null comment 'æ‰¹æ¬¡ç¼–å·',
+   `min_score_line`        float not null comment 'æœ€ä½åˆ†æ•°çº¿',
+   `create_by`             bigint comment 'åˆ›å»ºç”¨æˆ·ç¼–å·',
+   `create_time`           datetime not null default CURRENT_TIMESTAMP comment 'åˆ›å»ºæ—¶é—´',
+   `update_by`             bigint comment 'æ›´æ–°ç”¨æˆ·ç¼–å·',
+   `update_time`           datetime not null default CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP comment 'æ›´æ–°æ—¶é—´',
+   `sort_no`               int default 1 comment 'æ’åº',
+   `remark_`               varchar(254) comment 'å¤‡æ³¨',
+   `enable_`               tinyint default 1 comment 'æ˜¯å¦å¯ç”¨(true:æ˜¯, false:å¦)',
    primary key (id_)
 );
 
-alter table cee_annual_score comment 'ÀúÄê·ÖÊıÏß';
+alter table cee_annual_score comment 'å†å¹´åˆ†æ•°çº¿';
 
 /*==============================================================*/
 /* Index: cee_annual_score_index                                 */
@@ -345,49 +345,49 @@ create index cee_annual_score_batch_index on cee_annual_score
 /*==============================================================*/
 create table certificate
 (
-   `id_`                   bigint not null auto_increment comment '±àºÅ',
-   `name_`                 varchar(254) comment 'Ãû³Æ',
-   `spell_`                varchar(254) comment 'Ãû³ÆÈ«Æ´',
-   `certificate_no`        varchar(254) comment 'Ö¤Êé±àºÅ',
-   `owner_id`              bigint comment 'ÓµÓĞÕß±àºÅ',
-   `level_`                varchar(254) comment '¼¶±ğ£º³õ¼¶¡¢ÖĞ¼¶¡¢¸ß¼¶',
-   `type_`                 varchar(254) comment 'ÀàĞÍ£ºÆóÒµÈÏÖ¤¡¢¹ú¼ÒÈÏÖ¤',
-   `time_`                 datetime comment '»ñµÃÊ±¼ä£º±£´æÄê·İ¡¢ÔÂ·İ',
-   `student_id`            varchar(254) comment 'Ñ§Éú±àºÅ',
-   `create_by`             bigint comment '´´½¨ÓÃ»§±àºÅ',
-   `create_time`           datetime not null default CURRENT_TIMESTAMP comment '´´½¨Ê±¼ä',
-   `update_by`             bigint comment '¸üĞÂÓÃ»§±àºÅ',
-   `update_time`           datetime not null default CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP comment '¸üĞÂÊ±¼ä',
-   `sort_no`               int default 1 comment 'ÅÅĞò',
-   `remark_`               varchar(254) comment '±¸×¢',
-   `enable_`               tinyint default 1 comment 'ÊÇ·ñ¿ÉÓÃ(true:ÊÇ, false:·ñ)',
+   `id_`                   bigint not null auto_increment comment 'ç¼–å·',
+   `name_`                 varchar(254) comment 'åç§°',
+   `spell_`                varchar(254) comment 'åç§°å…¨æ‹¼',
+   `certificate_no`        varchar(254) comment 'è¯ä¹¦ç¼–å·',
+   `owner_id`              bigint comment 'æ‹¥æœ‰è€…ç¼–å·',
+   `level_`                varchar(254) comment 'çº§åˆ«ï¼šåˆçº§ã€ä¸­çº§ã€é«˜çº§',
+   `type_`                 varchar(254) comment 'ç±»å‹ï¼šä¼ä¸šè®¤è¯ã€å›½å®¶è®¤è¯',
+   `time_`                 datetime comment 'è·å¾—æ—¶é—´ï¼šä¿å­˜å¹´ä»½ã€æœˆä»½',
+   `student_id`            varchar(254) comment 'å­¦ç”Ÿç¼–å·',
+   `create_by`             bigint comment 'åˆ›å»ºç”¨æˆ·ç¼–å·',
+   `create_time`           datetime not null default CURRENT_TIMESTAMP comment 'åˆ›å»ºæ—¶é—´',
+   `update_by`             bigint comment 'æ›´æ–°ç”¨æˆ·ç¼–å·',
+   `update_time`           datetime not null default CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP comment 'æ›´æ–°æ—¶é—´',
+   `sort_no`               int default 1 comment 'æ’åº',
+   `remark_`               varchar(254) comment 'å¤‡æ³¨',
+   `enable_`               tinyint default 1 comment 'æ˜¯å¦å¯ç”¨(true:æ˜¯, false:å¦)',
    primary key (id_)
 );
 
-alter table certificate comment 'Ïà¹ØĞĞÒµÖ¤Êé';
+alter table certificate comment 'ç›¸å…³è¡Œä¸šè¯ä¹¦';
 
 /*==============================================================*/
 /* Table: chapter_and_sections                                  */
 /*==============================================================*/
 create table chapter_and_sections
 (
-   `id_`                   bigint not null auto_increment comment '±àºÅ',
-   `course_id`             bigint not null comment '¿Î³Ì±àºÅ',
-   `name_`                 varchar(254) not null comment 'Ãû³Æ',
-   `spell_`                varchar(254) comment 'Ãû³ÆµÄÈ«Æ´',
-   `overview_`             varchar(10000) comment '¸ÅÊö',
-   `parent_id`             bigint comment 'ËùÊô¸¸ÕÂ½Ú±àºÅ',
-   `create_by`             bigint comment '´´½¨ÓÃ»§±àºÅ',
-   `create_time`           datetime not null default CURRENT_TIMESTAMP comment '´´½¨Ê±¼ä',
-   `update_by`             bigint comment '¸üĞÂÓÃ»§±àºÅ',
-   `update_time`           datetime not null default CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP comment '¸üĞÂÊ±¼ä',
-   `sort_no`               int default 1 comment 'ÅÅĞò',
-   `remark_`               varchar(254) comment '±¸×¢',
-   `enable_`               tinyint default 1 comment 'ÊÇ·ñ¿ÉÓÃ(true:ÊÇ, false:·ñ)',
+   `id_`                   bigint not null auto_increment comment 'ç¼–å·',
+   `course_id`             bigint not null comment 'è¯¾ç¨‹ç¼–å·',
+   `name_`                 varchar(254) not null comment 'åç§°',
+   `spell_`                varchar(254) comment 'åç§°çš„å…¨æ‹¼',
+   `overview_`             varchar(10000) comment 'æ¦‚è¿°',
+   `parent_id`             bigint comment 'æ‰€å±çˆ¶ç« èŠ‚ç¼–å·',
+   `create_by`             bigint comment 'åˆ›å»ºç”¨æˆ·ç¼–å·',
+   `create_time`           datetime not null default CURRENT_TIMESTAMP comment 'åˆ›å»ºæ—¶é—´',
+   `update_by`             bigint comment 'æ›´æ–°ç”¨æˆ·ç¼–å·',
+   `update_time`           datetime not null default CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP comment 'æ›´æ–°æ—¶é—´',
+   `sort_no`               int default 1 comment 'æ’åº',
+   `remark_`               varchar(254) comment 'å¤‡æ³¨',
+   `enable_`               tinyint default 1 comment 'æ˜¯å¦å¯ç”¨(true:æ˜¯, false:å¦)',
    primary key (id_)
 );
 
-alter table chapter_and_sections comment 'ÕÂ½Ú';
+alter table chapter_and_sections comment 'ç« èŠ‚';
 
 /*==============================================================*/
 /* Index: chapter_and_sections_index                            */
@@ -426,21 +426,21 @@ create index chapter_and_sections_parent_index on chapter_and_sections
 /*==============================================================*/
 create table city
 (
-   `id_`                   bigint not null auto_increment comment '±àºÅ',
-   `name_`                 varchar(254) not null comment 'Ãû³Æ',
-   `spell_`                varchar(254) comment 'Ãû³ÆµÄÈ«Æ´',
-   `province_id`           bigint not null comment 'Ê¡·İ±àºÅ',
-   `create_by`             bigint comment '´´½¨ÓÃ»§±àºÅ',
-   `create_time`           datetime not null default CURRENT_TIMESTAMP comment '´´½¨Ê±¼ä',
-   `update_by`             bigint comment '¸üĞÂÓÃ»§±àºÅ',
-   `update_time`           datetime not null default CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP comment '¸üĞÂÊ±¼ä',
-   `sort_no`               int default 1 comment 'ÅÅĞò',
-   `remark_`               varchar(254) comment '±¸×¢',
-   `enable_`               tinyint default 1 comment 'ÊÇ·ñ¿ÉÓÃ(true:ÊÇ, false:·ñ)',
+   `id_`                   bigint not null auto_increment comment 'ç¼–å·',
+   `name_`                 varchar(254) not null comment 'åç§°',
+   `spell_`                varchar(254) comment 'åç§°çš„å…¨æ‹¼',
+   `province_id`           bigint not null comment 'çœä»½ç¼–å·',
+   `create_by`             bigint comment 'åˆ›å»ºç”¨æˆ·ç¼–å·',
+   `create_time`           datetime not null default CURRENT_TIMESTAMP comment 'åˆ›å»ºæ—¶é—´',
+   `update_by`             bigint comment 'æ›´æ–°ç”¨æˆ·ç¼–å·',
+   `update_time`           datetime not null default CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP comment 'æ›´æ–°æ—¶é—´',
+   `sort_no`               int default 1 comment 'æ’åº',
+   `remark_`               varchar(254) comment 'å¤‡æ³¨',
+   `enable_`               tinyint default 1 comment 'æ˜¯å¦å¯ç”¨(true:æ˜¯, false:å¦)',
    primary key (id_)
 );
 
-alter table city comment 'ÊĞ';
+alter table city comment 'å¸‚';
 
 /*==============================================================*/
 /* Index: city_index                                            */
@@ -471,26 +471,26 @@ create index city_province_index on city
 /*==============================================================*/
 create table class
 (
-   `id_`                   bigint not null auto_increment comment '±àºÅ',
-   `name_`                 varchar(254) not null comment 'Ãû³Æ',
-   `spell_`                varchar(254) comment 'Ãû³ÆµÄÈ«Æ´',
-   `specialty_id`          bigint not null comment '×¨Òµ±àºÅ',
-   `adviser_id`            bigint comment '°àÖ÷ÈÎ±àºÅ',
-   `monitor_id`            bigint comment '°à³¤±àºÅ',
-   `secretary_id`          bigint comment 'Ñ§Ï°Î¯Ô±±àºÅ',
-   `entrance_date`         datetime comment 'ÈëÑ§ÈÕÆÚ',
-   `students_number`       bigint comment 'Ñ§ÉúÈËÊı',
-   `create_by`             bigint comment '´´½¨ÓÃ»§±àºÅ',
-   `create_time`           datetime not null default CURRENT_TIMESTAMP comment '´´½¨Ê±¼ä',
-   `update_by`             bigint comment '¸üĞÂÓÃ»§±àºÅ',
-   `update_time`           datetime not null default CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP comment '¸üĞÂÊ±¼ä',
-   `sort_no`               int default 1 comment 'ÅÅĞò',
-   `remark_`               varchar(254) comment '±¸×¢',
-   `enable_`               tinyint default 1 comment 'ÊÇ·ñ¿ÉÓÃ(true:ÊÇ, false:·ñ)',
+   `id_`                   bigint not null auto_increment comment 'ç¼–å·',
+   `name_`                 varchar(254) not null comment 'åç§°',
+   `spell_`                varchar(254) comment 'åç§°çš„å…¨æ‹¼',
+   `specialty_id`          bigint not null comment 'ä¸“ä¸šç¼–å·',
+   `adviser_id`            bigint comment 'ç­ä¸»ä»»ç¼–å·',
+   `monitor_id`            bigint comment 'ç­é•¿ç¼–å·',
+   `secretary_id`          bigint comment 'å­¦ä¹ å§”å‘˜ç¼–å·',
+   `entrance_date`         datetime comment 'å…¥å­¦æ—¥æœŸ',
+   `students_number`       bigint comment 'å­¦ç”Ÿäººæ•°',
+   `create_by`             bigint comment 'åˆ›å»ºç”¨æˆ·ç¼–å·',
+   `create_time`           datetime not null default CURRENT_TIMESTAMP comment 'åˆ›å»ºæ—¶é—´',
+   `update_by`             bigint comment 'æ›´æ–°ç”¨æˆ·ç¼–å·',
+   `update_time`           datetime not null default CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP comment 'æ›´æ–°æ—¶é—´',
+   `sort_no`               int default 1 comment 'æ’åº',
+   `remark_`               varchar(254) comment 'å¤‡æ³¨',
+   `enable_`               tinyint default 1 comment 'æ˜¯å¦å¯ç”¨(true:æ˜¯, false:å¦)',
    primary key (id_)
 );
 
-alter table class comment '°à¼¶';
+alter table class comment 'ç­çº§';
 
 /*==============================================================*/
 /* Index: class_index                                           */
@@ -529,24 +529,24 @@ create index class_specialty_index on class
 /*==============================================================*/
 create table college
 (
-   `id_`                   bigint not null auto_increment comment '±àºÅ',
-   `name_`                 varchar(254) not null comment 'Ãû³Æ',
-   `spell_`                varchar(254) comment 'Ãû³ÆµÄÈ«Æ´',
-   `school_id`             bigint not null comment 'Ñ§Ğ£±àºÅ',
-   `college_profile`       varchar(10000) comment 'Ñ§Ôº¸Å¿ö',
-   `college_code`          varchar(254) comment 'Ñ§Ôº´úÂë',
-   `students_number`       bigint comment 'ÔÚĞ£ÉúÈËÊı',
-   `create_by`             bigint comment '´´½¨ÓÃ»§±àºÅ',
-   `create_time`           datetime not null default CURRENT_TIMESTAMP comment '´´½¨Ê±¼ä',
-   `update_by`             bigint comment '¸üĞÂÓÃ»§±àºÅ',
-   `update_time`           datetime not null default CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP comment '¸üĞÂÊ±¼ä',
-   `sort_no`               int default 1 comment 'ÅÅĞò',
-   `remark_`               varchar(254) comment '±¸×¢',
-   `enable_`               tinyint default 1 comment 'ÊÇ·ñ¿ÉÓÃ(true:ÊÇ, false:·ñ)',
+   `id_`                   bigint not null auto_increment comment 'ç¼–å·',
+   `name_`                 varchar(254) not null comment 'åç§°',
+   `spell_`                varchar(254) comment 'åç§°çš„å…¨æ‹¼',
+   `school_id`             bigint not null comment 'å­¦æ ¡ç¼–å·',
+   `college_profile`       varchar(10000) comment 'å­¦é™¢æ¦‚å†µ',
+   `college_code`          varchar(254) comment 'å­¦é™¢ä»£ç ',
+   `students_number`       bigint comment 'åœ¨æ ¡ç”Ÿäººæ•°',
+   `create_by`             bigint comment 'åˆ›å»ºç”¨æˆ·ç¼–å·',
+   `create_time`           datetime not null default CURRENT_TIMESTAMP comment 'åˆ›å»ºæ—¶é—´',
+   `update_by`             bigint comment 'æ›´æ–°ç”¨æˆ·ç¼–å·',
+   `update_time`           datetime not null default CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP comment 'æ›´æ–°æ—¶é—´',
+   `sort_no`               int default 1 comment 'æ’åº',
+   `remark_`               varchar(254) comment 'å¤‡æ³¨',
+   `enable_`               tinyint default 1 comment 'æ˜¯å¦å¯ç”¨(true:æ˜¯, false:å¦)',
    primary key (id_)
 );
 
-alter table college comment 'Ñ§Ôº';
+alter table college comment 'å­¦é™¢';
 
 /*==============================================================*/
 /* Index: college_index                                         */
@@ -585,23 +585,23 @@ create index college_school_index on college
 /*==============================================================*/
 create table completion
 (
-   `id_`                   bigint not null auto_increment comment '±àºÅ',
-   `name_`                 varchar(1000) comment 'Ãû³Æ',
-   `spell_`                varchar(1000) comment 'Ãû³ÆµÄÈ«Æ´',
-   `difficult_degree`      bigint comment 'ÄÑ¶ÈÏµÊı',
-   `is_required`           tinyint default false comment 'ÊÇ·ñ±ØÑ¡(true:ÊÇ, false:·ñ)',
-   `section_id`            bigint comment 'ËùÊôÕÂ½Ú',
-   `create_by`             bigint comment '´´½¨ÓÃ»§±àºÅ',
-   `create_time`           datetime not null default CURRENT_TIMESTAMP comment '´´½¨Ê±¼ä',
-   `update_by`             bigint comment '¸üĞÂÓÃ»§±àºÅ',
-   `update_time`           datetime not null default CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP comment '¸üĞÂÊ±¼ä',
-   `sort_no`               int default 1 comment 'ÅÅĞò',
-   `remark_`               varchar(254) comment '±¸×¢',
-   `enable_`               tinyint default 1 comment 'ÊÇ·ñ¿ÉÓÃ(true:ÊÇ, false:·ñ)',
+   `id_`                   bigint not null auto_increment comment 'ç¼–å·',
+   `name_`                 varchar(1000) comment 'åç§°',
+   `spell_`                varchar(1000) comment 'åç§°çš„å…¨æ‹¼',
+   `difficult_degree`      bigint comment 'éš¾åº¦ç³»æ•°',
+   `is_required`           tinyint default false comment 'æ˜¯å¦å¿…é€‰(true:æ˜¯, false:å¦)',
+   `section_id`            bigint comment 'æ‰€å±ç« èŠ‚',
+   `create_by`             bigint comment 'åˆ›å»ºç”¨æˆ·ç¼–å·',
+   `create_time`           datetime not null default CURRENT_TIMESTAMP comment 'åˆ›å»ºæ—¶é—´',
+   `update_by`             bigint comment 'æ›´æ–°ç”¨æˆ·ç¼–å·',
+   `update_time`           datetime not null default CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP comment 'æ›´æ–°æ—¶é—´',
+   `sort_no`               int default 1 comment 'æ’åº',
+   `remark_`               varchar(254) comment 'å¤‡æ³¨',
+   `enable_`               tinyint default 1 comment 'æ˜¯å¦å¯ç”¨(true:æ˜¯, false:å¦)',
    primary key (id_)
 );
 
-alter table completion comment 'Ìî¿ÕÌâ';
+alter table completion comment 'å¡«ç©ºé¢˜';
 
 /*==============================================================*/
 /* Index: completion_index                                      */
@@ -640,26 +640,26 @@ create index completion_section_index on completion
 /*==============================================================*/
 create table content
 (
-   `id_`                   bigint not null auto_increment comment '±àºÅ',
-   `name_`                 varchar(254) comment 'Ãû³Æ',
-   `spell_`                varchar(254) comment 'Ãû³ÆµÄÈ«Æ´',
-   `year_`                 bigint not null comment 'Äê·İ',
-   `index_`                varchar(254) comment 'Ö¸±ê£º¶¨ĞÔÖ¸±ê¡¢¶¨Á¿Ö¸±ê',
-   `specialty_id`          bigint not null comment '×¨Òµ±àºÅ',
-   `professor_id`          bigint not null comment '×¨¼Ò±àºÅ',
-   `estimate_`             varchar(5000) not null comment 'ÆÀ¼Û',
-   `score_`                bigint comment '·ÖÖµ',
-   `create_by`             bigint comment '´´½¨ÓÃ»§±àºÅ',
-   `create_time`           datetime not null default CURRENT_TIMESTAMP comment '´´½¨Ê±¼ä',
-   `update_by`             bigint comment '¸üĞÂÓÃ»§±àºÅ',
-   `update_time`           datetime not null default CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP comment '¸üĞÂÊ±¼ä',
-   `sort_no`               int default 1 comment 'ÅÅĞò',
-   `remark_`               varchar(254) comment '±¸×¢',
-   `enable_`               tinyint default 1 comment 'ÊÇ·ñ¿ÉÓÃ(true:ÊÇ, false:·ñ)',
+   `id_`                   bigint not null auto_increment comment 'ç¼–å·',
+   `name_`                 varchar(254) comment 'åç§°',
+   `spell_`                varchar(254) comment 'åç§°çš„å…¨æ‹¼',
+   `year_`                 bigint not null comment 'å¹´ä»½',
+   `index_`                varchar(254) comment 'æŒ‡æ ‡ï¼šå®šæ€§æŒ‡æ ‡ã€å®šé‡æŒ‡æ ‡',
+   `specialty_id`          bigint not null comment 'ä¸“ä¸šç¼–å·',
+   `professor_id`          bigint not null comment 'ä¸“å®¶ç¼–å·',
+   `estimate_`             varchar(5000) not null comment 'è¯„ä»·',
+   `score_`                bigint comment 'åˆ†å€¼',
+   `create_by`             bigint comment 'åˆ›å»ºç”¨æˆ·ç¼–å·',
+   `create_time`           datetime not null default CURRENT_TIMESTAMP comment 'åˆ›å»ºæ—¶é—´',
+   `update_by`             bigint comment 'æ›´æ–°ç”¨æˆ·ç¼–å·',
+   `update_time`           datetime not null default CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP comment 'æ›´æ–°æ—¶é—´',
+   `sort_no`               int default 1 comment 'æ’åº',
+   `remark_`               varchar(254) comment 'å¤‡æ³¨',
+   `enable_`               tinyint default 1 comment 'æ˜¯å¦å¯ç”¨(true:æ˜¯, false:å¦)',
    primary key (id_)
 );
 
-alter table content comment 'ÆÀ¼ÛÄÚÈİ';
+alter table content comment 'è¯„ä»·å†…å®¹';
 
 /*==============================================================*/
 /* Index: content_index                                         */
@@ -698,22 +698,22 @@ create index content_professor_index on content
 /*==============================================================*/
 create table content_detailed_grading_item
 (
-   `id_`                       bigint not null comment '±àºÅ',
-   `name_`                     varchar(254) comment 'Ãû³Æ',
-   `spell_`                    varchar(254) comment 'Ãû³ÆµÄÈ«Æ´',
-   `content_id`                bigint not null comment 'ÆÀ¼ÛÄÚÈİ±àºÅ',
-   `detailed_grading_item_id`   bigint not null comment 'ÆÀ·ÖÏ¸Ôò±àºÅ',
-   `create_by`                 bigint comment '´´½¨ÓÃ»§±àºÅ',
-   `create_time`               datetime not null default CURRENT_TIMESTAMP comment '´´½¨Ê±¼ä',
-   `update_by`                 bigint comment '¸üĞÂÓÃ»§±àºÅ',
-   `update_time`               datetime not null default CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP comment '¸üĞÂÊ±¼ä',
-   `sort_no`                   int default 1 comment 'ÅÅĞò',
-   `remark_`                   varchar(254) comment '±¸×¢',
-   `enable_`                   tinyint default 1 comment 'ÊÇ·ñ¿ÉÓÃ(true:ÊÇ, false:·ñ)',
+   `id_`                       bigint not null comment 'ç¼–å·',
+   `name_`                     varchar(254) comment 'åç§°',
+   `spell_`                    varchar(254) comment 'åç§°çš„å…¨æ‹¼',
+   `content_id`                bigint not null comment 'è¯„ä»·å†…å®¹ç¼–å·',
+   `detailed_grading_item_id`   bigint not null comment 'è¯„åˆ†ç»†åˆ™ç¼–å·',
+   `create_by`                 bigint comment 'åˆ›å»ºç”¨æˆ·ç¼–å·',
+   `create_time`               datetime not null default CURRENT_TIMESTAMP comment 'åˆ›å»ºæ—¶é—´',
+   `update_by`                 bigint comment 'æ›´æ–°ç”¨æˆ·ç¼–å·',
+   `update_time`               datetime not null default CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP comment 'æ›´æ–°æ—¶é—´',
+   `sort_no`                   int default 1 comment 'æ’åº',
+   `remark_`                   varchar(254) comment 'å¤‡æ³¨',
+   `enable_`                   tinyint default 1 comment 'æ˜¯å¦å¯ç”¨(true:æ˜¯, false:å¦)',
    primary key (id_)
 );
 
-alter table content_detailed_grading_item comment 'ÆÀ¼ÛÄÚÈİÓëÆÀ·Ö¹æÔò¹ØÁª';
+alter table content_detailed_grading_item comment 'è¯„ä»·å†…å®¹ä¸è¯„åˆ†è§„åˆ™å…³è”';
 
 /*==============================================================*/
 /* Index: content_detailed_grading_item_contentID_index         */
@@ -736,28 +736,28 @@ create index content_detailed_grading_item_detailed_grading_item_id_index on con
 /*==============================================================*/
 create table copyright
 (
-   `id_`                   bigint not null auto_increment comment '±àºÅ',
-   `name_`                 varchar(254) not null comment 'Ãû³Æ',
-   `spell_`                varchar(254) comment 'Ãû³ÆµÄÈ«Æ´',
-   `certificate_id`        varchar(254) comment 'Ö¤ÊéºÅ',
-   `completion_date`       datetime comment '¿ª·¢Íê³ÉÈÕÆÚ',
-   `release_date`          datetime comment 'Ê×´Î·¢±íÈÕÆÚ',
-   `acquisition_mode`      datetime comment 'È¨ÀûÈ¡µÃ·½Ê½',
-   `interest_field`        varchar(1000) comment 'È¨Àû·¶Î§',
-   `register_no`           varchar(254) comment 'µÇ¼ÇºÅ',
-   `licence_date`          datetime comment '·¢Ö¤ÈÕÆÚ',
-   `attachment_id`         bigint comment '¸½¼şÎÄµµ',
-   `create_by`             bigint comment '´´½¨ÓÃ»§±àºÅ',
-   `create_time`           datetime not null default CURRENT_TIMESTAMP comment '´´½¨Ê±¼ä',
-   `update_by`             bigint comment '¸üĞÂÓÃ»§±àºÅ',
-   `update_time`           datetime not null default CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP comment '¸üĞÂÊ±¼ä',
-   `sort_no`               int default 1 comment 'ÅÅĞò',
-   `remark_`               varchar(254) comment '±¸×¢',
-   `enable_`               tinyint default 1 comment 'ÊÇ·ñ¿ÉÓÃ(true:ÊÇ, false:·ñ)',
+   `id_`                   bigint not null auto_increment comment 'ç¼–å·',
+   `name_`                 varchar(254) not null comment 'åç§°',
+   `spell_`                varchar(254) comment 'åç§°çš„å…¨æ‹¼',
+   `certificate_id`        varchar(254) comment 'è¯ä¹¦å·',
+   `completion_date`       datetime comment 'å¼€å‘å®Œæˆæ—¥æœŸ',
+   `release_date`          datetime comment 'é¦–æ¬¡å‘è¡¨æ—¥æœŸ',
+   `acquisition_mode`      datetime comment 'æƒåˆ©å–å¾—æ–¹å¼',
+   `interest_field`        varchar(1000) comment 'æƒåˆ©èŒƒå›´',
+   `register_no`           varchar(254) comment 'ç™»è®°å·',
+   `licence_date`          datetime comment 'å‘è¯æ—¥æœŸ',
+   `attachment_id`         bigint comment 'é™„ä»¶æ–‡æ¡£',
+   `create_by`             bigint comment 'åˆ›å»ºç”¨æˆ·ç¼–å·',
+   `create_time`           datetime not null default CURRENT_TIMESTAMP comment 'åˆ›å»ºæ—¶é—´',
+   `update_by`             bigint comment 'æ›´æ–°ç”¨æˆ·ç¼–å·',
+   `update_time`           datetime not null default CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP comment 'æ›´æ–°æ—¶é—´',
+   `sort_no`               int default 1 comment 'æ’åº',
+   `remark_`               varchar(254) comment 'å¤‡æ³¨',
+   `enable_`               tinyint default 1 comment 'æ˜¯å¦å¯ç”¨(true:æ˜¯, false:å¦)',
    primary key (id_)
 );
 
-alter table copyright comment 'Öø×÷È¨';
+alter table copyright comment 'è‘—ä½œæƒ';
 
 /*==============================================================*/
 /* Index: copyright_index                                       */
@@ -780,22 +780,22 @@ create index copyright_name_index on copyright
 /*==============================================================*/
 create table copyright_owner
 (
-   `id_`                   bigint not null auto_increment comment '±àºÅ',
-   `name_`                 varchar(254) comment 'Ãû³Æ',
-   `spell_`                varchar(254) comment 'Ãû³ÆµÄÈ«Æ´',
-   `copyright_no`          bigint not null comment 'Öø×÷È¨±àºÅ',
-   `owner_id`              bigint not null comment 'ÓµÓĞÕß±àºÅ',
-   `create_by`             bigint comment '´´½¨ÓÃ»§±àºÅ',
-   `create_time`           datetime not null default CURRENT_TIMESTAMP comment '´´½¨Ê±¼ä',
-   `update_by`             bigint comment '¸üĞÂÓÃ»§±àºÅ',
-   `update_time`           datetime not null default CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP comment '¸üĞÂÊ±¼ä',
-   `sort_no`               int default 1 comment 'ÅÅĞò',
-   `remark_`               varchar(254) comment '±¸×¢',
-   `enable_`               tinyint default 1 comment 'ÊÇ·ñ¿ÉÓÃ(true:ÊÇ, false:·ñ)',
+   `id_`                   bigint not null auto_increment comment 'ç¼–å·',
+   `name_`                 varchar(254) comment 'åç§°',
+   `spell_`                varchar(254) comment 'åç§°çš„å…¨æ‹¼',
+   `copyright_no`          bigint not null comment 'è‘—ä½œæƒç¼–å·',
+   `owner_id`              bigint not null comment 'æ‹¥æœ‰è€…ç¼–å·',
+   `create_by`             bigint comment 'åˆ›å»ºç”¨æˆ·ç¼–å·',
+   `create_time`           datetime not null default CURRENT_TIMESTAMP comment 'åˆ›å»ºæ—¶é—´',
+   `update_by`             bigint comment 'æ›´æ–°ç”¨æˆ·ç¼–å·',
+   `update_time`           datetime not null default CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP comment 'æ›´æ–°æ—¶é—´',
+   `sort_no`               int default 1 comment 'æ’åº',
+   `remark_`               varchar(254) comment 'å¤‡æ³¨',
+   `enable_`               tinyint default 1 comment 'æ˜¯å¦å¯ç”¨(true:æ˜¯, false:å¦)',
    primary key (id_)
 );
 
-alter table copyright_owner comment 'Öø×÷È¨ÓëÓµÓĞÕß£¨Öø×÷È¨ÈË£©¹ØÁª';
+alter table copyright_owner comment 'è‘—ä½œæƒä¸æ‹¥æœ‰è€…ï¼ˆè‘—ä½œæƒäººï¼‰å…³è”';
 
 /*==============================================================*/
 /* Index: copyright_owner_copyright_index                       */
@@ -818,21 +818,21 @@ create index copyright_owner_owner_index on copyright_owner
 /*==============================================================*/
 create table county
 (
-   `id_`                   bigint not null auto_increment comment '±àºÅ',
-   `name_`                 varchar(254) not null comment 'Ãû³Æ',
-   `spell_`                varchar(254) comment 'Ãû³ÆµÄÈ«Æ´',
-   `city_id`              bigint not null comment 'ÊĞ±àºÅ',
-   `create_by`             bigint comment '´´½¨ÓÃ»§±àºÅ',
-   `create_time`           datetime not null default CURRENT_TIMESTAMP comment '´´½¨Ê±¼ä',
-   `update_by`             bigint comment '¸üĞÂÓÃ»§±àºÅ',
-   `update_time`           datetime not null default CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP comment '¸üĞÂÊ±¼ä',
-   `sort_no`               int default 1 comment 'ÅÅĞò',
-   `remark_`               varchar(254) comment '±¸×¢',
-   `enable_`               tinyint default 1 comment 'ÊÇ·ñ¿ÉÓÃ(true:ÊÇ, false:·ñ)',
+   `id_`                   bigint not null auto_increment comment 'ç¼–å·',
+   `name_`                 varchar(254) not null comment 'åç§°',
+   `spell_`                varchar(254) comment 'åç§°çš„å…¨æ‹¼',
+   `city_id`              bigint not null comment 'å¸‚ç¼–å·',
+   `create_by`             bigint comment 'åˆ›å»ºç”¨æˆ·ç¼–å·',
+   `create_time`           datetime not null default CURRENT_TIMESTAMP comment 'åˆ›å»ºæ—¶é—´',
+   `update_by`             bigint comment 'æ›´æ–°ç”¨æˆ·ç¼–å·',
+   `update_time`           datetime not null default CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP comment 'æ›´æ–°æ—¶é—´',
+   `sort_no`               int default 1 comment 'æ’åº',
+   `remark_`               varchar(254) comment 'å¤‡æ³¨',
+   `enable_`               tinyint default 1 comment 'æ˜¯å¦å¯ç”¨(true:æ˜¯, false:å¦)',
    primary key (id_)
 );
 
-alter table county comment 'ÇøÏØ';
+alter table county comment 'åŒºå¿';
 
 /*==============================================================*/
 /* Index: county_index                                          */
@@ -863,32 +863,32 @@ create index county_city_index on county
 /*==============================================================*/
 create table course
 (
-   `id_`                   bigint not null auto_increment comment '±àºÅ',
-   `name_`                 varchar(254) not null comment 'Ãû³Æ',
-   `spell_`                varchar(254) comment 'Ãû³ÆµÄÈ«Æ´',
-   `specialty_id`         bigint not null comment '×¨Òµ±àºÅ',
-   `code_`                 varchar(254) not null comment '¿Î³Ì´úÂë',
-   `credit_`               bigint not null comment 'Ñ§·Ö',
-   `class_hours`          bigint not null comment 'Ñ§Ê±',
-   `start_time`           datetime comment '¿ª¿ÎÊ±¼ä',
-   `theory_hours`         bigint not null comment 'ÀíÂÛ¿ÎÊ±',
-   `practical_hours`      bigint not null comment 'Êµ¼ù¿ÎÊ±',
-   `type_id`              bigint comment '¿Î³ÌÀàĞÍ±àºÅ',
-   `course_property`      varchar(254) comment '¿Î³ÌĞÔÖÊ',
-   `is_boutique_course`   tinyint default false comment 'ÊÇ·ñ¾«Æ·¿Î³Ì(true:ÊÇ, false:·ñ)',
-   `introduction_`         varchar(10000) comment '¿Î³Ì¼ò½é',
-   `target_`               varchar(10000) comment '¿Î³ÌÄ¿±ê',
-   `create_by`             bigint comment '´´½¨ÓÃ»§±àºÅ',
-   `create_time`           datetime not null default CURRENT_TIMESTAMP comment '´´½¨Ê±¼ä',
-   `update_by`             bigint comment '¸üĞÂÓÃ»§±àºÅ',
-   `update_time`           datetime not null default CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP comment '¸üĞÂÊ±¼ä',
-   `sort_no`               int default 1 comment 'ÅÅĞò',
-   `remark_`               varchar(254) comment '±¸×¢',
-   `enable_`               tinyint default 1 comment 'ÊÇ·ñ¿ÉÓÃ(true:ÊÇ, false:·ñ)',
+   `id_`                   bigint not null auto_increment comment 'ç¼–å·',
+   `name_`                 varchar(254) not null comment 'åç§°',
+   `spell_`                varchar(254) comment 'åç§°çš„å…¨æ‹¼',
+   `specialty_id`         bigint not null comment 'ä¸“ä¸šç¼–å·',
+   `code_`                 varchar(254) not null comment 'è¯¾ç¨‹ä»£ç ',
+   `credit_`               bigint not null comment 'å­¦åˆ†',
+   `class_hours`          bigint not null comment 'å­¦æ—¶',
+   `start_time`           datetime comment 'å¼€è¯¾æ—¶é—´',
+   `theory_hours`         bigint not null comment 'ç†è®ºè¯¾æ—¶',
+   `practical_hours`      bigint not null comment 'å®è·µè¯¾æ—¶',
+   `type_id`              bigint comment 'è¯¾ç¨‹ç±»å‹ç¼–å·',
+   `course_property`      varchar(254) comment 'è¯¾ç¨‹æ€§è´¨',
+   `is_boutique_course`   tinyint default false comment 'æ˜¯å¦ç²¾å“è¯¾ç¨‹(true:æ˜¯, false:å¦)',
+   `introduction_`         varchar(10000) comment 'è¯¾ç¨‹ç®€ä»‹',
+   `target_`               varchar(10000) comment 'è¯¾ç¨‹ç›®æ ‡',
+   `create_by`             bigint comment 'åˆ›å»ºç”¨æˆ·ç¼–å·',
+   `create_time`           datetime not null default CURRENT_TIMESTAMP comment 'åˆ›å»ºæ—¶é—´',
+   `update_by`             bigint comment 'æ›´æ–°ç”¨æˆ·ç¼–å·',
+   `update_time`           datetime not null default CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP comment 'æ›´æ–°æ—¶é—´',
+   `sort_no`               int default 1 comment 'æ’åº',
+   `remark_`               varchar(254) comment 'å¤‡æ³¨',
+   `enable_`               tinyint default 1 comment 'æ˜¯å¦å¯ç”¨(true:æ˜¯, false:å¦)',
    primary key (id_)
 );
 
-alter table course comment '¿Î³Ì';
+alter table course comment 'è¯¾ç¨‹';
 
 /*==============================================================*/
 /* Index: course_index                                          */
@@ -943,26 +943,26 @@ create index course_is_boutique_course_index on course
 /*==============================================================*/
 create table course_material
 (
-   `id_`                   bigint not null auto_increment comment '±àºÅ',
-   `name_`                 varchar(254) comment 'Ãû³Æ',
-   `spell_`                varchar(254) comment 'Ãû³ÆµÄÈ«Æ´',
-   `publisher_id`         bigint comment '³ö°æÉç±àºÅ',
-   `editor_`               varchar(254) comment '±àÕß',
+   `id_`                   bigint not null auto_increment comment 'ç¼–å·',
+   `name_`                 varchar(254) comment 'åç§°',
+   `spell_`                varchar(254) comment 'åç§°çš„å…¨æ‹¼',
+   `publisher_id`         bigint comment 'å‡ºç‰ˆç¤¾ç¼–å·',
+   `editor_`               varchar(254) comment 'ç¼–è€…',
    `ISBN_`                 varchar(254) comment 'ISBN',
-   `price_`                numeric(8,0) comment '¶¨¼Û',
-   `feature_`              varchar(10000) comment '½Ì²ÄÌØÉ«',
-   `publish_date`         datetime comment '³ö°æÈÕÆÚ',
-   `create_by`             bigint comment '´´½¨ÓÃ»§±àºÅ',
-   `create_time`           datetime not null default CURRENT_TIMESTAMP comment '´´½¨Ê±¼ä',
-   `update_by`             bigint comment '¸üĞÂÓÃ»§±àºÅ',
-   `update_time`           datetime not null default CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP comment '¸üĞÂÊ±¼ä',
-   `sort_no`               int default 1 comment 'ÅÅĞò',
-   `remark_`               varchar(254) comment '±¸×¢',
-   `enable_`               tinyint default 1 comment 'ÊÇ·ñ¿ÉÓÃ(true:ÊÇ, false:·ñ)',
+   `price_`                numeric(8,0) comment 'å®šä»·',
+   `feature_`              varchar(10000) comment 'æ•™æç‰¹è‰²',
+   `publish_date`         datetime comment 'å‡ºç‰ˆæ—¥æœŸ',
+   `create_by`             bigint comment 'åˆ›å»ºç”¨æˆ·ç¼–å·',
+   `create_time`           datetime not null default CURRENT_TIMESTAMP comment 'åˆ›å»ºæ—¶é—´',
+   `update_by`             bigint comment 'æ›´æ–°ç”¨æˆ·ç¼–å·',
+   `update_time`           datetime not null default CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP comment 'æ›´æ–°æ—¶é—´',
+   `sort_no`               int default 1 comment 'æ’åº',
+   `remark_`               varchar(254) comment 'å¤‡æ³¨',
+   `enable_`               tinyint default 1 comment 'æ˜¯å¦å¯ç”¨(true:æ˜¯, false:å¦)',
    primary key (id_)
 );
 
-alter table course_material comment '¿Î³Ì½Ì²Ä';
+alter table course_material comment 'è¯¾ç¨‹æ•™æ';
 
 /*==============================================================*/
 /* Index: course_material_index                                 */
@@ -1001,26 +1001,26 @@ create index course_material_iSBN_index on course_material
 /*==============================================================*/
 create table course_teaching
 (
-   `id_`                   bigint not null auto_increment comment '±àºÅ',
-   `name_`                 varchar(254) comment 'Ãû³Æ',
-   `spell_`                varchar(254) comment 'Ãû³ÆµÄÈ«Æ´',
-   `course_id`             bigint comment '¿Î³Ì±àºÅ',
-   `tutor_id`              bigint comment 'ÊÚ¿ÎÀÏÊ¦±àºÅ',
-   `counselor_id`          bigint comment '¸¨µ¼ÀÏÊ¦±àºÅ',
-   `lecturer_id`           bigint comment 'ÊÚ¿Î°à¼¶±àºÅ',
-   `semester_id`           bigint comment '¿ª¿ÎÑ§ÆÚ±àºÅ',
-   `course_material_id`    bigint comment 'ËùÓÃ½Ì²Ä±àºÅ',
-   `create_by`             bigint comment '´´½¨ÓÃ»§±àºÅ',
-   `create_time`           datetime not null default CURRENT_TIMESTAMP comment '´´½¨Ê±¼ä',
-   `update_by`             bigint comment '¸üĞÂÓÃ»§±àºÅ',
-   `update_time`           datetime not null default CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP comment '¸üĞÂÊ±¼ä',
-   `sort_no`               int default 1 comment 'ÅÅĞò',
-   `remark_`               varchar(254) comment '±¸×¢',
-   `enable_`               tinyint default 1 comment 'ÊÇ·ñ¿ÉÓÃ(true:ÊÇ, false:·ñ)',
+   `id_`                   bigint not null auto_increment comment 'ç¼–å·',
+   `name_`                 varchar(254) comment 'åç§°',
+   `spell_`                varchar(254) comment 'åç§°çš„å…¨æ‹¼',
+   `course_id`             bigint comment 'è¯¾ç¨‹ç¼–å·',
+   `tutor_id`              bigint comment 'æˆè¯¾è€å¸ˆç¼–å·',
+   `counselor_id`          bigint comment 'è¾…å¯¼è€å¸ˆç¼–å·',
+   `lecturer_id`           bigint comment 'æˆè¯¾ç­çº§ç¼–å·',
+   `semester_id`           bigint comment 'å¼€è¯¾å­¦æœŸç¼–å·',
+   `course_material_id`    bigint comment 'æ‰€ç”¨æ•™æç¼–å·',
+   `create_by`             bigint comment 'åˆ›å»ºç”¨æˆ·ç¼–å·',
+   `create_time`           datetime not null default CURRENT_TIMESTAMP comment 'åˆ›å»ºæ—¶é—´',
+   `update_by`             bigint comment 'æ›´æ–°ç”¨æˆ·ç¼–å·',
+   `update_time`           datetime not null default CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP comment 'æ›´æ–°æ—¶é—´',
+   `sort_no`               int default 1 comment 'æ’åº',
+   `remark_`               varchar(254) comment 'å¤‡æ³¨',
+   `enable_`               tinyint default 1 comment 'æ˜¯å¦å¯ç”¨(true:æ˜¯, false:å¦)',
    primary key (id_)
 );
 
-alter table course_teaching comment '¿Î³Ì½²ÊÚ';
+alter table course_teaching comment 'è¯¾ç¨‹è®²æˆ';
 
 /*==============================================================*/
 /* Index: course_teaching_index                                 */
@@ -1083,20 +1083,20 @@ create index course_teaching_semester_index on course_teaching
 /*==============================================================*/
 create table course_type
 (
-   `id_`                   bigint not null auto_increment comment '±àºÅ',
-   `name_`                 varchar(254) not null comment 'Ãû³Æ',
-   `spell_`                varchar(254) comment 'Ãû³ÆµÄÈ«Æ´',
-   `create_by`             bigint comment '´´½¨ÓÃ»§±àºÅ',
-   `create_time`           datetime not null default CURRENT_TIMESTAMP comment '´´½¨Ê±¼ä',
-   `update_by`             bigint comment '¸üĞÂÓÃ»§±àºÅ',
-   `update_time`           datetime not null default CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP comment '¸üĞÂÊ±¼ä',
-   `sort_no`               int default 1 comment 'ÅÅĞò',
-   `remark_`               varchar(254) comment '±¸×¢',
-   `enable_`               tinyint default 1 comment 'ÊÇ·ñ¿ÉÓÃ(true:ÊÇ, false:·ñ)',
+   `id_`                   bigint not null auto_increment comment 'ç¼–å·',
+   `name_`                 varchar(254) not null comment 'åç§°',
+   `spell_`                varchar(254) comment 'åç§°çš„å…¨æ‹¼',
+   `create_by`             bigint comment 'åˆ›å»ºç”¨æˆ·ç¼–å·',
+   `create_time`           datetime not null default CURRENT_TIMESTAMP comment 'åˆ›å»ºæ—¶é—´',
+   `update_by`             bigint comment 'æ›´æ–°ç”¨æˆ·ç¼–å·',
+   `update_time`           datetime not null default CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP comment 'æ›´æ–°æ—¶é—´',
+   `sort_no`               int default 1 comment 'æ’åº',
+   `remark_`               varchar(254) comment 'å¤‡æ³¨',
+   `enable_`               tinyint default 1 comment 'æ˜¯å¦å¯ç”¨(true:æ˜¯, false:å¦)',
    primary key (id_)
 );
 
-alter table course_type comment '¿Î³ÌÀàĞÍ';
+alter table course_type comment 'è¯¾ç¨‹ç±»å‹';
 
 /*==============================================================*/
 /* Index: course_type_index                                     */
@@ -1119,27 +1119,27 @@ create index course_type_name_index on course_type
 /*==============================================================*/
 create table detailed_grading_item
 (
-   `id_`                   bigint not null auto_increment comment '±àºÅ',
-   `name_`                 varchar(5000) comment 'Ãû³Æ',
-   `spell_`                varchar(5000) comment 'Ãû³ÆµÄÈ«Æ´',
-   `description_`          varchar(10000) comment '¹æÔòËµÃ÷',
-   `third_rule_id`         bigint not null comment 'Èı¼¶Ä¿Â¼±àºÅ',
-   `year_`                 bigint not null comment 'Äê·İ',
-   `specialty_id`          bigint not null comment '×¨Òµ±àºÅ',
-   `data_source`           varchar(500) comment 'Êı¾İÀ´Ô´',
-   `computing_method`      varchar(500) comment '¼ÆËã·½·¨',
-   `score_`                bigint comment 'ËùÕ¼·ÖÖµ',
-   `create_by`             bigint comment '´´½¨ÓÃ»§±àºÅ',
-   `create_time`           datetime not null default CURRENT_TIMESTAMP comment '´´½¨Ê±¼ä',
-   `update_by`             bigint comment '¸üĞÂÓÃ»§±àºÅ',
-   `update_time`           datetime not null default CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP comment '¸üĞÂÊ±¼ä',
-   `sort_no`               int default 1 comment 'ÅÅĞò',
-   `remark_`               varchar(254) comment '±¸×¢',
-   `enable_`               tinyint default 1 comment 'ÊÇ·ñ¿ÉÓÃ(true:ÊÇ, false:·ñ)',
+   `id_`                   bigint not null auto_increment comment 'ç¼–å·',
+   `name_`                 varchar(5000) comment 'åç§°',
+   `spell_`                varchar(5000) comment 'åç§°çš„å…¨æ‹¼',
+   `description_`          varchar(10000) comment 'è§„åˆ™è¯´æ˜',
+   `third_rule_id`         bigint not null comment 'ä¸‰çº§ç›®å½•ç¼–å·',
+   `year_`                 bigint not null comment 'å¹´ä»½',
+   `specialty_id`          bigint not null comment 'ä¸“ä¸šç¼–å·',
+   `data_source`           varchar(500) comment 'æ•°æ®æ¥æº',
+   `computing_method`      varchar(500) comment 'è®¡ç®—æ–¹æ³•',
+   `score_`                bigint comment 'æ‰€å åˆ†å€¼',
+   `create_by`             bigint comment 'åˆ›å»ºç”¨æˆ·ç¼–å·',
+   `create_time`           datetime not null default CURRENT_TIMESTAMP comment 'åˆ›å»ºæ—¶é—´',
+   `update_by`             bigint comment 'æ›´æ–°ç”¨æˆ·ç¼–å·',
+   `update_time`           datetime not null default CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP comment 'æ›´æ–°æ—¶é—´',
+   `sort_no`               int default 1 comment 'æ’åº',
+   `remark_`               varchar(254) comment 'å¤‡æ³¨',
+   `enable_`               tinyint default 1 comment 'æ˜¯å¦å¯ç”¨(true:æ˜¯, false:å¦)',
    primary key (id_)
 );
 
-alter table detailed_grading_item comment 'ÆÀ·ÖÏ¸Ôò';
+alter table detailed_grading_item comment 'è¯„åˆ†ç»†åˆ™';
 
 /*==============================================================*/
 /* Index: detailed_grading_item_index                           */
@@ -1154,26 +1154,26 @@ create unique index detailed_grading_item_index on detailed_grading_item
 /*==============================================================*/
 create table education_program
 (
-   `id_`                           bigint not null auto_increment comment '±àºÅ',
-   `name_`                         varchar(254) comment 'Ãû³Æ',
-   `spell_`                        varchar(254) comment 'Ãû³ÆµÄÈ«Æ´',
-   `year_`                         bigint comment 'Äê·İ',
-   `specialty_id`                  bigint not null comment '×¨Òµ±àºÅ',
-   `theoretical_teaching_credit`   bigint comment 'ÀíÂÛ½ÌÑ§Ñ§·Ö',
-   `practice_teaching_credit`      bigint comment 'Êµ¼ù½ÌÑ§Ñ§·Ö',
-   `brief_introduction`            varchar(10000) comment '¼ò½é',
-   `attachment_id`                 bigint comment '¸½¼şÎÄµµ',
-   `create_by`                     bigint comment '´´½¨ÓÃ»§±àºÅ',
-   `create_time`                   datetime not null default CURRENT_TIMESTAMP comment '´´½¨Ê±¼ä',
-   `update_by`                     bigint comment '¸üĞÂÓÃ»§±àºÅ',
-   `update_time`                   datetime not null default CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP comment '¸üĞÂÊ±¼ä',
-   `sort_no`                       int default 1 comment 'ÅÅĞò',
-   `remark_`                       varchar(254) comment '±¸×¢',
-   `enable_`                       tinyint default 1 comment 'ÊÇ·ñ¿ÉÓÃ(true:ÊÇ, false:·ñ)',
+   `id_`                           bigint not null auto_increment comment 'ç¼–å·',
+   `name_`                         varchar(254) comment 'åç§°',
+   `spell_`                        varchar(254) comment 'åç§°çš„å…¨æ‹¼',
+   `year_`                         bigint comment 'å¹´ä»½',
+   `specialty_id`                  bigint not null comment 'ä¸“ä¸šç¼–å·',
+   `theoretical_teaching_credit`   bigint comment 'ç†è®ºæ•™å­¦å­¦åˆ†',
+   `practice_teaching_credit`      bigint comment 'å®è·µæ•™å­¦å­¦åˆ†',
+   `brief_introduction`            varchar(10000) comment 'ç®€ä»‹',
+   `attachment_id`                 bigint comment 'é™„ä»¶æ–‡æ¡£',
+   `create_by`                     bigint comment 'åˆ›å»ºç”¨æˆ·ç¼–å·',
+   `create_time`                   datetime not null default CURRENT_TIMESTAMP comment 'åˆ›å»ºæ—¶é—´',
+   `update_by`                     bigint comment 'æ›´æ–°ç”¨æˆ·ç¼–å·',
+   `update_time`                   datetime not null default CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP comment 'æ›´æ–°æ—¶é—´',
+   `sort_no`                       int default 1 comment 'æ’åº',
+   `remark_`                       varchar(254) comment 'å¤‡æ³¨',
+   `enable_`                       tinyint default 1 comment 'æ˜¯å¦å¯ç”¨(true:æ˜¯, false:å¦)',
    primary key (id_)
 );
 
-alter table education_program comment 'ÅàÑø·½°¸';
+alter table education_program comment 'åŸ¹å…»æ–¹æ¡ˆ';
 
 /*==============================================================*/
 /* Index: education_program_index                               */
@@ -1212,25 +1212,25 @@ create index education_program_specialty_index on education_program
 /*==============================================================*/
 create table employment_situation
 (
-   `id_`                   bigint not null auto_increment comment '±àºÅ',
-   `name_`                 varchar(254) comment 'Ãû³Æ',
-   `spell_`                varchar(254) comment 'Ãû³ÆµÄÈ«Æ´',
-   `student_id`            bigint not null comment 'Ñ§Éú±àºÅ',
-   `time_`                 datetime comment 'Ê±¼ä',
-   `company_`              varchar(254) comment 'ÆóÒµ',
-   `orientation_`          varchar(254) comment '·½Ïò',
-   `status_`               tinyint default true comment 'true£ºÇ©Ô¼£¬false£º»ÙÔ¼',
-   `create_by`             bigint comment '´´½¨ÓÃ»§±àºÅ',
-   `create_time`           datetime default CURRENT_TIMESTAMP comment '´´½¨Ê±¼ä',
-   `update_by`             bigint comment '¸üĞÂÓÃ»§±àºÅ',
-   `update_time`           datetime default CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP comment '¸üĞÂÊ±¼ä',
-   `sort_no`               int default 1 comment 'ÅÅĞò',
-   `remark_`               varchar(254) comment '±¸×¢',
-   `enable_`               tinyint default 1 comment 'ÊÇ·ñ¿ÉÓÃ(true:ÊÇ, false:·ñ)',
+   `id_`                   bigint not null auto_increment comment 'ç¼–å·',
+   `name_`                 varchar(254) comment 'åç§°',
+   `spell_`                varchar(254) comment 'åç§°çš„å…¨æ‹¼',
+   `student_id`            bigint not null comment 'å­¦ç”Ÿç¼–å·',
+   `time_`                 datetime comment 'æ—¶é—´',
+   `company_`              varchar(254) comment 'ä¼ä¸š',
+   `orientation_`          varchar(254) comment 'æ–¹å‘',
+   `status_`               tinyint default true comment 'trueï¼šç­¾çº¦ï¼Œfalseï¼šæ¯çº¦',
+   `create_by`             bigint comment 'åˆ›å»ºç”¨æˆ·ç¼–å·',
+   `create_time`           datetime default CURRENT_TIMESTAMP comment 'åˆ›å»ºæ—¶é—´',
+   `update_by`             bigint comment 'æ›´æ–°ç”¨æˆ·ç¼–å·',
+   `update_time`           datetime default CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP comment 'æ›´æ–°æ—¶é—´',
+   `sort_no`               int default 1 comment 'æ’åº',
+   `remark_`               varchar(254) comment 'å¤‡æ³¨',
+   `enable_`               tinyint default 1 comment 'æ˜¯å¦å¯ç”¨(true:æ˜¯, false:å¦)',
    primary key (id_)
 );
 
-alter table employment_situation comment '¾ÍÒµÇé¿ö';
+alter table employment_situation comment 'å°±ä¸šæƒ…å†µ';
 
 /*==============================================================*/
 /* Index: employment_situation_index                            */
@@ -1253,45 +1253,45 @@ create index employment_situation_student_index on employment_situation
 /*==============================================================*/
 create table equipment
 (
-   `id_`                   bigint not null auto_increment comment '±àºÅ',
-   `name_`                 varchar(254) comment 'Ãû³Æ',
-   `spell_`                varchar(254) comment 'Ãû³ÆµÄÈ«Æ´',
-   `number_`               bigint comment 'Ì¨Êı',
-   `specialty_id`          bigint comment '×¨Òµ±àºÅ',
-   `price_`                bigint comment 'µ¥¼Û',
-   `is_nearly_add`         tinyint default false comment 'ÊÇ·ñ½üËÄÄêĞÂÔö(true:ÊÇ, false:·ñ)',
-   `use_rate`              float comment '±¾×¨ÒµÊ¹ÓÃ±ÈÀı',
-   `create_by`             bigint comment '´´½¨ÓÃ»§±àºÅ',
-   `create_time`           datetime not null default CURRENT_TIMESTAMP comment '´´½¨Ê±¼ä',
-   `update_by`             bigint comment '¸üĞÂÓÃ»§±àºÅ',
-   `update_time`           datetime not null default CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP comment '¸üĞÂÊ±¼ä',
-   `sort_no`               int default 1 comment 'ÅÅĞò',
-   `remark_`               varchar(254) comment '±¸×¢',
-   `enable_`               tinyint default 1 comment 'ÊÇ·ñ¿ÉÓÃ(true:ÊÇ, false:·ñ)',
+   `id_`                   bigint not null auto_increment comment 'ç¼–å·',
+   `name_`                 varchar(254) comment 'åç§°',
+   `spell_`                varchar(254) comment 'åç§°çš„å…¨æ‹¼',
+   `number_`               bigint comment 'å°æ•°',
+   `specialty_id`          bigint comment 'ä¸“ä¸šç¼–å·',
+   `price_`                bigint comment 'å•ä»·',
+   `is_nearly_add`         tinyint default false comment 'æ˜¯å¦è¿‘å››å¹´æ–°å¢(true:æ˜¯, false:å¦)',
+   `use_rate`              float comment 'æœ¬ä¸“ä¸šä½¿ç”¨æ¯”ä¾‹',
+   `create_by`             bigint comment 'åˆ›å»ºç”¨æˆ·ç¼–å·',
+   `create_time`           datetime not null default CURRENT_TIMESTAMP comment 'åˆ›å»ºæ—¶é—´',
+   `update_by`             bigint comment 'æ›´æ–°ç”¨æˆ·ç¼–å·',
+   `update_time`           datetime not null default CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP comment 'æ›´æ–°æ—¶é—´',
+   `sort_no`               int default 1 comment 'æ’åº',
+   `remark_`               varchar(254) comment 'å¤‡æ³¨',
+   `enable_`               tinyint default 1 comment 'æ˜¯å¦å¯ç”¨(true:æ˜¯, false:å¦)',
    primary key (id_)
 );
 
-alter table equipment comment 'ÒÇÆ÷Éè±¸';
+alter table equipment comment 'ä»ªå™¨è®¾å¤‡';
 
 /*==============================================================*/
 /* Table: examinee_category                                     */
 /*==============================================================*/
 create table examinee_category
 (
-   `id_`                   bigint not null auto_increment comment '±àºÅ',
-   `name_`                 varchar(254) comment 'Ãû³Æ',
-   `spell_`                varchar(254) comment 'Ãû³ÆµÄÈ«Æ´',
-   `create_by`             bigint comment '´´½¨ÓÃ»§±àºÅ',
-   `create_time`           datetime not null default CURRENT_TIMESTAMP comment '´´½¨Ê±¼ä',
-   `update_by`             bigint comment '¸üĞÂÓÃ»§±àºÅ',
-   `update_time`           datetime not null default CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP comment '¸üĞÂÊ±¼ä',
-   `sort_no`               int default 1 comment 'ÅÅĞò',
-   `remark_`               varchar(254) comment '±¸×¢',
-   `enable_`               tinyint default 1 comment 'ÊÇ·ñ¿ÉÓÃ(true:ÊÇ, false:·ñ)',
+   `id_`                   bigint not null auto_increment comment 'ç¼–å·',
+   `name_`                 varchar(254) comment 'åç§°',
+   `spell_`                varchar(254) comment 'åç§°çš„å…¨æ‹¼',
+   `create_by`             bigint comment 'åˆ›å»ºç”¨æˆ·ç¼–å·',
+   `create_time`           datetime not null default CURRENT_TIMESTAMP comment 'åˆ›å»ºæ—¶é—´',
+   `update_by`             bigint comment 'æ›´æ–°ç”¨æˆ·ç¼–å·',
+   `update_time`           datetime not null default CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP comment 'æ›´æ–°æ—¶é—´',
+   `sort_no`               int default 1 comment 'æ’åº',
+   `remark_`               varchar(254) comment 'å¤‡æ³¨',
+   `enable_`               tinyint default 1 comment 'æ˜¯å¦å¯ç”¨(true:æ˜¯, false:å¦)',
    primary key (id_)
 );
 
-alter table examinee_category comment '¿¼ÉúÀà±ğ';
+alter table examinee_category comment 'è€ƒç”Ÿç±»åˆ«';
 
 /*==============================================================*/
 /* Index: examinee_category_index                               */
@@ -1314,20 +1314,20 @@ create index examinee_category_name_index on examinee_category
 /*==============================================================*/
 create table gender
 (
-   `id_`                   bigint not null auto_increment comment '±àºÅ',
-   `name_`                 varchar(254) not null comment 'Ãû³Æ',
-   `spell_`                varchar(254) comment 'Ãû³ÆµÄÈ«Æ´',
-   `create_by`             bigint comment '´´½¨ÓÃ»§±àºÅ',
-   `create_time`           datetime not null default CURRENT_TIMESTAMP comment '´´½¨Ê±¼ä',
-   `update_by`             bigint comment '¸üĞÂÓÃ»§±àºÅ',
-   `update_time`           datetime not null default CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP comment '¸üĞÂÊ±¼ä',
-   `sort_no`               int default 1 comment 'ÅÅĞò',
-   `remark_`               varchar(254) comment '±¸×¢',
-   `enable_`               tinyint default 1 comment 'ÊÇ·ñ¿ÉÓÃ(true:ÊÇ, false:·ñ)',
+   `id_`                   bigint not null auto_increment comment 'ç¼–å·',
+   `name_`                 varchar(254) not null comment 'åç§°',
+   `spell_`                varchar(254) comment 'åç§°çš„å…¨æ‹¼',
+   `create_by`             bigint comment 'åˆ›å»ºç”¨æˆ·ç¼–å·',
+   `create_time`           datetime not null default CURRENT_TIMESTAMP comment 'åˆ›å»ºæ—¶é—´',
+   `update_by`             bigint comment 'æ›´æ–°ç”¨æˆ·ç¼–å·',
+   `update_time`           datetime not null default CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP comment 'æ›´æ–°æ—¶é—´',
+   `sort_no`               int default 1 comment 'æ’åº',
+   `remark_`               varchar(254) comment 'å¤‡æ³¨',
+   `enable_`               tinyint default 1 comment 'æ˜¯å¦å¯ç”¨(true:æ˜¯, false:å¦)',
    primary key (id_)
 );
 
-alter table gender comment 'ĞÔ±ğ';
+alter table gender comment 'æ€§åˆ«';
 
 /*==============================================================*/
 /* Index: gender_index                                          */
@@ -1350,20 +1350,20 @@ create index gender_name_index on gender
 /*==============================================================*/
 create table high_school_category
 (
-   `id_`                   bigint not null auto_increment comment '±àºÅ',
-   `name_`                 varchar(254) not null comment 'Ãû³Æ',
-   `spell_`                varchar(254) comment 'Ãû³ÆµÄÈ«Æ´',
-   `create_by`             bigint comment '´´½¨ÓÃ»§±àºÅ',
-   `create_time`           datetime not null default CURRENT_TIMESTAMP comment '´´½¨Ê±¼ä',
-   `update_by`             bigint comment '¸üĞÂÓÃ»§±àºÅ',
-   `update_time`           datetime not null default CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP comment '¸üĞÂÊ±¼ä',
-   `sort_no`               int default 1 comment 'ÅÅĞò',
-   `remark_`               varchar(254) comment '±¸×¢',
-   `enable_`               tinyint default 1 comment 'ÊÇ·ñ¿ÉÓÃ(true:ÊÇ, false:·ñ)',
+   `id_`                   bigint not null auto_increment comment 'ç¼–å·',
+   `name_`                 varchar(254) not null comment 'åç§°',
+   `spell_`                varchar(254) comment 'åç§°çš„å…¨æ‹¼',
+   `create_by`             bigint comment 'åˆ›å»ºç”¨æˆ·ç¼–å·',
+   `create_time`           datetime not null default CURRENT_TIMESTAMP comment 'åˆ›å»ºæ—¶é—´',
+   `update_by`             bigint comment 'æ›´æ–°ç”¨æˆ·ç¼–å·',
+   `update_time`           datetime not null default CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP comment 'æ›´æ–°æ—¶é—´',
+   `sort_no`               int default 1 comment 'æ’åº',
+   `remark_`               varchar(254) comment 'å¤‡æ³¨',
+   `enable_`               tinyint default 1 comment 'æ˜¯å¦å¯ç”¨(true:æ˜¯, false:å¦)',
    primary key (id_)
 );
 
-alter table high_school_category comment '¸ßÖĞÀà±ğ';
+alter table high_school_category comment 'é«˜ä¸­ç±»åˆ«';
 
 /*==============================================================*/
 /* Index: high_school_category_index                            */
@@ -1386,24 +1386,24 @@ create index high_school_category_name_index on high_school_category
 /*==============================================================*/
 create table judgment
 (
-   `id_`                   bigint not null auto_increment comment '±àºÅ',
-   `name_`                 varchar(2000) not null comment 'Ãû³Æ',
-   `spell_`                varchar(2000) comment 'Ãû³ÆµÄÈ«Æ´',
-   `answer_`               tinyint comment '²Î¿¼´ğ°¸',
-   `difficult_degree`      bigint comment 'ÄÑ¶ÈÏµÊı',
-   `is_required`           tinyint default false comment 'ÊÇ·ñ±ØÑ¡(true:ÊÇ, false:·ñ)',
-   `section_id`            bigint comment 'ËùÊôÕÂ½Ú',
-   `create_by`             bigint comment '´´½¨ÓÃ»§±àºÅ',
-   `create_time`           datetime not null default CURRENT_TIMESTAMP comment '´´½¨Ê±¼ä',
-   `update_by`             bigint comment '¸üĞÂÓÃ»§±àºÅ',
-   `update_time`           datetime not null default CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP comment '¸üĞÂÊ±¼ä',
-   `sort_no`               int default 1 comment 'ÅÅĞò',
-   `remark_`               varchar(254) comment '±¸×¢',
-   `enable_`               tinyint default 1 comment 'ÊÇ·ñ¿ÉÓÃ(true:ÊÇ, false:·ñ)',
+   `id_`                   bigint not null auto_increment comment 'ç¼–å·',
+   `name_`                 varchar(2000) not null comment 'åç§°',
+   `spell_`                varchar(2000) comment 'åç§°çš„å…¨æ‹¼',
+   `answer_`               tinyint comment 'å‚è€ƒç­”æ¡ˆ',
+   `difficult_degree`      bigint comment 'éš¾åº¦ç³»æ•°',
+   `is_required`           tinyint default false comment 'æ˜¯å¦å¿…é€‰(true:æ˜¯, false:å¦)',
+   `section_id`            bigint comment 'æ‰€å±ç« èŠ‚',
+   `create_by`             bigint comment 'åˆ›å»ºç”¨æˆ·ç¼–å·',
+   `create_time`           datetime not null default CURRENT_TIMESTAMP comment 'åˆ›å»ºæ—¶é—´',
+   `update_by`             bigint comment 'æ›´æ–°ç”¨æˆ·ç¼–å·',
+   `update_time`           datetime not null default CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP comment 'æ›´æ–°æ—¶é—´',
+   `sort_no`               int default 1 comment 'æ’åº',
+   `remark_`               varchar(254) comment 'å¤‡æ³¨',
+   `enable_`               tinyint default 1 comment 'æ˜¯å¦å¯ç”¨(true:æ˜¯, false:å¦)',
    primary key (id_)
 );
 
-alter table judgment comment 'ÅĞ¶ÏÌâ';
+alter table judgment comment 'åˆ¤æ–­é¢˜';
 
 /*==============================================================*/
 /* Index: judgment_index                                        */
@@ -1442,23 +1442,23 @@ create index judgment_section_index on judgment
 /*==============================================================*/
 create table knowledge_point
 (
-   `id_`                          bigint not null auto_increment comment '±àºÅ',
-   `name_`                        varchar(254) comment 'Ãû³Æ',
-   `spell_`                       varchar(254) comment 'Ãû³ÆµÄÈ«Æ´',
-   `overview_`                    varchar(10000) comment 'ÖªÊ¶¸ÅÊö',
-   `difficult_degree`             bigint comment 'ÖªÊ¶ÄÑ¶È',
-   `parent_knowledge_point_id`    bigint comment 'ËùÊô¸¸ÖªÊ¶µã±àºÅ',
-   `create_by`                    bigint comment '´´½¨ÓÃ»§±àºÅ',
-   `create_time`                  datetime not null default CURRENT_TIMESTAMP comment '´´½¨Ê±¼ä',
-   `update_by`                    bigint comment '¸üĞÂÓÃ»§±àºÅ',
-   `update_time`                  datetime not null default CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP comment '¸üĞÂÊ±¼ä',
-   `sort_no`                      int default 1 comment 'ÅÅĞò',
-   `remark_`                      varchar(254) comment '±¸×¢',
-   `enable_`                      tinyint default 1 comment 'ÊÇ·ñ¿ÉÓÃ(true:ÊÇ, false:·ñ)',
+   `id_`                          bigint not null auto_increment comment 'ç¼–å·',
+   `name_`                        varchar(254) comment 'åç§°',
+   `spell_`                       varchar(254) comment 'åç§°çš„å…¨æ‹¼',
+   `overview_`                    varchar(10000) comment 'çŸ¥è¯†æ¦‚è¿°',
+   `difficult_degree`             bigint comment 'çŸ¥è¯†éš¾åº¦',
+   `parent_knowledge_point_id`    bigint comment 'æ‰€å±çˆ¶çŸ¥è¯†ç‚¹ç¼–å·',
+   `create_by`                    bigint comment 'åˆ›å»ºç”¨æˆ·ç¼–å·',
+   `create_time`                  datetime not null default CURRENT_TIMESTAMP comment 'åˆ›å»ºæ—¶é—´',
+   `update_by`                    bigint comment 'æ›´æ–°ç”¨æˆ·ç¼–å·',
+   `update_time`                  datetime not null default CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP comment 'æ›´æ–°æ—¶é—´',
+   `sort_no`                      int default 1 comment 'æ’åº',
+   `remark_`                      varchar(254) comment 'å¤‡æ³¨',
+   `enable_`                      tinyint default 1 comment 'æ˜¯å¦å¯ç”¨(true:æ˜¯, false:å¦)',
    primary key (id_)
 );
 
-alter table knowledge_point comment 'ÖªÊ¶µã';
+alter table knowledge_point comment 'çŸ¥è¯†ç‚¹';
 
 /*==============================================================*/
 /* Index: knowledge_point_index                                  */
@@ -1497,23 +1497,23 @@ create index knowledge_point_parent_index on knowledge_point
 /*==============================================================*/
 create table multi_select
 (
-   `id_`                   bigint not null auto_increment comment '±àºÅ',
-   `name_`                 varchar(2000) not null comment 'Ãû³Æ',
-   `spell_`                varchar(2000) comment 'Ãû³ÆµÄÈ«Æ´',
-   `difficult_degree`      bigint comment 'ÄÑ¶ÈÏµÊı',
-   `is_required`           tinyint default false comment 'ÊÇ·ñ±ØÑ¡(true:ÊÇ, false:·ñ)',
-   `section_id`            bigint comment 'ËùÊôÕÂ½Ú',
-   `create_by`             bigint comment '´´½¨ÓÃ»§±àºÅ',
-   `create_time`           datetime not null default CURRENT_TIMESTAMP comment '´´½¨Ê±¼ä',
-   `update_by`             bigint comment '¸üĞÂÓÃ»§±àºÅ',
-   `update_time`           datetime not null default CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP comment '¸üĞÂÊ±¼ä',
-   `sort_no`               int default 1 comment 'ÅÅĞò',
-   `remark_`               varchar(254) comment '±¸×¢',
-   `enable_`               tinyint default 1 comment 'ÊÇ·ñ¿ÉÓÃ(true:ÊÇ, false:·ñ)',
+   `id_`                   bigint not null auto_increment comment 'ç¼–å·',
+   `name_`                 varchar(2000) not null comment 'åç§°',
+   `spell_`                varchar(2000) comment 'åç§°çš„å…¨æ‹¼',
+   `difficult_degree`      bigint comment 'éš¾åº¦ç³»æ•°',
+   `is_required`           tinyint default false comment 'æ˜¯å¦å¿…é€‰(true:æ˜¯, false:å¦)',
+   `section_id`            bigint comment 'æ‰€å±ç« èŠ‚',
+   `create_by`             bigint comment 'åˆ›å»ºç”¨æˆ·ç¼–å·',
+   `create_time`           datetime not null default CURRENT_TIMESTAMP comment 'åˆ›å»ºæ—¶é—´',
+   `update_by`             bigint comment 'æ›´æ–°ç”¨æˆ·ç¼–å·',
+   `update_time`           datetime not null default CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP comment 'æ›´æ–°æ—¶é—´',
+   `sort_no`               int default 1 comment 'æ’åº',
+   `remark_`               varchar(254) comment 'å¤‡æ³¨',
+   `enable_`               tinyint default 1 comment 'æ˜¯å¦å¯ç”¨(true:æ˜¯, false:å¦)',
    primary key (id_)
 );
 
-alter table multi_select comment '¶àÏîÑ¡ÔñÌâ';
+alter table multi_select comment 'å¤šé¡¹é€‰æ‹©é¢˜';
 
 /*==============================================================*/
 /* Index: multi_select_index                                    */
@@ -1552,20 +1552,20 @@ create index multi_select_section_index on multi_select
 /*==============================================================*/
 create table nation
 (
-   `id_`                   bigint not null auto_increment comment '±àºÅ',
-   `name_`                 varchar(254) not null comment 'Ãû³Æ',
-   `spell_`                varchar(254) comment 'Ãû³ÆµÄÈ«Æ´',
-   `create_by`             bigint comment '´´½¨ÓÃ»§±àºÅ',
-   `create_time`           datetime not null default CURRENT_TIMESTAMP comment '´´½¨Ê±¼ä',
-   `update_by`             bigint comment '¸üĞÂÓÃ»§±àºÅ',
-   `update_time`           datetime not null default CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP comment '¸üĞÂÊ±¼ä',
-   `sort_no`               int default 1 comment 'ÅÅĞò',
-   `remark_`               varchar(254) comment '±¸×¢',
-   `enable_`               tinyint default 1 comment 'ÊÇ·ñ¿ÉÓÃ(true:ÊÇ, false:·ñ)',
+   `id_`                   bigint not null auto_increment comment 'ç¼–å·',
+   `name_`                 varchar(254) not null comment 'åç§°',
+   `spell_`                varchar(254) comment 'åç§°çš„å…¨æ‹¼',
+   `create_by`             bigint comment 'åˆ›å»ºç”¨æˆ·ç¼–å·',
+   `create_time`           datetime not null default CURRENT_TIMESTAMP comment 'åˆ›å»ºæ—¶é—´',
+   `update_by`             bigint comment 'æ›´æ–°ç”¨æˆ·ç¼–å·',
+   `update_time`           datetime not null default CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP comment 'æ›´æ–°æ—¶é—´',
+   `sort_no`               int default 1 comment 'æ’åº',
+   `remark_`               varchar(254) comment 'å¤‡æ³¨',
+   `enable_`               tinyint default 1 comment 'æ˜¯å¦å¯ç”¨(true:æ˜¯, false:å¦)',
    primary key (id_)
 );
 
-alter table nation comment 'Ãñ×å';
+alter table nation comment 'æ°‘æ—';
 
 /*==============================================================*/
 /* Index: nation_index                                          */
@@ -1588,25 +1588,25 @@ create index nation_name_index on nation
 /*==============================================================*/
 create table owner
 (
-   `id_`                   bigint not null auto_increment comment '±àºÅ',
-   `name_`                 varchar(254) comment 'Ãû³Æ',
-   `spell_`                varchar(254) comment 'Ãû³ÆµÄÈ«Æ´',
-   `flag_`                 bigint not null default 0 comment 'ÖµÎª0´ú±íÑ§Éú£¬1´ú±í½ÌÊ¦£¬2´ú±íÑ§Ôº£¬3´ú±íÑ§Ğ£',
-   `student_id`            bigint not null comment 'Ñ§Éú',
-   `teacher_id`            bigint not null comment '½ÌÊ¦',
-   `college_id`            bigint comment 'Ñ§Ôº±àºÅ',
-   `school_id`             bigint comment 'Ñ§Ğ£±àºÅ',
-   `create_by`             bigint comment '´´½¨ÓÃ»§±àºÅ',
-   `create_time`           datetime not null default CURRENT_TIMESTAMP comment '´´½¨Ê±¼ä',
-   `update_by`             bigint comment '¸üĞÂÓÃ»§±àºÅ',
-   `update_time`           datetime not null default CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP comment '¸üĞÂÊ±¼ä',
-   `sort_no`               int default 1 comment 'ÅÅĞò',
-   `remark_`               varchar(254) comment '±¸×¢',
-   `enable_`               tinyint default 1 comment 'ÊÇ·ñ¿ÉÓÃ(true:ÊÇ, false:·ñ)',
+   `id_`                   bigint not null auto_increment comment 'ç¼–å·',
+   `name_`                 varchar(254) comment 'åç§°',
+   `spell_`                varchar(254) comment 'åç§°çš„å…¨æ‹¼',
+   `flag_`                 bigint not null default 0 comment 'å€¼ä¸º0ä»£è¡¨å­¦ç”Ÿï¼Œ1ä»£è¡¨æ•™å¸ˆï¼Œ2ä»£è¡¨å­¦é™¢ï¼Œ3ä»£è¡¨å­¦æ ¡',
+   `student_id`            bigint not null comment 'å­¦ç”Ÿ',
+   `teacher_id`            bigint not null comment 'æ•™å¸ˆ',
+   `college_id`            bigint comment 'å­¦é™¢ç¼–å·',
+   `school_id`             bigint comment 'å­¦æ ¡ç¼–å·',
+   `create_by`             bigint comment 'åˆ›å»ºç”¨æˆ·ç¼–å·',
+   `create_time`           datetime not null default CURRENT_TIMESTAMP comment 'åˆ›å»ºæ—¶é—´',
+   `update_by`             bigint comment 'æ›´æ–°ç”¨æˆ·ç¼–å·',
+   `update_time`           datetime not null default CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP comment 'æ›´æ–°æ—¶é—´',
+   `sort_no`               int default 1 comment 'æ’åº',
+   `remark_`               varchar(254) comment 'å¤‡æ³¨',
+   `enable_`               tinyint default 1 comment 'æ˜¯å¦å¯ç”¨(true:æ˜¯, false:å¦)',
    primary key (id_)
 );
 
-alter table owner comment 'ÓµÓĞÕß';
+alter table owner comment 'æ‹¥æœ‰è€…';
 
 /*==============================================================*/
 /* Index: owner_index                                           */
@@ -1653,28 +1653,28 @@ create index owner_school_index on owner
 /*==============================================================*/
 create table patent
 (
-   `id_`                   bigint not null auto_increment comment '±àºÅ',
-   `name_`                 varchar(254) not null comment 'Ãû³Æ',
-   `spell_`                varchar(254) comment 'Ãû³ÆµÄÈ«Æ´',
-   `patent_type_id`        bigint comment 'ÀàĞÍ±àºÅ',
-   `patent_no`             varchar(254) comment '×¨ÀûºÅ',
-   `patent_date`           datetime comment '×¨ÀûÉêÇëÈÕ',
-   `auth_date`             datetime comment 'ÊÚÈ¨¹«¸æÈÕ',
-   `patent_deadline`       datetime comment '½ØÖ¹ÈÕÆÚ',
-   `domain_`               varchar(254) comment 'ËùÊô¼¼ÊõÁìÓò',
-   `content_`              varchar(5000) comment '×¨Àû¼ò½é',
-   `attachment_id`         bigint comment '¸½¼şÎÄµµ',
-   `create_by`             bigint comment '´´½¨ÓÃ»§±àºÅ',
-   `create_time`           datetime not null default CURRENT_TIMESTAMP comment '´´½¨Ê±¼ä',
-   `update_by`             bigint comment '¸üĞÂÓÃ»§±àºÅ',
-   `update_time`           datetime not null default CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP comment '¸üĞÂÊ±¼ä',
-   `sort_no`               int default 1 comment 'ÅÅĞò',
-   `remark_`               varchar(254) comment '±¸×¢',
-   `enable_`               tinyint default 1 comment 'ÊÇ·ñ¿ÉÓÃ(true:ÊÇ, false:·ñ)',
+   `id_`                   bigint not null auto_increment comment 'ç¼–å·',
+   `name_`                 varchar(254) not null comment 'åç§°',
+   `spell_`                varchar(254) comment 'åç§°çš„å…¨æ‹¼',
+   `patent_type_id`        bigint comment 'ç±»å‹ç¼–å·',
+   `patent_no`             varchar(254) comment 'ä¸“åˆ©å·',
+   `patent_date`           datetime comment 'ä¸“åˆ©ç”³è¯·æ—¥',
+   `auth_date`             datetime comment 'æˆæƒå…¬å‘Šæ—¥',
+   `patent_deadline`       datetime comment 'æˆªæ­¢æ—¥æœŸ',
+   `domain_`               varchar(254) comment 'æ‰€å±æŠ€æœ¯é¢†åŸŸ',
+   `content_`              varchar(5000) comment 'ä¸“åˆ©ç®€ä»‹',
+   `attachment_id`         bigint comment 'é™„ä»¶æ–‡æ¡£',
+   `create_by`             bigint comment 'åˆ›å»ºç”¨æˆ·ç¼–å·',
+   `create_time`           datetime not null default CURRENT_TIMESTAMP comment 'åˆ›å»ºæ—¶é—´',
+   `update_by`             bigint comment 'æ›´æ–°ç”¨æˆ·ç¼–å·',
+   `update_time`           datetime not null default CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP comment 'æ›´æ–°æ—¶é—´',
+   `sort_no`               int default 1 comment 'æ’åº',
+   `remark_`               varchar(254) comment 'å¤‡æ³¨',
+   `enable_`               tinyint default 1 comment 'æ˜¯å¦å¯ç”¨(true:æ˜¯, false:å¦)',
    primary key (id_)
 );
 
-alter table patent comment '×¨Àû';
+alter table patent comment 'ä¸“åˆ©';
 
 /*==============================================================*/
 /* Index: patent_index                                          */
@@ -1705,22 +1705,22 @@ create index patent_type_index on patent
 /*==============================================================*/
 create table patent_inventor_owner
 (
-   `id_`                   bigint not null auto_increment comment '±àºÅ',
-   `name_`                 varchar(254) comment 'Ãû³Æ',
-   `spell_`                varchar(254) comment 'Ãû³ÆµÄÈ«Æ´',
-   `patent_no`             bigint not null comment '×¨Àû±àºÅ',
-   `owner_id`              bigint not null comment 'ÓµÓĞÕß±àºÅ',
-   `create_by`             bigint comment '´´½¨ÓÃ»§±àºÅ',
-   `create_time`           datetime not null default CURRENT_TIMESTAMP comment '´´½¨Ê±¼ä',
-   `update_by`             bigint comment '¸üĞÂÓÃ»§±àºÅ',
-   `update_time`           datetime not null default CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP comment '¸üĞÂÊ±¼ä',
-   `sort_no`               int default 1 comment 'ÅÅĞò',
-   `remark_`               varchar(254) comment '±¸×¢',
-   `enable_`               tinyint default 1 comment 'ÊÇ·ñ¿ÉÓÃ(true:ÊÇ, false:·ñ)',
+   `id_`                   bigint not null auto_increment comment 'ç¼–å·',
+   `name_`                 varchar(254) comment 'åç§°',
+   `spell_`                varchar(254) comment 'åç§°çš„å…¨æ‹¼',
+   `patent_no`             bigint not null comment 'ä¸“åˆ©ç¼–å·',
+   `owner_id`              bigint not null comment 'æ‹¥æœ‰è€…ç¼–å·',
+   `create_by`             bigint comment 'åˆ›å»ºç”¨æˆ·ç¼–å·',
+   `create_time`           datetime not null default CURRENT_TIMESTAMP comment 'åˆ›å»ºæ—¶é—´',
+   `update_by`             bigint comment 'æ›´æ–°ç”¨æˆ·ç¼–å·',
+   `update_time`           datetime not null default CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP comment 'æ›´æ–°æ—¶é—´',
+   `sort_no`               int default 1 comment 'æ’åº',
+   `remark_`               varchar(254) comment 'å¤‡æ³¨',
+   `enable_`               tinyint default 1 comment 'æ˜¯å¦å¯ç”¨(true:æ˜¯, false:å¦)',
    primary key (id_)
 );
 
-alter table patent_inventor_owner comment '×¨Àû·¢Ã÷ÈË£¨Éè¼ÆÈË£©ÓëÓµÓĞÕß¹ØÁª';
+alter table patent_inventor_owner comment 'ä¸“åˆ©å‘æ˜äººï¼ˆè®¾è®¡äººï¼‰ä¸æ‹¥æœ‰è€…å…³è”';
 
 /*==============================================================*/
 /* Index: patent_inventor_owner_index                           */
@@ -1735,20 +1735,20 @@ create unique index patent_inventor_owner_index on patent_inventor_owner
 /*==============================================================*/
 create table patent_type
 (
-   `id_`                   bigint not null auto_increment comment '±àºÅ',
-   `name_`                 varchar(254) not null comment 'Ãû³Æ',
-   `spell_`                varchar(254) comment 'Ãû³ÆµÄÈ«Æ´',
-   `create_by`             bigint comment '´´½¨ÓÃ»§±àºÅ',
-   `create_time`           datetime not null default CURRENT_TIMESTAMP comment '´´½¨Ê±¼ä',
-   `update_by`             bigint comment '¸üĞÂÓÃ»§±àºÅ',
-   `update_time`           datetime not null default CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP comment '¸üĞÂÊ±¼ä',
-   `sort_no`               int default 1 comment 'ÅÅĞò',
-   `remark_`               varchar(254) comment '±¸×¢',
-   `enable_`               tinyint default 1 comment 'ÊÇ·ñ¿ÉÓÃ(true:ÊÇ, false:·ñ)',
+   `id_`                   bigint not null auto_increment comment 'ç¼–å·',
+   `name_`                 varchar(254) not null comment 'åç§°',
+   `spell_`                varchar(254) comment 'åç§°çš„å…¨æ‹¼',
+   `create_by`             bigint comment 'åˆ›å»ºç”¨æˆ·ç¼–å·',
+   `create_time`           datetime not null default CURRENT_TIMESTAMP comment 'åˆ›å»ºæ—¶é—´',
+   `update_by`             bigint comment 'æ›´æ–°ç”¨æˆ·ç¼–å·',
+   `update_time`           datetime not null default CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP comment 'æ›´æ–°æ—¶é—´',
+   `sort_no`               int default 1 comment 'æ’åº',
+   `remark_`               varchar(254) comment 'å¤‡æ³¨',
+   `enable_`               tinyint default 1 comment 'æ˜¯å¦å¯ç”¨(true:æ˜¯, false:å¦)',
    primary key (id_)
 );
 
-alter table patent_type comment '×¨ÀûÀàĞÍ';
+alter table patent_type comment 'ä¸“åˆ©ç±»å‹';
 
 /*==============================================================*/
 /* Index: patent_type_index                                     */
@@ -1771,32 +1771,32 @@ create index patent_type_name_index on patent_type
 /*==============================================================*/
 create table project
 (
-   `id_`                   bigint not null auto_increment comment '±àºÅ',
-   `name_`                 varchar(254) not null comment 'Ãû³Æ',
-   `spell_`                varchar(254) comment 'Ãû³ÆµÄÈ«Æ´',
-   `type_id`               bigint comment 'ÀàĞÍ±àºÅ',
-   `leader_id`             bigint comment '¸ºÔğÈË',
-   `field_`                varchar(254) comment 'Éæ¼°ÁìÓò',
-   `approve_time`          datetime comment 'Åú×¼Ê±¼ä£ºÄê',
-   `start_time`            datetime comment '¿ªÊ¼Ê±¼ä£ºÄê',
-   `finish_time`           datetime comment '½áÊøÊ±¼ä£ºÄê',
-   `duration_`             datetime comment '³ÖĞøÊ±¼ä£ºÄê',
-   `funds_`                float comment '¾­·Ñ£¨Íò£©',
-   `status_`               tinyint comment 'ÊÇ·ñ½áÏî',
-   `source_`               varchar(254) comment 'À´Ô´',
-   `leader_department`     varchar(254) comment 'ËùÊôµ¥Î»',
-   `attachment_id`         bigint comment '¸½¼şÎÄµµ',
-   `create_by`             bigint comment '´´½¨ÓÃ»§±àºÅ',
-   `create_time`           datetime not null default CURRENT_TIMESTAMP comment '´´½¨Ê±¼ä',
-   `update_by`             bigint comment '¸üĞÂÓÃ»§±àºÅ',
-   `update_time`           datetime not null default CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP comment '¸üĞÂÊ±¼ä',
-   `sort_no`               int default 1 comment 'ÅÅĞò',
-   `remark_`               varchar(254) comment '±¸×¢',
-   `enable_`               tinyint default 1 comment 'ÊÇ·ñ¿ÉÓÃ(true:ÊÇ, false:·ñ)',
+   `id_`                   bigint not null auto_increment comment 'ç¼–å·',
+   `name_`                 varchar(254) not null comment 'åç§°',
+   `spell_`                varchar(254) comment 'åç§°çš„å…¨æ‹¼',
+   `type_id`               bigint comment 'ç±»å‹ç¼–å·',
+   `leader_id`             bigint comment 'è´Ÿè´£äºº',
+   `field_`                varchar(254) comment 'æ¶‰åŠé¢†åŸŸ',
+   `approve_time`          datetime comment 'æ‰¹å‡†æ—¶é—´ï¼šå¹´',
+   `start_time`            datetime comment 'å¼€å§‹æ—¶é—´ï¼šå¹´',
+   `finish_time`           datetime comment 'ç»“æŸæ—¶é—´ï¼šå¹´',
+   `duration_`             datetime comment 'æŒç»­æ—¶é—´ï¼šå¹´',
+   `funds_`                float comment 'ç»è´¹ï¼ˆä¸‡ï¼‰',
+   `status_`               tinyint comment 'æ˜¯å¦ç»“é¡¹',
+   `source_`               varchar(254) comment 'æ¥æº',
+   `leader_department`     varchar(254) comment 'æ‰€å±å•ä½',
+   `attachment_id`         bigint comment 'é™„ä»¶æ–‡æ¡£',
+   `create_by`             bigint comment 'åˆ›å»ºç”¨æˆ·ç¼–å·',
+   `create_time`           datetime not null default CURRENT_TIMESTAMP comment 'åˆ›å»ºæ—¶é—´',
+   `update_by`             bigint comment 'æ›´æ–°ç”¨æˆ·ç¼–å·',
+   `update_time`           datetime not null default CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP comment 'æ›´æ–°æ—¶é—´',
+   `sort_no`               int default 1 comment 'æ’åº',
+   `remark_`               varchar(254) comment 'å¤‡æ³¨',
+   `enable_`               tinyint default 1 comment 'æ˜¯å¦å¯ç”¨(true:æ˜¯, false:å¦)',
    primary key (id_)
 );
 
-alter table project comment 'ÏîÄ¿';
+alter table project comment 'é¡¹ç›®';
 
 /*==============================================================*/
 /* Index: project_index                                         */
@@ -1835,22 +1835,22 @@ create index project_leader_index on project
 /*==============================================================*/
 create table project_owner
 (
-   `id_`                   bigint not null auto_increment comment '±àºÅ',
-   `name_`                 varchar(254) comment 'Ãû³Æ',
-   `spell_`                varchar(254) comment 'Ãû³ÆµÄÈ«Æ´',
-   `peoject_id`            bigint not null comment 'ÏîÄ¿±àºÅ',
-   `owner_id`              bigint not null comment 'ÓµÓĞÕß±àºÅ',
-   `create_by`             bigint comment '´´½¨ÓÃ»§±àºÅ',
-   `create_time`           datetime not null default CURRENT_TIMESTAMP comment '´´½¨Ê±¼ä',
-   `update_by`             bigint comment '¸üĞÂÓÃ»§±àºÅ',
-   `update_time`           datetime not null default CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP comment '¸üĞÂÊ±¼ä',
-   `sort_no`               int default 1 comment 'ÅÅĞò',
-   `remark_`               varchar(254) comment '±¸×¢',
-   `enable_`               tinyint default 1 comment 'ÊÇ·ñ¿ÉÓÃ(true:ÊÇ, false:·ñ)',
+   `id_`                   bigint not null auto_increment comment 'ç¼–å·',
+   `name_`                 varchar(254) comment 'åç§°',
+   `spell_`                varchar(254) comment 'åç§°çš„å…¨æ‹¼',
+   `peoject_id`            bigint not null comment 'é¡¹ç›®ç¼–å·',
+   `owner_id`              bigint not null comment 'æ‹¥æœ‰è€…ç¼–å·',
+   `create_by`             bigint comment 'åˆ›å»ºç”¨æˆ·ç¼–å·',
+   `create_time`           datetime not null default CURRENT_TIMESTAMP comment 'åˆ›å»ºæ—¶é—´',
+   `update_by`             bigint comment 'æ›´æ–°ç”¨æˆ·ç¼–å·',
+   `update_time`           datetime not null default CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP comment 'æ›´æ–°æ—¶é—´',
+   `sort_no`               int default 1 comment 'æ’åº',
+   `remark_`               varchar(254) comment 'å¤‡æ³¨',
+   `enable_`               tinyint default 1 comment 'æ˜¯å¦å¯ç”¨(true:æ˜¯, false:å¦)',
    primary key (id_)
 );
 
-alter table project_owner comment 'ÏîÄ¿ÓëÓµÓĞÕß£¨Ö÷Òª²ÎÓëÕß£©¹ØÁª';
+alter table project_owner comment 'é¡¹ç›®ä¸æ‹¥æœ‰è€…ï¼ˆä¸»è¦å‚ä¸è€…ï¼‰å…³è”';
 
 /*==============================================================*/
 /* Index: project_owner_peoject_index                           */
@@ -1873,23 +1873,23 @@ create index project_owner_owner_index on project_owner
 /*==============================================================*/
 create table person
 (
-   `id_`                   bigint not null auto_increment comment '±àºÅ',
-   `name_`                 varchar(254) comment 'Ãû³Æ',
-   `spell_`                varchar(254) comment 'Ãû³ÆµÄÈ«Æ´',
-   `is_teacher`            tinyint not null default false comment 'ÖµÎªfalse´ú±íÑ§Éú£¬true´ú±í½ÌÊ¦',
-   `student_id`            bigint not null comment 'Ñ§Éú',
-   `teacher_id`            bigint not null comment '½ÌÊ¦',
-   `create_by`             bigint comment '´´½¨ÓÃ»§±àºÅ',
-   `create_time`           datetime not null default CURRENT_TIMESTAMP comment '´´½¨Ê±¼ä',
-   `update_by`             bigint comment '¸üĞÂÓÃ»§±àºÅ',
-   `update_time`           datetime not null default CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP comment '¸üĞÂÊ±¼ä',
-   `sort_no`               int default 1 comment 'ÅÅĞò',
-   `remark_`               varchar(254) comment '±¸×¢',
-   `enable_`               tinyint default 1 comment 'ÊÇ·ñ¿ÉÓÃ(true:ÊÇ, false:·ñ)',
+   `id_`                   bigint not null auto_increment comment 'ç¼–å·',
+   `name_`                 varchar(254) comment 'åç§°',
+   `spell_`                varchar(254) comment 'åç§°çš„å…¨æ‹¼',
+   `is_teacher`            tinyint not null default false comment 'å€¼ä¸ºfalseä»£è¡¨å­¦ç”Ÿï¼Œtrueä»£è¡¨æ•™å¸ˆ',
+   `student_id`            bigint not null comment 'å­¦ç”Ÿ',
+   `teacher_id`            bigint not null comment 'æ•™å¸ˆ',
+   `create_by`             bigint comment 'åˆ›å»ºç”¨æˆ·ç¼–å·',
+   `create_time`           datetime not null default CURRENT_TIMESTAMP comment 'åˆ›å»ºæ—¶é—´',
+   `update_by`             bigint comment 'æ›´æ–°ç”¨æˆ·ç¼–å·',
+   `update_time`           datetime not null default CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP comment 'æ›´æ–°æ—¶é—´',
+   `sort_no`               int default 1 comment 'æ’åº',
+   `remark_`               varchar(254) comment 'å¤‡æ³¨',
+   `enable_`               tinyint default 1 comment 'æ˜¯å¦å¯ç”¨(true:æ˜¯, false:å¦)',
    primary key (id_)
 );
 
-alter table person comment 'ÈËÔ±';
+alter table person comment 'äººå‘˜';
 
 /*==============================================================*/
 /* Index: person_index                                          */
@@ -1920,20 +1920,20 @@ create index person_teacher_id_index on person
 /*==============================================================*/
 create table political_status
 (
-   `id_`                   bigint not null auto_increment comment '±àºÅ',
-   `name_`                 varchar(254) not null comment 'Ãû³Æ',
-   `spell_`                varchar(254) comment 'Ãû³ÆµÄÈ«Æ´',
-   `create_by`             bigint comment '´´½¨ÓÃ»§±àºÅ',
-   `create_time`           datetime not null default CURRENT_TIMESTAMP comment '´´½¨Ê±¼ä',
-   `update_by`             bigint comment '¸üĞÂÓÃ»§±àºÅ',
-   `update_time`           datetime not null default CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP comment '¸üĞÂÊ±¼ä',
-   `sort_no`               int default 1 comment 'ÅÅĞò',
-   `remark_`               varchar(254) comment '±¸×¢',
-   `enable_`               tinyint default 1 comment 'ÊÇ·ñ¿ÉÓÃ(true:ÊÇ, false:·ñ)',
+   `id_`                   bigint not null auto_increment comment 'ç¼–å·',
+   `name_`                 varchar(254) not null comment 'åç§°',
+   `spell_`                varchar(254) comment 'åç§°çš„å…¨æ‹¼',
+   `create_by`             bigint comment 'åˆ›å»ºç”¨æˆ·ç¼–å·',
+   `create_time`           datetime not null default CURRENT_TIMESTAMP comment 'åˆ›å»ºæ—¶é—´',
+   `update_by`             bigint comment 'æ›´æ–°ç”¨æˆ·ç¼–å·',
+   `update_time`           datetime not null default CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP comment 'æ›´æ–°æ—¶é—´',
+   `sort_no`               int default 1 comment 'æ’åº',
+   `remark_`               varchar(254) comment 'å¤‡æ³¨',
+   `enable_`               tinyint default 1 comment 'æ˜¯å¦å¯ç”¨(true:æ˜¯, false:å¦)',
    primary key (id_)
 );
 
-alter table political_status comment 'ÕşÖÎÃæÃ²';
+alter table political_status comment 'æ”¿æ²»é¢è²Œ';
 
 /*==============================================================*/
 /* Index: political_status_index                                */
@@ -1956,26 +1956,26 @@ create index political_status_name_index on political_status
 /*==============================================================*/
 create table postgraduate_situation
 (
-   `id_`                   bigint not null auto_increment comment '±àºÅ',
-   `name_`                 varchar(254) comment 'Ãû³Æ',
-   `spell_`                varchar(254) comment 'Ãû³ÆµÄÈ«Æ´',
-   `student_id`           bigint not null comment 'Ñ§Éú±àºÅ',
-   `time_`                 datetime comment 'Ê±¼ä',
-   `school_`               varchar(254) comment 'Ñ§Ğ£',
-   `specialty_`            varchar(254) comment '×¨Òµ',
-   `is_adjust`            tinyint default true comment 'true£ºµÚÒ»Ö¾Ô¸£¬false£ºµ÷¼Á',
-   `status_`               tinyint default true comment 'true£ºÂ¼È¡£¬false£ºÎ´Â¼È¡',
-   `create_by`             bigint comment '´´½¨ÓÃ»§±àºÅ',
-   `create_time`          datetime default CURRENT_TIMESTAMP comment '´´½¨Ê±¼ä',
-   `update_by`             bigint comment '¸üĞÂÓÃ»§±àºÅ',
-   `update_time`          datetime default CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP comment '¸üĞÂÊ±¼ä',
-   `sort_no`               int default 1 comment 'ÅÅĞò',
-   `remark_`               varchar(254) comment '±¸×¢',
-   `enable_`               tinyint default 1 comment 'ÊÇ·ñ¿ÉÓÃ(true:ÊÇ, false:·ñ)',
+   `id_`                   bigint not null auto_increment comment 'ç¼–å·',
+   `name_`                 varchar(254) comment 'åç§°',
+   `spell_`                varchar(254) comment 'åç§°çš„å…¨æ‹¼',
+   `student_id`           bigint not null comment 'å­¦ç”Ÿç¼–å·',
+   `time_`                 datetime comment 'æ—¶é—´',
+   `school_`               varchar(254) comment 'å­¦æ ¡',
+   `specialty_`            varchar(254) comment 'ä¸“ä¸š',
+   `is_adjust`            tinyint default true comment 'trueï¼šç¬¬ä¸€å¿—æ„¿ï¼Œfalseï¼šè°ƒå‰‚',
+   `status_`               tinyint default true comment 'trueï¼šå½•å–ï¼Œfalseï¼šæœªå½•å–',
+   `create_by`             bigint comment 'åˆ›å»ºç”¨æˆ·ç¼–å·',
+   `create_time`          datetime default CURRENT_TIMESTAMP comment 'åˆ›å»ºæ—¶é—´',
+   `update_by`             bigint comment 'æ›´æ–°ç”¨æˆ·ç¼–å·',
+   `update_time`          datetime default CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP comment 'æ›´æ–°æ—¶é—´',
+   `sort_no`               int default 1 comment 'æ’åº',
+   `remark_`               varchar(254) comment 'å¤‡æ³¨',
+   `enable_`               tinyint default 1 comment 'æ˜¯å¦å¯ç”¨(true:æ˜¯, false:å¦)',
    primary key (id_)
 );
 
-alter table postgraduate_situation comment '¿¼ÑĞÇé¿ö';
+alter table postgraduate_situation comment 'è€ƒç ”æƒ…å†µ';
 
 /*==============================================================*/
 /* Index: postgraduate_situation_index                          */
@@ -1998,43 +1998,43 @@ create index postgraduate_situation_student_index on postgraduate_situation
 /*==============================================================*/
 create table practice_basement
 (
-   `id_`                   bigint not null auto_increment comment '±àºÅ',
-   `name_`                 varchar(254) comment 'Ãû³Æ',
-   `spell_`                varchar(254) comment 'Ãû³ÆµÄÈ«Æ´',
-   `enterprise_`           varchar(254) comment 'ÒÀÍĞÆóÒµ',
-   `number_`               bigint comment 'ÊµÏ°Ñ§ÉúÊıÁ¿',
-   `specialty_id`          bigint comment '×¨Òµ±àºÅ',
-   `create_by`             bigint comment '´´½¨ÓÃ»§±àºÅ',
-   `create_time`           datetime not null default CURRENT_TIMESTAMP comment '´´½¨Ê±¼ä',
-   `update_by`             bigint comment '¸üĞÂÓÃ»§±àºÅ',
-   `update_time`           datetime not null default CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP comment '¸üĞÂÊ±¼ä',
-   `sort_no`               int default 1 comment 'ÅÅĞò',
-   `remark_`               varchar(254) comment '±¸×¢',
-   `enable_`               tinyint default 1 comment 'ÊÇ·ñ¿ÉÓÃ(true:ÊÇ, false:·ñ)',
+   `id_`                   bigint not null auto_increment comment 'ç¼–å·',
+   `name_`                 varchar(254) comment 'åç§°',
+   `spell_`                varchar(254) comment 'åç§°çš„å…¨æ‹¼',
+   `enterprise_`           varchar(254) comment 'ä¾æ‰˜ä¼ä¸š',
+   `number_`               bigint comment 'å®ä¹ å­¦ç”Ÿæ•°é‡',
+   `specialty_id`          bigint comment 'ä¸“ä¸šç¼–å·',
+   `create_by`             bigint comment 'åˆ›å»ºç”¨æˆ·ç¼–å·',
+   `create_time`           datetime not null default CURRENT_TIMESTAMP comment 'åˆ›å»ºæ—¶é—´',
+   `update_by`             bigint comment 'æ›´æ–°ç”¨æˆ·ç¼–å·',
+   `update_time`           datetime not null default CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP comment 'æ›´æ–°æ—¶é—´',
+   `sort_no`               int default 1 comment 'æ’åº',
+   `remark_`               varchar(254) comment 'å¤‡æ³¨',
+   `enable_`               tinyint default 1 comment 'æ˜¯å¦å¯ç”¨(true:æ˜¯, false:å¦)',
    primary key (id_)
 );
 
-alter table practice_basement comment 'Ğ£ÍâÊµÏ°»ùµØ';
+alter table practice_basement comment 'æ ¡å¤–å®ä¹ åŸºåœ°';
 
 /*==============================================================*/
 /* Table: professional_title                                    */
 /*==============================================================*/
 create table professional_title
 (
-   `id_`                   bigint not null auto_increment comment '±àºÅ',
-   `name_`                 varchar(254) not null comment 'Ãû³Æ',
-   `spell_`                varchar(254) comment 'Ãû³ÆµÄÈ«Æ´',
-   `create_by`             bigint comment '´´½¨ÓÃ»§±àºÅ',
-   `create_time`           datetime not null default CURRENT_TIMESTAMP comment '´´½¨Ê±¼ä',
-   `update_by`             bigint comment '¸üĞÂÓÃ»§±àºÅ',
-   `update_time`           datetime not null default CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP comment '¸üĞÂÊ±¼ä',
-   `sort_no`               int default 1 comment 'ÅÅĞò',
-   `remark_`               varchar(254) comment '±¸×¢',
-   `enable_`               tinyint default 1 comment 'ÊÇ·ñ¿ÉÓÃ(true:ÊÇ, false:·ñ)',
+   `id_`                   bigint not null auto_increment comment 'ç¼–å·',
+   `name_`                 varchar(254) not null comment 'åç§°',
+   `spell_`                varchar(254) comment 'åç§°çš„å…¨æ‹¼',
+   `create_by`             bigint comment 'åˆ›å»ºç”¨æˆ·ç¼–å·',
+   `create_time`           datetime not null default CURRENT_TIMESTAMP comment 'åˆ›å»ºæ—¶é—´',
+   `update_by`             bigint comment 'æ›´æ–°ç”¨æˆ·ç¼–å·',
+   `update_time`           datetime not null default CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP comment 'æ›´æ–°æ—¶é—´',
+   `sort_no`               int default 1 comment 'æ’åº',
+   `remark_`               varchar(254) comment 'å¤‡æ³¨',
+   `enable_`               tinyint default 1 comment 'æ˜¯å¦å¯ç”¨(true:æ˜¯, false:å¦)',
    primary key (id_)
 );
 
-alter table professional_title comment 'Ö°³Æ';
+alter table professional_title comment 'èŒç§°';
 
 /*==============================================================*/
 /* Index: professional_title_index                              */
@@ -2057,28 +2057,28 @@ create index professional_title_name_index on professional_title
 /*==============================================================*/
 create table professor
 (
-   `id_`                   bigint not null auto_increment comment '±àºÅ',
-   `name_`                 varchar(254) not null comment 'Ãû³Æ',
-   `spell_`                varchar(254) comment 'Ãû³ÆµÄÈ«Æ´',
-   `gender_id`             bigint not null comment 'ĞÔ±ğ±àºÅ',
-   `phone_`                varchar(254) comment 'ÁªÏµµç»°',
-   `email_`                varchar(254) comment 'µç×ÓÓÊ¼ş',
-   `address_`              varchar(1000) comment '¼ÒÍ¥×¡Ö·',
-   `employer_Unit`         varchar(254) comment 'ÈÎÖ°µ¥Î»',
-   `unit_address`          varchar(1000) comment 'µ¥Î»µØÖ·',
-   `unit_phone`            varchar(254) comment 'µ¥Î»µç»°',
-   `major_field`           varchar(254) comment '×¨Òµ·½Ïò',
-   `create_by`             bigint comment '´´½¨ÓÃ»§±àºÅ',
-   `create_time`           datetime not null default CURRENT_TIMESTAMP comment '´´½¨Ê±¼ä',
-   `update_by`             bigint comment '¸üĞÂÓÃ»§±àºÅ',
-   `update_time`           datetime not null default CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP comment '¸üĞÂÊ±¼ä',
-   `sort_no`               int default 1 comment 'ÅÅĞò',
-   `remark_`               varchar(254) comment '±¸×¢',
-   `enable_`               tinyint default 1 comment 'ÊÇ·ñ¿ÉÓÃ(true:ÊÇ, false:·ñ)',
+   `id_`                   bigint not null auto_increment comment 'ç¼–å·',
+   `name_`                 varchar(254) not null comment 'åç§°',
+   `spell_`                varchar(254) comment 'åç§°çš„å…¨æ‹¼',
+   `gender_id`             bigint not null comment 'æ€§åˆ«ç¼–å·',
+   `phone_`                varchar(254) comment 'è”ç³»ç”µè¯',
+   `email_`                varchar(254) comment 'ç”µå­é‚®ä»¶',
+   `address_`              varchar(1000) comment 'å®¶åº­ä½å€',
+   `employer_Unit`         varchar(254) comment 'ä»»èŒå•ä½',
+   `unit_address`          varchar(1000) comment 'å•ä½åœ°å€',
+   `unit_phone`            varchar(254) comment 'å•ä½ç”µè¯',
+   `major_field`           varchar(254) comment 'ä¸“ä¸šæ–¹å‘',
+   `create_by`             bigint comment 'åˆ›å»ºç”¨æˆ·ç¼–å·',
+   `create_time`           datetime not null default CURRENT_TIMESTAMP comment 'åˆ›å»ºæ—¶é—´',
+   `update_by`             bigint comment 'æ›´æ–°ç”¨æˆ·ç¼–å·',
+   `update_time`           datetime not null default CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP comment 'æ›´æ–°æ—¶é—´',
+   `sort_no`               int default 1 comment 'æ’åº',
+   `remark_`               varchar(254) comment 'å¤‡æ³¨',
+   `enable_`               tinyint default 1 comment 'æ˜¯å¦å¯ç”¨(true:æ˜¯, false:å¦)',
    primary key (id_)
 );
 
-alter table professor comment '×¨¼Ò';
+alter table professor comment 'ä¸“å®¶';
 
 /*==============================================================*/
 /* Index: professor_index                                       */
@@ -2101,24 +2101,24 @@ create index professor_name_index on professor
 /*==============================================================*/
 create table program
 (
-   `id_`                   bigint not null auto_increment comment '±àºÅ',
-   `name_`                 varchar(2000) not null comment 'Ãû³Æ',
-   `spell_`                varchar(2000) comment 'Ãû³ÆµÄÈ«Æ´',
-   `answer_`               text comment '²Î¿¼´ğ°¸',
-   `difficult_degree`      bigint comment 'ÄÑ¶ÈÏµÊı',
-   `is_required`           tinyint default false comment 'ÊÇ·ñ±ØÑ¡(true:ÊÇ, false:·ñ)',
-   `section_id`            bigint comment 'ËùÊôÕÂ½Ú',
-   `create_by`             bigint comment '´´½¨ÓÃ»§±àºÅ',
-   `create_time`           datetime not null default CURRENT_TIMESTAMP comment '´´½¨Ê±¼ä',
-   `update_by`             bigint comment '¸üĞÂÓÃ»§±àºÅ',
-   `update_time`           datetime not null default CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP comment '¸üĞÂÊ±¼ä',
-   `sort_no`               int default 1 comment 'ÅÅĞò',
-   `remark_`               varchar(254) comment '±¸×¢',
-   `enable_`               tinyint default 1 comment 'ÊÇ·ñ¿ÉÓÃ(true:ÊÇ, false:·ñ)',
+   `id_`                   bigint not null auto_increment comment 'ç¼–å·',
+   `name_`                 varchar(2000) not null comment 'åç§°',
+   `spell_`                varchar(2000) comment 'åç§°çš„å…¨æ‹¼',
+   `answer_`               text comment 'å‚è€ƒç­”æ¡ˆ',
+   `difficult_degree`      bigint comment 'éš¾åº¦ç³»æ•°',
+   `is_required`           tinyint default false comment 'æ˜¯å¦å¿…é€‰(true:æ˜¯, false:å¦)',
+   `section_id`            bigint comment 'æ‰€å±ç« èŠ‚',
+   `create_by`             bigint comment 'åˆ›å»ºç”¨æˆ·ç¼–å·',
+   `create_time`           datetime not null default CURRENT_TIMESTAMP comment 'åˆ›å»ºæ—¶é—´',
+   `update_by`             bigint comment 'æ›´æ–°ç”¨æˆ·ç¼–å·',
+   `update_time`           datetime not null default CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP comment 'æ›´æ–°æ—¶é—´',
+   `sort_no`               int default 1 comment 'æ’åº',
+   `remark_`               varchar(254) comment 'å¤‡æ³¨',
+   `enable_`               tinyint default 1 comment 'æ˜¯å¦å¯ç”¨(true:æ˜¯, false:å¦)',
    primary key (id_)
 );
 
-alter table program comment '±à³ÌÌâ';
+alter table program comment 'ç¼–ç¨‹é¢˜';
 
 /*==============================================================*/
 /* Index: program_index                                         */
@@ -2157,22 +2157,22 @@ create index program_section_index on program
 /*==============================================================*/
 create table project_type
 (
-   `id_`                   bigint not null auto_increment comment '±àºÅ',
-   `name_`                 varchar(254) not null comment 'Ãû³Æ',
-   `spell_`                varchar(254) comment 'Ãû³ÆµÄÈ«Æ´',
-   `level_`                varchar(254) not null comment '¼¶±ğ£º¹ú¼Ò¼¶¡¢Ê¡¼¶¡¢Ğ£¼¶',
-   `type_`                 varchar(254) comment 'Àà±ğ£º',
-   `create_by`             bigint comment '´´½¨ÓÃ»§±àºÅ',
-   `create_time`           datetime not null default CURRENT_TIMESTAMP comment '´´½¨Ê±¼ä',
-   `update_by`             bigint comment '¸üĞÂÓÃ»§±àºÅ',
-   `update_time`           datetime not null default CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP comment '¸üĞÂÊ±¼ä',
-   `sort_no`               int default 1 comment 'ÅÅĞò',
-   `remark_`               varchar(254) comment '±¸×¢',
-   `enable_`               tinyint default 1 comment 'ÊÇ·ñ¿ÉÓÃ(true:ÊÇ, false:·ñ)',
+   `id_`                   bigint not null auto_increment comment 'ç¼–å·',
+   `name_`                 varchar(254) not null comment 'åç§°',
+   `spell_`                varchar(254) comment 'åç§°çš„å…¨æ‹¼',
+   `level_`                varchar(254) not null comment 'çº§åˆ«ï¼šå›½å®¶çº§ã€çœçº§ã€æ ¡çº§',
+   `type_`                 varchar(254) comment 'ç±»åˆ«ï¼š',
+   `create_by`             bigint comment 'åˆ›å»ºç”¨æˆ·ç¼–å·',
+   `create_time`           datetime not null default CURRENT_TIMESTAMP comment 'åˆ›å»ºæ—¶é—´',
+   `update_by`             bigint comment 'æ›´æ–°ç”¨æˆ·ç¼–å·',
+   `update_time`           datetime not null default CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP comment 'æ›´æ–°æ—¶é—´',
+   `sort_no`               int default 1 comment 'æ’åº',
+   `remark_`               varchar(254) comment 'å¤‡æ³¨',
+   `enable_`               tinyint default 1 comment 'æ˜¯å¦å¯ç”¨(true:æ˜¯, false:å¦)',
    primary key (id_)
 );
 
-alter table project_type comment 'ÏîÄ¿ÀàĞÍ£º¿ÆÑĞ¿ÎÌâ£º¹ú¼Ò¼¶£¨¿Æ¼¼²¿¿ÎÌâ¡¢¹ú¼Ò×ÔÈ»»ù½ğ¿ÎÌâ¡¢¹ú¼ÒÉç¿Æ»ù½ğ¿ÎÌâµÈ£©';
+alter table project_type comment 'é¡¹ç›®ç±»å‹ï¼šç§‘ç ”è¯¾é¢˜ï¼šå›½å®¶çº§ï¼ˆç§‘æŠ€éƒ¨è¯¾é¢˜ã€å›½å®¶è‡ªç„¶åŸºé‡‘è¯¾é¢˜ã€å›½å®¶ç¤¾ç§‘åŸºé‡‘è¯¾é¢˜ç­‰ï¼‰';
 
 /*==============================================================*/
 /* Index: project_type_index                                    */
@@ -2195,20 +2195,20 @@ create index project_type_name_index on project_type
 /*==============================================================*/
 create table province
 (
-   `id_`                   bigint not null auto_increment comment '±àºÅ',
-   `name_`                 varchar(254) not null comment 'Ãû³Æ',
-   `spell_`                varchar(254) comment 'Ãû³ÆµÄÈ«Æ´',
-   `create_by`             bigint comment '´´½¨ÓÃ»§±àºÅ',
-   `create_time`           datetime not null default CURRENT_TIMESTAMP comment '´´½¨Ê±¼ä',
-   `update_by`             bigint comment '¸üĞÂÓÃ»§±àºÅ',
-   `update_time`           datetime not null default CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP comment '¸üĞÂÊ±¼ä',
-   `sort_no`               int default 1 comment 'ÅÅĞò',
-   `remark_`               varchar(254) comment '±¸×¢',
-   `enable_`               tinyint default 1 comment 'ÊÇ·ñ¿ÉÓÃ(true:ÊÇ, false:·ñ)',
+   `id_`                   bigint not null auto_increment comment 'ç¼–å·',
+   `name_`                 varchar(254) not null comment 'åç§°',
+   `spell_`                varchar(254) comment 'åç§°çš„å…¨æ‹¼',
+   `create_by`             bigint comment 'åˆ›å»ºç”¨æˆ·ç¼–å·',
+   `create_time`           datetime not null default CURRENT_TIMESTAMP comment 'åˆ›å»ºæ—¶é—´',
+   `update_by`             bigint comment 'æ›´æ–°ç”¨æˆ·ç¼–å·',
+   `update_time`           datetime not null default CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP comment 'æ›´æ–°æ—¶é—´',
+   `sort_no`               int default 1 comment 'æ’åº',
+   `remark_`               varchar(254) comment 'å¤‡æ³¨',
+   `enable_`               tinyint default 1 comment 'æ˜¯å¦å¯ç”¨(true:æ˜¯, false:å¦)',
    primary key (id_)
 );
 
-alter table province comment 'Ê¡·İ';
+alter table province comment 'çœä»½';
 
 /*==============================================================*/
 /* Index: province_index                                        */
@@ -2231,20 +2231,20 @@ create index province_name_index on province
 /*==============================================================*/
 create table publisher
 (
-   `id_`                   bigint not null auto_increment comment '±àºÅ',
-   `name_`                 varchar(254) not null comment 'Ãû³Æ',
-   `spell_`                varchar(254) comment 'Ãû³ÆµÄÈ«Æ´',
-   `create_by`             bigint comment '´´½¨ÓÃ»§±àºÅ',
-   `create_time`           datetime not null default CURRENT_TIMESTAMP comment '´´½¨Ê±¼ä',
-   `update_by`             bigint comment '¸üĞÂÓÃ»§±àºÅ',
-   `update_time`           datetime not null default CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP comment '¸üĞÂÊ±¼ä',
-   `sort_no`               int default 1 comment 'ÅÅĞò',
-   `remark_`               varchar(254) comment '±¸×¢',
-   `enable_`               tinyint default 1 comment 'ÊÇ·ñ¿ÉÓÃ(true:ÊÇ, false:·ñ)',
+   `id_`                   bigint not null auto_increment comment 'ç¼–å·',
+   `name_`                 varchar(254) not null comment 'åç§°',
+   `spell_`                varchar(254) comment 'åç§°çš„å…¨æ‹¼',
+   `create_by`             bigint comment 'åˆ›å»ºç”¨æˆ·ç¼–å·',
+   `create_time`           datetime not null default CURRENT_TIMESTAMP comment 'åˆ›å»ºæ—¶é—´',
+   `update_by`             bigint comment 'æ›´æ–°ç”¨æˆ·ç¼–å·',
+   `update_time`           datetime not null default CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP comment 'æ›´æ–°æ—¶é—´',
+   `sort_no`               int default 1 comment 'æ’åº',
+   `remark_`               varchar(254) comment 'å¤‡æ³¨',
+   `enable_`               tinyint default 1 comment 'æ˜¯å¦å¯ç”¨(true:æ˜¯, false:å¦)',
    primary key (id_)
 );
 
-alter table publisher comment '³ö°æÉç';
+alter table publisher comment 'å‡ºç‰ˆç¤¾';
 
 /*==============================================================*/
 /* Index: publisher_index                                       */
@@ -2267,23 +2267,23 @@ create index publisher_name_index on publisher
 /*==============================================================*/
 create table question_knowledge_point
 (
-   `id_`                   bigint not null auto_increment comment '±àºÅ',
-   `name_`                 varchar(254) comment 'Ãû³Æ',
-   `spell_`                varchar(254) comment 'Ãû³ÆµÄÈ«Æ´',
-   `question_type`         bigint not null default 0 comment '0£ºµ¥ÏîÑ¡ÔñÌâ£¬1£º¶àÏîÑ¡ÔñÌâ£¬2£ºÌî¿ÕÌâ£¬3£ºÌî¿ÕÌâ£¬4£º¼ò´ğÌâ£¬5£º±à³ÌÌâ',
-   `question_id`           bigint not null comment 'ÌâÄ¿±àºÅ',
-   `knowledge_point_id`    bigint not null comment 'ÖªÊ¶µã±àºÅ',
-   `create_by`             bigint comment '´´½¨ÓÃ»§±àºÅ',
-   `create_time`           datetime not null default CURRENT_TIMESTAMP comment '´´½¨Ê±¼ä',
-   `update_by`             bigint comment '¸üĞÂÓÃ»§±àºÅ',
-   `update_time`           datetime not null default CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP comment '¸üĞÂÊ±¼ä',
-   `sort_no`               int default 1 comment 'ÅÅĞò',
-   `remark_`               varchar(254) comment '±¸×¢',
-   `enable_`               tinyint default 1 comment 'ÊÇ·ñ¿ÉÓÃ(true:ÊÇ, false:·ñ)',
+   `id_`                   bigint not null auto_increment comment 'ç¼–å·',
+   `name_`                 varchar(254) comment 'åç§°',
+   `spell_`                varchar(254) comment 'åç§°çš„å…¨æ‹¼',
+   `question_type`         bigint not null default 0 comment '0ï¼šå•é¡¹é€‰æ‹©é¢˜ï¼Œ1ï¼šå¤šé¡¹é€‰æ‹©é¢˜ï¼Œ2ï¼šå¡«ç©ºé¢˜ï¼Œ3ï¼šå¡«ç©ºé¢˜ï¼Œ4ï¼šç®€ç­”é¢˜ï¼Œ5ï¼šç¼–ç¨‹é¢˜',
+   `question_id`           bigint not null comment 'é¢˜ç›®ç¼–å·',
+   `knowledge_point_id`    bigint not null comment 'çŸ¥è¯†ç‚¹ç¼–å·',
+   `create_by`             bigint comment 'åˆ›å»ºç”¨æˆ·ç¼–å·',
+   `create_time`           datetime not null default CURRENT_TIMESTAMP comment 'åˆ›å»ºæ—¶é—´',
+   `update_by`             bigint comment 'æ›´æ–°ç”¨æˆ·ç¼–å·',
+   `update_time`           datetime not null default CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP comment 'æ›´æ–°æ—¶é—´',
+   `sort_no`               int default 1 comment 'æ’åº',
+   `remark_`               varchar(254) comment 'å¤‡æ³¨',
+   `enable_`               tinyint default 1 comment 'æ˜¯å¦å¯ç”¨(true:æ˜¯, false:å¦)',
    primary key (id_)
 );
 
-alter table question_knowledge_point comment 'ÌâÄ¿ÓëÖªÊ¶µã¹ØÁª';
+alter table question_knowledge_point comment 'é¢˜ç›®ä¸çŸ¥è¯†ç‚¹å…³è”';
 
 /*==============================================================*/
 /* Index: question_knowledge_point_index                        */
@@ -2322,27 +2322,27 @@ create index question_knowledge_point_knowledge_point_index on question_knowledg
 /*==============================================================*/
 create table reward
 (
-   `id_`                   bigint not null auto_increment comment '±àºÅ',
-   `name_`                 varchar(254) not null comment 'Ãû³Æ',
-   `spell_`                varchar(254) comment 'Ãû³ÆµÄÈ«Æ´',
-   `certificate_no`        varchar(254) comment 'Ö¤Êé±àºÅ',
-   `award_date`            datetime comment '»ñ½±ÈÕÆÚ',
+   `id_`                   bigint not null auto_increment comment 'ç¼–å·',
+   `name_`                 varchar(254) not null comment 'åç§°',
+   `spell_`                varchar(254) comment 'åç§°çš„å…¨æ‹¼',
+   `certificate_no`        varchar(254) comment 'è¯ä¹¦ç¼–å·',
+   `award_date`            datetime comment 'è·å¥–æ—¥æœŸ',
    `award_class`           varchar(254),
-   `type_id`               bigint comment 'Àà±ğ±àºÅ',
+   `type_id`               bigint comment 'ç±»åˆ«ç¼–å·',
    `complete_department`   varchar(254),
-   `departments_`          varchar(254) comment '°ä½±²¿ÃÅ',
-   `attachment_id`         bigint comment '¸½¼şÎÄµµ',
-   `create_by`             bigint comment '´´½¨ÓÃ»§±àºÅ',
-   `create_time`           datetime not null default CURRENT_TIMESTAMP comment '´´½¨Ê±¼ä',
-   `update_by`             bigint comment '¸üĞÂÓÃ»§±àºÅ',
-   `update_time`           datetime not null default CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP comment '¸üĞÂÊ±¼ä',
-   `sort_no`               int default 1 comment 'ÅÅĞò',
-   `remark_`               varchar(254) comment '±¸×¢',
-   `enable_`               tinyint default 1 comment 'ÊÇ·ñ¿ÉÓÃ(true:ÊÇ, false:·ñ)',
+   `departments_`          varchar(254) comment 'é¢å¥–éƒ¨é—¨',
+   `attachment_id`         bigint comment 'é™„ä»¶æ–‡æ¡£',
+   `create_by`             bigint comment 'åˆ›å»ºç”¨æˆ·ç¼–å·',
+   `create_time`           datetime not null default CURRENT_TIMESTAMP comment 'åˆ›å»ºæ—¶é—´',
+   `update_by`             bigint comment 'æ›´æ–°ç”¨æˆ·ç¼–å·',
+   `update_time`           datetime not null default CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP comment 'æ›´æ–°æ—¶é—´',
+   `sort_no`               int default 1 comment 'æ’åº',
+   `remark_`               varchar(254) comment 'å¤‡æ³¨',
+   `enable_`               tinyint default 1 comment 'æ˜¯å¦å¯ç”¨(true:æ˜¯, false:å¦)',
    primary key (id_)
 );
 
-alter table reward comment '½±Àø';
+alter table reward comment 'å¥–åŠ±';
 
 /*==============================================================*/
 /* Index: reward_index                                          */
@@ -2373,22 +2373,22 @@ create index reward_type_index on reward
 /*==============================================================*/
 create table reward_owner
 (
-   `id_`                   bigint not null auto_increment comment '±àºÅ',
-   `name_`                 varchar(254) comment 'Ãû³Æ',
-   `spell_`                varchar(254) comment 'Ãû³ÆµÄÈ«Æ´',
-   `reward_id`             bigint not null comment '½±Àø±àºÅ',
-   `owner_id`              bigint not null comment 'ÓµÓĞÕß±àºÅ',
-   `create_by`             bigint comment '´´½¨ÓÃ»§±àºÅ',
-   `create_time`           datetime not null default CURRENT_TIMESTAMP comment '´´½¨Ê±¼ä',
-   `update_by`             bigint comment '¸üĞÂÓÃ»§±àºÅ',
-   `update_time`           datetime not null default CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP comment '¸üĞÂÊ±¼ä',
-   `sort_no`               int default 1 comment 'ÅÅĞò',
-   `remark_`               varchar(254) comment '±¸×¢',
-   `enable_`               tinyint default 1 comment 'ÊÇ·ñ¿ÉÓÃ(true:ÊÇ, false:·ñ)',
+   `id_`                   bigint not null auto_increment comment 'ç¼–å·',
+   `name_`                 varchar(254) comment 'åç§°',
+   `spell_`                varchar(254) comment 'åç§°çš„å…¨æ‹¼',
+   `reward_id`             bigint not null comment 'å¥–åŠ±ç¼–å·',
+   `owner_id`              bigint not null comment 'æ‹¥æœ‰è€…ç¼–å·',
+   `create_by`             bigint comment 'åˆ›å»ºç”¨æˆ·ç¼–å·',
+   `create_time`           datetime not null default CURRENT_TIMESTAMP comment 'åˆ›å»ºæ—¶é—´',
+   `update_by`             bigint comment 'æ›´æ–°ç”¨æˆ·ç¼–å·',
+   `update_time`           datetime not null default CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP comment 'æ›´æ–°æ—¶é—´',
+   `sort_no`               int default 1 comment 'æ’åº',
+   `remark_`               varchar(254) comment 'å¤‡æ³¨',
+   `enable_`               tinyint default 1 comment 'æ˜¯å¦å¯ç”¨(true:æ˜¯, false:å¦)',
    primary key (id_)
 );
 
-alter table reward_owner comment '½±ÀøÓëÓµÓĞÕß£¨»ñ½±ÈË£©¹ØÁª';
+alter table reward_owner comment 'å¥–åŠ±ä¸æ‹¥æœ‰è€…ï¼ˆè·å¥–äººï¼‰å…³è”';
 
 /*==============================================================*/
 /* Index: reward_owner_reward_index                             */
@@ -2411,20 +2411,20 @@ create index reward_owner_owner_index on reward_owner
 /*==============================================================*/
 create table reward_type
 (
-   `id_`                   bigint not null auto_increment comment '±àºÅ',
-   `name_`                 varchar(254) not null comment 'Ãû³Æ',
-   `spell_`                varchar(254) comment 'Ãû³ÆµÄÈ«Æ´',
-   `create_by`             bigint comment '´´½¨ÓÃ»§±àºÅ',
-   `create_time`           datetime not null default CURRENT_TIMESTAMP comment '´´½¨Ê±¼ä',
-   `update_by`             bigint comment '¸üĞÂÓÃ»§±àºÅ',
-   `update_time`           datetime not null default CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP comment '¸üĞÂÊ±¼ä',
-   `sort_no`               int default 1 comment 'ÅÅĞò',
-   `remark_`               varchar(254) comment '±¸×¢',
-   `enable_`               tinyint default 1 comment 'ÊÇ·ñ¿ÉÓÃ(true:ÊÇ, false:·ñ)',
+   `id_`                   bigint not null auto_increment comment 'ç¼–å·',
+   `name_`                 varchar(254) not null comment 'åç§°',
+   `spell_`                varchar(254) comment 'åç§°çš„å…¨æ‹¼',
+   `create_by`             bigint comment 'åˆ›å»ºç”¨æˆ·ç¼–å·',
+   `create_time`           datetime not null default CURRENT_TIMESTAMP comment 'åˆ›å»ºæ—¶é—´',
+   `update_by`             bigint comment 'æ›´æ–°ç”¨æˆ·ç¼–å·',
+   `update_time`           datetime not null default CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP comment 'æ›´æ–°æ—¶é—´',
+   `sort_no`               int default 1 comment 'æ’åº',
+   `remark_`               varchar(254) comment 'å¤‡æ³¨',
+   `enable_`               tinyint default 1 comment 'æ˜¯å¦å¯ç”¨(true:æ˜¯, false:å¦)',
    primary key (id_)
 );
 
-alter table reward_type comment '½±ÀøÀà±ğ£º¹ú¼Ò×ÔÈ»¿ÆÑ§½±¡¢¼¼Êõ·¢Ã÷½±¡¢¿Æ¼¼½ø²½½±¡¢½ÌÓı²¿¸ßĞ£¿ÆÑĞ³É¹û½±£¨¿ÆÑ§¼¼Êõ¡¢ÈËÎÄÉç¿Æ£©£»Ê¡Õş¸®¿Æ¼¼½ø²½½±¡¢¼¼Êõ·¢Ã÷';
+alter table reward_type comment 'å¥–åŠ±ç±»åˆ«ï¼šå›½å®¶è‡ªç„¶ç§‘å­¦å¥–ã€æŠ€æœ¯å‘æ˜å¥–ã€ç§‘æŠ€è¿›æ­¥å¥–ã€æ•™è‚²éƒ¨é«˜æ ¡ç§‘ç ”æˆæœå¥–ï¼ˆç§‘å­¦æŠ€æœ¯ã€äººæ–‡ç¤¾ç§‘ï¼‰ï¼›çœæ”¿åºœç§‘æŠ€è¿›æ­¥å¥–ã€æŠ€æœ¯å‘æ˜';
 
 /*==============================================================*/
 /* Index: reward_type_index                                     */
@@ -2447,21 +2447,21 @@ create index reward_type_name_index on reward_type
 /*==============================================================*/
 create table role
 (
-   `id_`                   bigint not null auto_increment comment '±àºÅ',
-   `name_`                 varchar(254) not null comment 'Ãû³Æ',
-   `spell_`                varchar(254) comment 'Ãû³ÆµÄÈ«Æ´',
-   `description_`          varchar(1000) comment '½ÇÉ«ÃèÊö',
-   `create_by`             bigint comment '´´½¨ÓÃ»§±àºÅ',
-   `create_time`           datetime not null default CURRENT_TIMESTAMP comment '´´½¨Ê±¼ä',
-   `update_by`             bigint comment '¸üĞÂÓÃ»§±àºÅ',
-   `update_time`           datetime not null default CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP comment '¸üĞÂÊ±¼ä',
-   `sort_no`               int default 1 comment 'ÅÅĞò',
-   `remark_`               varchar(254) comment '±¸×¢',
-   `enable_`               tinyint default 1 comment 'ÊÇ·ñ¿ÉÓÃ(true:ÊÇ, false:·ñ)',
+   `id_`                   bigint not null auto_increment comment 'ç¼–å·',
+   `name_`                 varchar(254) not null comment 'åç§°',
+   `spell_`                varchar(254) comment 'åç§°çš„å…¨æ‹¼',
+   `description_`          varchar(1000) comment 'è§’è‰²æè¿°',
+   `create_by`             bigint comment 'åˆ›å»ºç”¨æˆ·ç¼–å·',
+   `create_time`           datetime not null default CURRENT_TIMESTAMP comment 'åˆ›å»ºæ—¶é—´',
+   `update_by`             bigint comment 'æ›´æ–°ç”¨æˆ·ç¼–å·',
+   `update_time`           datetime not null default CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP comment 'æ›´æ–°æ—¶é—´',
+   `sort_no`               int default 1 comment 'æ’åº',
+   `remark_`               varchar(254) comment 'å¤‡æ³¨',
+   `enable_`               tinyint default 1 comment 'æ˜¯å¦å¯ç”¨(true:æ˜¯, false:å¦)',
    primary key (id_)
 );
 
-alter table role comment '½ÇÉ«';
+alter table role comment 'è§’è‰²';
 
 /*==============================================================*/
 /* Index: role_index                                            */
@@ -2484,22 +2484,22 @@ create index role_name_index on role
 /*==============================================================*/
 create table role_authority
 (
-   `id_`                   bigint not null auto_increment comment '±àºÅ',
-   `name_`                 varchar(254) comment 'Ãû³Æ',
-   `spell_`                varchar(254) comment 'Ãû³ÆµÄÈ«Æ´',
-   `role_id`               bigint not null comment '½ÇÉ«±àºÅ',
-   `authority_id`          bigint not null comment 'È¨ÏŞ±àºÅ',
-   `create_by`             bigint comment '´´½¨ÓÃ»§±àºÅ',
-   `create_time`           datetime not null default CURRENT_TIMESTAMP comment '´´½¨Ê±¼ä',
-   `update_by`             bigint comment '¸üĞÂÓÃ»§±àºÅ',
-   `update_time`           datetime not null default CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP comment '¸üĞÂÊ±¼ä',
-   `sort_no`               int default 1 comment 'ÅÅĞò',
-   `remark_`               varchar(254) comment '±¸×¢',
-   `enable_`               tinyint default 1 comment 'ÊÇ·ñ¿ÉÓÃ(true:ÊÇ, false:·ñ)',
+   `id_`                   bigint not null auto_increment comment 'ç¼–å·',
+   `name_`                 varchar(254) comment 'åç§°',
+   `spell_`                varchar(254) comment 'åç§°çš„å…¨æ‹¼',
+   `role_id`               bigint not null comment 'è§’è‰²ç¼–å·',
+   `authority_id`          bigint not null comment 'æƒé™ç¼–å·',
+   `create_by`             bigint comment 'åˆ›å»ºç”¨æˆ·ç¼–å·',
+   `create_time`           datetime not null default CURRENT_TIMESTAMP comment 'åˆ›å»ºæ—¶é—´',
+   `update_by`             bigint comment 'æ›´æ–°ç”¨æˆ·ç¼–å·',
+   `update_time`           datetime not null default CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP comment 'æ›´æ–°æ—¶é—´',
+   `sort_no`               int default 1 comment 'æ’åº',
+   `remark_`               varchar(254) comment 'å¤‡æ³¨',
+   `enable_`               tinyint default 1 comment 'æ˜¯å¦å¯ç”¨(true:æ˜¯, false:å¦)',
    primary key (id_)
 );
 
-alter table role_authority comment '½ÇÉ«È¨ÏŞ¹ØÁª';
+alter table role_authority comment 'è§’è‰²æƒé™å…³è”';
 
 /*==============================================================*/
 /* Index: roleauthority_role_index                              */
@@ -2522,21 +2522,21 @@ create index roleauthority_authority_index on role_authority
 /*==============================================================*/
 create table school
 (
-   `id_`                   bigint not null auto_increment comment '±àºÅ',
-   `name_`                 varchar(254) not null comment 'Ãû³Æ',
-   `spell_`                varchar(254) comment 'Ãû³ÆµÄÈ«Æ´',
-   `school_profiles`       varchar(10000) comment 'Ñ§Ğ£¸Å¿ö',
-   `create_by`             bigint comment '´´½¨ÓÃ»§±àºÅ',
-   `create_time`           datetime not null default CURRENT_TIMESTAMP comment '´´½¨Ê±¼ä',
-   `update_by`             bigint comment '¸üĞÂÓÃ»§±àºÅ',
-   `update_time`           datetime not null default CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP comment '¸üĞÂÊ±¼ä',
-   `sort_no`               int default 1 comment 'ÅÅĞò',
-   `remark_`               varchar(254) comment '±¸×¢',
-   `enable_`               tinyint default 1 comment 'ÊÇ·ñ¿ÉÓÃ(true:ÊÇ, false:·ñ)',
+   `id_`                   bigint not null auto_increment comment 'ç¼–å·',
+   `name_`                 varchar(254) not null comment 'åç§°',
+   `spell_`                varchar(254) comment 'åç§°çš„å…¨æ‹¼',
+   `school_profiles`       varchar(10000) comment 'å­¦æ ¡æ¦‚å†µ',
+   `create_by`             bigint comment 'åˆ›å»ºç”¨æˆ·ç¼–å·',
+   `create_time`           datetime not null default CURRENT_TIMESTAMP comment 'åˆ›å»ºæ—¶é—´',
+   `update_by`             bigint comment 'æ›´æ–°ç”¨æˆ·ç¼–å·',
+   `update_time`           datetime not null default CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP comment 'æ›´æ–°æ—¶é—´',
+   `sort_no`               int default 1 comment 'æ’åº',
+   `remark_`               varchar(254) comment 'å¤‡æ³¨',
+   `enable_`               tinyint default 1 comment 'æ˜¯å¦å¯ç”¨(true:æ˜¯, false:å¦)',
    primary key (id_)
 );
 
-alter table school comment 'Ñ§Ğ£';
+alter table school comment 'å­¦æ ¡';
 
 /*==============================================================*/
 /* Index: school_index                                          */
@@ -2559,22 +2559,22 @@ create index school_name_index on school
 /*==============================================================*/
 create table second_rule_categories
 (
-   `id_`                   bigint not null auto_increment comment '±àºÅ',
-   `name_`                 varchar(5000) not null comment 'Ãû³Æ',
-   `spell_`                varchar(5000) comment 'Ãû³ÆµÄÈ«Æ´',
-   `top_rule_id`           bigint not null comment 'Ò»¼¶Ä¿Â¼±àºÅ',
-   `total_score`           bigint comment 'ËùÕ¼·ÖÖµ',
-   `create_by`             bigint comment '´´½¨ÓÃ»§±àºÅ',
-   `create_time`           datetime not null default CURRENT_TIMESTAMP comment '´´½¨Ê±¼ä',
-   `update_by`             bigint comment '¸üĞÂÓÃ»§±àºÅ',
-   `update_time`           datetime not null default CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP comment '¸üĞÂÊ±¼ä',
-   `sort_no`               int default 1 comment 'ÅÅĞò',
-   `remark_`               varchar(254) comment '±¸×¢',
-   `enable_`               tinyint default 1 comment 'ÊÇ·ñ¿ÉÓÃ(true:ÊÇ, false:·ñ)',
+   `id_`                   bigint not null auto_increment comment 'ç¼–å·',
+   `name_`                 varchar(5000) not null comment 'åç§°',
+   `spell_`                varchar(5000) comment 'åç§°çš„å…¨æ‹¼',
+   `top_rule_id`           bigint not null comment 'ä¸€çº§ç›®å½•ç¼–å·',
+   `total_score`           bigint comment 'æ‰€å åˆ†å€¼',
+   `create_by`             bigint comment 'åˆ›å»ºç”¨æˆ·ç¼–å·',
+   `create_time`           datetime not null default CURRENT_TIMESTAMP comment 'åˆ›å»ºæ—¶é—´',
+   `update_by`             bigint comment 'æ›´æ–°ç”¨æˆ·ç¼–å·',
+   `update_time`           datetime not null default CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP comment 'æ›´æ–°æ—¶é—´',
+   `sort_no`               int default 1 comment 'æ’åº',
+   `remark_`               varchar(254) comment 'å¤‡æ³¨',
+   `enable_`               tinyint default 1 comment 'æ˜¯å¦å¯ç”¨(true:æ˜¯, false:å¦)',
    primary key (id_)
 );
 
-alter table second_rule_categories comment 'ÆÀ·Ö¶ş¼¶Ä¿Â¼';
+alter table second_rule_categories comment 'è¯„åˆ†äºŒçº§ç›®å½•';
 
 /*==============================================================*/
 /* Index: second_rule_categories_index                          */
@@ -2597,23 +2597,23 @@ create index second_rule_categories_toprule_index on second_rule_categories
 /*==============================================================*/
 create table select_options
 (
-   `id_`                   bigint not null auto_increment comment '±àºÅ',
-   `name_`                 varchar(2000) not null comment 'Ãû³Æ',
-   `spell_`                varchar(2000) comment 'Ãû³ÆµÄÈ«Æ´',
-   `question_type`        tinyint default true comment 'ÌâÄ¿ÀàĞÍ(true:µ¥Ñ¡, false:¶àÑ¡)',
-   `question_id`          bigint comment 'ÌâÄ¿±àºÅ',
-   `is_answer`            tinyint default false comment 'ÊÇ·ñÎª´ğ°¸(true:ÊÇ, false:·ñ)',
-   `create_by`             bigint comment '´´½¨ÓÃ»§±àºÅ',
-   `create_time`           datetime not null default CURRENT_TIMESTAMP comment '´´½¨Ê±¼ä',
-   `update_by`             bigint comment '¸üĞÂÓÃ»§±àºÅ',
-   `update_time`           datetime not null default CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP comment '¸üĞÂÊ±¼ä',
-   `sort_no`               int default 1 comment 'ÅÅĞò',
-   `remark_`               varchar(254) comment '±¸×¢',
-   `enable_`               tinyint default 1 comment 'ÊÇ·ñ¿ÉÓÃ(true:ÊÇ, false:·ñ)',
+   `id_`                   bigint not null auto_increment comment 'ç¼–å·',
+   `name_`                 varchar(2000) not null comment 'åç§°',
+   `spell_`                varchar(2000) comment 'åç§°çš„å…¨æ‹¼',
+   `question_type`        tinyint default true comment 'é¢˜ç›®ç±»å‹(true:å•é€‰, false:å¤šé€‰)',
+   `question_id`          bigint comment 'é¢˜ç›®ç¼–å·',
+   `is_answer`            tinyint default false comment 'æ˜¯å¦ä¸ºç­”æ¡ˆ(true:æ˜¯, false:å¦)',
+   `create_by`             bigint comment 'åˆ›å»ºç”¨æˆ·ç¼–å·',
+   `create_time`           datetime not null default CURRENT_TIMESTAMP comment 'åˆ›å»ºæ—¶é—´',
+   `update_by`             bigint comment 'æ›´æ–°ç”¨æˆ·ç¼–å·',
+   `update_time`           datetime not null default CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP comment 'æ›´æ–°æ—¶é—´',
+   `sort_no`               int default 1 comment 'æ’åº',
+   `remark_`               varchar(254) comment 'å¤‡æ³¨',
+   `enable_`               tinyint default 1 comment 'æ˜¯å¦å¯ç”¨(true:æ˜¯, false:å¦)',
    primary key (id_)
 );
 
-alter table select_options comment 'Ñ¡ÔñÌâÑ¡Ïî';
+alter table select_options comment 'é€‰æ‹©é¢˜é€‰é¡¹';
 
 /*==============================================================*/
 /* Index: selectoptions_index                                   */
@@ -2644,23 +2644,23 @@ create index selectoptions_question_id_index on select_options
 /*==============================================================*/
 create table semester
 (
-   `id_`                   bigint not null auto_increment comment '±àºÅ',
-   `name_`                 varchar(254) not null comment 'Ãû³Æ',
-   `spell_`                varchar(254) comment 'Ãû³ÆµÄÈ«Æ´',
-   `start_date`            datetime not null comment '¿ªÊ¼ÈÕÆÚ',
-   `end_date`              datetime not null comment '½áÊøÈÕÆÚ',
-   `total_Weeks`           bigint comment '×ÜÖÜÊı',
-   `create_by`             bigint comment '´´½¨ÓÃ»§±àºÅ',
-   `create_time`           datetime not null default CURRENT_TIMESTAMP comment '´´½¨Ê±¼ä',
-   `update_by`             bigint comment '¸üĞÂÓÃ»§±àºÅ',
-   `update_time`           datetime not null default CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP comment '¸üĞÂÊ±¼ä',
-   `sort_no`               int default 1 comment 'ÅÅĞò',
-   `remark_`               varchar(254) comment '±¸×¢',
-   `enable_`               tinyint default 1 comment 'ÊÇ·ñ¿ÉÓÃ(true:ÊÇ, false:·ñ)',
+   `id_`                   bigint not null auto_increment comment 'ç¼–å·',
+   `name_`                 varchar(254) not null comment 'åç§°',
+   `spell_`                varchar(254) comment 'åç§°çš„å…¨æ‹¼',
+   `start_date`            datetime not null comment 'å¼€å§‹æ—¥æœŸ',
+   `end_date`              datetime not null comment 'ç»“æŸæ—¥æœŸ',
+   `total_Weeks`           bigint comment 'æ€»å‘¨æ•°',
+   `create_by`             bigint comment 'åˆ›å»ºç”¨æˆ·ç¼–å·',
+   `create_time`           datetime not null default CURRENT_TIMESTAMP comment 'åˆ›å»ºæ—¶é—´',
+   `update_by`             bigint comment 'æ›´æ–°ç”¨æˆ·ç¼–å·',
+   `update_time`           datetime not null default CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP comment 'æ›´æ–°æ—¶é—´',
+   `sort_no`               int default 1 comment 'æ’åº',
+   `remark_`               varchar(254) comment 'å¤‡æ³¨',
+   `enable_`               tinyint default 1 comment 'æ˜¯å¦å¯ç”¨(true:æ˜¯, false:å¦)',
    primary key (id_)
 );
 
-alter table semester comment 'Ñ§ÆÚ';
+alter table semester comment 'å­¦æœŸ';
 
 /*==============================================================*/
 /* Index: semester_index                                        */
@@ -2683,24 +2683,24 @@ create index semester_name_index on semester
 /*==============================================================*/
 create table short_answer_question
 (
-   `id_`                   bigint not null auto_increment comment '±àºÅ',
-   `name_`                 varchar(2000) not null comment 'Ãû³Æ',
-   `spell_`                varchar(2000) comment 'Ãû³ÆµÄÈ«Æ´',
-   `answer_`               varchar(10000) comment '²Î¿¼´ğ°¸',
-   `difficult_degree`      bigint comment 'ÄÑ¶ÈÏµÊı',
-   `is_required`           tinyint default false comment 'ÊÇ·ñ±ØÑ¡(true:ÊÇ, false:·ñ)',
-   `section_id`            bigint comment 'ËùÊôÕÂ½Ú',
-   `create_time`           datetime not null default CURRENT_TIMESTAMP comment '´´½¨Ê±¼ä',
-   `update_time`           datetime not null default CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP comment '¸üĞÂÊ±¼ä',
-   `sort_no`               bigint comment 'ÅÅĞò',
-   `remark_`               varchar(254) comment '±¸×¢',
-   `enable_`               tinyint default 1 comment 'ÊÇ·ñ¿ÉÓÃ(true:ÊÇ, false:·ñ)',
-   `create_by`             bigint comment '´´½¨ÓÃ»§±àºÅ',
-   `update_by`             bigint comment '¸üĞÂÓÃ»§±àºÅ',
+   `id_`                   bigint not null auto_increment comment 'ç¼–å·',
+   `name_`                 varchar(2000) not null comment 'åç§°',
+   `spell_`                varchar(2000) comment 'åç§°çš„å…¨æ‹¼',
+   `answer_`               varchar(10000) comment 'å‚è€ƒç­”æ¡ˆ',
+   `difficult_degree`      bigint comment 'éš¾åº¦ç³»æ•°',
+   `is_required`           tinyint default false comment 'æ˜¯å¦å¿…é€‰(true:æ˜¯, false:å¦)',
+   `section_id`            bigint comment 'æ‰€å±ç« èŠ‚',
+   `create_time`           datetime not null default CURRENT_TIMESTAMP comment 'åˆ›å»ºæ—¶é—´',
+   `update_time`           datetime not null default CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP comment 'æ›´æ–°æ—¶é—´',
+   `sort_no`               bigint comment 'æ’åº',
+   `remark_`               varchar(254) comment 'å¤‡æ³¨',
+   `enable_`               tinyint default 1 comment 'æ˜¯å¦å¯ç”¨(true:æ˜¯, false:å¦)',
+   `create_by`             bigint comment 'åˆ›å»ºç”¨æˆ·ç¼–å·',
+   `update_by`             bigint comment 'æ›´æ–°ç”¨æˆ·ç¼–å·',
    primary key (id_)
 );
 
-alter table short_answer_question comment '¼ò´ğÌâ';
+alter table short_answer_question comment 'ç®€ç­”é¢˜';
 
 /*==============================================================*/
 /* Index: short_answer_question_index                           */
@@ -2739,23 +2739,23 @@ create index short_answer_question_section_index on short_answer_question
 /*==============================================================*/
 create table single_select
 (
-   `id_`                   bigint not null auto_increment comment '±àºÅ',
-   `name_`                 varchar(2000) not null comment 'Ãû³Æ',
-   `spell_`                varchar(2000) comment 'Ãû³ÆµÄÈ«Æ´',
-   `difficult_degree`      bigint comment 'ÄÑ¶ÈÏµÊı',
-   `is_required`           tinyint default false comment 'ÊÇ·ñ±ØÑ¡(true:ÊÇ, false:·ñ)',
-   `section_id`            bigint comment 'ËùÊôÕÂ½Ú',
-   `create_by`             bigint comment '´´½¨ÓÃ»§±àºÅ',
-   `create_time`           datetime not null default CURRENT_TIMESTAMP comment '´´½¨Ê±¼ä',
-   `update_by`             bigint comment '¸üĞÂÓÃ»§±àºÅ',
-   `update_time`           datetime not null default CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP comment '¸üĞÂÊ±¼ä',
-   `sort_no`               int default 1 comment 'ÅÅĞò',
-   `remark_`               varchar(254) comment '±¸×¢',
-   `enable_`               tinyint default 1 comment 'ÊÇ·ñ¿ÉÓÃ(true:ÊÇ, false:·ñ)',
+   `id_`                   bigint not null auto_increment comment 'ç¼–å·',
+   `name_`                 varchar(2000) not null comment 'åç§°',
+   `spell_`                varchar(2000) comment 'åç§°çš„å…¨æ‹¼',
+   `difficult_degree`      bigint comment 'éš¾åº¦ç³»æ•°',
+   `is_required`           tinyint default false comment 'æ˜¯å¦å¿…é€‰(true:æ˜¯, false:å¦)',
+   `section_id`            bigint comment 'æ‰€å±ç« èŠ‚',
+   `create_by`             bigint comment 'åˆ›å»ºç”¨æˆ·ç¼–å·',
+   `create_time`           datetime not null default CURRENT_TIMESTAMP comment 'åˆ›å»ºæ—¶é—´',
+   `update_by`             bigint comment 'æ›´æ–°ç”¨æˆ·ç¼–å·',
+   `update_time`           datetime not null default CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP comment 'æ›´æ–°æ—¶é—´',
+   `sort_no`               int default 1 comment 'æ’åº',
+   `remark_`               varchar(254) comment 'å¤‡æ³¨',
+   `enable_`               tinyint default 1 comment 'æ˜¯å¦å¯ç”¨(true:æ˜¯, false:å¦)',
    primary key (id_)
 );
 
-alter table single_select comment 'µ¥ÏîÑ¡ÔñÌâ';
+alter table single_select comment 'å•é¡¹é€‰æ‹©é¢˜';
 
 /*==============================================================*/
 /* Index: single_select_index                                   */
@@ -2794,27 +2794,27 @@ create index single_select_section_index on single_select
 /*==============================================================*/
 create table specialty
 (
-   `id_`                   bigint not null auto_increment comment '±àºÅ',
+   `id_`                   bigint not null auto_increment comment 'ç¼–å·',
    `major_code`            varchar(254),
-   `name_`                 varchar(254) not null comment 'Ãû³Æ',
-   `spell_`                varchar(254) comment 'Ãû³ÆµÄÈ«Æ´',
-   `college_id`            bigint not null comment 'Ñ§Ôº±àºÅ',
-   `school_year`           bigint comment 'Ñ§ÖÆ',
-   `category_`             varchar(254) comment 'Àà±ğ',
-   `major_leader_id`       bigint comment 'Ö÷Òª¸ºÔğÈË±àºÅ',
-   `introduction_`         varchar(10000) comment '¼ò½é',
-   `students_number`       bigint comment 'ÔÚĞ£ÉúÈËÊı',
-   `create_by`             bigint comment '´´½¨ÓÃ»§±àºÅ',
-   `create_time`           datetime not null default CURRENT_TIMESTAMP comment '´´½¨Ê±¼ä',
-   `update_by`             bigint comment '¸üĞÂÓÃ»§±àºÅ',
-   `update_time`           datetime not null default CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP comment '¸üĞÂÊ±¼ä',
-   `sort_no`               int default 1 comment 'ÅÅĞò',
-   `remark_`               varchar(254) comment '±¸×¢',
-   `enable_`               tinyint default 1 comment 'ÊÇ·ñ¿ÉÓÃ(true:ÊÇ, false:·ñ)',
+   `name_`                 varchar(254) not null comment 'åç§°',
+   `spell_`                varchar(254) comment 'åç§°çš„å…¨æ‹¼',
+   `college_id`            bigint not null comment 'å­¦é™¢ç¼–å·',
+   `school_year`           bigint comment 'å­¦åˆ¶',
+   `category_`             varchar(254) comment 'ç±»åˆ«',
+   `major_leader_id`       bigint comment 'ä¸»è¦è´Ÿè´£äººç¼–å·',
+   `introduction_`         varchar(10000) comment 'ç®€ä»‹',
+   `students_number`       bigint comment 'åœ¨æ ¡ç”Ÿäººæ•°',
+   `create_by`             bigint comment 'åˆ›å»ºç”¨æˆ·ç¼–å·',
+   `create_time`           datetime not null default CURRENT_TIMESTAMP comment 'åˆ›å»ºæ—¶é—´',
+   `update_by`             bigint comment 'æ›´æ–°ç”¨æˆ·ç¼–å·',
+   `update_time`           datetime not null default CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP comment 'æ›´æ–°æ—¶é—´',
+   `sort_no`               int default 1 comment 'æ’åº',
+   `remark_`               varchar(254) comment 'å¤‡æ³¨',
+   `enable_`               tinyint default 1 comment 'æ˜¯å¦å¯ç”¨(true:æ˜¯, false:å¦)',
    primary key (id_)
 );
 
-alter table specialty comment '×¨Òµ';
+alter table specialty comment 'ä¸“ä¸š';
 
 /*==============================================================*/
 /* Index: specialty_index                                       */
@@ -2845,43 +2845,43 @@ create index specialty_college_index on specialty
 /*==============================================================*/
 create table student
 (
-   `id_`                   bigint not null auto_increment comment '±àºÅ',
-   `name_`                 varchar(254) not null comment 'Ãû³Æ',
-   `spell_`                varchar(254) comment 'Ãû³ÆµÄÈ«Æ´',
-   `no_`                   varchar(254) comment 'Ñ§ºÅ',
-   `birthdady_`            date comment '³öÉúÈÕÆÚ',
-   `gender_id`             bigint comment 'ĞÔ±ğ±àºÅ',
-   `nation_id`             bigint comment 'Ãñ×å±àºÅ',
-   `political_status_id`   bigint comment 'ÕşÖÎÃæÃ²±àºÅ',
-   `college_id`            bigint comment 'Ñ§Ôº±àºÅ',
-   `specialty_id`          bigint comment '×¨Òµ±àºÅ',
-   `class_own_id`          bigint comment '°à¼¶±àºÅ',
-   `entrance_date`         date comment 'ÈëÑ§ÈÕÆÚ',
-   `age_`                  int comment 'ÄêÁä',
-   `idcard_no`             varchar(254) comment 'Éí·İÖ¤ºÅ',
-   `phone_`                varchar(254) comment 'µç»°',
-   `email_`                varchar(254) comment 'µç×ÓÓÊÏä',
-   `college_enexam_scores` float comment '¸ß¿¼·ÖÊı',
-   `province_id`           bigint comment 'Ê¡±àºÅ',
-   `city_id`               bigint comment 'ÊĞ±àºÅ',
-   `county_id`             bigint comment 'ÏØ/Çø±àºÅ',
-   `town_id`               bigint comment 'Õò±àºÅ',
-   `address_`              varchar(254) comment '¼ÒÍ¥×¡Ö·',
-   `high_school`           varchar(254) comment '¾Í¶Á¸ßÖĞ',
-   `high_school_category_id` bigint comment '¸ßÖĞÀà±ğ±àºÅ',
-   `postgraduate_info_id`  bigint comment '¿¼ÑĞĞÅÏ¢±àºÅ',
-   `head_img_id`           bigint comment 'Í·Ïñ',
-   `create_by`             bigint comment '´´½¨ÓÃ»§±àºÅ',
-   `create_time`           datetime not null default CURRENT_TIMESTAMP comment '´´½¨Ê±¼ä',
-   `update_by`             bigint comment '¸üĞÂÓÃ»§±àºÅ',
-   `update_time`           datetime not null default CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP comment '¸üĞÂÊ±¼ä',
-   `sort_no`               int default 1 comment 'ÅÅĞò',
-   `remark_`               varchar(254) comment '±¸×¢',
-   `enable_`               tinyint default 1 comment 'ÊÇ·ñ¿ÉÓÃ(true:ÊÇ, false:·ñ)',
+   `id_`                   bigint not null auto_increment comment 'ç¼–å·',
+   `name_`                 varchar(254) not null comment 'åç§°',
+   `spell_`                varchar(254) comment 'åç§°çš„å…¨æ‹¼',
+   `no_`                   varchar(254) comment 'å­¦å·',
+   `birthdady_`            date comment 'å‡ºç”Ÿæ—¥æœŸ',
+   `gender_id`             bigint comment 'æ€§åˆ«ç¼–å·',
+   `nation_id`             bigint comment 'æ°‘æ—ç¼–å·',
+   `political_status_id`   bigint comment 'æ”¿æ²»é¢è²Œç¼–å·',
+   `college_id`            bigint comment 'å­¦é™¢ç¼–å·',
+   `specialty_id`          bigint comment 'ä¸“ä¸šç¼–å·',
+   `class_own_id`          bigint comment 'ç­çº§ç¼–å·',
+   `entrance_date`         date comment 'å…¥å­¦æ—¥æœŸ',
+   `age_`                  int comment 'å¹´é¾„',
+   `idcard_no`             varchar(254) comment 'èº«ä»½è¯å·',
+   `phone_`                varchar(254) comment 'ç”µè¯',
+   `email_`                varchar(254) comment 'ç”µå­é‚®ç®±',
+   `college_enexam_scores` float comment 'é«˜è€ƒåˆ†æ•°',
+   `province_id`           bigint comment 'çœç¼–å·',
+   `city_id`               bigint comment 'å¸‚ç¼–å·',
+   `county_id`             bigint comment 'å¿/åŒºç¼–å·',
+   `town_id`               bigint comment 'é•‡ç¼–å·',
+   `address_`              varchar(254) comment 'å®¶åº­ä½å€',
+   `high_school`           varchar(254) comment 'å°±è¯»é«˜ä¸­',
+   `high_school_category_id` bigint comment 'é«˜ä¸­ç±»åˆ«ç¼–å·',
+   `postgraduate_info_id`  bigint comment 'è€ƒç ”ä¿¡æ¯ç¼–å·',
+   `head_img_id`           bigint comment 'å¤´åƒ',
+   `create_by`             bigint comment 'åˆ›å»ºç”¨æˆ·ç¼–å·',
+   `create_time`           datetime not null default CURRENT_TIMESTAMP comment 'åˆ›å»ºæ—¶é—´',
+   `update_by`             bigint comment 'æ›´æ–°ç”¨æˆ·ç¼–å·',
+   `update_time`           datetime not null default CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP comment 'æ›´æ–°æ—¶é—´',
+   `sort_no`               int default 1 comment 'æ’åº',
+   `remark_`               varchar(254) comment 'å¤‡æ³¨',
+   `enable_`               tinyint default 1 comment 'æ˜¯å¦å¯ç”¨(true:æ˜¯, false:å¦)',
    primary key (id_)
 );
 
-alter table student comment 'Ñ§Éú';
+alter table student comment 'å­¦ç”Ÿ';
 
 /*==============================================================*/
 /* Index: student_index                                         */
@@ -2936,52 +2936,52 @@ create index student_class_index on student
 /*==============================================================*/
 create table teacher
 (
-   `id_`                    bigint not null comment '±àºÅ',
-   `job_no`                 varchar(254) comment '¹¤ºÅ',
-   `name_`                  varchar(254) not null comment 'Ãû³Æ',
-   `spell_`                 varchar(254) comment 'Ãû³ÆµÄÈ«Æ´',
-   `type_`                 varchar(254) comment '½ÌÊ¦Àà±ğ£¨Ó×¶ùÔ°½ÌÊ¦¡¢Ğ¡Ñ§½ÌÊ¦¡¢³õ¼¶ÖĞÑ§½ÌÊ¦¡¢¸ß¼¶ÖĞÑ§½ÌÊ¦¡¢ÖĞµÈÖ°ÒµÑ§Ğ£½ÌÊ¦¡¢ÖĞµÈÖ°ÒµÑ§Ğ£ÊµÏ°Ö¸µ¼½ÌÊ¦¡¢¸ßµÈÑ§Ğ£½ÌÊ¦£©',
-   `college_id`             bigint comment 'Ñ§Ôº±àºÅ',
-   `entry_data`             date comment 'ÈëÖ°Ê±¼ä',
-   `research_area`          varchar(254) comment 'ÑĞ¾¿·½Ïò',
-   `gender_id`              bigint comment 'ĞÔ±ğ±àºÅ',
-   `nation_id`              bigint comment 'Ãñ×å±àºÅ',
-   `political_status_id`    bigint comment 'ÕşÖÎÃæÃ²±àºÅ',
-   `certificate_type`       varchar(254) comment 'Ö¤¼şÀàĞÍ',
-   `certificate_no`         varchar(254) comment 'Ö¤¼şºÅÂë',
-   `birthday_`              date comment '³öÉúÄêÔÂ',
-   `administrative_post_id` bigint comment 'ĞĞÕşÖ°Îñ±àºÅ',
-   `professional_title_id`  bigint comment '×¨ÒµÖ°³Æ±àºÅ',
-   `is_external`            tinyint comment 'ÊÇ·ñÍâÆ¸',
-   `terminal_degree`        varchar(254) comment '×îÖÕÑ§Î»',
-   `undergraduate_major`    varchar(254) comment '±¾¿Æ×¨Òµ',
-   `gain_time_of_terminal_degree` date comment '×îÖÕÑ§Î»»ñÈ¡Ê±¼ä',
-   `gain_time_of_Undergraduate`   date comment '±¾¿Æ×¨ÒµÑ§Î»»ñÈ¡Ê±¼ä',
-   `bachelor_degree`        varchar(254) comment '±¾¿ÆÑ§Î»£ºÕÜÑ§¡¢¾­¼ÃÑ§¡¢·¨Ñ§¡¢½ÌÓıÑ§¡¢ÎÄÑ§¡¢ÀúÊ·Ñ§¡¢ÀíÑ§¡¢¹¤Ñ§¡¢Å©Ñ§¡¢Ò½Ñ§¡¢¹ÜÀíÑ§¡¢ÒÕÊõÑ§¡¢¾üÊÂÑ§',
-   `is_master_tutor`        tinyint default false comment 'ÊÇ·ñË¶Ê¿µ¼Ê¦(true:ÊÇ, false:·ñ)',
-   `is_study_abroad`        tinyint default false comment 'ÊÇ·ñº£ÍâÁôÑ§(true:ÊÇ, false:·ñ)',
-   `is_academician`         tinyint default false comment 'ÊÇ·ñÔºÊ¿(true:ÊÇ, false:·ñ)',
-   `is_changjiang_scholar`  tinyint default false comment 'ÊÇ·ñ³¤½­Ñ§Õß(true:ÊÇ, false:·ñ)',
-   `is_tOYP`                tinyint default false comment 'ÊÇ·ñ½ÜÇà(true:ÊÇ, false:·ñ)',
-   `is_province_tube_expert` tinyint default false comment 'ÊÇ·ñÊ¡¹Ü×¨¼Ò(true:ÊÇ, false:·ñ)',
-   `is_industry_experience`  tinyint default false comment 'ÊÇ·ñÓĞĞĞÒµ¾­Àú(true:ÊÇ, false:·ñ)',
-   `is_practice_train`       tinyint default false comment 'ÊÇ·ñÓĞÊµ¼ù½ÌÑ§ÄÜÁ¦ÅàÑµ(true:ÊÇ, false:·ñ)',
-   `other_honorary_title`   varchar(254) comment 'ÆäËûÈÙÓş³ÆºÅ',
-   `phone_`                 varchar(254) comment 'µç»°',
-   `email_`                 varchar(254) comment 'µç×ÓÓÊÏä',
-   `individual_resume`      varchar(10000) comment '¸öÈË¼ò½é',
-   `head_img_id`            bigint comment 'Í·Ïñ',
-   `create_by`              bigint comment '´´½¨ÓÃ»§±àºÅ',
-   `create_time`            datetime not null default CURRENT_TIMESTAMP comment '´´½¨Ê±¼ä',
-   `update_by`              bigint comment '¸üĞÂÓÃ»§±àºÅ',
-   `update_time`            datetime not null default CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP comment '¸üĞÂÊ±¼ä',
-   `sort_no`                int default 1 comment 'ÅÅĞò',
-   `remark_`                varchar(254) comment '±¸×¢',
-   `enable_`                tinyint default 1 comment 'ÊÇ·ñ¿ÉÓÃ(true:ÊÇ, false:·ñ)',
+   `id_`                    bigint not null comment 'ç¼–å·',
+   `job_no`                 varchar(254) comment 'å·¥å·',
+   `name_`                  varchar(254) not null comment 'åç§°',
+   `spell_`                 varchar(254) comment 'åç§°çš„å…¨æ‹¼',
+   `type_`                 varchar(254) comment 'æ•™å¸ˆç±»åˆ«ï¼ˆå¹¼å„¿å›­æ•™å¸ˆã€å°å­¦æ•™å¸ˆã€åˆçº§ä¸­å­¦æ•™å¸ˆã€é«˜çº§ä¸­å­¦æ•™å¸ˆã€ä¸­ç­‰èŒä¸šå­¦æ ¡æ•™å¸ˆã€ä¸­ç­‰èŒä¸šå­¦æ ¡å®ä¹ æŒ‡å¯¼æ•™å¸ˆã€é«˜ç­‰å­¦æ ¡æ•™å¸ˆï¼‰',
+   `college_id`             bigint comment 'å­¦é™¢ç¼–å·',
+   `entry_data`             date comment 'å…¥èŒæ—¶é—´',
+   `research_area`          varchar(254) comment 'ç ”ç©¶æ–¹å‘',
+   `gender_id`              bigint comment 'æ€§åˆ«ç¼–å·',
+   `nation_id`              bigint comment 'æ°‘æ—ç¼–å·',
+   `political_status_id`    bigint comment 'æ”¿æ²»é¢è²Œç¼–å·',
+   `certificate_type`       varchar(254) comment 'è¯ä»¶ç±»å‹',
+   `certificate_no`         varchar(254) comment 'è¯ä»¶å·ç ',
+   `birthday_`              date comment 'å‡ºç”Ÿå¹´æœˆ',
+   `administrative_post_id` bigint comment 'è¡Œæ”¿èŒåŠ¡ç¼–å·',
+   `professional_title_id`  bigint comment 'ä¸“ä¸šèŒç§°ç¼–å·',
+   `is_external`            tinyint comment 'æ˜¯å¦å¤–è˜',
+   `terminal_degree`        varchar(254) comment 'æœ€ç»ˆå­¦ä½',
+   `undergraduate_major`    varchar(254) comment 'æœ¬ç§‘ä¸“ä¸š',
+   `gain_time_of_terminal_degree` date comment 'æœ€ç»ˆå­¦ä½è·å–æ—¶é—´',
+   `gain_time_of_Undergraduate`   date comment 'æœ¬ç§‘ä¸“ä¸šå­¦ä½è·å–æ—¶é—´',
+   `bachelor_degree`        varchar(254) comment 'æœ¬ç§‘å­¦ä½ï¼šå“²å­¦ã€ç»æµå­¦ã€æ³•å­¦ã€æ•™è‚²å­¦ã€æ–‡å­¦ã€å†å²å­¦ã€ç†å­¦ã€å·¥å­¦ã€å†œå­¦ã€åŒ»å­¦ã€ç®¡ç†å­¦ã€è‰ºæœ¯å­¦ã€å†›äº‹å­¦',
+   `is_master_tutor`        tinyint default false comment 'æ˜¯å¦ç¡•å£«å¯¼å¸ˆ(true:æ˜¯, false:å¦)',
+   `is_study_abroad`        tinyint default false comment 'æ˜¯å¦æµ·å¤–ç•™å­¦(true:æ˜¯, false:å¦)',
+   `is_academician`         tinyint default false comment 'æ˜¯å¦é™¢å£«(true:æ˜¯, false:å¦)',
+   `is_changjiang_scholar`  tinyint default false comment 'æ˜¯å¦é•¿æ±Ÿå­¦è€…(true:æ˜¯, false:å¦)',
+   `is_tOYP`                tinyint default false comment 'æ˜¯å¦æ°é’(true:æ˜¯, false:å¦)',
+   `is_province_tube_expert` tinyint default false comment 'æ˜¯å¦çœç®¡ä¸“å®¶(true:æ˜¯, false:å¦)',
+   `is_industry_experience`  tinyint default false comment 'æ˜¯å¦æœ‰è¡Œä¸šç»å†(true:æ˜¯, false:å¦)',
+   `is_practice_train`       tinyint default false comment 'æ˜¯å¦æœ‰å®è·µæ•™å­¦èƒ½åŠ›åŸ¹è®­(true:æ˜¯, false:å¦)',
+   `other_honorary_title`   varchar(254) comment 'å…¶ä»–è£èª‰ç§°å·',
+   `phone_`                 varchar(254) comment 'ç”µè¯',
+   `email_`                 varchar(254) comment 'ç”µå­é‚®ç®±',
+   `individual_resume`      varchar(10000) comment 'ä¸ªäººç®€ä»‹',
+   `head_img_id`            bigint comment 'å¤´åƒ',
+   `create_by`              bigint comment 'åˆ›å»ºç”¨æˆ·ç¼–å·',
+   `create_time`            datetime not null default CURRENT_TIMESTAMP comment 'åˆ›å»ºæ—¶é—´',
+   `update_by`              bigint comment 'æ›´æ–°ç”¨æˆ·ç¼–å·',
+   `update_time`            datetime not null default CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP comment 'æ›´æ–°æ—¶é—´',
+   `sort_no`                int default 1 comment 'æ’åº',
+   `remark_`                varchar(254) comment 'å¤‡æ³¨',
+   `enable_`                tinyint default 1 comment 'æ˜¯å¦å¯ç”¨(true:æ˜¯, false:å¦)',
    primary key (id_)
 );
 
-alter table teacher comment '½ÌÊ¦';
+alter table teacher comment 'æ•™å¸ˆ';
 
 /*==============================================================*/
 /* Index: teacher_index                                         */
@@ -3020,29 +3020,29 @@ create index teacher_college_index on teacher
 /*==============================================================*/
 create table text_book
 (
-   `id_`                   bigint not null auto_increment comment '±àºÅ',
-   `name_`                 varchar(254) not null comment 'Ãû³Æ',
-   `spell_`                varchar(254) comment 'Ãû³ÆµÄÈ«Æ´',
-   `chief_editor_id`       bigint comment 'Ö÷±à±àºÅ',
-   `domain_`               varchar(254) comment 'ÁìÓò',
-   `publisher_id`          bigint comment '³ö°æÉç±àºÅ',
-   `introduction_`         varchar(5000) comment '¼ò½é',
+   `id_`                   bigint not null auto_increment comment 'ç¼–å·',
+   `name_`                 varchar(254) not null comment 'åç§°',
+   `spell_`                varchar(254) comment 'åç§°çš„å…¨æ‹¼',
+   `chief_editor_id`       bigint comment 'ä¸»ç¼–ç¼–å·',
+   `domain_`               varchar(254) comment 'é¢†åŸŸ',
+   `publisher_id`          bigint comment 'å‡ºç‰ˆç¤¾ç¼–å·',
+   `introduction_`         varchar(5000) comment 'ç®€ä»‹',
    `ISBN_`                 varchar(254) comment 'ISBN',
-   `is_national_plan`      tinyint default false comment 'Ä¬ÈÏ£ºfalse·ñ£¬trueÊÇ',
-   `award_situation`       varchar(254) comment '»ñ½±Çé¿ö',
-   `publish_date`          datetime comment '³ö°æÈÕÆÚ',
-   `attachment_id`         bigint comment '¸½¼şÎÄµµ',
-   `create_by`             bigint comment '´´½¨ÓÃ»§±àºÅ',
-   `create_time`           datetime not null default CURRENT_TIMESTAMP comment '´´½¨Ê±¼ä',
-   `update_by`             bigint comment '¸üĞÂÓÃ»§±àºÅ',
-   `update_time`           datetime not null default CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP comment '¸üĞÂÊ±¼ä',
-   `sort_no`               int default 1 comment 'ÅÅĞò',
-   `remark_`               varchar(254) comment '±¸×¢',
-   `enable_`               tinyint default 1 comment 'ÊÇ·ñ¿ÉÓÃ(true:ÊÇ, false:·ñ)',
+   `is_national_plan`      tinyint default false comment 'é»˜è®¤ï¼šfalseå¦ï¼Œtrueæ˜¯',
+   `award_situation`       varchar(254) comment 'è·å¥–æƒ…å†µ',
+   `publish_date`          datetime comment 'å‡ºç‰ˆæ—¥æœŸ',
+   `attachment_id`         bigint comment 'é™„ä»¶æ–‡æ¡£',
+   `create_by`             bigint comment 'åˆ›å»ºç”¨æˆ·ç¼–å·',
+   `create_time`           datetime not null default CURRENT_TIMESTAMP comment 'åˆ›å»ºæ—¶é—´',
+   `update_by`             bigint comment 'æ›´æ–°ç”¨æˆ·ç¼–å·',
+   `update_time`           datetime not null default CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP comment 'æ›´æ–°æ—¶é—´',
+   `sort_no`               int default 1 comment 'æ’åº',
+   `remark_`               varchar(254) comment 'å¤‡æ³¨',
+   `enable_`               tinyint default 1 comment 'æ˜¯å¦å¯ç”¨(true:æ˜¯, false:å¦)',
    primary key (id_)
 );
 
-alter table text_book comment '½Ì²Ä';
+alter table text_book comment 'æ•™æ';
 
 /*==============================================================*/
 /* Index: text_book_index                                       */
@@ -3073,22 +3073,22 @@ create index text_book_chiefEditor_index on text_book
 /*==============================================================*/
 create table text_book_person
 (
-   `id_`                   bigint not null auto_increment comment '±àºÅ',
-   `name_`                 varchar(254) comment 'Ãû³Æ',
-   `spell_`                varchar(254) comment 'Ãû³ÆµÄÈ«Æ´',
-   `text_book_id`          bigint not null comment '½Ì²Ä±àºÅ',
-   `person_id`             bigint not null comment 'ÈËÔ±±àºÅ',
-   `create_by`             bigint comment '´´½¨ÓÃ»§±àºÅ',
-   `create_time`           datetime not null default CURRENT_TIMESTAMP comment '´´½¨Ê±¼ä',
-   `update_by`             bigint comment '¸üĞÂÓÃ»§±àºÅ',
-   `update_time`           datetime not null default CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP comment '¸üĞÂÊ±¼ä',
-   `sort_no`               int default 1 comment 'ÅÅĞò',
-   `remark_`               varchar(254) comment '±¸×¢',
-   `enable_`               tinyint default 1 comment 'ÊÇ·ñ¿ÉÓÃ(true:ÊÇ, false:·ñ)',
+   `id_`                   bigint not null auto_increment comment 'ç¼–å·',
+   `name_`                 varchar(254) comment 'åç§°',
+   `spell_`                varchar(254) comment 'åç§°çš„å…¨æ‹¼',
+   `text_book_id`          bigint not null comment 'æ•™æç¼–å·',
+   `person_id`             bigint not null comment 'äººå‘˜ç¼–å·',
+   `create_by`             bigint comment 'åˆ›å»ºç”¨æˆ·ç¼–å·',
+   `create_time`           datetime not null default CURRENT_TIMESTAMP comment 'åˆ›å»ºæ—¶é—´',
+   `update_by`             bigint comment 'æ›´æ–°ç”¨æˆ·ç¼–å·',
+   `update_time`           datetime not null default CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP comment 'æ›´æ–°æ—¶é—´',
+   `sort_no`               int default 1 comment 'æ’åº',
+   `remark_`               varchar(254) comment 'å¤‡æ³¨',
+   `enable_`               tinyint default 1 comment 'æ˜¯å¦å¯ç”¨(true:æ˜¯, false:å¦)',
    primary key (id_)
 );
 
-alter table text_book_person comment '½Ì²ÄÓëÈËÔ±£¨¸±Ö÷±à£©¹ØÁª';
+alter table text_book_person comment 'æ•™æä¸äººå‘˜ï¼ˆå‰¯ä¸»ç¼–ï¼‰å…³è”';
 
 /*==============================================================*/
 /* Index: text_book_person_text_book_index                      */
@@ -3111,32 +3111,32 @@ create index text_book_person_person_index on text_book_person
 /*==============================================================*/
 create table thesis
 (
-   `id_`                   bigint not null auto_increment comment '±àºÅ',
-   `name_`                 varchar(254) not null comment 'Ãû³Æ',
-   `spell_`                varchar(254) comment 'Ãû³ÆµÄÈ«Æ´',
-   `journal_title`         varchar(254) comment 'ÆÚ¿¯Ãû³ÆÓë»áÒéÃû³Æ¶şÑ¡Ò»',
-   `conference_name`       varchar(254) comment '»áÒéÃû³Æ',
-   `publication_year`      datetime not null comment 'Äê·İ',
-   `volume_`               bigint comment '¾í',
-   `no_`                   bigint comment 'ÆÚ',
-   `pages_`                varchar(254) comment 'ÆğÖ¹Ò³Âë',
-   `type_id`               bigint not null comment 'ÀàĞÍ±àºÅ',
-   `accession_number`      varchar(254) comment 'Ë÷ÒıºÅ',
-   `is_research_paper`     tinyint default false comment '(true:ÊÇ, false:·ñ)',
-   `impact_Factor`         float comment 'Ó°ÏìÒò×Ó£¨¿ÉÑ¡ĞÅÏ¢£©',
-   `attachment_id`         bigint comment '¸½¼şÎÄµµ',
-   `create_by`             bigint comment '´´½¨ÓÃ»§±àºÅ',
-   `create_time`           datetime not null default CURRENT_TIMESTAMP comment '´´½¨Ê±¼ä',
-   `update_by`             bigint comment '¸üĞÂÓÃ»§±àºÅ',
-   `update_time`           datetime not null default CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP comment '¸üĞÂÊ±¼ä',
-   `sort_no`               int default 1 comment 'ÅÅĞò',
-   `remark_`               varchar(254) comment '±¸×¢',
-   `enable_`               tinyint default 1 comment 'ÊÇ·ñ¿ÉÓÃ(true:ÊÇ, false:·ñ)',
+   `id_`                   bigint not null auto_increment comment 'ç¼–å·',
+   `name_`                 varchar(254) not null comment 'åç§°',
+   `spell_`                varchar(254) comment 'åç§°çš„å…¨æ‹¼',
+   `journal_title`         varchar(254) comment 'æœŸåˆŠåç§°ä¸ä¼šè®®åç§°äºŒé€‰ä¸€',
+   `conference_name`       varchar(254) comment 'ä¼šè®®åç§°',
+   `publication_year`      datetime not null comment 'å¹´ä»½',
+   `volume_`               bigint comment 'å·',
+   `no_`                   bigint comment 'æœŸ',
+   `pages_`                varchar(254) comment 'èµ·æ­¢é¡µç ',
+   `type_id`               bigint not null comment 'ç±»å‹ç¼–å·',
+   `accession_number`      varchar(254) comment 'ç´¢å¼•å·',
+   `is_research_paper`     tinyint default false comment '(true:æ˜¯, false:å¦)',
+   `impact_Factor`         float comment 'å½±å“å› å­ï¼ˆå¯é€‰ä¿¡æ¯ï¼‰',
+   `attachment_id`         bigint comment 'é™„ä»¶æ–‡æ¡£',
+   `create_by`             bigint comment 'åˆ›å»ºç”¨æˆ·ç¼–å·',
+   `create_time`           datetime not null default CURRENT_TIMESTAMP comment 'åˆ›å»ºæ—¶é—´',
+   `update_by`             bigint comment 'æ›´æ–°ç”¨æˆ·ç¼–å·',
+   `update_time`           datetime not null default CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP comment 'æ›´æ–°æ—¶é—´',
+   `sort_no`               int default 1 comment 'æ’åº',
+   `remark_`               varchar(254) comment 'å¤‡æ³¨',
+   `enable_`               tinyint default 1 comment 'æ˜¯å¦å¯ç”¨(true:æ˜¯, false:å¦)',
    `recommend_count`       integer,
    primary key (id_)
 );
 
-alter table thesis comment 'ÂÛÎÄ';
+alter table thesis comment 'è®ºæ–‡';
 
 /*==============================================================*/
 /* Index: thesis_index                                          */
@@ -3167,22 +3167,22 @@ create index thesis_type_index on thesis
 /*==============================================================*/
 create table thesis_person
 (
-   `id_`                   bigint not null auto_increment comment '±àºÅ',
-   `name_`                 varchar(254) comment 'Ãû³Æ',
-   `spell_`                varchar(254) comment 'Ãû³ÆµÄÈ«Æ´',
-   `thesis_id`             bigint not null comment 'ÂÛÎÄ±àºÅ',
-   `person_id`             bigint not null comment 'ÈËÔ±±àºÅ',
-   `create_by`             bigint comment '´´½¨ÓÃ»§±àºÅ',
-   `create_time`           datetime not null default CURRENT_TIMESTAMP comment '´´½¨Ê±¼ä',
-   `update_by`             bigint comment '¸üĞÂÓÃ»§±àºÅ',
-   `update_time`           datetime not null default CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP comment '¸üĞÂÊ±¼ä',
-   `sort_no`               int default 1 comment 'ÅÅĞò',
-   `remark_`               varchar(254) comment '±¸×¢',
-   `enable_`               tinyint default 1 comment 'ÊÇ·ñ¿ÉÓÃ(true:ÊÇ, false:·ñ)',
+   `id_`                   bigint not null auto_increment comment 'ç¼–å·',
+   `name_`                 varchar(254) comment 'åç§°',
+   `spell_`                varchar(254) comment 'åç§°çš„å…¨æ‹¼',
+   `thesis_id`             bigint not null comment 'è®ºæ–‡ç¼–å·',
+   `person_id`             bigint not null comment 'äººå‘˜ç¼–å·',
+   `create_by`             bigint comment 'åˆ›å»ºç”¨æˆ·ç¼–å·',
+   `create_time`           datetime not null default CURRENT_TIMESTAMP comment 'åˆ›å»ºæ—¶é—´',
+   `update_by`             bigint comment 'æ›´æ–°ç”¨æˆ·ç¼–å·',
+   `update_time`           datetime not null default CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP comment 'æ›´æ–°æ—¶é—´',
+   `sort_no`               int default 1 comment 'æ’åº',
+   `remark_`               varchar(254) comment 'å¤‡æ³¨',
+   `enable_`               tinyint default 1 comment 'æ˜¯å¦å¯ç”¨(true:æ˜¯, false:å¦)',
    primary key (id_)
 );
 
-alter table thesis_person comment 'ÂÛÎÄÓëÈËÔ±£¨×÷Õß£©¹ØÁª';
+alter table thesis_person comment 'è®ºæ–‡ä¸äººå‘˜ï¼ˆä½œè€…ï¼‰å…³è”';
 
 /*==============================================================*/
 /* Index: thesis_person_thesis_index                            */
@@ -3205,20 +3205,20 @@ create index thesis_person_person_index on thesis_person
 /*==============================================================*/
 create table thesis_type
 (
-   `id_`                   bigint not null auto_increment comment '±àºÅ',
-   `name_`                 varchar(254) not null comment 'Ãû³Æ',
-   `spell_`                varchar(254) comment 'Ãû³ÆµÄÈ«Æ´',
-   `create_by`             bigint comment '´´½¨ÓÃ»§±àºÅ',
-   `create_time`           datetime not null default CURRENT_TIMESTAMP comment '´´½¨Ê±¼ä',
-   `update_by`             bigint comment '¸üĞÂÓÃ»§±àºÅ',
-   `update_time`           datetime not null default CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP comment '¸üĞÂÊ±¼ä',
-   `sort_no`               int default 1 comment 'ÅÅĞò',
-   `remark_`               varchar(254) comment '±¸×¢',
-   `enable_`               tinyint default 1 comment 'ÊÇ·ñ¿ÉÓÃ(true:ÊÇ, false:·ñ)',
+   `id_`                   bigint not null auto_increment comment 'ç¼–å·',
+   `name_`                 varchar(254) not null comment 'åç§°',
+   `spell_`                varchar(254) comment 'åç§°çš„å…¨æ‹¼',
+   `create_by`             bigint comment 'åˆ›å»ºç”¨æˆ·ç¼–å·',
+   `create_time`           datetime not null default CURRENT_TIMESTAMP comment 'åˆ›å»ºæ—¶é—´',
+   `update_by`             bigint comment 'æ›´æ–°ç”¨æˆ·ç¼–å·',
+   `update_time`           datetime not null default CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP comment 'æ›´æ–°æ—¶é—´',
+   `sort_no`               int default 1 comment 'æ’åº',
+   `remark_`               varchar(254) comment 'å¤‡æ³¨',
+   `enable_`               tinyint default 1 comment 'æ˜¯å¦å¯ç”¨(true:æ˜¯, false:å¦)',
    primary key (id_)
 );
 
-alter table thesis_type comment 'ÓÃÒÔ±íÃ÷ÂÛÎÄµÄÀàĞÍ£¬±ÈÈç£ºÆÕÍ¨ÂÛÎÄ¡¢¿Æ¼¼ºËĞÄ¡¢ÖĞÎÄºËĞÄ¡¢ISTP¡¢EI¡¢SCIµÈ';
+alter table thesis_type comment 'ç”¨ä»¥è¡¨æ˜è®ºæ–‡çš„ç±»å‹ï¼Œæ¯”å¦‚ï¼šæ™®é€šè®ºæ–‡ã€ç§‘æŠ€æ ¸å¿ƒã€ä¸­æ–‡æ ¸å¿ƒã€ISTPã€EIã€SCIç­‰';
 
 /*==============================================================*/
 /* Index: thesis_type_index                                     */
@@ -3241,22 +3241,22 @@ create index thesis_type_name_index on thesis_type
 /*==============================================================*/
 create table Third_rule_categories
 (
-   `id_`                   bigint not null auto_increment comment '±àºÅ',
-   `name_`                 varchar(5000) not null comment 'Ãû³Æ',
-   `spell_`                varchar(5000) comment 'Ãû³ÆµÄÈ«Æ´',
-   `second_rule_id`        bigint not null comment '¶ş¼¶Ä¿Â¼±àºÅ',
-   `total_score`           int comment 'ËùÕ¼·ÖÖµ',
-   `create_by`             bigint comment '´´½¨ÓÃ»§±àºÅ',
-   `create_time`           datetime not null default CURRENT_TIMESTAMP comment '´´½¨Ê±¼ä',
-   `update_by`             bigint comment '¸üĞÂÓÃ»§±àºÅ',
-   `update_time`           datetime not null default CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP comment '¸üĞÂÊ±¼ä',
-   `sort_no`               int default 1 comment 'ÅÅĞò',
-   `remark_`               varchar(254) comment '±¸×¢',
-   `enable_`               tinyint default 1 comment 'ÊÇ·ñ¿ÉÓÃ(true:ÊÇ, false:·ñ)',
+   `id_`                   bigint not null auto_increment comment 'ç¼–å·',
+   `name_`                 varchar(5000) not null comment 'åç§°',
+   `spell_`                varchar(5000) comment 'åç§°çš„å…¨æ‹¼',
+   `second_rule_id`        bigint not null comment 'äºŒçº§ç›®å½•ç¼–å·',
+   `total_score`           int comment 'æ‰€å åˆ†å€¼',
+   `create_by`             bigint comment 'åˆ›å»ºç”¨æˆ·ç¼–å·',
+   `create_time`           datetime not null default CURRENT_TIMESTAMP comment 'åˆ›å»ºæ—¶é—´',
+   `update_by`             bigint comment 'æ›´æ–°ç”¨æˆ·ç¼–å·',
+   `update_time`           datetime not null default CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP comment 'æ›´æ–°æ—¶é—´',
+   `sort_no`               int default 1 comment 'æ’åº',
+   `remark_`               varchar(254) comment 'å¤‡æ³¨',
+   `enable_`               tinyint default 1 comment 'æ˜¯å¦å¯ç”¨(true:æ˜¯, false:å¦)',
    primary key (id_)
 );
 
-alter table Third_rule_categories comment 'ÆÀ·ÖÈı¼¶Ä¿Â¼';
+alter table Third_rule_categories comment 'è¯„åˆ†ä¸‰çº§ç›®å½•';
 
 /*==============================================================*/
 /* Index: second_rule_categories_index                          */
@@ -3271,22 +3271,22 @@ create unique index second_rule_categories_index on Third_rule_categories
 /*==============================================================*/
 create table top_rule_categories
 (
-   `id_`                   bigint not null auto_increment comment '±àºÅ',
-   `name_`                 varchar(5000) not null comment 'Ãû³Æ',
-   `spell_`                varchar(5000) comment 'Ãû³ÆµÄÈ«Æ´',
-   `year_`                 int not null comment 'Äê·İ',
-   `total_score`           int comment 'ËùÕ¼·ÖÖµ',
-   `create_by`             bigint comment '´´½¨ÓÃ»§±àºÅ',
-   `create_time`           datetime not null default CURRENT_TIMESTAMP comment '´´½¨Ê±¼ä',
-   `update_by`             bigint comment '¸üĞÂÓÃ»§±àºÅ',
-   `update_time`           datetime not null default CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP comment '¸üĞÂÊ±¼ä',
-   `sort_no`               int default 1 comment 'ÅÅĞò',
-   `remark_`               varchar(254) comment '±¸×¢',
-   `enable_`               tinyint default 1 comment 'ÊÇ·ñ¿ÉÓÃ(true:ÊÇ, false:·ñ)',
+   `id_`                   bigint not null auto_increment comment 'ç¼–å·',
+   `name_`                 varchar(5000) not null comment 'åç§°',
+   `spell_`                varchar(5000) comment 'åç§°çš„å…¨æ‹¼',
+   `year_`                 int not null comment 'å¹´ä»½',
+   `total_score`           int comment 'æ‰€å åˆ†å€¼',
+   `create_by`             bigint comment 'åˆ›å»ºç”¨æˆ·ç¼–å·',
+   `create_time`           datetime not null default CURRENT_TIMESTAMP comment 'åˆ›å»ºæ—¶é—´',
+   `update_by`             bigint comment 'æ›´æ–°ç”¨æˆ·ç¼–å·',
+   `update_time`           datetime not null default CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP comment 'æ›´æ–°æ—¶é—´',
+   `sort_no`               int default 1 comment 'æ’åº',
+   `remark_`               varchar(254) comment 'å¤‡æ³¨',
+   `enable_`               tinyint default 1 comment 'æ˜¯å¦å¯ç”¨(true:æ˜¯, false:å¦)',
    primary key (id_)
 );
 
-alter table top_rule_categories comment 'ÆÀ·ÖÒ»¼¶Ä¿Â¼';
+alter table top_rule_categories comment 'è¯„åˆ†ä¸€çº§ç›®å½•';
 
 /*==============================================================*/
 /* Index: top_rule_categories_index                             */
@@ -3309,21 +3309,21 @@ create index top_rule_categories_year_index on top_rule_categories
 /*==============================================================*/
 create table town
 (
-   `id_`                   bigint not null auto_increment comment '±àºÅ',
-   `name_`                 varchar(254) not null comment 'Ãû³Æ',
-   `spell_`                varchar(254) comment 'Ãû³ÆµÄÈ«Æ´',
-   `county_id`             bigint not null comment 'ÇøÏØ±àºÅ',
-   `create_by`             bigint comment '´´½¨ÓÃ»§±àºÅ',
-   `create_time`           datetime not null comment '´´½¨Ê±¼ä',
-   `update_by`             bigint comment '¸üĞÂÓÃ»§±àºÅ',
-   `update_time`           datetime not null comment '¸üĞÂÊ±¼ä',
-   `sort_no`               int default 1 comment 'ÅÅĞò',
-   `remark_`               varchar(254) comment '±¸×¢',
-   `enable_`               tinyint comment 'ÊÇ·ñ¿ÉÓÃ(true:ÊÇ, false:·ñ)',
+   `id_`                   bigint not null auto_increment comment 'ç¼–å·',
+   `name_`                 varchar(254) not null comment 'åç§°',
+   `spell_`                varchar(254) comment 'åç§°çš„å…¨æ‹¼',
+   `county_id`             bigint not null comment 'åŒºå¿ç¼–å·',
+   `create_by`             bigint comment 'åˆ›å»ºç”¨æˆ·ç¼–å·',
+   `create_time`           datetime not null comment 'åˆ›å»ºæ—¶é—´',
+   `update_by`             bigint comment 'æ›´æ–°ç”¨æˆ·ç¼–å·',
+   `update_time`           datetime not null comment 'æ›´æ–°æ—¶é—´',
+   `sort_no`               int default 1 comment 'æ’åº',
+   `remark_`               varchar(254) comment 'å¤‡æ³¨',
+   `enable_`               tinyint comment 'æ˜¯å¦å¯ç”¨(true:æ˜¯, false:å¦)',
    primary key (id_)
 );
 
-alter table town comment 'Õò';
+alter table town comment 'é•‡';
 
 /*==============================================================*/
 /* Index: town_index                                            */
@@ -3354,27 +3354,27 @@ create index town_county_index on town
 /*==============================================================*/
 create table treatises
 (
-   `id_`                   bigint not null auto_increment comment '±àºÅ',
-   `name_`                 varchar(254) not null comment 'Ãû³Æ',
-   `spell_`                varchar(254) comment 'Ãû³ÆµÄÈ«Æ´',
-   `author_id`             bigint comment '×÷Õß±àºÅ',
-   `domain_`               varchar(254) comment 'ÁìÓò',
-   `publisher_id`          bigint comment '³ö°æÉç±àºÅ',
-   `introduction_`         varchar(254) comment '¼ò½é',
+   `id_`                   bigint not null auto_increment comment 'ç¼–å·',
+   `name_`                 varchar(254) not null comment 'åç§°',
+   `spell_`                varchar(254) comment 'åç§°çš„å…¨æ‹¼',
+   `author_id`             bigint comment 'ä½œè€…ç¼–å·',
+   `domain_`               varchar(254) comment 'é¢†åŸŸ',
+   `publisher_id`          bigint comment 'å‡ºç‰ˆç¤¾ç¼–å·',
+   `introduction_`         varchar(254) comment 'ç®€ä»‹',
    `ISBN_`                 varchar(254) comment 'ISBN',
-   `publish_date`          date comment '³ö°æÈÕÆÚ',
-   `attachment_id`         bigint comment '¸½¼şÎÄµµ',
-   `create_by`             bigint comment '´´½¨ÓÃ»§±àºÅ',
-   `create_time`           datetime not null default CURRENT_TIMESTAMP comment '´´½¨Ê±¼ä',
-   `update_by`             bigint comment '¸üĞÂÓÃ»§±àºÅ',
-   `update_time`           datetime not null default CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP comment '¸üĞÂÊ±¼ä',
-   `sort_no`               int default 1 comment 'ÅÅĞò',
-   `remark_`               varchar(254) comment '±¸×¢',
-   `enable_`               tinyint default 1 comment 'ÊÇ·ñ¿ÉÓÃ(true:ÊÇ, false:·ñ)',
+   `publish_date`          date comment 'å‡ºç‰ˆæ—¥æœŸ',
+   `attachment_id`         bigint comment 'é™„ä»¶æ–‡æ¡£',
+   `create_by`             bigint comment 'åˆ›å»ºç”¨æˆ·ç¼–å·',
+   `create_time`           datetime not null default CURRENT_TIMESTAMP comment 'åˆ›å»ºæ—¶é—´',
+   `update_by`             bigint comment 'æ›´æ–°ç”¨æˆ·ç¼–å·',
+   `update_time`           datetime not null default CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP comment 'æ›´æ–°æ—¶é—´',
+   `sort_no`               int default 1 comment 'æ’åº',
+   `remark_`               varchar(254) comment 'å¤‡æ³¨',
+   `enable_`               tinyint default 1 comment 'æ˜¯å¦å¯ç”¨(true:æ˜¯, false:å¦)',
    primary key (id_)
 );
 
-alter table treatises comment '×¨Öø';
+alter table treatises comment 'ä¸“è‘—';
 
 /*==============================================================*/
 /* Index: treatises_index                                       */
@@ -3405,30 +3405,30 @@ create index treatises_author_index on treatises
 /*==============================================================*/
 create table user
 (
-   `id_`                   bigint not null auto_increment comment '±àºÅ',
-   `name_`                 varchar(254) comment 'Ãû³Æ',
-   `spell_`                varchar(254) comment 'Ãû³ÆµÄÈ«Æ´',
-   `source_of_user`        bigint not null default 0 comment 'ÓÃ»§À´Ô´£¨0£ºÑ§Éú¡¢1£º½ÌÊ¦¡¢2£º×¨¼Ò£©',
-   `user_entity_id`        bigint not null comment 'ÓÃ»§ÊµÌå±àºÅ',
-   `login_name`            varchar(254) comment 'ÕÊºÅ',
-   `password_`             varchar(254) not null comment 'ÃÜÂëMD5(ÃÜÂë+ÑÎ)',
-   `salt_`                 varchar(254) not null comment 'ÑÎ',
-   `head_img_id`           bigint default 0 comment 'Í·Ïñ',
-   `phone_`                varchar(254) comment 'µç»°',
-   `email_`                varchar(254) comment 'ÓÊÏä',
-   `gender_id`             bigint comment 'ĞÔ±ğ',
-   `is_locked`             tinyint not null comment '×´Ì¬(true:Õı³£, false:½ûÖ¹)',
-   `create_by`             bigint comment '´´½¨ÓÃ»§±àºÅ',
-   `create_time`           datetime not null default CURRENT_TIMESTAMP comment '´´½¨Ê±¼ä',
-   `update_by`             bigint comment '¸üĞÂÓÃ»§±àºÅ',
-   `update_time`           datetime not null default CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP comment '¸üĞÂÊ±¼ä',
-   `sort_no`               int default 1 comment 'ÅÅĞò',
-   `remark_`               varchar(254) comment '±¸×¢',
-   `enable_`               tinyint default 1 comment 'ÊÇ·ñ¿ÉÓÃ(true:ÊÇ, false:·ñ)',
+   `id_`                   bigint not null auto_increment comment 'ç¼–å·',
+   `name_`                 varchar(254) comment 'åç§°',
+   `spell_`                varchar(254) comment 'åç§°çš„å…¨æ‹¼',
+   `source_of_user`        bigint not null default 0 comment 'ç”¨æˆ·æ¥æºï¼ˆ0ï¼šå­¦ç”Ÿã€1ï¼šæ•™å¸ˆã€2ï¼šä¸“å®¶ï¼‰',
+   `user_entity_id`        bigint not null comment 'ç”¨æˆ·å®ä½“ç¼–å·',
+   `login_name`            varchar(254) comment 'å¸å·',
+   `password_`             varchar(254) not null comment 'å¯†ç MD5(å¯†ç +ç›)',
+   `salt_`                 varchar(254) not null comment 'ç›',
+   `head_img_id`           bigint default 0 comment 'å¤´åƒ',
+   `phone_`                varchar(254) comment 'ç”µè¯',
+   `email_`                varchar(254) comment 'é‚®ç®±',
+   `gender_id`             bigint comment 'æ€§åˆ«',
+   `is_locked`             tinyint not null comment 'çŠ¶æ€(true:æ­£å¸¸, false:ç¦æ­¢)',
+   `create_by`             bigint comment 'åˆ›å»ºç”¨æˆ·ç¼–å·',
+   `create_time`           datetime not null default CURRENT_TIMESTAMP comment 'åˆ›å»ºæ—¶é—´',
+   `update_by`             bigint comment 'æ›´æ–°ç”¨æˆ·ç¼–å·',
+   `update_time`           datetime not null default CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP comment 'æ›´æ–°æ—¶é—´',
+   `sort_no`               int default 1 comment 'æ’åº',
+   `remark_`               varchar(254) comment 'å¤‡æ³¨',
+   `enable_`               tinyint default 1 comment 'æ˜¯å¦å¯ç”¨(true:æ˜¯, false:å¦)',
    primary key (id_)
 );
 
-alter table user comment 'ÓÃ»§';
+alter table user comment 'ç”¨æˆ·';
 
 /*==============================================================*/
 /* Index: user_index                                            */
@@ -3467,22 +3467,22 @@ create index user_entity_index on user
 /*==============================================================*/
 create table user_role
 (
-   `id_`                   bigint not null auto_increment comment '±àºÅ',
-   `name_`                 varchar(254) comment 'Ãû³Æ',
-   `spell_`                varchar(254) comment 'Ãû³ÆµÄÈ«Æ´',
-   `user_id`               bigint not null comment 'ÓÃ»§±àºÅ',
-   `role_id`               bigint not null comment '½ÇÉ«±àºÅ',
-   `create_by`             bigint comment '´´½¨ÓÃ»§±àºÅ',
-   `create_time`           datetime not null default CURRENT_TIMESTAMP comment '´´½¨Ê±¼ä',
-   `update_by`             bigint comment '¸üĞÂÓÃ»§±àºÅ',
-   `update_time`           datetime not null default CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP comment '¸üĞÂÊ±¼ä',
-   `sort_no`               int default 1 comment 'ÅÅĞò',
-   `remark_`               varchar(254) comment '±¸×¢',
-   `enable_`               tinyint default 1 comment 'ÊÇ·ñ¿ÉÓÃ(true:ÊÇ, false:·ñ)',
+   `id_`                   bigint not null auto_increment comment 'ç¼–å·',
+   `name_`                 varchar(254) comment 'åç§°',
+   `spell_`                varchar(254) comment 'åç§°çš„å…¨æ‹¼',
+   `user_id`               bigint not null comment 'ç”¨æˆ·ç¼–å·',
+   `role_id`               bigint not null comment 'è§’è‰²ç¼–å·',
+   `create_by`             bigint comment 'åˆ›å»ºç”¨æˆ·ç¼–å·',
+   `create_time`           datetime not null default CURRENT_TIMESTAMP comment 'åˆ›å»ºæ—¶é—´',
+   `update_by`             bigint comment 'æ›´æ–°ç”¨æˆ·ç¼–å·',
+   `update_time`           datetime not null default CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP comment 'æ›´æ–°æ—¶é—´',
+   `sort_no`               int default 1 comment 'æ’åº',
+   `remark_`               varchar(254) comment 'å¤‡æ³¨',
+   `enable_`               tinyint default 1 comment 'æ˜¯å¦å¯ç”¨(true:æ˜¯, false:å¦)',
    primary key (id_)
 );
 
-alter table user_role comment 'ÓÃ»§½ÇÉ«¹ØÁª';
+alter table user_role comment 'ç”¨æˆ·è§’è‰²å…³è”';
 
 /*==============================================================*/
 /* Index: user_role_user_index                                  */

@@ -2,7 +2,6 @@ package edu.gzmu.model;
 
 import com.baomidou.mybatisplus.annotations.TableField;
 import edu.gzmu.model.base.SLPlatBaseModel;
-
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 
@@ -18,16 +17,62 @@ import io.swagger.annotations.ApiModelProperty;
 @SuppressWarnings("serial")
 public class Town extends SLPlatBaseModel {
     @ApiModelProperty(value = "区县编号")
-	@TableField("county_id")
-	private Long countyId;
+    @TableField("county_id")
+    private Long countyId;
+    @TableField(exist = false)
+    private String countyName;
+    @TableField(exist = false)
+    private String cityName;
+    @TableField(exist = false)
+    private String provinceName;
+    @TableField(exist = false)
+    private Long cityId;
+    @TableField(exist = false)
+    private Long provinceId;
 
-	public Long getCountyId() {
-		return countyId;
-	}
+    public Long getCountyId() {
+        return countyId;
+    }
 
-	public void setCountyId(Long countyId) {
-		this.countyId = countyId;
-	}
+    public void setCountyId(Long countyId) {
+        this.countyId = countyId;
+    }
+
+    public String getCountyName() {
+        return countyName;
+    }
+
+    public void setCountyName(String countyName) {
+        this.countyName = countyName;
+    }
+
+    public String getCityName() {
+        return cityName;
+    }
+
+    public void setCityName(String cityName) {this.cityName = cityName;}
+
+    public String getProvinceName() {
+        return provinceName;
+    }
+
+    public void setProvinceName(String provinceName) {
+        this.provinceName = provinceName;
+    }
+
+    public Long getProvinceId() {
+        return provinceId;
+    }
+
+    public void setProvinceId(Long provinceId) { this.provinceId = provinceId; }
+
+    public Long getCityId() {
+        return cityId;
+    }
+
+    public void setCityId(Long cityId) {
+        this.cityId = cityId;
+    }
 
     /**
      * 返回当前对象信息的字符串表示，该信息能够直接转换成JSON数据

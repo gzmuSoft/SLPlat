@@ -18,7 +18,11 @@ INSERT INTO `sys_menu` VALUES (19, '组织管理', NULL, 1, 0, 'glyphicon glyphi
 INSERT INTO `sys_menu` VALUES (20, '学校管理', NULL, 2, 19, 'glyphicon glyphicon-list', 'main.student.school.list', 0, 1, 'sys.student.school', 1, '业务菜单', 1, 1, '2018-4-20 13:19:51', 1, '2018-4-20 13:19:51');
 INSERT INTO `sys_menu` VALUES (21, '学院管理', NULL, 2, 19, 'glyphicon glyphicon-list', 'main.student.college.list', 0, 1, 'sys.student.college', 2, '业务菜单', 1, 1, '2018-4-20 13:22:05', 1, '2018-4-20 13:22:05');
 INSERT INTO `sys_menu` VALUES (22, '专业管理', NULL, 2, 19, 'glyphicon glyphicon-list', 'main.student.specialty.list', 0, 1, 'sys.student.specialty', 3, '业务菜单', 1, 1, '2018-4-20 13:23:14', 1, '2018-4-20 13:23:14');
-
+INSERT INTO `sys_menu` VALUES (23, '地区中心', null, 2, 0, 'glyphicon glyphicon-fire', '#', 0, 1, 'sys.site', 3, '系统菜单', 1, 1, '2018-04-12 19:17:07', 1, '2018-04-12 19:17:07');
+INSERT INTO `sys_menu` VALUES (24, '省份管理', null, 2, 23, 'glyphicon glyphicon-list', 'main.sys.province.list', 0, 1, 'sys.site.province', 1, '业务菜单', 1, 1, '2018-04-12 19:22:50', 1, '2018-04-12 19:22:50');
+INSERT INTO `sys_menu` VALUES (25, '市区管理', null, 2, 23, 'glyphicon glyphicon-list', 'main.sys.city.list', 0, 1, 'sys.site.city', 2,'业务菜单', 1, 1, '2018-04-12 19:24:57', 1, '2018-04-12 19:24:57');
+INSERT INTO `sys_menu` VALUES (26, '区县管理', null, 2, 23, 'glyphicon glyphicon-list', 'main.sys.county.list', 0, 1, 'sys.site.county',3, '业务菜单', 1, 1, '2018-04-12 19:26:49', 1, '2018-04-12 19:26:49');
+INSERT INTO `sys_menu` VALUES (27, '乡镇管理', null, 2, 23, 'glyphicon glyphicon-list', 'main.sys.town.list', 0, 1, 'sys.site.town', 4, '业务菜单', 1, 1, '2018-04-12 19:40:22', 1, '2018-04-12 19:40:22');
 
 INSERT INTO `sys_role_menu` VALUES (1, NULL, NULL, 1, 1, 'read', 1, NULL, 1, 1, '2016-6-28 18:18:50', 1, '2016-6-29 08:23:04');
 INSERT INTO `sys_role_menu` VALUES (2, NULL, NULL, 1, 2, 'add', 1, NULL, 1, 1, '2016-6-29 09:10:10', 1, '2016-6-29 09:10:10');
@@ -74,3 +78,24 @@ INSERT INTO `sys_role_menu` VALUES (51, NULL, NULL, 1, 22, 'add', 1, NULL, 1, 1,
 INSERT INTO `sys_role_menu` VALUES (52, NULL, NULL, 1, 22, 'delete', 1, NULL, 1, 1, '2018-4-20 13:30:56', 1, '2018-4-20 13:30:56');
 INSERT INTO `sys_role_menu` VALUES (53, NULL, NULL, 1, 22, 'read', 1, NULL, 1, 1, '2018-4-20 13:31:07', 1, '2018-4-20 13:31:07');
 INSERT INTO `sys_role_menu` VALUES (54, NULL, NULL, 1, 22, 'update', 1, NULL, 1, 1, '2018-4-20 13:31:23', 1, '2018-4-20 13:31:23');
+INSERT INTO `sys_role_menu` VALUES (55, NULL, NULL, 1, 24, 'add', 1, NULL, 1, 1, '2018-4-20 13:30:44', 1, '2018-4-20 13:30:44');
+INSERT INTO `sys_role_menu` VALUES (56, NULL, NULL, 1, 24, 'delete', 1, NULL, 1, 1, '2018-4-20 13:30:56', 1, '2018-4-20 13:30:56');
+INSERT INTO `sys_role_menu` VALUES (57, NULL, NULL, 1, 24, 'read', 1, NULL, 1, 1, '2018-4-20 13:31:07', 1, '2018-4-20 13:31:07');
+INSERT INTO `sys_role_menu` VALUES (58, NULL, NULL, 1, 24, 'update', 1, NULL, 1, 1, '2018-4-20 13:31:23', 1, '2018-4-20 13:31:23');
+INSERT INTO `sys_role_menu` VALUES (59, NULL, NULL, 1, 25, 'add', 1, NULL, 1, 1, '2018-4-20 13:30:44', 1, '2018-4-20 13:30:44');
+INSERT INTO `sys_role_menu` VALUES (60, NULL, NULL, 1, 25, 'delete', 1, NULL, 1, 1, '2018-4-20 13:30:56', 1, '2018-4-20 13:30:56');
+INSERT INTO `sys_role_menu` VALUES (61, NULL, NULL, 1, 25, 'read', 1, NULL, 1, 1, '2018-4-20 13:31:07', 1, '2018-4-20 13:31:07');
+INSERT INTO `sys_role_menu` VALUES (62, NULL, NULL, 1, 25, 'update', 1, NULL, 1, 1, '2018-4-20 13:31:23', 1, '2018-4-20 13:31:23');
+INSERT INTO `sys_role_menu` VALUES (63, NULL, NULL, 1, 26, 'add', 1, NULL, 1, 1, '2018-4-20 13:30:44', 1, '2018-4-20 13:30:44');
+INSERT INTO `sys_role_menu` VALUES (64, NULL, NULL, 1, 26, 'delete', 1, NULL, 1, 1, '2018-4-20 13:30:56', 1, '2018-4-20 13:30:56');
+INSERT INTO `sys_role_menu` VALUES (65, NULL, NULL, 1, 26, 'read', 1, NULL, 1, 1, '2018-4-20 13:31:07', 1, '2018-4-20 13:31:07');
+INSERT INTO `sys_role_menu` VALUES (66, NULL, NULL, 1, 26, 'update', 1, NULL, 1, 1, '2018-4-20 13:31:23', 1, '2018-4-20 13:31:23');
+INSERT INTO `sys_role_menu` VALUES (67, NULL, NULL, 1, 27, 'add', 1, NULL, 1, 1, '2018-4-20 13:30:44', 1, '2018-4-20 13:30:44');
+INSERT INTO `sys_role_menu` VALUES (68, NULL, NULL, 1, 27, 'delete', 1, NULL, 1, 1, '2018-4-20 13:30:56', 1, '2018-4-20 13:30:56');
+INSERT INTO `sys_role_menu` VALUES (69, NULL, NULL, 1, 27, 'read', 1, NULL, 1, 1, '2018-4-20 13:31:07', 1, '2018-4-20 13:31:07');
+INSERT INTO `sys_role_menu` VALUES (70, NULL, NULL, 1, 27, 'update', 1, NULL, 1, 1, '2018-4-20 13:31:23', 1, '2018-4-20 13:31:23');
+INSERT INTO `sys_role_menu` VALUES (71, NULL, NULL, 1, 28, 'add', 1, NULL, 1, 1, '2018-4-20 13:30:44', 1, '2018-4-20 13:30:44');
+INSERT INTO `sys_role_menu` VALUES (72, NULL, NULL, 1, 28, 'delete', 1, NULL, 1, 1, '2018-4-20 13:30:56', 1, '2018-4-20 13:30:56');
+INSERT INTO `sys_role_menu` VALUES (73, NULL, NULL, 1, 28, 'read', 1, NULL, 1, 1, '2018-4-20 13:31:07', 1, '2018-4-20 13:31:07');
+INSERT INTO `sys_role_menu` VALUES (74, NULL, NULL, 1, 28, 'update', 1, NULL, 1, 1, '2018-4-20 13:31:23', 1, '2018-4-20 13:31:23');
+INSERT INTO `sys_role_menu` VALUES (75, NULL, NULL, 1, 23, 'read', 1, NULL, 1, 1, '2018-4-20 13:31:07', 1, '2018-4-20 13:31:07');
