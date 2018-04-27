@@ -16,5 +16,8 @@ import org.springframework.stereotype.Service;
 @Service
 @CacheConfig(cacheNames = "ProfessionalTitle")
 public class ProfessionalTitleService extends BaseService<ProfessionalTitle> {
-	
+    public ProfessionalTitle queryById(Long id){
+        ProfessionalTitle professionalTitle = super.queryById(id);
+        return professionalTitle;
+    }
 }

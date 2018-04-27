@@ -16,5 +16,8 @@ import org.springframework.stereotype.Service;
 @Service
 @CacheConfig(cacheNames = "AttachmentType")
 public class AttachmentTypeService extends BaseService<AttachmentType> {
-	
+    public AttachmentType queryById(Long id){
+        AttachmentType attachmentType = super.queryById(id);
+        return attachmentType;
+    }
 }

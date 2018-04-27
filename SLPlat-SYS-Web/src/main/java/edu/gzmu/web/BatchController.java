@@ -6,6 +6,7 @@ import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import org.apache.shiro.authz.annotation.RequiresPermissions;
 import org.springframework.http.MediaType;
+import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.*;
 import top.ibase4j.core.base.provider.BaseController;
 import top.ibase4j.core.util.WebUtil;
@@ -29,7 +30,7 @@ public class BatchController extends BaseController<ISysProvider> {
 		return "batchService";
 	}
 
-	@RequiresPermissions("batch.read")
+	@RequiresPermissions("sys.message.batch.read")
 	@PutMapping(value = "/read/list")
 	@ApiOperation(value = "查询批次", produces = MediaType.APPLICATION_JSON_VALUE)
 	public Object query(HttpServletRequest request) {
@@ -37,7 +38,14 @@ public class BatchController extends BaseController<ISysProvider> {
 		return super.query(param);
 	}
 
-	@RequiresPermissions("batch.read")
+	@ApiOperation(value = "查询批次", produces = MediaType.APPLICATION_JSON_VALUE)
+	@RequiresPermissions("sys.message.batch.read")
+	@PutMapping(value = "/read/page")
+	public Object query(ModelMap modelMap, @RequestBody Map<String, Object> param) {
+		return super.query(modelMap, param);
+	}
+
+	@RequiresPermissions("sys.message.batch.read")
 	@PutMapping(value = "/read/detail")
 	@ApiOperation(value = "批次详情", produces = MediaType.APPLICATION_JSON_VALUE)
 	public Object get(HttpServletRequest request) {
@@ -46,7 +54,7 @@ public class BatchController extends BaseController<ISysProvider> {
 	}
 
 	@PostMapping
-	@RequiresPermissions("batch.update")
+	@RequiresPermissions("sys.message.batch.update")
 	@ApiOperation(value = "修改批次", produces = MediaType.APPLICATION_JSON_VALUE)
 	public Object update(HttpServletRequest request) {
 		Batch param = WebUtil.getParameter(request, Batch.class);
@@ -54,7 +62,7 @@ public class BatchController extends BaseController<ISysProvider> {
 	}
 
 	@DeleteMapping
-	@RequiresPermissions("batch.delete")
+	@RequiresPermissions("sys.message.batch.delete")
 	@ApiOperation(value = "删除批次", produces = MediaType.APPLICATION_JSON_VALUE)
 	public Object del(HttpServletRequest request) {
 		Batch param = WebUtil.getParameter(request, Batch.class);

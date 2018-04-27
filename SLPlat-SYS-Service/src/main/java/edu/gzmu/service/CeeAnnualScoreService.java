@@ -16,5 +16,8 @@ import org.springframework.stereotype.Service;
 @Service
 @CacheConfig(cacheNames = "CeeAnnualScore")
 public class CeeAnnualScoreService extends BaseService<CeeAnnualScore> {
-	
+    public CeeAnnualScore queryById(Long id){
+        CeeAnnualScore ceeAnnualScore = super.queryById(id);
+        return ceeAnnualScore;
+    }
 }

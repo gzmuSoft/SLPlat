@@ -6,6 +6,7 @@ import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import org.apache.shiro.authz.annotation.RequiresPermissions;
 import org.springframework.http.MediaType;
+import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.*;
 import top.ibase4j.core.base.provider.BaseController;
 import top.ibase4j.core.util.WebUtil;
@@ -29,7 +30,7 @@ public class AdministrativePostController extends BaseController<ISysProvider> {
 		return "administrativePostService";
 	}
 
-	@RequiresPermissions("administrativePost.read")
+	@RequiresPermissions("sys.message.administrativePost.read")
 	@PutMapping(value = "/read/list")
 	@ApiOperation(value = "查询行政职务", produces = MediaType.APPLICATION_JSON_VALUE)
 	public Object query(HttpServletRequest request) {
@@ -37,7 +38,14 @@ public class AdministrativePostController extends BaseController<ISysProvider> {
 		return super.query(param);
 	}
 
-	@RequiresPermissions("administrativePost.read")
+	@ApiOperation(value = "查询行政职务", produces = MediaType.APPLICATION_JSON_VALUE)
+	@RequiresPermissions("sys.message.administrativePost.read")
+	@PutMapping(value = "/read/page")
+	public Object query(ModelMap modelMap, @RequestBody Map<String, Object> param) {
+		return super.query(modelMap, param);
+	}
+
+	@RequiresPermissions("sys.message.administrativePost.read")
 	@PutMapping(value = "/read/detail")
 	@ApiOperation(value = "行政职务详情", produces = MediaType.APPLICATION_JSON_VALUE)
 	public Object get(HttpServletRequest request) {
@@ -46,7 +54,7 @@ public class AdministrativePostController extends BaseController<ISysProvider> {
 	}
 
 	@PostMapping
-	@RequiresPermissions("administrativePost.update")
+	@RequiresPermissions("sys.message.administrativePost.update")
 	@ApiOperation(value = "修改行政职务", produces = MediaType.APPLICATION_JSON_VALUE)
 	public Object update(HttpServletRequest request) {
 		AdministrativePost param = WebUtil.getParameter(request, AdministrativePost.class);
@@ -54,7 +62,7 @@ public class AdministrativePostController extends BaseController<ISysProvider> {
 	}
 
 	@DeleteMapping
-	@RequiresPermissions("administrativePost.delete")
+	@RequiresPermissions("sys.message.administrativePost.delete")
 	@ApiOperation(value = "删除行政职务", produces = MediaType.APPLICATION_JSON_VALUE)
 	public Object del(HttpServletRequest request) {
 		AdministrativePost param = WebUtil.getParameter(request, AdministrativePost.class);

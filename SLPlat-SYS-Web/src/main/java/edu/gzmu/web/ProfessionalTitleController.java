@@ -6,6 +6,7 @@ import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import org.apache.shiro.authz.annotation.RequiresPermissions;
 import org.springframework.http.MediaType;
+import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.*;
 import top.ibase4j.core.base.provider.BaseController;
 import top.ibase4j.core.util.WebUtil;
@@ -29,7 +30,7 @@ public class ProfessionalTitleController extends BaseController<ISysProvider> {
 		return "professionalTitleService";
 	}
 
-	@RequiresPermissions("professionalTitle.read")
+	@RequiresPermissions("sys.message.professionalTitle.read")
 	@PutMapping(value = "/read/list")
 	@ApiOperation(value = "查询职称", produces = MediaType.APPLICATION_JSON_VALUE)
 	public Object query(HttpServletRequest request) {
@@ -37,7 +38,14 @@ public class ProfessionalTitleController extends BaseController<ISysProvider> {
 		return super.query(param);
 	}
 
-	@RequiresPermissions("professionalTitle.read")
+	@ApiOperation(value = "查询职称", produces = MediaType.APPLICATION_JSON_VALUE)
+	@RequiresPermissions("sys.message.professionalTitle.read")
+	@PutMapping(value = "/read/page")
+	public Object query(ModelMap modelMap, @RequestBody Map<String, Object> param) {
+		return super.query(modelMap, param);
+	}
+
+	@RequiresPermissions("sys.message.professionalTitle.read")
 	@PutMapping(value = "/read/detail")
 	@ApiOperation(value = "职称详情", produces = MediaType.APPLICATION_JSON_VALUE)
 	public Object get(HttpServletRequest request) {
@@ -46,7 +54,7 @@ public class ProfessionalTitleController extends BaseController<ISysProvider> {
 	}
 
 	@PostMapping
-	@RequiresPermissions("professionalTitle.update")
+	@RequiresPermissions("sys.message.professionalTitle.update")
 	@ApiOperation(value = "修改职称", produces = MediaType.APPLICATION_JSON_VALUE)
 	public Object update(HttpServletRequest request) {
 		ProfessionalTitle param = WebUtil.getParameter(request, ProfessionalTitle.class);
@@ -54,7 +62,7 @@ public class ProfessionalTitleController extends BaseController<ISysProvider> {
 	}
 
 	@DeleteMapping
-	@RequiresPermissions("professionalTitle.delete")
+	@RequiresPermissions("sys.message.professionalTitle.delete")
 	@ApiOperation(value = "删除职称", produces = MediaType.APPLICATION_JSON_VALUE)
 	public Object del(HttpServletRequest request) {
 		ProfessionalTitle param = WebUtil.getParameter(request, ProfessionalTitle.class);

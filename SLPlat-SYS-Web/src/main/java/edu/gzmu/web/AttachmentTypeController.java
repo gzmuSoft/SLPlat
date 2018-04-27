@@ -6,6 +6,7 @@ import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import org.apache.shiro.authz.annotation.RequiresPermissions;
 import org.springframework.http.MediaType;
+import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.*;
 import top.ibase4j.core.base.provider.BaseController;
 import top.ibase4j.core.util.WebUtil;
@@ -29,7 +30,7 @@ public class AttachmentTypeController extends BaseController<ISysProvider> {
 		return "attachmentTypeService";
 	}
 
-	@RequiresPermissions("attachmentType.read")
+	@RequiresPermissions("sys.message.attachmentType.read")
 	@PutMapping(value = "/read/list")
 	@ApiOperation(value = "查询附件类型", produces = MediaType.APPLICATION_JSON_VALUE)
 	public Object query(HttpServletRequest request) {
@@ -37,7 +38,14 @@ public class AttachmentTypeController extends BaseController<ISysProvider> {
 		return super.query(param);
 	}
 
-	@RequiresPermissions("attachmentType.read")
+	@ApiOperation(value = "查询附件类型", produces = MediaType.APPLICATION_JSON_VALUE)
+	@RequiresPermissions("sys.message.attachmentType.read")
+	@PutMapping(value = "/read/page")
+	public Object query(ModelMap modelMap, @RequestBody Map<String, Object> param) {
+		return super.query(modelMap, param);
+	}
+
+	@RequiresPermissions("sys.message.attachmentType.read")
 	@PutMapping(value = "/read/detail")
 	@ApiOperation(value = "附件类型详情", produces = MediaType.APPLICATION_JSON_VALUE)
 	public Object get(HttpServletRequest request) {
@@ -46,7 +54,7 @@ public class AttachmentTypeController extends BaseController<ISysProvider> {
 	}
 
 	@PostMapping
-	@RequiresPermissions("attachmentType.update")
+	@RequiresPermissions("sys.message.attachmentType.update")
 	@ApiOperation(value = "修改附件类型", produces = MediaType.APPLICATION_JSON_VALUE)
 	public Object update(HttpServletRequest request) {
 		AttachmentType param = WebUtil.getParameter(request, AttachmentType.class);
@@ -54,7 +62,7 @@ public class AttachmentTypeController extends BaseController<ISysProvider> {
 	}
 
 	@DeleteMapping
-	@RequiresPermissions("attachmentType.delete")
+	@RequiresPermissions("sys.message.attachmentType.delete")
 	@ApiOperation(value = "删除附件类型", produces = MediaType.APPLICATION_JSON_VALUE)
 	public Object del(HttpServletRequest request) {
 		AttachmentType param = WebUtil.getParameter(request, AttachmentType.class);

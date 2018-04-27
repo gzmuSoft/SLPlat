@@ -16,5 +16,8 @@ import org.springframework.stereotype.Service;
 @Service
 @CacheConfig(cacheNames = "Batch")
 public class BatchService extends BaseService<Batch> {
-	
+    public Batch queryById(Long id){
+        Batch batch = super.queryById(id);
+        return batch;
+    }
 }

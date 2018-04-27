@@ -16,5 +16,8 @@ import org.springframework.stereotype.Service;
 @Service
 @CacheConfig(cacheNames = "ExamineeCategory")
 public class ExamineeCategoryService extends BaseService<ExamineeCategory> {
-	
+    public ExamineeCategory queryById(Long id){
+        ExamineeCategory examineeCategory = super.queryById(id);
+        return examineeCategory;
+    }
 }

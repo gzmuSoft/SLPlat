@@ -16,5 +16,8 @@ import org.springframework.stereotype.Service;
 @Service
 @CacheConfig(cacheNames = "Gender")
 public class GenderService extends BaseService<Gender> {
-	
+    public Gender queryById(Long id){
+        Gender gender = super.queryById(id);
+        return gender;
+    }
 }

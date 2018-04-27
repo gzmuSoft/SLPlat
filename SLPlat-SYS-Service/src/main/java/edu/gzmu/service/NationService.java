@@ -16,5 +16,8 @@ import org.springframework.stereotype.Service;
 @Service
 @CacheConfig(cacheNames = "Nation")
 public class NationService extends BaseService<Nation> {
-	
+    public Nation queryById(Long id){
+        Nation nation = super.queryById(id);
+        return nation;
+    }
 }

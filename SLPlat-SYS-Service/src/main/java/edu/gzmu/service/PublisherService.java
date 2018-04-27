@@ -16,5 +16,8 @@ import org.springframework.stereotype.Service;
 @Service
 @CacheConfig(cacheNames = "Publisher")
 public class PublisherService extends BaseService<Publisher> {
-	
+    public Publisher queryById(Long id){
+        Publisher publisher = super.queryById(id);
+        return publisher;
+    }
 }

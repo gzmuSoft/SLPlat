@@ -16,5 +16,8 @@ import org.springframework.stereotype.Service;
 @Service
 @CacheConfig(cacheNames = "AdministrativePost")
 public class AdministrativePostService extends BaseService<AdministrativePost> {
-	
+    public AdministrativePost queryById(Long id){
+        AdministrativePost administrativePost = super.queryById(id);
+        return administrativePost;
+    }
 }

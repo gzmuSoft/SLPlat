@@ -16,5 +16,8 @@ import org.springframework.stereotype.Service;
 @Service
 @CacheConfig(cacheNames = "HighSchoolCategory")
 public class HighSchoolCategoryService extends BaseService<HighSchoolCategory> {
-	
+    public HighSchoolCategory queryById(Long id){
+        HighSchoolCategory highSchoolCategory = super.queryById(id);
+        return highSchoolCategory;
+    }
 }

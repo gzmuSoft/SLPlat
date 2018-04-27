@@ -11,5 +11,5 @@ import top.ibase4j.core.base.BaseMapper;
  * @since 2018-04-08
  */
 public interface NationMapper extends BaseMapper<Nation> {
-
+   // List<Long> selectIdPage(@Param("cm") Nation nation);
 }

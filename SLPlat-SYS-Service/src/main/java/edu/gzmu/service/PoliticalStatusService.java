@@ -16,5 +16,8 @@ import org.springframework.stereotype.Service;
 @Service
 @CacheConfig(cacheNames = "PoliticalStatus")
 public class PoliticalStatusService extends BaseService<PoliticalStatus> {
-	
+    public PoliticalStatus queryById(Long id){
+        PoliticalStatus politicalStatus = super.queryById(id);
+        return politicalStatus;
+    }
 }

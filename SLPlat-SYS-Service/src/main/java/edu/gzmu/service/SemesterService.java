@@ -16,5 +16,8 @@ import org.springframework.stereotype.Service;
 @Service
 @CacheConfig(cacheNames = "Semester")
 public class SemesterService extends BaseService<Semester> {
-	
+    public Semester queryById(Long id){
+        Semester semester = super.queryById(id);
+        return semester;
+    }
 }

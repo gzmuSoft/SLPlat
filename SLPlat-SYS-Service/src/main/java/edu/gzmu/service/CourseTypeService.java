@@ -16,5 +16,8 @@ import org.springframework.stereotype.Service;
 @Service
 @CacheConfig(cacheNames = "CourseType")
 public class CourseTypeService extends BaseService<CourseType> {
-	
+    public CourseType queryById(Long id){
+        CourseType courseType = super.queryById(id);
+        return courseType;
+    }
 }
