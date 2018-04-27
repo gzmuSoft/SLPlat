@@ -41,6 +41,8 @@
                     <thead>
                     <tr>
                         <th>学期名称</th>
+                        <th>学期开始时间</th>
+                        <th>学期结束时间</th>
                         <th>排序</th>
                         <th>状态</th>
                         <th>&nbsp;</th>
@@ -49,6 +51,8 @@
                     <tbody>
                     <tr ng-repeat="item in pageInfo.rows">
                         <td class="v-middle">{{item.name}}</td>
+                        <td class="v-middle">{{item.startDate}}</td>
+                        <td class="v-middle">{{item.endDate}}</td>
                         <td class="v-middle">{{item.sortNo}}</td>
                         <td class="v-middle">
                             <span ng-hide="item.enable==1" class="text-danger">禁用</span>

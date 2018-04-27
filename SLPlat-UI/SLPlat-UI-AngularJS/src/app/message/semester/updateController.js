@@ -70,19 +70,35 @@
         function validate(userId){
             jQuery('form').validate({
                 rules: {
-                    semesterName: {
+                    name: {
                         required: true,
                         stringCheck:[],
                         maxLengthB:[20]
+                    },
+                    startDate: {
+                        required: true,
+                        dateISO:true
+                    },
+                    endDate: {
+                        required: true,
+                        dateISO:true
                     },
                     sortNo: {
                         required: true
                     }
                 },
                 messages: {
-                    semesterName: {
+                    name: {
                         required: '请填写学期名称',
                         maxLengthB:"学期名称不得超过{0}个字符"
+                    },
+                    startDate: {
+                        required: '请填写学期开始日期 ',
+                        dateISO:"日期格式为:2000-01-01,2000/01/01"
+                    },
+                    endDate: {
+                        required: '请填写学期结束日期',
+                        dateISO:"日期格式为:2000-01-01,2000/01/01"
                     },
                     sortNo: {
                         required: '请填写排序'

@@ -1,7 +1,7 @@
 /*
 Navicat MySQL Data Transfer
 
-Source Server         : ExamSystem
+Source Server         : MySQL
 Source Server Version : 50710
 Source Host           : localhost:3306
 Source Database       : slplat
@@ -10,13 +10,13 @@ Target Server Type    : MYSQL
 Target Server Version : 50710
 File Encoding         : 65001
 
-Date: 2018-04-27 16:06:01
+Date: 2018-04-27 20:43:38
 */
 
 SET FOREIGN_KEY_CHECKS=0;
 
 -- ----------------------------
--- Table structure for administrative_post
+-- Table structure for `administrative_post`
 -- ----------------------------
 DROP TABLE IF EXISTS `administrative_post`;
 CREATE TABLE `administrative_post` (
@@ -33,14 +33,15 @@ CREATE TABLE `administrative_post` (
   PRIMARY KEY (`id_`),
   UNIQUE KEY `administrative_post_index` (`id_`),
   KEY `administrative_post_name_index` (`name_`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='行政职务';
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8 COMMENT='行政职务';
 
 -- ----------------------------
 -- Records of administrative_post
 -- ----------------------------
+INSERT INTO `administrative_post` VALUES ('1', '行政职务', null, '1', '2018-04-27 18:25:01', '1', '2018-04-27 18:25:01', '1', null, '1');
 
 -- ----------------------------
--- Table structure for answer_for_completion
+-- Table structure for `answer_for_completion`
 -- ----------------------------
 DROP TABLE IF EXISTS `answer_for_completion`;
 CREATE TABLE `answer_for_completion` (
@@ -68,7 +69,7 @@ CREATE TABLE `answer_for_completion` (
 -- ----------------------------
 
 -- ----------------------------
--- Table structure for attachment
+-- Table structure for `attachment`
 -- ----------------------------
 DROP TABLE IF EXISTS `attachment`;
 CREATE TABLE `attachment` (
@@ -100,7 +101,7 @@ CREATE TABLE `attachment` (
 -- ----------------------------
 
 -- ----------------------------
--- Table structure for attachment_type
+-- Table structure for `attachment_type`
 -- ----------------------------
 DROP TABLE IF EXISTS `attachment_type`;
 CREATE TABLE `attachment_type` (
@@ -118,17 +119,17 @@ CREATE TABLE `attachment_type` (
   UNIQUE KEY `attachment_type_index` (`id_`),
   KEY `attachment_type_name_index` (`name_`),
   KEY `fk_attachment_type_createByuser_reference` (`create_by`),
-  KEY `fk_attachment_type_UpdateByuser_reference` (`update_by`),
-  CONSTRAINT `fk_attachment_type_UpdateByuser_reference` FOREIGN KEY (`update_by`) REFERENCES `user` (`id_`) ON DELETE CASCADE ON UPDATE CASCADE,
-  CONSTRAINT `fk_attachment_type_createByuser_reference` FOREIGN KEY (`create_by`) REFERENCES `user` (`id_`) ON DELETE CASCADE ON UPDATE CASCADE
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='附件类型';
+  KEY `fk_attachment_type_UpdateByuser_reference` (`update_by`)
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8 COMMENT='附件类型';
 
 -- ----------------------------
 -- Records of attachment_type
 -- ----------------------------
+INSERT INTO `attachment_type` VALUES ('1', '阿德', '', null, '2018-04-27 19:43:07', '1', '2018-04-27 20:35:09', '1', '', '1');
+INSERT INTO `attachment_type` VALUES ('5', '23', null, '1', '2018-04-27 20:34:43', '1', '2018-04-27 20:34:43', '1', null, '1');
 
 -- ----------------------------
--- Table structure for authority
+-- Table structure for `authority`
 -- ----------------------------
 DROP TABLE IF EXISTS `authority`;
 CREATE TABLE `authority` (
@@ -164,7 +165,7 @@ CREATE TABLE `authority` (
 -- ----------------------------
 
 -- ----------------------------
--- Table structure for batch
+-- Table structure for `batch`
 -- ----------------------------
 DROP TABLE IF EXISTS `batch`;
 CREATE TABLE `batch` (
@@ -188,7 +189,7 @@ CREATE TABLE `batch` (
 -- ----------------------------
 
 -- ----------------------------
--- Table structure for book_resource
+-- Table structure for `book_resource`
 -- ----------------------------
 DROP TABLE IF EXISTS `book_resource`;
 CREATE TABLE `book_resource` (
@@ -227,7 +228,7 @@ CREATE TABLE `book_resource` (
 -- ----------------------------
 
 -- ----------------------------
--- Table structure for cee_annual_score
+-- Table structure for `cee_annual_score`
 -- ----------------------------
 DROP TABLE IF EXISTS `cee_annual_score`;
 CREATE TABLE `cee_annual_score` (
@@ -262,7 +263,7 @@ CREATE TABLE `cee_annual_score` (
 -- ----------------------------
 
 -- ----------------------------
--- Table structure for certificate
+-- Table structure for `certificate`
 -- ----------------------------
 DROP TABLE IF EXISTS `certificate`;
 CREATE TABLE `certificate` (
@@ -292,7 +293,7 @@ CREATE TABLE `certificate` (
 -- ----------------------------
 
 -- ----------------------------
--- Table structure for chapter_and_sections
+-- Table structure for `chapter_and_sections`
 -- ----------------------------
 DROP TABLE IF EXISTS `chapter_and_sections`;
 CREATE TABLE `chapter_and_sections` (
@@ -322,7 +323,7 @@ CREATE TABLE `chapter_and_sections` (
 -- ----------------------------
 
 -- ----------------------------
--- Table structure for city
+-- Table structure for `city`
 -- ----------------------------
 DROP TABLE IF EXISTS `city`;
 CREATE TABLE `city` (
@@ -352,7 +353,7 @@ INSERT INTO `city` VALUES ('2', '昆明市', null, '2', '1', '2018-04-24 21:54:2
 INSERT INTO `city` VALUES ('3', '毕节市', null, '1', '1', '2018-04-24 21:56:32', '1', '2018-04-24 21:56:32', '3', null, '1');
 
 -- ----------------------------
--- Table structure for class
+-- Table structure for `class`
 -- ----------------------------
 DROP TABLE IF EXISTS `class`;
 CREATE TABLE `class` (
@@ -392,7 +393,7 @@ INSERT INTO `class` VALUES ('1', '4班', null, '1', null, null, null, null, null
 INSERT INTO `class` VALUES ('2', '1班', null, '2', null, null, null, null, null, '1', '2018-04-21 00:42:13', '1', '2018-04-21 00:42:13', '2', null, '1');
 
 -- ----------------------------
--- Table structure for college
+-- Table structure for `college`
 -- ----------------------------
 DROP TABLE IF EXISTS `college`;
 CREATE TABLE `college` (
@@ -427,7 +428,7 @@ INSERT INTO `college` VALUES ('3', '法学院', null, '1', null, null, null, '1'
 INSERT INTO `college` VALUES ('4', '外语学院', null, '3', null, null, null, '1', '2018-04-21 00:43:31', '1', '2018-04-21 00:43:31', '3', null, '1');
 
 -- ----------------------------
--- Table structure for completion
+-- Table structure for `completion`
 -- ----------------------------
 DROP TABLE IF EXISTS `completion`;
 CREATE TABLE `completion` (
@@ -457,7 +458,7 @@ CREATE TABLE `completion` (
 -- ----------------------------
 
 -- ----------------------------
--- Table structure for content
+-- Table structure for `content`
 -- ----------------------------
 DROP TABLE IF EXISTS `content`;
 CREATE TABLE `content` (
@@ -494,7 +495,7 @@ CREATE TABLE `content` (
 -- ----------------------------
 
 -- ----------------------------
--- Table structure for content_detailed_grading_item
+-- Table structure for `content_detailed_grading_item`
 -- ----------------------------
 DROP TABLE IF EXISTS `content_detailed_grading_item`;
 CREATE TABLE `content_detailed_grading_item` (
@@ -526,7 +527,7 @@ CREATE TABLE `content_detailed_grading_item` (
 -- ----------------------------
 
 -- ----------------------------
--- Table structure for copyright
+-- Table structure for `copyright`
 -- ----------------------------
 DROP TABLE IF EXISTS `copyright`;
 CREATE TABLE `copyright` (
@@ -560,7 +561,7 @@ CREATE TABLE `copyright` (
 -- ----------------------------
 
 -- ----------------------------
--- Table structure for copyright_owner
+-- Table structure for `copyright_owner`
 -- ----------------------------
 DROP TABLE IF EXISTS `copyright_owner`;
 CREATE TABLE `copyright_owner` (
@@ -588,7 +589,7 @@ CREATE TABLE `copyright_owner` (
 -- ----------------------------
 
 -- ----------------------------
--- Table structure for county
+-- Table structure for `county`
 -- ----------------------------
 DROP TABLE IF EXISTS `county`;
 CREATE TABLE `county` (
@@ -617,7 +618,7 @@ INSERT INTO `county` VALUES ('1', '花溪区', null, '1', '1', '2018-04-24 18:13
 INSERT INTO `county` VALUES ('2', '啊啊啊', null, '2', '1', '2018-04-24 21:54:41', '1', '2018-04-24 21:54:41', '3', null, '1');
 
 -- ----------------------------
--- Table structure for course
+-- Table structure for `course`
 -- ----------------------------
 DROP TABLE IF EXISTS `course`;
 CREATE TABLE `course` (
@@ -659,7 +660,7 @@ CREATE TABLE `course` (
 -- ----------------------------
 
 -- ----------------------------
--- Table structure for course_material
+-- Table structure for `course_material`
 -- ----------------------------
 DROP TABLE IF EXISTS `course_material`;
 CREATE TABLE `course_material` (
@@ -691,7 +692,7 @@ CREATE TABLE `course_material` (
 -- ----------------------------
 
 -- ----------------------------
--- Table structure for course_teaching
+-- Table structure for `course_teaching`
 -- ----------------------------
 DROP TABLE IF EXISTS `course_teaching`;
 CREATE TABLE `course_teaching` (
@@ -733,7 +734,7 @@ CREATE TABLE `course_teaching` (
 -- ----------------------------
 
 -- ----------------------------
--- Table structure for course_type
+-- Table structure for `course_type`
 -- ----------------------------
 DROP TABLE IF EXISTS `course_type`;
 CREATE TABLE `course_type` (
@@ -750,14 +751,15 @@ CREATE TABLE `course_type` (
   PRIMARY KEY (`id_`),
   UNIQUE KEY `course_type_index` (`id_`),
   KEY `course_type_name_index` (`name_`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='课程类型';
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8 COMMENT='课程类型';
 
 -- ----------------------------
 -- Records of course_type
 -- ----------------------------
+INSERT INTO `course_type` VALUES ('1', '课程类型', null, '1', '2018-04-27 18:26:22', '1', '2018-04-27 18:26:22', '1', null, '1');
 
 -- ----------------------------
--- Table structure for detailed_grading_item
+-- Table structure for `detailed_grading_item`
 -- ----------------------------
 DROP TABLE IF EXISTS `detailed_grading_item`;
 CREATE TABLE `detailed_grading_item` (
@@ -793,7 +795,7 @@ CREATE TABLE `detailed_grading_item` (
 -- ----------------------------
 
 -- ----------------------------
--- Table structure for education_program
+-- Table structure for `education_program`
 -- ----------------------------
 DROP TABLE IF EXISTS `education_program`;
 CREATE TABLE `education_program` (
@@ -828,7 +830,7 @@ CREATE TABLE `education_program` (
 -- ----------------------------
 
 -- ----------------------------
--- Table structure for employment_situation
+-- Table structure for `employment_situation`
 -- ----------------------------
 DROP TABLE IF EXISTS `employment_situation`;
 CREATE TABLE `employment_situation` (
@@ -858,7 +860,7 @@ CREATE TABLE `employment_situation` (
 -- ----------------------------
 
 -- ----------------------------
--- Table structure for equipment
+-- Table structure for `equipment`
 -- ----------------------------
 DROP TABLE IF EXISTS `equipment`;
 CREATE TABLE `equipment` (
@@ -891,7 +893,7 @@ CREATE TABLE `equipment` (
 -- ----------------------------
 
 -- ----------------------------
--- Table structure for examinee_category
+-- Table structure for `examinee_category`
 -- ----------------------------
 DROP TABLE IF EXISTS `examinee_category`;
 CREATE TABLE `examinee_category` (
@@ -908,14 +910,15 @@ CREATE TABLE `examinee_category` (
   PRIMARY KEY (`id_`),
   UNIQUE KEY `examinee_category_index` (`id_`),
   KEY `examinee_category_name_index` (`name_`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='考生类别';
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8 COMMENT='考生类别';
 
 -- ----------------------------
 -- Records of examinee_category
 -- ----------------------------
+INSERT INTO `examinee_category` VALUES ('1', '考生类别', null, '1', '2018-04-27 18:22:26', '1', '2018-04-27 18:22:26', '1', null, '1');
 
 -- ----------------------------
--- Table structure for gender
+-- Table structure for `gender`
 -- ----------------------------
 DROP TABLE IF EXISTS `gender`;
 CREATE TABLE `gender` (
@@ -932,14 +935,15 @@ CREATE TABLE `gender` (
   PRIMARY KEY (`id_`),
   UNIQUE KEY `gender_index` (`id_`),
   KEY `gender_name_index` (`name_`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='性别';
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8 COMMENT='性别';
 
 -- ----------------------------
 -- Records of gender
 -- ----------------------------
+INSERT INTO `gender` VALUES ('1', '男', '', '1', '2018-04-27 18:24:14', '1', '2018-04-27 18:44:07', '2', '', '1');
 
 -- ----------------------------
--- Table structure for high_school_category
+-- Table structure for `high_school_category`
 -- ----------------------------
 DROP TABLE IF EXISTS `high_school_category`;
 CREATE TABLE `high_school_category` (
@@ -956,14 +960,15 @@ CREATE TABLE `high_school_category` (
   PRIMARY KEY (`id_`),
   UNIQUE KEY `high_school_category_index` (`id_`),
   KEY `high_school_category_name_index` (`name_`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='高中类别';
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8 COMMENT='高中类别';
 
 -- ----------------------------
 -- Records of high_school_category
 -- ----------------------------
+INSERT INTO `high_school_category` VALUES ('1', '高中类别', null, '1', '2018-04-27 18:25:12', '1', '2018-04-27 18:25:12', '1', null, '1');
 
 -- ----------------------------
--- Table structure for judgment
+-- Table structure for `judgment`
 -- ----------------------------
 DROP TABLE IF EXISTS `judgment`;
 CREATE TABLE `judgment` (
@@ -994,7 +999,7 @@ CREATE TABLE `judgment` (
 -- ----------------------------
 
 -- ----------------------------
--- Table structure for knowledge_point
+-- Table structure for `knowledge_point`
 -- ----------------------------
 DROP TABLE IF EXISTS `knowledge_point`;
 CREATE TABLE `knowledge_point` (
@@ -1023,7 +1028,7 @@ CREATE TABLE `knowledge_point` (
 -- ----------------------------
 
 -- ----------------------------
--- Table structure for multi_select
+-- Table structure for `multi_select`
 -- ----------------------------
 DROP TABLE IF EXISTS `multi_select`;
 CREATE TABLE `multi_select` (
@@ -1053,7 +1058,7 @@ CREATE TABLE `multi_select` (
 -- ----------------------------
 
 -- ----------------------------
--- Table structure for nation
+-- Table structure for `nation`
 -- ----------------------------
 DROP TABLE IF EXISTS `nation`;
 CREATE TABLE `nation` (
@@ -1070,14 +1075,15 @@ CREATE TABLE `nation` (
   PRIMARY KEY (`id_`),
   UNIQUE KEY `nation_index` (`id_`),
   KEY `nation_name_index` (`name_`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='民族';
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8 COMMENT='民族';
 
 -- ----------------------------
 -- Records of nation
 -- ----------------------------
+INSERT INTO `nation` VALUES ('1', '侗族', '', '1', '2018-04-27 18:24:25', '1', '2018-04-27 18:44:18', '2', '', '1');
 
 -- ----------------------------
--- Table structure for owner
+-- Table structure for `owner`
 -- ----------------------------
 DROP TABLE IF EXISTS `owner`;
 CREATE TABLE `owner` (
@@ -1113,7 +1119,7 @@ CREATE TABLE `owner` (
 -- ----------------------------
 
 -- ----------------------------
--- Table structure for patent
+-- Table structure for `patent`
 -- ----------------------------
 DROP TABLE IF EXISTS `patent`;
 CREATE TABLE `patent` (
@@ -1149,7 +1155,7 @@ CREATE TABLE `patent` (
 -- ----------------------------
 
 -- ----------------------------
--- Table structure for patent_inventor_owner
+-- Table structure for `patent_inventor_owner`
 -- ----------------------------
 DROP TABLE IF EXISTS `patent_inventor_owner`;
 CREATE TABLE `patent_inventor_owner` (
@@ -1178,7 +1184,7 @@ CREATE TABLE `patent_inventor_owner` (
 -- ----------------------------
 
 -- ----------------------------
--- Table structure for patent_type
+-- Table structure for `patent_type`
 -- ----------------------------
 DROP TABLE IF EXISTS `patent_type`;
 CREATE TABLE `patent_type` (
@@ -1202,7 +1208,7 @@ CREATE TABLE `patent_type` (
 -- ----------------------------
 
 -- ----------------------------
--- Table structure for person
+-- Table structure for `person`
 -- ----------------------------
 DROP TABLE IF EXISTS `person`;
 CREATE TABLE `person` (
@@ -1232,7 +1238,7 @@ CREATE TABLE `person` (
 -- ----------------------------
 
 -- ----------------------------
--- Table structure for political_status
+-- Table structure for `political_status`
 -- ----------------------------
 DROP TABLE IF EXISTS `political_status`;
 CREATE TABLE `political_status` (
@@ -1249,14 +1255,15 @@ CREATE TABLE `political_status` (
   PRIMARY KEY (`id_`),
   UNIQUE KEY `political_status_index` (`id_`),
   KEY `political_status_name_index` (`name_`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='政治面貌';
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8 COMMENT='政治面貌';
 
 -- ----------------------------
 -- Records of political_status
 -- ----------------------------
+INSERT INTO `political_status` VALUES ('1', '共青团员', null, '1', '2018-04-27 18:24:39', '1', '2018-04-27 18:24:39', '1', null, '1');
 
 -- ----------------------------
--- Table structure for postgraduate_situation
+-- Table structure for `postgraduate_situation`
 -- ----------------------------
 DROP TABLE IF EXISTS `postgraduate_situation`;
 CREATE TABLE `postgraduate_situation` (
@@ -1287,7 +1294,7 @@ CREATE TABLE `postgraduate_situation` (
 -- ----------------------------
 
 -- ----------------------------
--- Table structure for practice_basement
+-- Table structure for `practice_basement`
 -- ----------------------------
 DROP TABLE IF EXISTS `practice_basement`;
 CREATE TABLE `practice_basement` (
@@ -1318,7 +1325,7 @@ CREATE TABLE `practice_basement` (
 -- ----------------------------
 
 -- ----------------------------
--- Table structure for professional_title
+-- Table structure for `professional_title`
 -- ----------------------------
 DROP TABLE IF EXISTS `professional_title`;
 CREATE TABLE `professional_title` (
@@ -1335,14 +1342,15 @@ CREATE TABLE `professional_title` (
   PRIMARY KEY (`id_`),
   UNIQUE KEY `professional_title_index` (`id_`),
   KEY `professional_title_name_index` (`name_`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='职称';
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8 COMMENT='职称';
 
 -- ----------------------------
 -- Records of professional_title
 -- ----------------------------
+INSERT INTO `professional_title` VALUES ('1', '职称', null, '1', '2018-04-27 18:24:50', '1', '2018-04-27 18:24:50', '1', null, '1');
 
 -- ----------------------------
--- Table structure for professor
+-- Table structure for `professor`
 -- ----------------------------
 DROP TABLE IF EXISTS `professor`;
 CREATE TABLE `professor` (
@@ -1380,7 +1388,7 @@ CREATE TABLE `professor` (
 -- ----------------------------
 
 -- ----------------------------
--- Table structure for program
+-- Table structure for `program`
 -- ----------------------------
 DROP TABLE IF EXISTS `program`;
 CREATE TABLE `program` (
@@ -1411,7 +1419,7 @@ CREATE TABLE `program` (
 -- ----------------------------
 
 -- ----------------------------
--- Table structure for project
+-- Table structure for `project`
 -- ----------------------------
 DROP TABLE IF EXISTS `project`;
 CREATE TABLE `project` (
@@ -1453,7 +1461,7 @@ CREATE TABLE `project` (
 -- ----------------------------
 
 -- ----------------------------
--- Table structure for project_owner
+-- Table structure for `project_owner`
 -- ----------------------------
 DROP TABLE IF EXISTS `project_owner`;
 CREATE TABLE `project_owner` (
@@ -1481,7 +1489,7 @@ CREATE TABLE `project_owner` (
 -- ----------------------------
 
 -- ----------------------------
--- Table structure for project_type
+-- Table structure for `project_type`
 -- ----------------------------
 DROP TABLE IF EXISTS `project_type`;
 CREATE TABLE `project_type` (
@@ -1507,7 +1515,7 @@ CREATE TABLE `project_type` (
 -- ----------------------------
 
 -- ----------------------------
--- Table structure for province
+-- Table structure for `province`
 -- ----------------------------
 DROP TABLE IF EXISTS `province`;
 CREATE TABLE `province` (
@@ -1533,7 +1541,7 @@ INSERT INTO `province` VALUES ('1', '贵州省', null, '1', '2018-04-24 18:12:05
 INSERT INTO `province` VALUES ('2', '云南省', null, '1', '2018-04-24 21:54:01', '1', '2018-04-24 21:54:01', '2', null, '1');
 
 -- ----------------------------
--- Table structure for publisher
+-- Table structure for `publisher`
 -- ----------------------------
 DROP TABLE IF EXISTS `publisher`;
 CREATE TABLE `publisher` (
@@ -1550,14 +1558,15 @@ CREATE TABLE `publisher` (
   PRIMARY KEY (`id_`),
   UNIQUE KEY `publisher_index` (`id_`),
   KEY `publisher_name_index` (`name_`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='出版社';
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8 COMMENT='出版社';
 
 -- ----------------------------
 -- Records of publisher
 -- ----------------------------
+INSERT INTO `publisher` VALUES ('1', '出版社', null, '1', '2018-04-27 18:25:23', '1', '2018-04-27 18:25:23', '1', null, '1');
 
 -- ----------------------------
--- Table structure for qrtz_blob_triggers
+-- Table structure for `qrtz_blob_triggers`
 -- ----------------------------
 DROP TABLE IF EXISTS `qrtz_blob_triggers`;
 CREATE TABLE `qrtz_blob_triggers` (
@@ -1575,7 +1584,7 @@ CREATE TABLE `qrtz_blob_triggers` (
 -- ----------------------------
 
 -- ----------------------------
--- Table structure for qrtz_calendars
+-- Table structure for `qrtz_calendars`
 -- ----------------------------
 DROP TABLE IF EXISTS `qrtz_calendars`;
 CREATE TABLE `qrtz_calendars` (
@@ -1590,7 +1599,7 @@ CREATE TABLE `qrtz_calendars` (
 -- ----------------------------
 
 -- ----------------------------
--- Table structure for qrtz_cron_triggers
+-- Table structure for `qrtz_cron_triggers`
 -- ----------------------------
 DROP TABLE IF EXISTS `qrtz_cron_triggers`;
 CREATE TABLE `qrtz_cron_triggers` (
@@ -1608,7 +1617,7 @@ CREATE TABLE `qrtz_cron_triggers` (
 -- ----------------------------
 
 -- ----------------------------
--- Table structure for qrtz_fired_triggers
+-- Table structure for `qrtz_fired_triggers`
 -- ----------------------------
 DROP TABLE IF EXISTS `qrtz_fired_triggers`;
 CREATE TABLE `qrtz_fired_triggers` (
@@ -1639,7 +1648,7 @@ CREATE TABLE `qrtz_fired_triggers` (
 -- ----------------------------
 
 -- ----------------------------
--- Table structure for qrtz_job_details
+-- Table structure for `qrtz_job_details`
 -- ----------------------------
 DROP TABLE IF EXISTS `qrtz_job_details`;
 CREATE TABLE `qrtz_job_details` (
@@ -1663,7 +1672,7 @@ CREATE TABLE `qrtz_job_details` (
 -- ----------------------------
 
 -- ----------------------------
--- Table structure for qrtz_locks
+-- Table structure for `qrtz_locks`
 -- ----------------------------
 DROP TABLE IF EXISTS `qrtz_locks`;
 CREATE TABLE `qrtz_locks` (
@@ -1679,7 +1688,7 @@ INSERT INTO `qrtz_locks` VALUES ('iBase4J-Scheduler', 'STATE_ACCESS');
 INSERT INTO `qrtz_locks` VALUES ('iBase4J-Scheduler', 'TRIGGER_ACCESS');
 
 -- ----------------------------
--- Table structure for qrtz_paused_trigger_grps
+-- Table structure for `qrtz_paused_trigger_grps`
 -- ----------------------------
 DROP TABLE IF EXISTS `qrtz_paused_trigger_grps`;
 CREATE TABLE `qrtz_paused_trigger_grps` (
@@ -1693,7 +1702,7 @@ CREATE TABLE `qrtz_paused_trigger_grps` (
 -- ----------------------------
 
 -- ----------------------------
--- Table structure for qrtz_scheduler_state
+-- Table structure for `qrtz_scheduler_state`
 -- ----------------------------
 DROP TABLE IF EXISTS `qrtz_scheduler_state`;
 CREATE TABLE `qrtz_scheduler_state` (
@@ -1707,10 +1716,10 @@ CREATE TABLE `qrtz_scheduler_state` (
 -- ----------------------------
 -- Records of qrtz_scheduler_state
 -- ----------------------------
-INSERT INTO `qrtz_scheduler_state` VALUES ('iBase4J-Scheduler', 'AQD42ZQK2WCLZ1C1524577613974', '1524616060438', '20000');
+INSERT INTO `qrtz_scheduler_state` VALUES ('iBase4J-Scheduler', 'LAPTOP-TBN3EJDU1524824372096', '1524833016038', '20000');
 
 -- ----------------------------
--- Table structure for qrtz_simple_triggers
+-- Table structure for `qrtz_simple_triggers`
 -- ----------------------------
 DROP TABLE IF EXISTS `qrtz_simple_triggers`;
 CREATE TABLE `qrtz_simple_triggers` (
@@ -1729,7 +1738,7 @@ CREATE TABLE `qrtz_simple_triggers` (
 -- ----------------------------
 
 -- ----------------------------
--- Table structure for qrtz_simprop_triggers
+-- Table structure for `qrtz_simprop_triggers`
 -- ----------------------------
 DROP TABLE IF EXISTS `qrtz_simprop_triggers`;
 CREATE TABLE `qrtz_simprop_triggers` (
@@ -1756,7 +1765,7 @@ CREATE TABLE `qrtz_simprop_triggers` (
 -- ----------------------------
 
 -- ----------------------------
--- Table structure for qrtz_triggers
+-- Table structure for `qrtz_triggers`
 -- ----------------------------
 DROP TABLE IF EXISTS `qrtz_triggers`;
 CREATE TABLE `qrtz_triggers` (
@@ -1797,7 +1806,7 @@ CREATE TABLE `qrtz_triggers` (
 -- ----------------------------
 
 -- ----------------------------
--- Table structure for question_knowledge_point
+-- Table structure for `question_knowledge_point`
 -- ----------------------------
 DROP TABLE IF EXISTS `question_knowledge_point`;
 CREATE TABLE `question_knowledge_point` (
@@ -1827,7 +1836,7 @@ CREATE TABLE `question_knowledge_point` (
 -- ----------------------------
 
 -- ----------------------------
--- Table structure for reward
+-- Table structure for `reward`
 -- ----------------------------
 DROP TABLE IF EXISTS `reward`;
 CREATE TABLE `reward` (
@@ -1862,7 +1871,7 @@ CREATE TABLE `reward` (
 -- ----------------------------
 
 -- ----------------------------
--- Table structure for reward_owner
+-- Table structure for `reward_owner`
 -- ----------------------------
 DROP TABLE IF EXISTS `reward_owner`;
 CREATE TABLE `reward_owner` (
@@ -1890,7 +1899,7 @@ CREATE TABLE `reward_owner` (
 -- ----------------------------
 
 -- ----------------------------
--- Table structure for reward_type
+-- Table structure for `reward_type`
 -- ----------------------------
 DROP TABLE IF EXISTS `reward_type`;
 CREATE TABLE `reward_type` (
@@ -1914,7 +1923,7 @@ CREATE TABLE `reward_type` (
 -- ----------------------------
 
 -- ----------------------------
--- Table structure for role
+-- Table structure for `role`
 -- ----------------------------
 DROP TABLE IF EXISTS `role`;
 CREATE TABLE `role` (
@@ -1943,7 +1952,7 @@ CREATE TABLE `role` (
 -- ----------------------------
 
 -- ----------------------------
--- Table structure for role_authority
+-- Table structure for `role_authority`
 -- ----------------------------
 DROP TABLE IF EXISTS `role_authority`;
 CREATE TABLE `role_authority` (
@@ -1975,7 +1984,7 @@ CREATE TABLE `role_authority` (
 -- ----------------------------
 
 -- ----------------------------
--- Table structure for school
+-- Table structure for `school`
 -- ----------------------------
 DROP TABLE IF EXISTS `school`;
 CREATE TABLE `school` (
@@ -2003,7 +2012,7 @@ INSERT INTO `school` VALUES ('2', '贵州大学', null, null, '1', '2018-04-21 0
 INSERT INTO `school` VALUES ('3', '贵州师范大学', null, null, '1', '2018-04-21 00:43:16', '1', '2018-04-21 00:43:16', '3', null, '1');
 
 -- ----------------------------
--- Table structure for second_rule_categories
+-- Table structure for `second_rule_categories`
 -- ----------------------------
 DROP TABLE IF EXISTS `second_rule_categories`;
 CREATE TABLE `second_rule_categories` (
@@ -2034,7 +2043,7 @@ CREATE TABLE `second_rule_categories` (
 -- ----------------------------
 
 -- ----------------------------
--- Table structure for select_options
+-- Table structure for `select_options`
 -- ----------------------------
 DROP TABLE IF EXISTS `select_options`;
 CREATE TABLE `select_options` (
@@ -2062,7 +2071,7 @@ CREATE TABLE `select_options` (
 -- ----------------------------
 
 -- ----------------------------
--- Table structure for semester
+-- Table structure for `semester`
 -- ----------------------------
 DROP TABLE IF EXISTS `semester`;
 CREATE TABLE `semester` (
@@ -2082,14 +2091,18 @@ CREATE TABLE `semester` (
   PRIMARY KEY (`id_`),
   UNIQUE KEY `semester_index` (`id_`),
   KEY `semester_name_index` (`name_`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='学期';
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8 COMMENT='学期';
 
 -- ----------------------------
 -- Records of semester
 -- ----------------------------
+INSERT INTO `semester` VALUES ('1', '213', '', '2018-09-08 00:00:00', '2018-09-08 00:00:00', null, '1', '2018-04-27 19:21:38', '1', '2018-04-27 19:22:19', '3', '', '1');
+INSERT INTO `semester` VALUES ('2', '123', null, '1970-01-01 08:00:02', '1970-01-01 08:00:00', null, '1', '2018-04-27 19:22:46', '1', '2018-04-27 19:22:46', '4', null, '1');
+INSERT INTO `semester` VALUES ('3', '32', null, '2087-03-08 00:00:00', '2087-03-08 00:00:00', null, '1', '2018-04-27 19:23:20', '1', '2018-04-27 19:23:20', '3', null, '1');
+INSERT INTO `semester` VALUES ('4', '2', null, '1970-01-01 16:09:34', '1970-01-01 16:55:33', null, '1', '2018-04-27 19:24:10', '1', '2018-04-27 19:24:10', '3', null, '1');
 
 -- ----------------------------
--- Table structure for short_answer_question
+-- Table structure for `short_answer_question`
 -- ----------------------------
 DROP TABLE IF EXISTS `short_answer_question`;
 CREATE TABLE `short_answer_question` (
@@ -2120,7 +2133,7 @@ CREATE TABLE `short_answer_question` (
 -- ----------------------------
 
 -- ----------------------------
--- Table structure for single_select
+-- Table structure for `single_select`
 -- ----------------------------
 DROP TABLE IF EXISTS `single_select`;
 CREATE TABLE `single_select` (
@@ -2150,7 +2163,7 @@ CREATE TABLE `single_select` (
 -- ----------------------------
 
 -- ----------------------------
--- Table structure for specialty
+-- Table structure for `specialty`
 -- ----------------------------
 DROP TABLE IF EXISTS `specialty`;
 CREATE TABLE `specialty` (
@@ -2187,7 +2200,7 @@ INSERT INTO `specialty` VALUES ('1', null, '软件工程', null, '1', null, null
 INSERT INTO `specialty` VALUES ('2', null, '计算机科学系', null, '2', null, null, null, null, null, '1', '2018-04-21 00:41:59', '1', '2018-04-21 00:41:59', '2', null, '1');
 
 -- ----------------------------
--- Table structure for student
+-- Table structure for `student`
 -- ----------------------------
 DROP TABLE IF EXISTS `student`;
 CREATE TABLE `student` (
@@ -2258,7 +2271,7 @@ CREATE TABLE `student` (
 -- ----------------------------
 
 -- ----------------------------
--- Table structure for sys_dept
+-- Table structure for `sys_dept`
 -- ----------------------------
 DROP TABLE IF EXISTS `sys_dept`;
 CREATE TABLE `sys_dept` (
@@ -2286,7 +2299,7 @@ INSERT INTO `sys_dept` VALUES ('2', '市场部', null, '1', '1', '1', '1', 't', 
 INSERT INTO `sys_dept` VALUES ('825363166504628224', '技术部', null, '1', '1', null, '2', '', null, '1', '2017-01-28 23:21:28', '1', '2017-05-29 08:15:29');
 
 -- ----------------------------
--- Table structure for sys_dic
+-- Table structure for `sys_dic`
 -- ----------------------------
 DROP TABLE IF EXISTS `sys_dic`;
 CREATE TABLE `sys_dic` (
@@ -2345,7 +2358,7 @@ INSERT INTO `sys_dic` VALUES ('29', null, null, 'CRUD', 'close', '关闭', null,
 INSERT INTO `sys_dic` VALUES ('30', null, null, 'CRUD', 'run', '执行', null, null, '0', '7', null, '1', '1', '2016-06-28 18:04:06', '1', '2016-06-28 18:04:01');
 
 -- ----------------------------
--- Table structure for sys_email
+-- Table structure for `sys_email`
 -- ----------------------------
 DROP TABLE IF EXISTS `sys_email`;
 CREATE TABLE `sys_email` (
@@ -2371,7 +2384,7 @@ CREATE TABLE `sys_email` (
 INSERT INTO `sys_email` VALUES ('1', 'test', null, 't', 'a', '并蒂芙蓉', '1', null, '1', '1', '2017-02-02 16:37:54', '1', '2017-02-02 16:37:54');
 
 -- ----------------------------
--- Table structure for sys_email_config
+-- Table structure for `sys_email_config`
 -- ----------------------------
 DROP TABLE IF EXISTS `sys_email_config`;
 CREATE TABLE `sys_email_config` (
@@ -2400,7 +2413,7 @@ CREATE TABLE `sys_email_config` (
 INSERT INTO `sys_email_config` VALUES ('828157583909109760', null, null, 'smtp.163.com', '101', '0', 'sysPlat', 'sysPlat@163.com', 'BK5sgjz5JOOsFuD4w0mbe7==', '1', null, '1', '1', '2017-02-05 16:25:29', '1', '2017-02-05 16:37:50');
 
 -- ----------------------------
--- Table structure for sys_email_template
+-- Table structure for `sys_email_template`
 -- ----------------------------
 DROP TABLE IF EXISTS `sys_email_template`;
 CREATE TABLE `sys_email_template` (
@@ -2425,7 +2438,7 @@ CREATE TABLE `sys_email_template` (
 -- ----------------------------
 
 -- ----------------------------
--- Table structure for sys_event
+-- Table structure for `sys_event`
 -- ----------------------------
 DROP TABLE IF EXISTS `sys_event`;
 CREATE TABLE `sys_event` (
@@ -2447,7 +2460,7 @@ CREATE TABLE `sys_event` (
   `update_by` bigint(20) NOT NULL COMMENT '更新用户编号',
   `update_time` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP COMMENT '更新时间',
   PRIMARY KEY (`id_`)
-) ENGINE=InnoDB AUTO_INCREMENT=25 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=65 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of sys_event
@@ -2476,9 +2489,49 @@ INSERT INTO `sys_event` VALUES ('21', null, null, '修改镇', '/town', '\"{\\\"
 INSERT INTO `sys_event` VALUES ('22', null, null, '修改市', '/city', '\"{\\\"name\\\":\\\"毕节市\\\",\\\"sortNo\\\":\\\"3\\\",\\\"provinceId\\\":\\\"1\\\"}\"', 'POST', '192.168.40.1', 'Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/63.0.3239.26 Safari/537.36 Core/1.63.5183.400 QQBrowser/10.0.1059.400', '200', '1', '', '1', '1', '2018-04-24 21:56:32', '1', '2018-04-24 21:56:32');
 INSERT INTO `sys_event` VALUES ('23', null, null, '用户登录', '/login', '{}', 'POST', '192.168.40.1', 'Mozilla/5.0 (Windows NT 6.1; Win64; x64; Trident/7.0; rv:11.0) like Gecko', '200', '1', '[admin]登录成功.', '1', '1', '2018-04-24 21:59:16', '1', '2018-04-24 21:59:16');
 INSERT INTO `sys_event` VALUES ('24', null, null, '用户登录', '/login', '{}', 'POST', '192.168.40.1', 'Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/63.0.3239.26 Safari/537.36 Core/1.63.5183.400 QQBrowser/10.0.1059.400', '200', '1', '[admin]登录成功.', '1', '1', '2018-04-25 08:27:21', '1', '2018-04-25 08:27:21');
+INSERT INTO `sys_event` VALUES ('25', null, null, '用户登录', '/login', '{}', 'POST', '192.168.1.34', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:59.0) Gecko/20100101 Firefox/59.0', '200', '1', '[admin]登录成功.', '1', '1', '2018-04-27 18:20:46', '1', '2018-04-27 18:20:46');
+INSERT INTO `sys_event` VALUES ('26', null, null, '修改考生类别', '/examineeCategory', '\"{\\\"name\\\":\\\"考生类别\\\",\\\"sortNo\\\":\\\"1\\\"}\"', 'POST', '192.168.1.34', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:59.0) Gecko/20100101 Firefox/59.0', '200', '1', '', '1', '1', '2018-04-27 18:22:27', '1', '2018-04-27 18:22:27');
+INSERT INTO `sys_event` VALUES ('27', null, null, '修改学期', '/semester', '\"{\\\"name\\\":\\\"学期\\\",\\\"sortNo\\\":\\\"1\\\"}\"', 'POST', '192.168.1.34', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:59.0) Gecko/20100101 Firefox/59.0', '200', '1', '', '1', '1', '2018-04-27 18:23:26', '1', '2018-04-27 18:23:26');
+INSERT INTO `sys_event` VALUES ('28', null, null, '修改性别', '/gender', '\"{\\\"name\\\":\\\"男\\\",\\\"sortNo\\\":\\\"1\\\"}\"', 'POST', '192.168.1.34', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:59.0) Gecko/20100101 Firefox/59.0', '200', '1', '', '1', '1', '2018-04-27 18:24:14', '1', '2018-04-27 18:24:14');
+INSERT INTO `sys_event` VALUES ('29', null, null, '修改民族', '/nation', '\"{\\\"name\\\":\\\"侗族\\\",\\\"sortNo\\\":\\\"1\\\"}\"', 'POST', '192.168.1.34', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:59.0) Gecko/20100101 Firefox/59.0', '200', '1', '', '1', '1', '2018-04-27 18:24:25', '1', '2018-04-27 18:24:25');
+INSERT INTO `sys_event` VALUES ('30', null, null, '修改政治面貌', '/politicalStatus', '\"{\\\"name\\\":\\\"共青团员\\\",\\\"sortNo\\\":\\\"1\\\"}\"', 'POST', '192.168.1.34', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:59.0) Gecko/20100101 Firefox/59.0', '200', '1', '', '1', '1', '2018-04-27 18:24:39', '1', '2018-04-27 18:24:39');
+INSERT INTO `sys_event` VALUES ('31', null, null, '修改职称', '/professionalTitle', '\"{\\\"name\\\":\\\"职称\\\",\\\"sortNo\\\":\\\"1\\\"}\"', 'POST', '192.168.1.34', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:59.0) Gecko/20100101 Firefox/59.0', '200', '1', '', '1', '1', '2018-04-27 18:24:50', '1', '2018-04-27 18:24:50');
+INSERT INTO `sys_event` VALUES ('32', null, null, '修改行政职务', '/administrativePost', '\"{\\\"name\\\":\\\"行政职务\\\",\\\"sortNo\\\":\\\"1\\\"}\"', 'POST', '192.168.1.34', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:59.0) Gecko/20100101 Firefox/59.0', '200', '1', '', '1', '1', '2018-04-27 18:25:01', '1', '2018-04-27 18:25:01');
+INSERT INTO `sys_event` VALUES ('33', null, null, '修改高中类别', '/highSchoolCategory', '\"{\\\"name\\\":\\\"高中类别\\\",\\\"sortNo\\\":\\\"1\\\"}\"', 'POST', '192.168.1.34', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:59.0) Gecko/20100101 Firefox/59.0', '200', '1', '', '1', '1', '2018-04-27 18:25:12', '1', '2018-04-27 18:25:12');
+INSERT INTO `sys_event` VALUES ('34', null, null, '修改出版社', '/publisher', '\"{\\\"name\\\":\\\"出版社\\\",\\\"sortNo\\\":\\\"1\\\"}\"', 'POST', '192.168.1.34', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:59.0) Gecko/20100101 Firefox/59.0', '200', '1', '', '1', '1', '2018-04-27 18:25:23', '1', '2018-04-27 18:25:23');
+INSERT INTO `sys_event` VALUES ('35', null, null, '修改附件类型', '/attachmentType', '\"{\\\"name\\\":\\\"附件类型\\\",\\\"sortNo\\\":\\\"1\\\"}\"', 'POST', '192.168.1.34', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:59.0) Gecko/20100101 Firefox/59.0', '200', '1', '', '1', '1', '2018-04-27 18:25:33', '1', '2018-04-27 18:25:33');
+INSERT INTO `sys_event` VALUES ('36', null, null, '修改课程类型', '/courseType', '\"{\\\"name\\\":\\\"课程类型\\\",\\\"sortNo\\\":\\\"1\\\"}\"', 'POST', '192.168.1.34', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:59.0) Gecko/20100101 Firefox/59.0', '200', '1', '', '1', '1', '2018-04-27 18:26:22', '1', '2018-04-27 18:26:22');
+INSERT INTO `sys_event` VALUES ('37', null, null, '用户登录', '/login', '{}', 'POST', '192.168.1.34', 'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/63.0.3239.26 Safari/537.36 Core/1.63.5221.400 QQBrowser/10.0.1125.400', '200', '1', '[admin]登录成功.', '1', '1', '2018-04-27 18:29:46', '1', '2018-04-27 18:29:46');
+INSERT INTO `sys_event` VALUES ('38', null, null, '修改附件类型', '/attachmentType', '\"{\\\"name\\\":\\\"adwd\\\",\\\"sortNo\\\":\\\"1\\\"}\"', 'POST', '192.168.1.34', 'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/63.0.3239.26 Safari/537.36 Core/1.63.5221.400 QQBrowser/10.0.1125.400', '200', '1', '', '1', '1', '2018-04-27 18:30:01', '1', '2018-04-27 18:30:01');
+INSERT INTO `sys_event` VALUES ('39', null, null, '修改性别', '/gender', '\"{\\\"createBy\\\":\\\"1\\\",\\\"createTime\\\":\\\"2018-04-27 18:24:14\\\",\\\"enable\\\":\\\"1\\\",\\\"id\\\":\\\"1\\\",\\\"keyword\\\":\\\"\\\",\\\"name\\\":\\\"男\\\",\\\"orderBy\\\":\\\"\\\",\\\"remark\\\":\\\"\\\",\\\"sortNo\\\":\\\"2\\\",\\\"spell\\\":\\\"\\\",\\\"subToString\\\":\\\" [Hash = -882076611, id=1, name=男, spell=null, remark=null, Enable=1, createBy=1, createTime=Fri Apr 27 18:24:14 CST 2018, updateBy=1, updateTime=Fri Apr 27 18:24:14 CST 2018\\\",\\\"updateBy\\\":\\\"1\\\",\\\"updateTime\\\":\\\"2018-04-27 18:24:14\\\"}\"', 'POST', '192.168.1.34', 'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/63.0.3239.26 Safari/537.36 Core/1.63.5221.400 QQBrowser/10.0.1125.400', '200', '1', '', '1', '1', '2018-04-27 18:44:07', '1', '2018-04-27 18:44:07');
+INSERT INTO `sys_event` VALUES ('40', null, null, '修改民族', '/nation', '\"{\\\"createBy\\\":\\\"1\\\",\\\"createTime\\\":\\\"2018-04-27 18:24:25\\\",\\\"enable\\\":\\\"1\\\",\\\"id\\\":\\\"1\\\",\\\"keyword\\\":\\\"\\\",\\\"name\\\":\\\"侗族\\\",\\\"orderBy\\\":\\\"\\\",\\\"remark\\\":\\\"\\\",\\\"sortNo\\\":\\\"2\\\",\\\"spell\\\":\\\"\\\",\\\"subToString\\\":\\\" [Hash = 1324526350, id=1, name=侗族, spell=null, remark=null, Enable=1, createBy=1, createTime=Fri Apr 27 18:24:25 CST 2018, updateBy=1, updateTime=Fri Apr 27 18:24:25 CST 2018\\\",\\\"updateBy\\\":\\\"1\\\",\\\"updateTime\\\":\\\"2018-04-27 18:24:25\\\"}\"', 'POST', '192.168.1.34', 'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/63.0.3239.26 Safari/537.36 Core/1.63.5221.400 QQBrowser/10.0.1125.400', '200', '1', '', '1', '1', '2018-04-27 18:44:13', '1', '2018-04-27 18:44:13');
+INSERT INTO `sys_event` VALUES ('41', null, null, '修改民族', '/nation', '\"{\\\"createBy\\\":\\\"1\\\",\\\"createTime\\\":\\\"2018-04-27 18:24:25\\\",\\\"enable\\\":0,\\\"id\\\":\\\"1\\\",\\\"keyword\\\":\\\"\\\",\\\"name\\\":\\\"侗族\\\",\\\"orderBy\\\":\\\"\\\",\\\"remark\\\":\\\"\\\",\\\"sortNo\\\":\\\"2\\\",\\\"spell\\\":\\\"\\\",\\\"subToString\\\":\\\" [Hash = -2081748817, id=1, name=侗族, spell=, remark=, Enable=1, createBy=1, createTime=Fri Apr 27 18:24:25 CST 2018, updateBy=1, updateTime=Fri Apr 27 18:44:13 CST 2018\\\",\\\"updateBy\\\":\\\"1\\\",\\\"updateTime\\\":\\\"2018-04-27 18:44:13\\\"}\"', 'POST', '192.168.1.34', 'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/63.0.3239.26 Safari/537.36 Core/1.63.5221.400 QQBrowser/10.0.1125.400', '200', '1', '', '1', '1', '2018-04-27 18:44:17', '1', '2018-04-27 18:44:17');
+INSERT INTO `sys_event` VALUES ('42', null, null, '修改民族', '/nation', '\"{\\\"createBy\\\":\\\"1\\\",\\\"createTime\\\":\\\"2018-04-27 18:24:25\\\",\\\"enable\\\":1,\\\"id\\\":\\\"1\\\",\\\"keyword\\\":\\\"\\\",\\\"name\\\":\\\"侗族\\\",\\\"orderBy\\\":\\\"\\\",\\\"remark\\\":\\\"\\\",\\\"sortNo\\\":\\\"2\\\",\\\"spell\\\":\\\"\\\",\\\"subToString\\\":\\\" [Hash = -2082668914, id=1, name=侗族, spell=, remark=, Enable=0, createBy=1, createTime=Fri Apr 27 18:24:25 CST 2018, updateBy=1, updateTime=Fri Apr 27 18:44:17 CST 2018\\\",\\\"updateBy\\\":\\\"1\\\",\\\"updateTime\\\":\\\"2018-04-27 18:44:17\\\"}\"', 'POST', '192.168.1.34', 'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/63.0.3239.26 Safari/537.36 Core/1.63.5221.400 QQBrowser/10.0.1125.400', '200', '1', '', '1', '1', '2018-04-27 18:44:18', '1', '2018-04-27 18:44:18');
+INSERT INTO `sys_event` VALUES ('43', null, null, '修改学期', '/semester', '\"{\\\"name\\\":\\\"321\\\",\\\"sortNo\\\":\\\"3\\\"}\"', 'POST', '192.168.1.34', 'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/63.0.3239.26 Safari/537.36 Core/1.63.5221.400 QQBrowser/10.0.1125.400', '200', '1', '', '1', '1', '2018-04-27 18:44:38', '1', '2018-04-27 18:44:38');
+INSERT INTO `sys_event` VALUES ('44', null, null, '修改附件类型', '/attachmentType', '\"{\\\"name\\\":\\\"123\\\",\\\"sortNo\\\":\\\"4\\\"}\"', 'POST', '192.168.1.34', 'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/63.0.3239.26 Safari/537.36 Core/1.63.5221.400 QQBrowser/10.0.1125.400', '200', '1', '', '1', '1', '2018-04-27 18:45:33', '1', '2018-04-27 18:45:33');
+INSERT INTO `sys_event` VALUES ('45', null, null, '修改学期', '/semester', '\"{\\\"name\\\":\\\"123\\\",\\\"sortNo\\\":\\\"2\\\"}\"', 'POST', '192.168.1.34', 'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/63.0.3239.26 Safari/537.36 Core/1.63.5221.400 QQBrowser/10.0.1125.400', '200', '1', '', '1', '1', '2018-04-27 18:52:35', '1', '2018-04-27 18:52:35');
+INSERT INTO `sys_event` VALUES ('46', null, null, '用户登录', '/login', '{}', 'POST', '192.168.1.34', 'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/63.0.3239.26 Safari/537.36 Core/1.63.5221.400 QQBrowser/10.0.1125.400', '200', '1', '[admin]登录成功.', '1', '1', '2018-04-27 19:20:59', '1', '2018-04-27 19:20:59');
+INSERT INTO `sys_event` VALUES ('47', null, null, '修改学期', '/semester', '\"{\\\"name\\\":\\\"213\\\",\\\"startDate\\\":\\\"2018-09-08\\\",\\\"endDate\\\":\\\"2018-09-08\\\",\\\"sortNo\\\":\\\"3\\\"}\"', 'POST', '192.168.1.34', 'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/63.0.3239.26 Safari/537.36 Core/1.63.5221.400 QQBrowser/10.0.1125.400', '200', '1', '', '1', '1', '2018-04-27 19:21:38', '1', '2018-04-27 19:21:38');
+INSERT INTO `sys_event` VALUES ('48', null, null, '修改学期', '/semester', '\"{\\\"createBy\\\":\\\"1\\\",\\\"createTime\\\":\\\"2018-04-27 19:21:38\\\",\\\"enable\\\":\\\"1\\\",\\\"endDate\\\":\\\"\\\",\\\"id\\\":\\\"1\\\",\\\"keyword\\\":\\\"\\\",\\\"name\\\":\\\"213\\\",\\\"orderBy\\\":\\\"\\\",\\\"remark\\\":\\\"\\\",\\\"sortNo\\\":\\\"3\\\",\\\"spell\\\":\\\"\\\",\\\"startDate\\\":\\\"\\\",\\\"subToString\\\":\\\" [Hash = 1598511556, id=1, name=213, spell=null, remark=null, Enable=1, createBy=1, createTime=Fri Apr 27 19:21:38 CST 2018, updateBy=1, updateTime=Fri Apr 27 19:21:38 CST 2018\\\",\\\"updateBy\\\":\\\"1\\\",\\\"updateTime\\\":\\\"2018-04-27 19:21:38\\\"}\"', 'POST', '192.168.1.34', 'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/63.0.3239.26 Safari/537.36 Core/1.63.5221.400 QQBrowser/10.0.1125.400', '200', '1', '', '1', '1', '2018-04-27 19:22:19', '1', '2018-04-27 19:22:19');
+INSERT INTO `sys_event` VALUES ('49', null, null, '修改学期', '/semester', '\"{\\\"name\\\":\\\"23\\\",\\\"sortNo\\\":\\\"1\\\"}\"', 'POST', '192.168.1.34', 'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/63.0.3239.26 Safari/537.36 Core/1.63.5221.400 QQBrowser/10.0.1125.400', '200', '1', '', '1', '1', '2018-04-27 19:22:30', '1', '2018-04-27 19:22:30');
+INSERT INTO `sys_event` VALUES ('50', null, null, '修改学期', '/semester', '\"{\\\"name\\\":\\\"123\\\",\\\"startDate\\\":\\\"2341\\\",\\\"endDate\\\":\\\"312\\\",\\\"sortNo\\\":\\\"4\\\"}\"', 'POST', '192.168.1.34', 'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/63.0.3239.26 Safari/537.36 Core/1.63.5221.400 QQBrowser/10.0.1125.400', '200', '1', '', '1', '1', '2018-04-27 19:22:46', '1', '2018-04-27 19:22:46');
+INSERT INTO `sys_event` VALUES ('51', null, null, '修改学期', '/semester', '\"{\\\"name\\\":\\\"32\\\",\\\"startDate\\\":\\\"20870308\\\",\\\"endDate\\\":\\\"20870308\\\",\\\"sortNo\\\":\\\"3\\\"}\"', 'POST', '192.168.1.34', 'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/63.0.3239.26 Safari/537.36 Core/1.63.5221.400 QQBrowser/10.0.1125.400', '200', '1', '', '1', '1', '2018-04-27 19:23:20', '1', '2018-04-27 19:23:20');
+INSERT INTO `sys_event` VALUES ('52', null, null, '修改学期', '/semester', '\"{\\\"startDate\\\":\\\"29373721\\\",\\\"endDate\\\":\\\"32133213\\\",\\\"name\\\":\\\"2\\\",\\\"sortNo\\\":\\\"3\\\"}\"', 'POST', '192.168.1.34', 'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/63.0.3239.26 Safari/537.36 Core/1.63.5221.400 QQBrowser/10.0.1125.400', '200', '1', '', '1', '1', '2018-04-27 19:24:10', '1', '2018-04-27 19:24:10');
+INSERT INTO `sys_event` VALUES ('53', null, null, '用户登录', '/login', '{}', 'POST', '192.168.1.34', 'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/63.0.3239.26 Safari/537.36 Core/1.63.5221.400 QQBrowser/10.0.1125.400', '200', '1', '[admin]登录成功.', '1', '1', '2018-04-27 19:35:37', '1', '2018-04-27 19:35:37');
+INSERT INTO `sys_event` VALUES ('54', null, null, '用户登录', '/login', '{}', 'POST', '192.168.1.34', 'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/63.0.3239.26 Safari/537.36 Core/1.63.5221.400 QQBrowser/10.0.1125.400', '200', '1', '[admin]登录成功.', '1', '1', '2018-04-27 19:36:44', '1', '2018-04-27 19:36:44');
+INSERT INTO `sys_event` VALUES ('55', null, null, '修改附件类型', '/attachmentType', '\"{\\\"createTime\\\":\\\"2018-04-27 19:43:07\\\",\\\"enable\\\":\\\"1\\\",\\\"id\\\":\\\"1\\\",\\\"keyword\\\":\\\"\\\",\\\"name\\\":\\\"阿德\\\",\\\"orderBy\\\":\\\"\\\",\\\"remark\\\":\\\"\\\",\\\"sortNo\\\":\\\"1\\\",\\\"spell\\\":\\\"\\\",\\\"subToString\\\":\\\" [Hash = -1894702284, id=1, name=阿德韦迪, spell=null, remark=null, Enable=1, createBy=null, createTime=Fri Apr 27 19:43:07 CST 2018, updateBy=null, updateTime=Fri Apr 27 19:43:07 CST 2018\\\",\\\"updateTime\\\":\\\"2018-04-27 19:43:07\\\"}\"', 'POST', '192.168.1.34', 'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/63.0.3239.26 Safari/537.36 Core/1.63.5221.400 QQBrowser/10.0.1125.400', '200', '1', '', '1', '1', '2018-04-27 19:44:15', '1', '2018-04-27 19:44:15');
+INSERT INTO `sys_event` VALUES ('56', null, null, '修改附件类型', '/attachmentType', '\"{\\\"createTime\\\":\\\"2018-04-27 19:43:07\\\",\\\"enable\\\":0,\\\"id\\\":\\\"1\\\",\\\"keyword\\\":\\\"\\\",\\\"name\\\":\\\"阿德韦迪\\\",\\\"orderBy\\\":\\\"\\\",\\\"remark\\\":\\\"\\\",\\\"sortNo\\\":\\\"1\\\",\\\"spell\\\":\\\"\\\",\\\"subToString\\\":\\\" [Hash = -1894702284, id=1, name=阿德韦迪, spell=null, remark=null, Enable=1, createBy=null, createTime=Fri Apr 27 19:43:07 CST 2018, updateBy=null, updateTime=Fri Apr 27 19:43:07 CST 2018\\\",\\\"updateTime\\\":\\\"2018-04-27 19:43:07\\\"}\"', 'POST', '192.168.1.34', 'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/63.0.3239.26 Safari/537.36 Core/1.63.5221.400 QQBrowser/10.0.1125.400', '200', '1', '', '1', '1', '2018-04-27 19:59:50', '1', '2018-04-27 19:59:50');
+INSERT INTO `sys_event` VALUES ('57', null, null, '修改附件类型', '/attachmentType', '\"{\\\"createTime\\\":\\\"2018-04-27 19:43:07\\\",\\\"enable\\\":1,\\\"id\\\":\\\"1\\\",\\\"keyword\\\":\\\"\\\",\\\"name\\\":\\\"阿德韦迪\\\",\\\"orderBy\\\":\\\"\\\",\\\"remark\\\":\\\"\\\",\\\"sortNo\\\":\\\"1\\\",\\\"spell\\\":\\\"\\\",\\\"subToString\\\":\\\" [Hash = -1894702284, id=1, name=阿德韦迪, spell=null, remark=null, Enable=1, createBy=null, createTime=Fri Apr 27 19:43:07 CST 2018, updateBy=null, updateTime=Fri Apr 27 19:43:07 CST 2018\\\",\\\"updateTime\\\":\\\"2018-04-27 19:43:07\\\"}\"', 'POST', '192.168.1.34', 'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/63.0.3239.26 Safari/537.36 Core/1.63.5221.400 QQBrowser/10.0.1125.400', '200', '1', '', '1', '1', '2018-04-27 19:59:51', '1', '2018-04-27 19:59:51');
+INSERT INTO `sys_event` VALUES ('58', null, null, '用户登录', '/login', '{}', 'POST', '192.168.1.34', 'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/63.0.3239.26 Safari/537.36 Core/1.63.5221.400 QQBrowser/10.0.1125.400', '200', '1', '[admin]登录成功.', '1', '1', '2018-04-27 20:04:59', '1', '2018-04-27 20:04:59');
+INSERT INTO `sys_event` VALUES ('59', null, null, '修改附件类型', '/attachmentType', '\"{\\\"name\\\":\\\"123\\\",\\\"sortNo\\\":\\\"3\\\"}\"', 'POST', '192.168.1.34', 'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/63.0.3239.26 Safari/537.36 Core/1.63.5221.400 QQBrowser/10.0.1125.400', '200', '1', '', '1', '1', '2018-04-27 20:05:11', '1', '2018-04-27 20:05:11');
+INSERT INTO `sys_event` VALUES ('60', null, null, '修改附件类型', '/attachmentType', '\"{\\\"name\\\":\\\"23\\\",\\\"sortNo\\\":\\\"1\\\"}\"', 'POST', '192.168.1.34', 'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/63.0.3239.26 Safari/537.36 Core/1.63.5221.400 QQBrowser/10.0.1125.400', '200', '1', '', '1', '1', '2018-04-27 20:34:43', '1', '2018-04-27 20:34:43');
+INSERT INTO `sys_event` VALUES ('61', null, null, '修改附件类型', '/attachmentType', '\"{\\\"createTime\\\":\\\"2018-04-27 19:43:07\\\",\\\"enable\\\":\\\"1\\\",\\\"id\\\":\\\"1\\\",\\\"keyword\\\":\\\"\\\",\\\"name\\\":\\\"阿德\\\\\\\\\\\",\\\"orderBy\\\":\\\"\\\",\\\"remark\\\":\\\"\\\",\\\"sortNo\\\":\\\"1\\\",\\\"spell\\\":\\\"\\\",\\\"subToString\\\":\\\" [Hash = -1894702284, id=1, name=阿德韦迪, spell=null, remark=null, Enable=1, createBy=null, createTime=Fri Apr 27 19:43:07 CST 2018, updateBy=null, updateTime=Fri Apr 27 19:43:07 CST 2018\\\",\\\"updateTime\\\":\\\"2018-04-27 19:43:07\\\"}\"', 'POST', '192.168.1.34', 'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/63.0.3239.26 Safari/537.36 Core/1.63.5221.400 QQBrowser/10.0.1125.400', '200', '1', '', '1', '1', '2018-04-27 20:34:55', '1', '2018-04-27 20:34:55');
+INSERT INTO `sys_event` VALUES ('62', null, null, '修改附件类型', '/attachmentType', '\"{\\\"createTime\\\":\\\"2018-04-27 19:43:07\\\",\\\"enable\\\":\\\"1\\\",\\\"id\\\":\\\"1\\\",\\\"keyword\\\":\\\"\\\",\\\"name\\\":\\\"阿德\\\",\\\"orderBy\\\":\\\"\\\",\\\"remark\\\":\\\"\\\",\\\"sortNo\\\":\\\"1\\\",\\\"spell\\\":\\\"\\\",\\\"subToString\\\":\\\" [Hash = -2002440037, id=1, name=阿德\\\\\\\\, spell=, remark=, Enable=1, createBy=null, createTime=Fri Apr 27 19:43:07 CST 2018, updateBy=1, updateTime=Fri Apr 27 20:34:55 CST 2018\\\",\\\"updateBy\\\":\\\"1\\\",\\\"updateTime\\\":\\\"2018-04-27 20:34:55\\\"}\"', 'POST', '192.168.1.34', 'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/63.0.3239.26 Safari/537.36 Core/1.63.5221.400 QQBrowser/10.0.1125.400', '200', '1', '', '1', '1', '2018-04-27 20:35:09', '1', '2018-04-27 20:35:09');
+INSERT INTO `sys_event` VALUES ('63', null, null, '用户登录', '/login', '{}', 'POST', '192.168.1.34', 'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/63.0.3239.26 Safari/537.36 Core/1.63.5221.400 QQBrowser/10.0.1125.400', '200', '1', '[admin]登录成功.', '1', '1', '2018-04-27 20:40:22', '1', '2018-04-27 20:40:22');
+INSERT INTO `sys_event` VALUES ('64', null, null, '用户登录', '/login', '{}', 'POST', '192.168.1.34', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:59.0) Gecko/20100101 Firefox/59.0', '200', '1', '[admin]登录成功.', '1', '1', '2018-04-27 20:42:39', '1', '2018-04-27 20:42:39');
 
 -- ----------------------------
--- Table structure for sys_lock
+-- Table structure for `sys_lock`
 -- ----------------------------
 DROP TABLE IF EXISTS `sys_lock`;
 CREATE TABLE `sys_lock` (
@@ -2494,7 +2547,7 @@ CREATE TABLE `sys_lock` (
 -- ----------------------------
 
 -- ----------------------------
--- Table structure for sys_menu
+-- Table structure for `sys_menu`
 -- ----------------------------
 DROP TABLE IF EXISTS `sys_menu`;
 CREATE TABLE `sys_menu` (
@@ -2516,7 +2569,7 @@ CREATE TABLE `sys_menu` (
   `update_by` bigint(20) NOT NULL COMMENT '更新用户编号',
   `update_time` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP COMMENT '更新时间',
   PRIMARY KEY (`id_`)
-) ENGINE=InnoDB AUTO_INCREMENT=29 DEFAULT CHARSET=utf8 COMMENT='菜单';
+) ENGINE=InnoDB AUTO_INCREMENT=43 DEFAULT CHARSET=utf8 COMMENT='菜单';
 
 -- ----------------------------
 -- Records of sys_menu
@@ -2547,9 +2600,23 @@ INSERT INTO `sys_menu` VALUES ('25', '省份管理', null, '2', '24', 'glyphicon
 INSERT INTO `sys_menu` VALUES ('26', '市区管理', null, '2', '24', 'glyphicon glyphicon-list', 'main.site.city.list', '0', '1', 'sys.site.city', '2', '业务菜单', '1', '1', '2018-04-12 19:24:57', '1', '2018-04-12 19:24:57');
 INSERT INTO `sys_menu` VALUES ('27', '区县管理', null, '2', '24', 'glyphicon glyphicon-list', 'main.site.county.list', '0', '1', 'sys.site.county', '3', '业务菜单', '1', '1', '2018-04-12 19:26:49', '1', '2018-04-12 19:26:49');
 INSERT INTO `sys_menu` VALUES ('28', '乡镇管理', null, '2', '24', 'glyphicon glyphicon-list', 'main.site.town.list', '0', '1', 'sys.site.town', '4', '业务菜单', '1', '1', '2018-04-12 19:40:22', '1', '2018-04-12 19:40:22');
+INSERT INTO `sys_menu` VALUES ('29', '信息管理', null, '1', '0', 'glyphicon glyphicon-cog', '#', '0', '1', 'sys.message', '1', '系统菜单', '1', '1', '2018-04-14 18:10:01', '1', '2018-04-14 18:10:07');
+INSERT INTO `sys_menu` VALUES ('30', '性别管理', null, '2', '29', 'glyphicon glyphicon-user', 'main.message.gender.list', '0', '1', 'sys.message.gender', '1', '业务菜单', '1', '1', '2018-04-14 18:10:01', '1', '2018-04-14 18:10:07');
+INSERT INTO `sys_menu` VALUES ('31', '民族管理', null, '2', '29', 'glyphicon glyphicon-user', 'main.message.nation.list', '0', '1', 'sys.message.nation', '2', '业务菜单', '1', '1', '2018-04-12 19:48:55', '1', '2018-04-12 19:49:07');
+INSERT INTO `sys_menu` VALUES ('32', '政治面貌', null, '2', '29', 'glyphicon glyphicon-flag', 'main.message.politicalStatus.list', '0', '1', 'sys.message.politicalStatus', '3', '业务菜单', '1', '1', '2018-04-14 21:05:07', '1', '2018-04-14 21:05:14');
+INSERT INTO `sys_menu` VALUES ('33', '职称管理', null, '2', '29', 'glyphicon glyphicon-user', 'main.message.professionalTitle.list', '0', '1', 'sys.message.professionalTitle', '4', '业务菜单', '1', '1', '2018-04-16 19:52:45', '1', '2018-04-16 19:52:51');
+INSERT INTO `sys_menu` VALUES ('34', '行政职务', null, '2', '29', 'glyphicon glyphicon-user', 'main.message.administrativePost.list', '0', '1', 'sys.message.administrativePost', '5', '业务菜单', '1', '1', '2018-04-17 20:21:59', '1', '2018-04-17 18:18:26');
+INSERT INTO `sys_menu` VALUES ('35', '高中类别', null, '2', '29', 'glyphicon glyphicon-wrench', 'main.message.highSchoolCategory.list', '0', '1', 'sys.message.highSchoolCategory', '6', '业务菜单', '1', '1', '2018-04-17 18:22:05', '1', '2018-04-17 18:22:10');
+INSERT INTO `sys_menu` VALUES ('36', '考生类别', null, '2', '29', 'glyphicon glyphicon-earphone', 'main.message.examineeCategory.list', '0', '1', 'sys.message.examineeCategory', '7', '业务菜单', '1', '1', '2018-04-17 18:29:38', '1', '2018-04-17 18:29:46');
+INSERT INTO `sys_menu` VALUES ('37', '历年分数线', null, '2', '29', 'glyphicon glyphicon-flag', 'main.message.ceeAnnualScore.list', '0', '1', 'sys.message.ceeAnnualScore', '14', '业务菜单', '1', '1', '2018-04-22 10:43:42', '1', '2018-04-22 10:43:47');
+INSERT INTO `sys_menu` VALUES ('38', '批次', null, '2', '29', 'glyphicon glyphicon-flag', 'main.message.batch.list', '0', '1', 'sys.message.batch', '9', '业务菜单', '1', '1', '2018-04-22 10:45:22', '1', '2018-04-22 10:45:26');
+INSERT INTO `sys_menu` VALUES ('39', '附件类型', null, '2', '29', 'glyphicon glyphicon-flag', 'main.message.attachmentType.list', '0', '1', 'sys.message.attachmentType', '10', '业务菜单', '1', '1', '2018-04-22 10:50:15', '1', '2018-04-22 10:50:24');
+INSERT INTO `sys_menu` VALUES ('40', '课程类型', null, '2', '29', 'glyphicon glyphicon-flag', 'main.message.courseType.list', '0', '1', 'sys.message.courseType', '11', '业务菜单', '1', '1', '2018-04-22 14:46:09', '1', '2018-04-22 14:46:13');
+INSERT INTO `sys_menu` VALUES ('41', '学期', null, '2', '29', 'glyphicon glyphicon-flag', 'main.message.semester.list', '0', '1', 'sys.message.semester', '12', '业务菜单', '1', '1', '2018-04-22 13:54:36', '1', '2018-04-22 13:54:41');
+INSERT INTO `sys_menu` VALUES ('42', '出版社', null, '2', '29', 'glyphicon glyphicon-flag', 'main.message.publisher.list', '0', '1', 'sys.message.publisher', '8', '业务菜单', '1', '1', '2018-04-22 14:44:15', '1', '2018-04-22 14:44:21');
 
 -- ----------------------------
--- Table structure for sys_param
+-- Table structure for `sys_param`
 -- ----------------------------
 DROP TABLE IF EXISTS `sys_param`;
 CREATE TABLE `sys_param` (
@@ -2574,7 +2641,7 @@ CREATE TABLE `sys_param` (
 -- ----------------------------
 
 -- ----------------------------
--- Table structure for sys_role
+-- Table structure for `sys_role`
 -- ----------------------------
 DROP TABLE IF EXISTS `sys_role`;
 CREATE TABLE `sys_role` (
@@ -2599,7 +2666,7 @@ CREATE TABLE `sys_role` (
 INSERT INTO `sys_role` VALUES ('1', '管理员', null, '1', '1', '1', null, '1', '1', '2016-06-20 09:16:56', '1', '2017-01-29 10:11:20');
 
 -- ----------------------------
--- Table structure for sys_role_menu
+-- Table structure for `sys_role_menu`
 -- ----------------------------
 DROP TABLE IF EXISTS `sys_role_menu`;
 CREATE TABLE `sys_role_menu` (
@@ -2618,7 +2685,7 @@ CREATE TABLE `sys_role_menu` (
   `update_time` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP COMMENT '更新时间',
   PRIMARY KEY (`id_`),
   UNIQUE KEY `sys_role_menu_key1` (`role_id`,`menu_id`,`permission_`)
-) ENGINE=InnoDB AUTO_INCREMENT=76 DEFAULT CHARSET=utf8 COMMENT='角色授权表';
+) ENGINE=InnoDB AUTO_INCREMENT=116 DEFAULT CHARSET=utf8 COMMENT='角色授权表';
 
 -- ----------------------------
 -- Records of sys_role_menu
@@ -2698,9 +2765,49 @@ INSERT INTO `sys_role_menu` VALUES ('72', null, null, '1', '28', 'add', '1', nul
 INSERT INTO `sys_role_menu` VALUES ('73', null, null, '1', '28', 'delete', '1', null, '1', '1', '2018-04-20 13:30:56', '1', '2018-04-20 13:30:56');
 INSERT INTO `sys_role_menu` VALUES ('74', null, null, '1', '28', 'read', '1', null, '1', '1', '2018-04-20 13:31:07', '1', '2018-04-20 13:31:07');
 INSERT INTO `sys_role_menu` VALUES ('75', null, null, '1', '28', 'update', '1', null, '1', '1', '2018-04-20 13:31:23', '1', '2018-04-20 13:31:23');
+INSERT INTO `sys_role_menu` VALUES ('76', null, null, '1', '29', 'read', '1', null, '1', '1', '2018-04-22 11:05:08', '1', '2018-04-22 11:05:13');
+INSERT INTO `sys_role_menu` VALUES ('77', null, null, '1', '30', 'read', '1', null, '1', '1', '2018-04-22 11:04:33', '1', '2018-04-22 11:04:37');
+INSERT INTO `sys_role_menu` VALUES ('78', null, null, '1', '30', 'add', '1', null, '1', '1', '2018-04-22 11:04:50', '1', '2018-04-22 11:04:55');
+INSERT INTO `sys_role_menu` VALUES ('79', null, null, '1', '30', 'update', '1', null, '1', '1', '2018-04-22 11:05:08', '1', '2018-04-22 11:05:13');
+INSERT INTO `sys_role_menu` VALUES ('80', null, null, '1', '31', 'read', '1', null, '1', '1', '2018-04-22 11:04:33', '1', '2018-04-22 11:04:37');
+INSERT INTO `sys_role_menu` VALUES ('81', null, null, '1', '31', 'add', '1', null, '1', '1', '2018-04-22 11:04:50', '1', '2018-04-22 11:04:55');
+INSERT INTO `sys_role_menu` VALUES ('82', null, null, '1', '31', 'update', '1', null, '1', '1', '2018-04-22 11:05:08', '1', '2018-04-22 11:05:13');
+INSERT INTO `sys_role_menu` VALUES ('83', null, null, '1', '32', 'read', '1', null, '1', '1', '2018-04-22 11:04:33', '1', '2018-04-22 11:04:37');
+INSERT INTO `sys_role_menu` VALUES ('84', null, null, '1', '32', 'add', '1', null, '1', '1', '2018-04-22 11:04:50', '1', '2018-04-22 11:04:55');
+INSERT INTO `sys_role_menu` VALUES ('85', null, null, '1', '32', 'update', '1', null, '1', '1', '2018-04-22 11:05:08', '1', '2018-04-22 11:05:13');
+INSERT INTO `sys_role_menu` VALUES ('86', null, null, '1', '33', 'read', '1', null, '1', '1', '2018-04-22 11:04:33', '1', '2018-04-22 11:04:37');
+INSERT INTO `sys_role_menu` VALUES ('87', null, null, '1', '33', 'add', '1', null, '1', '1', '2018-04-22 11:04:50', '1', '2018-04-22 11:04:55');
+INSERT INTO `sys_role_menu` VALUES ('88', null, null, '1', '33', 'update', '1', null, '1', '1', '2018-04-22 11:05:08', '1', '2018-04-22 11:05:13');
+INSERT INTO `sys_role_menu` VALUES ('89', null, null, '1', '34', 'read', '1', null, '1', '1', '2018-04-22 11:04:33', '1', '2018-04-22 11:04:37');
+INSERT INTO `sys_role_menu` VALUES ('90', null, null, '1', '34', 'add', '1', null, '1', '1', '2018-04-22 11:04:50', '1', '2018-04-22 11:04:55');
+INSERT INTO `sys_role_menu` VALUES ('91', null, null, '1', '34', 'update', '1', null, '1', '1', '2018-04-22 11:05:08', '1', '2018-04-22 11:05:13');
+INSERT INTO `sys_role_menu` VALUES ('92', null, null, '1', '35', 'read', '1', null, '1', '1', '2018-04-22 11:04:33', '1', '2018-04-22 11:04:37');
+INSERT INTO `sys_role_menu` VALUES ('93', null, null, '1', '35', 'add', '1', null, '1', '1', '2018-04-22 11:04:50', '1', '2018-04-22 11:04:55');
+INSERT INTO `sys_role_menu` VALUES ('94', null, null, '1', '35', 'update', '1', null, '1', '1', '2018-04-22 11:05:08', '1', '2018-04-22 11:05:13');
+INSERT INTO `sys_role_menu` VALUES ('95', null, null, '1', '36', 'read', '1', null, '1', '1', '2018-04-22 11:04:33', '1', '2018-04-22 11:04:37');
+INSERT INTO `sys_role_menu` VALUES ('96', null, null, '1', '36', 'add', '1', null, '1', '1', '2018-04-22 11:04:50', '1', '2018-04-22 11:04:55');
+INSERT INTO `sys_role_menu` VALUES ('97', null, null, '1', '36', 'update', '1', null, '1', '1', '2018-04-22 11:05:08', '1', '2018-04-22 11:05:13');
+INSERT INTO `sys_role_menu` VALUES ('98', null, null, '1', '37', 'read', '1', null, '1', '1', '2018-04-22 11:04:33', '1', '2018-04-22 11:04:37');
+INSERT INTO `sys_role_menu` VALUES ('99', null, null, '1', '37', 'add', '1', null, '1', '1', '2018-04-22 11:04:50', '1', '2018-04-22 11:04:55');
+INSERT INTO `sys_role_menu` VALUES ('100', null, null, '1', '37', 'update', '1', null, '1', '1', '2018-04-22 11:05:08', '1', '2018-04-22 11:05:13');
+INSERT INTO `sys_role_menu` VALUES ('101', null, null, '1', '38', 'read', '1', null, '1', '1', '2018-04-22 11:04:33', '1', '2018-04-22 11:04:37');
+INSERT INTO `sys_role_menu` VALUES ('102', null, null, '1', '38', 'add', '1', null, '1', '1', '2018-04-22 11:04:50', '1', '2018-04-22 11:04:55');
+INSERT INTO `sys_role_menu` VALUES ('103', null, null, '1', '38', 'update', '1', null, '1', '1', '2018-04-22 11:05:08', '1', '2018-04-22 11:05:13');
+INSERT INTO `sys_role_menu` VALUES ('104', null, null, '1', '39', 'read', '1', null, '1', '1', '2018-04-22 11:04:33', '1', '2018-04-22 11:04:37');
+INSERT INTO `sys_role_menu` VALUES ('105', null, null, '1', '39', 'add', '1', null, '1', '1', '2018-04-22 11:04:50', '1', '2018-04-22 11:04:55');
+INSERT INTO `sys_role_menu` VALUES ('106', null, null, '1', '39', 'update', '1', null, '1', '1', '2018-04-22 11:05:08', '1', '2018-04-22 11:05:13');
+INSERT INTO `sys_role_menu` VALUES ('107', null, null, '1', '40', 'read', '1', null, '1', '1', '2018-04-22 11:04:33', '1', '2018-04-22 11:04:37');
+INSERT INTO `sys_role_menu` VALUES ('108', null, null, '1', '40', 'add', '1', null, '1', '1', '2018-04-22 11:04:50', '1', '2018-04-22 11:04:55');
+INSERT INTO `sys_role_menu` VALUES ('109', null, null, '1', '40', 'update', '1', null, '1', '1', '2018-04-22 11:05:08', '1', '2018-04-22 11:05:13');
+INSERT INTO `sys_role_menu` VALUES ('110', null, null, '1', '41', 'read', '1', null, '1', '1', '2018-04-22 11:04:33', '1', '2018-04-22 11:04:37');
+INSERT INTO `sys_role_menu` VALUES ('111', null, null, '1', '41', 'add', '1', null, '1', '1', '2018-04-22 11:04:50', '1', '2018-04-22 11:04:55');
+INSERT INTO `sys_role_menu` VALUES ('112', null, null, '1', '41', 'update', '1', null, '1', '1', '2018-04-22 11:05:08', '1', '2018-04-22 11:05:13');
+INSERT INTO `sys_role_menu` VALUES ('113', null, null, '1', '42', 'read', '1', null, '1', '1', '2018-04-22 11:04:33', '1', '2018-04-22 11:04:37');
+INSERT INTO `sys_role_menu` VALUES ('114', null, null, '1', '42', 'add', '1', null, '1', '1', '2018-04-22 11:04:50', '1', '2018-04-22 11:04:55');
+INSERT INTO `sys_role_menu` VALUES ('115', null, null, '1', '42', 'update', '1', null, '1', '1', '2018-04-22 11:05:08', '1', '2018-04-22 11:05:13');
 
 -- ----------------------------
--- Table structure for sys_session
+-- Table structure for `sys_session`
 -- ----------------------------
 DROP TABLE IF EXISTS `sys_session`;
 CREATE TABLE `sys_session` (
@@ -2719,15 +2826,15 @@ CREATE TABLE `sys_session` (
   `update_by` bigint(20) DEFAULT NULL COMMENT '更新用户编号',
   `update_time` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP COMMENT '更新时间',
   PRIMARY KEY (`id_`)
-) ENGINE=InnoDB AUTO_INCREMENT=12 DEFAULT CHARSET=utf8 COMMENT='会话管理';
+) ENGINE=InnoDB AUTO_INCREMENT=20 DEFAULT CHARSET=utf8 COMMENT='会话管理';
 
 -- ----------------------------
 -- Records of sys_session
 -- ----------------------------
-INSERT INTO `sys_session` VALUES ('11', null, null, '54466f8f-2ba6-4c42-8779-6a0860e5c342', 'admin', '127.0.0.1', '2018-04-25 08:27:13', '1', null, '1', null, '2018-04-25 08:27:21', null, '2018-04-25 08:27:21');
+INSERT INTO `sys_session` VALUES ('19', null, null, '6f5c5187-f354-4e14-9db0-2a6e73edb125', 'admin', '127.0.0.1', '2018-04-27 20:42:38', '1', null, '1', null, '2018-04-27 20:42:38', null, '2018-04-27 20:42:38');
 
 -- ----------------------------
--- Table structure for sys_unit
+-- Table structure for `sys_unit`
 -- ----------------------------
 DROP TABLE IF EXISTS `sys_unit`;
 CREATE TABLE `sys_unit` (
@@ -2753,7 +2860,7 @@ CREATE TABLE `sys_unit` (
 INSERT INTO `sys_unit` VALUES ('1', 'sysPlat', null, '经理', '13945678911', '中国', '1', '', null, '1', '2017-01-12 00:00:00', '1', '2017-09-19 11:30:17');
 
 -- ----------------------------
--- Table structure for sys_user
+-- Table structure for `sys_user`
 -- ----------------------------
 DROP TABLE IF EXISTS `sys_user`;
 CREATE TABLE `sys_user` (
@@ -2794,7 +2901,7 @@ INSERT INTO `sys_user` VALUES ('1', 'admin', 'i/sV2VpTPy7Y+ppesmkCmM==', '3', '�
 INSERT INTO `sys_user` VALUES ('2', 'test', 'i/sV2VpTPy7Y+ppesmkCmM==', '1', 'admin', 'CESHIRENYUAN', '1', 'http://118.190.43.148/group1/M00/00/00/dr4rlFj3H0iATcqFAAv7S9z_iMg689.png', '12345678901', '123@163.com', null, null, null, null, '2017-02-01', '825363166504628224', '测试', '', null, '1', '1', '1', '1', '2016-05-13 16:58:17', '1', '2017-05-29 08:31:38');
 
 -- ----------------------------
--- Table structure for sys_user_menu
+-- Table structure for `sys_user_menu`
 -- ----------------------------
 DROP TABLE IF EXISTS `sys_user_menu`;
 CREATE TABLE `sys_user_menu` (
@@ -2821,7 +2928,7 @@ CREATE TABLE `sys_user_menu` (
 INSERT INTO `sys_user_menu` VALUES ('1', null, null, '1', '1', 'read', '1', null, '1', '0', '2017-08-28 16:24:01', '0', '2017-08-28 16:24:01');
 
 -- ----------------------------
--- Table structure for sys_user_role
+-- Table structure for `sys_user_role`
 -- ----------------------------
 DROP TABLE IF EXISTS `sys_user_role`;
 CREATE TABLE `sys_user_role` (
@@ -2847,7 +2954,7 @@ CREATE TABLE `sys_user_role` (
 INSERT INTO `sys_user_role` VALUES ('1', null, null, '1', '1', '1', null, '1', '1', '2016-06-16 15:59:56', '1', '2016-06-16 15:59:56');
 
 -- ----------------------------
--- Table structure for sys_user_thirdparty
+-- Table structure for `sys_user_thirdparty`
 -- ----------------------------
 DROP TABLE IF EXISTS `sys_user_thirdparty`;
 CREATE TABLE `sys_user_thirdparty` (
@@ -2873,7 +2980,7 @@ CREATE TABLE `sys_user_thirdparty` (
 -- ----------------------------
 
 -- ----------------------------
--- Table structure for task_fire_log
+-- Table structure for `task_fire_log`
 -- ----------------------------
 DROP TABLE IF EXISTS `task_fire_log`;
 CREATE TABLE `task_fire_log` (
@@ -2904,7 +3011,7 @@ CREATE TABLE `task_fire_log` (
 -- ----------------------------
 
 -- ----------------------------
--- Table structure for teacher
+-- Table structure for `teacher`
 -- ----------------------------
 DROP TABLE IF EXISTS `teacher`;
 CREATE TABLE `teacher` (
@@ -2975,7 +3082,7 @@ CREATE TABLE `teacher` (
 -- ----------------------------
 
 -- ----------------------------
--- Table structure for text_book
+-- Table structure for `text_book`
 -- ----------------------------
 DROP TABLE IF EXISTS `text_book`;
 CREATE TABLE `text_book` (
@@ -3014,7 +3121,7 @@ CREATE TABLE `text_book` (
 -- ----------------------------
 
 -- ----------------------------
--- Table structure for text_book_person
+-- Table structure for `text_book_person`
 -- ----------------------------
 DROP TABLE IF EXISTS `text_book_person`;
 CREATE TABLE `text_book_person` (
@@ -3042,7 +3149,7 @@ CREATE TABLE `text_book_person` (
 -- ----------------------------
 
 -- ----------------------------
--- Table structure for thesis
+-- Table structure for `thesis`
 -- ----------------------------
 DROP TABLE IF EXISTS `thesis`;
 CREATE TABLE `thesis` (
@@ -3082,7 +3189,7 @@ CREATE TABLE `thesis` (
 -- ----------------------------
 
 -- ----------------------------
--- Table structure for thesis_person
+-- Table structure for `thesis_person`
 -- ----------------------------
 DROP TABLE IF EXISTS `thesis_person`;
 CREATE TABLE `thesis_person` (
@@ -3110,7 +3217,7 @@ CREATE TABLE `thesis_person` (
 -- ----------------------------
 
 -- ----------------------------
--- Table structure for thesis_type
+-- Table structure for `thesis_type`
 -- ----------------------------
 DROP TABLE IF EXISTS `thesis_type`;
 CREATE TABLE `thesis_type` (
@@ -3134,7 +3241,7 @@ CREATE TABLE `thesis_type` (
 -- ----------------------------
 
 -- ----------------------------
--- Table structure for third_rule_categories
+-- Table structure for `third_rule_categories`
 -- ----------------------------
 DROP TABLE IF EXISTS `third_rule_categories`;
 CREATE TABLE `third_rule_categories` (
@@ -3165,7 +3272,7 @@ CREATE TABLE `third_rule_categories` (
 -- ----------------------------
 
 -- ----------------------------
--- Table structure for top_rule_categories
+-- Table structure for `top_rule_categories`
 -- ----------------------------
 DROP TABLE IF EXISTS `top_rule_categories`;
 CREATE TABLE `top_rule_categories` (
@@ -3195,7 +3302,7 @@ CREATE TABLE `top_rule_categories` (
 -- ----------------------------
 
 -- ----------------------------
--- Table structure for town
+-- Table structure for `town`
 -- ----------------------------
 DROP TABLE IF EXISTS `town`;
 CREATE TABLE `town` (
@@ -3224,7 +3331,7 @@ INSERT INTO `town` VALUES ('1', '党武镇', '', '1', '1', '2018-04-24 18:14:33'
 INSERT INTO `town` VALUES ('2', '123', '', '2', '1', '2018-04-24 21:54:58', '1', '2018-04-24 21:55:02', '2', '', '1');
 
 -- ----------------------------
--- Table structure for treatises
+-- Table structure for `treatises`
 -- ----------------------------
 DROP TABLE IF EXISTS `treatises`;
 CREATE TABLE `treatises` (
@@ -3261,7 +3368,7 @@ CREATE TABLE `treatises` (
 -- ----------------------------
 
 -- ----------------------------
--- Table structure for user
+-- Table structure for `user`
 -- ----------------------------
 DROP TABLE IF EXISTS `user`;
 CREATE TABLE `user` (
@@ -3303,7 +3410,7 @@ CREATE TABLE `user` (
 -- ----------------------------
 
 -- ----------------------------
--- Table structure for user_role
+-- Table structure for `user_role`
 -- ----------------------------
 DROP TABLE IF EXISTS `user_role`;
 CREATE TABLE `user_role` (

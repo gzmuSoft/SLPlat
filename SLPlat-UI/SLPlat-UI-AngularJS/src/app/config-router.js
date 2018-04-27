@@ -117,6 +117,338 @@ var app = angular.module('app')
                         }]
                       }
                 })
+                .state('main.student', {
+                    url: '/student',
+                    template: '<div ui-view class="fade-in-right-big smooth"></div>'
+                })
+                //学校
+                .state('main.student.school', {
+                    url: '/school',
+                    template: '<div ui-view class="fade-in-right-big smooth"></div>'
+                })
+                .state('main.student.school.list', {
+                    url: '/list',
+                    templateUrl: 'src/app/sys/school/school.html',
+                    controller: 'schoolController',
+                    resolve: {
+                        deps: ['uiLoad', '$ocLazyLoad', function (uiLoad, $ocLazyLoad) {
+                            return uiLoad.load('src/app/sys/school/schoolController.js').then(function () {
+                                return $ocLazyLoad.load('toaster');
+                            });
+                        }]
+                    }
+                })
+                .state('main.student.school.create', {
+                    url: '/create',
+                    templateUrl: 'src/app/sys/school/update.html',
+                    controller: 'schoolUpdateController',
+                    resolve: {
+                        deps: ['uiLoad', '$ocLazyLoad', function (uiLoad, $ocLazyLoad) {
+                            return uiLoad.load('src/app/sys/school/updateController.js').then(function () {
+                                return $ocLazyLoad.load('toaster');
+                            });
+                        }]
+                    }
+                })
+                .state('main.student.school.update', {
+                    url: '/update/{id}?params',
+                    templateUrl: 'src/app/sys/school/update.html',
+                    controller: 'schoolUpdateController',
+                    resolve: {
+                        deps: ['uiLoad', '$ocLazyLoad', function (uiLoad, $ocLazyLoad) {
+                            return uiLoad.load('src/app/sys/school/updateController.js').then(function () {
+                                return $ocLazyLoad.load('toaster');
+                            });
+                        }]
+                    }
+                })
+                //学院
+                .state('main.student.college', {
+                    url: '/college',
+                    template: '<div ui-view class="fade-in-right-big smooth"></div>'
+                })
+                .state('main.student.college.list', {
+                    url: '/list',
+                    templateUrl: 'src/app/sys/college/college.html',
+                    controller: 'collegeController',
+                    resolve: {
+                        deps: ['uiLoad', '$ocLazyLoad', function (uiLoad, $ocLazyLoad) {
+                            return uiLoad.load('src/app/sys/college/collegeController.js').then(function () {
+                                return $ocLazyLoad.load('toaster');
+                            });
+                        }]
+                    }
+                })
+                .state('main.student.college.create', {
+                    url: '/create',
+                    templateUrl: 'src/app/sys/college/update.html',
+                    controller: 'collegeUpdateController',
+                    resolve: {
+                        deps: ['uiLoad', '$ocLazyLoad', function (uiLoad, $ocLazyLoad) {
+                            return uiLoad.load('src/app/sys/college/updateController.js').then(function () {
+                                return $ocLazyLoad.load('toaster');
+                            });
+                        }]
+                    }
+                })
+                .state('main.student.college.update', {
+                    url: '/update/{id}?params',
+                    templateUrl: 'src/app/sys/college/update.html',
+                    controller: 'collegeUpdateController',
+                    resolve: {
+                        deps: ['uiLoad', '$ocLazyLoad', function (uiLoad, $ocLazyLoad) {
+                            return uiLoad.load('src/app/sys/college/updateController.js').then(function () {
+                                return $ocLazyLoad.load('toaster');
+                            });
+                        }]
+                    }
+                })
+                //专业
+                .state('main.student.specialty', {
+                    url: '/specialty',
+                    template: '<div ui-view class="fade-in-right-big smooth"></div>'
+                })
+                .state('main.student.specialty.list', {
+                    url: '/list',
+                    templateUrl: 'src/app/sys/specialty/specialty.html',
+                    controller: 'specialtyController',
+                    resolve: {
+                        deps: ['uiLoad', '$ocLazyLoad', function (uiLoad, $ocLazyLoad) {
+                            return uiLoad.load('src/app/sys/specialty/specialtyController.js').then(function () {
+                                return $ocLazyLoad.load('toaster');
+                            });
+                        }]
+                    }
+                })
+                .state('main.student.specialty.create', {
+                    url: '/create',
+                    templateUrl: 'src/app/sys/specialty/update.html',
+                    controller: 'specialtyUpdateController',
+                    resolve: {
+                        deps: ['uiLoad', '$ocLazyLoad', function (uiLoad, $ocLazyLoad) {
+                            return uiLoad.load('src/app/sys/specialty/updateController.js').then(function () {
+                                return $ocLazyLoad.load('toaster');
+                            });
+                        }]
+                    }
+                })
+                .state('main.student.specialty.update', {
+                    url: '/update/{id}?params',
+                    templateUrl: 'src/app/sys/specialty/update.html',
+                    controller: 'specialtyUpdateController',
+                    resolve: {
+                        deps: ['uiLoad', '$ocLazyLoad', function (uiLoad, $ocLazyLoad) {
+                            return uiLoad.load('src/app/sys/specialty/updateController.js').then(function () {
+                                return $ocLazyLoad.load('toaster');
+                            });
+                        }]
+                    }
+                })
+                //班级
+                .state('main.student.class', {
+                    url: '/class',
+                    template: '<div ui-view class="fade-in-right-big smooth"></div>'
+                })
+                .state('main.student.class.list', {
+                    url: '/list',
+                    templateUrl: 'src/app/sys/class/class.html',
+                    controller: 'classController',
+                    resolve: {
+                        deps: ['uiLoad', '$ocLazyLoad', function (uiLoad, $ocLazyLoad) {
+                            return uiLoad.load('src/app/sys/class/classController.js').then(function () {
+                                return $ocLazyLoad.load('toaster');
+                            });
+                        }]
+                    }
+                })
+                .state('main.student.class.create', {
+                    url: '/create',
+                    templateUrl: 'src/app/sys/class/update.html',
+                    controller: 'classUpdateController',
+                    resolve: {
+                        deps: ['uiLoad', '$ocLazyLoad', function (uiLoad, $ocLazyLoad) {
+                            return uiLoad.load('src/app/sys/class/updateController.js').then(function () {
+                                return $ocLazyLoad.load('toaster');
+                            });
+                        }]
+                    }
+                })
+                .state('main.student.class.update', {
+                    url: '/update/{id}?params',
+                    templateUrl: 'src/app/sys/class/update.html',
+                    controller: 'classUpdateController',
+                    resolve: {
+                        deps: ['uiLoad', '$ocLazyLoad', function (uiLoad, $ocLazyLoad) {
+                            return uiLoad.load('src/app/sys/class/updateController.js').then(function () {
+                                return $ocLazyLoad.load('toaster');
+                            });
+                        }]
+                    }
+                })
+                .state('main.site', {
+                    url: '/site',
+                    template: '<div ui-view class="fade-in-right-big smooth"></div>'
+                })// 省会
+                .state('main.site.province', {
+                    url: '/province',
+                    template: '<div ui-view class="fade-in-right-big smooth"></div>'
+                })
+                .state('main.site.province.list', {
+                    url: '/list',
+                    templateUrl: 'src/app/sys/province/province.html',
+                    controller: 'provinceController',
+                    resolve: {
+                        deps: ['uiLoad', '$ocLazyLoad', function (uiLoad, $ocLazyLoad) {
+                            return uiLoad.load('src/app/sys/province/provinceController.js').then(function () {
+                                return $ocLazyLoad.load('toaster');
+                            });
+                        }]
+                    }
+                })
+                .state('main.site.province.create', {
+                    url: '/create',
+                    templateUrl: 'src/app/sys/province/update.html',
+                    controller: 'provinceUpdateController',
+                    resolve: {
+                        deps: ['uiLoad', '$ocLazyLoad', function (uiLoad, $ocLazyLoad) {
+                            return uiLoad.load('src/app/sys/province/updateController.js').then(function () {
+                                return $ocLazyLoad.load('toaster');
+                            });
+                        }]
+                    }
+                })
+                .state('main.site.province.update', {
+                    url: '/update/{id}?params',
+                    templateUrl: 'src/app/sys/province/update.html',
+                    controller: 'provinceUpdateController',
+                    resolve: {
+                        deps: ['uiLoad', '$ocLazyLoad', function (uiLoad, $ocLazyLoad) {
+                            return uiLoad.load('src/app/sys/province/updateController.js').then(function () {
+                                return $ocLazyLoad.load('toaster');
+                            });
+                        }]
+                    }
+                })// 城市
+                .state('main.site.city', {
+                    url: '/city',
+                    template: '<div ui-view class="fade-in-right-big smooth"></div>'
+                })
+                .state('main.site.city.list', {
+                    url: '/list',
+                    templateUrl: 'src/app/sys/city/city.html',
+                    controller: 'cityController',
+                    resolve: {
+                        deps: ['uiLoad', '$ocLazyLoad', function (uiLoad, $ocLazyLoad) {
+                            return uiLoad.load('src/app/sys/city/cityController.js').then(function () {
+                                return $ocLazyLoad.load('toaster');
+                            });
+                        }]
+                    }
+                })
+                .state('main.site.city.create', {
+                    url: '/create',
+                    templateUrl: 'src/app/sys/city/update.html',
+                    controller: 'cityUpdateController',
+                    resolve: {
+                        deps: ['uiLoad', '$ocLazyLoad', function (uiLoad, $ocLazyLoad) {
+                            return uiLoad.load('src/app/sys/city/updateController.js').then(function () {
+                                return $ocLazyLoad.load('toaster');
+                            });
+                        }]
+                    }
+                })
+                .state('main.site.city.update', {
+                    url: '/update/{id}?params',
+                    templateUrl: 'src/app/sys/city/update.html',
+                    controller: 'cityUpdateController',
+                    resolve: {
+                        deps: ['uiLoad', '$ocLazyLoad', function (uiLoad, $ocLazyLoad) {
+                            return uiLoad.load('src/app/sys/city/updateController.js').then(function () {
+                                return $ocLazyLoad.load('toaster');
+                            });
+                        }]
+                    }
+                })// 县城
+                .state('main.site.county', {
+                    url: '/county',
+                    template: '<div ui-view class="fade-in-right-big smooth"></div>'
+                })
+                .state('main.site.county.list', {
+                    url: '/list',
+                    templateUrl: 'src/app/sys/county/county.html',
+                    controller: 'countyController',
+                    resolve: {
+                        deps: ['uiLoad', '$ocLazyLoad', function (uiLoad, $ocLazyLoad) {
+                            return uiLoad.load('src/app/sys/county/countyController.js').then(function () {
+                                return $ocLazyLoad.load('toaster');
+                            });
+                        }]
+                    }
+                })
+                .state('main.site.county.create', {
+                    url: '/create',
+                    templateUrl: 'src/app/sys/county/update.html',
+                    controller: 'countyUpdateController',
+                    resolve: {
+                        deps: ['uiLoad', '$ocLazyLoad', function (uiLoad, $ocLazyLoad) {
+                            return uiLoad.load('src/app/sys/county/updateController.js').then(function () {
+                                return $ocLazyLoad.load('toaster');
+                            });
+                        }]
+                    }
+                })
+                .state('main.site.county.update', {
+                    url: '/update/{id}?params',
+                    templateUrl: 'src/app/sys/county/update.html',
+                    controller: 'countyUpdateController',
+                    resolve: {
+                        deps: ['uiLoad', '$ocLazyLoad', function (uiLoad, $ocLazyLoad) {
+                            return uiLoad.load('src/app/sys/county/updateController.js').then(function () {
+                                return $ocLazyLoad.load('toaster');
+                            });
+                        }]
+                    }
+                })// 乡镇
+                .state('main.site.town', {
+                    url: '/town',
+                    template: '<div ui-view class="fade-in-right-big smooth"></div>'
+                })
+                .state('main.site.town.list', {
+                    url: '/list',
+                    templateUrl: 'src/app/sys/town/town.html',
+                    controller: 'townController',
+                    resolve: {
+                        deps: ['uiLoad', '$ocLazyLoad', function (uiLoad, $ocLazyLoad) {
+                            return uiLoad.load('src/app/sys/town/townController.js').then(function () {
+                                return $ocLazyLoad.load('toaster');
+                            });
+                        }]
+                    }
+                })
+                .state('main.site.town.create', {
+                    url: '/create',
+                    templateUrl: 'src/app/sys/town/update.html',
+                    controller: 'townUpdateController',
+                    resolve: {
+                        deps: ['uiLoad', '$ocLazyLoad', function (uiLoad, $ocLazyLoad) {
+                            return uiLoad.load('src/app/sys/town/updateController.js').then(function () {
+                                return $ocLazyLoad.load('toaster');
+                            });
+                        }]
+                    }
+                })
+                .state('main.site.town.update', {
+                    url: '/update/{id}?params',
+                    templateUrl: 'src/app/sys/town/update.html',
+                    controller: 'townUpdateController',
+                    resolve: {
+                        deps: ['uiLoad', '$ocLazyLoad', function (uiLoad, $ocLazyLoad) {
+                            return uiLoad.load('src/app/sys/town/updateController.js').then(function () {
+                                return $ocLazyLoad.load('toaster');
+                            });
+                        }]
+                    }
+                })
                 //民族
                 .state('main.message.nation', {
                     url: '/nation',
