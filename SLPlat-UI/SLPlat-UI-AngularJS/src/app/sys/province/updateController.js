@@ -47,7 +47,7 @@ angular.module('app')
                         toaster.clear('*');
                         toaster.pop('success', '', "保存成功");
                         $timeout(function(){
-                            $state.go('main.sys.province.list');
+                            $state.go('main.site.province.list');
                         },2000);
                     }else{
                         toaster.clear('*');
@@ -80,7 +80,7 @@ angular.module('app')
             function validate(userId){
                 jQuery('form').validate({
                     rules: {
-                        provinceName: {
+                        name: {
                             required: true,
                             stringCheck:[],
                             maxLengthB:[20]
@@ -90,7 +90,7 @@ angular.module('app')
                         }
                     },
                     messages: {
-                        provinceName: {
+                        name: {
                             required: '请填写学校名称',
                             maxLengthB:"学校名称不得超过{0}个字符"
                         },

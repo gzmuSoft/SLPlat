@@ -20,7 +20,7 @@
         <div class="panel panel-default">
             <!-- 头部 -->
             <div class="panel-heading clearfix">
-                <a ui-sref="main.sys.county.create" class="btn btn-info pull-right">
+                <a ui-sref="main.site.county.create" class="btn btn-info pull-right">
                     <i class="icon-user-follow m-r-sm text-md"></i>添加县城</a>
                 <div class="w-lg">
                     <form ng-submit="search()" class="ng-pristine ng-valid">
@@ -59,7 +59,7 @@
                             <span ng-show="item.enable==1" class="text-success">启用</span>
                         </td>
                         <td class="v-middle">
-                            <a ui-sref="main.sys.county.update({id: item.id})" class="btn btn-sm btn-default">
+                            <a ui-sref="main.site.county.update({id: item.id})" class="btn btn-sm btn-default">
                                 <i class="fa fa-edit m-r-xs text-sm"></i>编辑</a>
                             <button type="button" ng-show="item.enable==1"  ng-click="disableItem(item.id,0)" class="btn btn-sm btn-default m-l-xs">
                                 <i class="fa fa-ban m-r-xs text-sm"></i>禁用</button>

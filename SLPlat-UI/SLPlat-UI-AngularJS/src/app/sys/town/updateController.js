@@ -49,7 +49,7 @@ angular.module('app')
                         toaster.clear('*');
                         toaster.pop('success', '', "保存成功");
                         $timeout(function () {
-                            $state.go('main.sys.town.list');
+                            $state.go('main.site.town.list');
                         }, 2000);
                     } else {
                         toaster.clear('*');
@@ -84,7 +84,7 @@ angular.module('app')
                     type: 'PUT',
                     dataType: 'json',
                     contentType: 'application/json;charset=UTF-8',
-                    url: '/province/read/list',
+                    url: '/province/read/page',
                     data: angular.toJson($scope.param)
                 }).then(function (result) {
                     $scope.loading = false;
@@ -117,7 +117,7 @@ angular.module('app')
                         type: 'PUT',
                         dataType: 'json',
                         contentType: 'application/json;charset=UTF-8',
-                        url: '/city/read/listByProvinceId',
+                        url: '/city/read/page',
                         data: angular.toJson({'provinceId': provinceId})
                     }).then(function (result) {
                         $scope.loading = false;
@@ -140,7 +140,7 @@ angular.module('app')
                         type: 'PUT',
                         dataType: 'json',
                         contentType: 'application/json;charset=UTF-8',
-                        url: '/county/read/listByCityId',
+                        url: '/county/read/page',
                         data: angular.toJson({'cityId': cityId})
                     }).then(function (result) {
                         $scope.loading = false;
@@ -158,7 +158,7 @@ angular.module('app')
             function validate(userId) {
                 jQuery('form').validate({
                     rules: {
-                        townName: {
+                        name: {
                             required: true,
                             stringCheck: [],
                             maxLengthB: [20]
@@ -178,7 +178,7 @@ angular.module('app')
                         }
                     },
                     messages: {
-                        townName: {
+                        name: {
                             required: '请填写乡镇名称',
                             maxLengthB: "乡镇名称不得超过{0}个字符"
                         },

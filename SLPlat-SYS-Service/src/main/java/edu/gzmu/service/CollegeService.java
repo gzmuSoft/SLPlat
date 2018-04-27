@@ -74,7 +74,7 @@ public class CollegeService extends BaseService<College> {
                 if (school != null) {
                     college.setSchoolName(school.getName());
                 } else {
-                    college.setSchoolId(null);
+                    college.setSchoolName(null);
                 }
             }
             /**

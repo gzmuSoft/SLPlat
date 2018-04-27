@@ -46,7 +46,7 @@ angular.module('app')
                         toaster.clear('*');
                         toaster.pop('success', '', "保存成功");
                         $timeout(function(){
-                            $state.go('main.sys.city.list');
+                            $state.go('main.site.city.list');
                         },2000);
                     }else{
                         toaster.clear('*');
@@ -63,7 +63,7 @@ angular.module('app')
                     type: 'PUT',
                     dataType: 'json',
                     contentType:'application/json;charset=UTF-8',
-                    url : '/province/read/list',
+                    url : '/province/read/page',
                     data: angular.toJson($scope.param)
                 }).then(function(result) {
                     $scope.loading = false;
@@ -111,7 +111,7 @@ angular.module('app')
             function validate(userId){
                 jQuery('form').validate({
                     rules: {
-                        cityName: {
+                        name: {
                             required: true,
                             stringCheck:[],
                             maxLengthB:[50]
@@ -121,7 +121,7 @@ angular.module('app')
                         }
                     },
                     messages: {
-                        cityName: {
+                        name: {
                             required: '请填写城市名称',
                             maxLengthB:"城市名称不得超过{0}个字符"
                         },

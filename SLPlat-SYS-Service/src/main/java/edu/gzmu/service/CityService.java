@@ -25,10 +25,6 @@ public class CityService extends BaseService<City> {
     @Autowired
     private ProvinceService provinceService;
 
-    public List<City> queryListByProvinceId(Map<String, Object> params) {
-        return super.queryList(params);
-    }
-
     @Override
     public City queryById(Long id) {
         City city = super.queryById(id);
@@ -38,7 +34,6 @@ public class CityService extends BaseService<City> {
                 if (province != null) {
                     city.setProvinceName(province.getName());
                 } else {
-                    city.setProvinceId(null);
                     city.setProvinceName(null);
                 }
             }
@@ -52,6 +47,8 @@ public class CityService extends BaseService<City> {
                 Province province = provinceService.queryById(city.getProvinceId());
                 if (province != null) {
                     city.setProvinceName(province.getName());
+                } else {
+                    city.setProvinceName(null);
                 }
             }
         }

@@ -24,8 +24,6 @@ import java.util.Map;
 public class TownService extends BaseService<Town> {
     @Autowired
     private CountyService countyService;
-
-    public List<Town> queryListByProvinceId(Map<String, Object> params) { return super.queryList(params); }
     @Override
     public Town queryById(Long id) {
         Town town = super.queryById(id);
@@ -36,14 +34,12 @@ public class TownService extends BaseService<Town> {
                     town.setCountyName(county.getName());
                     town.setCityName(county.getCityName());
                     town.setProvinceName(county.getProvinceName());
-                    town.setCountyId(county.getId());
                     town.setCityId(county.getCityId());
                     town.setProvinceId(county.getProvinceId());
                 } else {
                     town.setCountyName(null);
                     town.setCityName(null);
                     town.setProvinceName(null);
-                    town.setCountyId(null);
                     town.setCityId(null);
                     town.setProvinceId(null);
                 }
@@ -64,6 +60,13 @@ public class TownService extends BaseService<Town> {
                     town.setProvinceName(county.getProvinceName());
                     town.setCityId(county.getCityId());
                     town.setProvinceId(county.getProvinceId());
+                }
+                else {
+                    town.setCountyName(null);
+                    town.setCityName(null);
+                    town.setProvinceName(null);
+                    town.setCityId(null);
+                    town.setProvinceId(null);
                 }
             }
         }

@@ -533,12 +533,16 @@ var app = angular.module('app')
                         });
                     }]
                 }
+            })
+            .state('main.site', {
+                url: '/site',
+                template: '<div ui-view class="fade-in-right-big smooth"></div>'
             })// 省会
-            .state('main.sys.province', {
+            .state('main.site.province', {
                 url: '/province',
                 template: '<div ui-view class="fade-in-right-big smooth"></div>'
             })
-            .state('main.sys.province.list', {
+            .state('main.site.province.list', {
                 url: '/list',
                 templateUrl: 'src/app/sys/province/province.html',
                 controller: 'provinceController',
@@ -550,7 +554,7 @@ var app = angular.module('app')
                     }]
                 }
             })
-            .state('main.sys.province.create', {
+            .state('main.site.province.create', {
                 url: '/create',
                 templateUrl: 'src/app/sys/province/update.html',
                 controller: 'provinceUpdateController',
@@ -562,7 +566,7 @@ var app = angular.module('app')
                     }]
                 }
             })
-            .state('main.sys.province.update', {
+            .state('main.site.province.update', {
                 url: '/update/{id}?params',
                 templateUrl: 'src/app/sys/province/update.html',
                 controller: 'provinceUpdateController',
@@ -574,11 +578,11 @@ var app = angular.module('app')
                     }]
                 }
             })// 城市
-            .state('main.sys.city', {
+            .state('main.site.city', {
                 url: '/city',
                 template: '<div ui-view class="fade-in-right-big smooth"></div>'
             })
-            .state('main.sys.city.list', {
+            .state('main.site.city.list', {
                 url: '/list',
                 templateUrl: 'src/app/sys/city/city.html',
                 controller: 'cityController',
@@ -590,7 +594,7 @@ var app = angular.module('app')
                     }]
                 }
             })
-            .state('main.sys.city.create', {
+            .state('main.site.city.create', {
                 url: '/create',
                 templateUrl: 'src/app/sys/city/update.html',
                 controller: 'cityUpdateController',
@@ -602,7 +606,7 @@ var app = angular.module('app')
                     }]
                 }
             })
-            .state('main.sys.city.update', {
+            .state('main.site.city.update', {
                 url: '/update/{id}?params',
                 templateUrl: 'src/app/sys/city/update.html',
                 controller: 'cityUpdateController',
@@ -614,11 +618,11 @@ var app = angular.module('app')
                     }]
                 }
             })// 县城
-            .state('main.sys.county', {
+            .state('main.site.county', {
                 url: '/county',
                 template: '<div ui-view class="fade-in-right-big smooth"></div>'
             })
-            .state('main.sys.county.list', {
+            .state('main.site.county.list', {
                 url: '/list',
                 templateUrl: 'src/app/sys/county/county.html',
                 controller: 'countyController',
@@ -630,7 +634,7 @@ var app = angular.module('app')
                     }]
                 }
             })
-            .state('main.sys.county.create', {
+            .state('main.site.county.create', {
                 url: '/create',
                 templateUrl: 'src/app/sys/county/update.html',
                 controller: 'countyUpdateController',
@@ -642,7 +646,7 @@ var app = angular.module('app')
                     }]
                 }
             })
-            .state('main.sys.county.update', {
+            .state('main.site.county.update', {
                 url: '/update/{id}?params',
                 templateUrl: 'src/app/sys/county/update.html',
                 controller: 'countyUpdateController',
@@ -654,11 +658,11 @@ var app = angular.module('app')
                     }]
                 }
             })// 乡镇
-            .state('main.sys.town', {
+            .state('main.site.town', {
                 url: '/town',
                 template: '<div ui-view class="fade-in-right-big smooth"></div>'
             })
-            .state('main.sys.town.list', {
+            .state('main.site.town.list', {
                 url: '/list',
                 templateUrl: 'src/app/sys/town/town.html',
                 controller: 'townController',
@@ -670,7 +674,7 @@ var app = angular.module('app')
                     }]
                 }
             })
-            .state('main.sys.town.create', {
+            .state('main.site.town.create', {
                 url: '/create',
                 templateUrl: 'src/app/sys/town/update.html',
                 controller: 'townUpdateController',
@@ -682,7 +686,7 @@ var app = angular.module('app')
                     }]
                 }
             })
-            .state('main.sys.town.update', {
+            .state('main.site.town.update', {
                 url: '/update/{id}?params',
                 templateUrl: 'src/app/sys/town/update.html',
                 controller: 'townUpdateController',

@@ -130,7 +130,7 @@ angular.module('app')
             function validate(userId) {
                 jQuery('form').validate({
                     rules: {
-                        specialtyName: {
+                        name: {
                             required: true,
                             stringCheck: [],
                             maxLengthB: [20]
@@ -147,7 +147,7 @@ angular.module('app')
                         }
                     },
                     messages: {
-                        specialtyName: {
+                        name: {
                             required: '你填写专业名称',
                             maxLengthB: "专业名称不得超过{0}个字符"
                         },

@@ -31,30 +31,17 @@ public class CountyController extends BaseController<ISysProvider> {
 		return "countyService";
 	}
 
-	@ApiOperation(value = "根据城市Id修改县城")
-	@RequiresPermissions("sys.site.county.read")
-	@PutMapping(value = "/read/listByCityId")
-	public Object listByCityId(ModelMap modelMap, @RequestBody Map<String, Object> param) {
-		Parameter parameter = new Parameter(getService(), "queryListByCityId", param);
-		logger.info("{} execute queryList start...", parameter.getNo());
-		List<?> list = (List<?>) provider.execute(parameter).getResult();
-		logger.info("{} execute queryList end.", parameter.getNo());
-		return setSuccessModelMap(modelMap, list);
-	}
-
 	@RequiresPermissions("sys.site.county.read")
 	@PutMapping(value = "/read/list")
 	@ApiOperation(value = "查询区县", produces = MediaType.APPLICATION_JSON_VALUE)
-	public Object query(HttpServletRequest request) {
-		Map<String, Object> param = WebUtil.getParameter(request);
-		return super.query(param);
+	public Object list(ModelMap modelMap, @RequestBody Map<String, Object> param) {
+		return super.queryList(modelMap, param);
 	}
 
+	@ApiOperation(value = "查询区县", produces = MediaType.APPLICATION_JSON_VALUE)
 	@RequiresPermissions("sys.site.county.read")
 	@PutMapping(value = "/read/page")
-	@ApiOperation(value = "查询区县", produces = MediaType.APPLICATION_JSON_VALUE)
-	public Object query(ModelMap modelMap, @RequestBody Map<String, Object> param)
-	{
+	public Object query(ModelMap modelMap, @RequestBody Map<String, Object> param) {
 		return super.query(modelMap, param);
 	}
 

@@ -32,9 +32,8 @@ public class CollegeController extends BaseController<ISysProvider> {
 	@RequiresPermissions("sys.student.college.read")
 	@PutMapping(value = "/read/list")
 	@ApiOperation(value = "查询学院", produces = MediaType.APPLICATION_JSON_VALUE)
-	public Object query(HttpServletRequest request) {
-		Map<String, Object> param = WebUtil.getParameter(request);
-		return super.query(param);
+	public Object list(ModelMap modelMap, @RequestBody Map<String, Object> param) {
+		return super.queryList(modelMap, param);
 	}
 
 	@ApiOperation(value = "查询学院", produces = MediaType.APPLICATION_JSON_VALUE)

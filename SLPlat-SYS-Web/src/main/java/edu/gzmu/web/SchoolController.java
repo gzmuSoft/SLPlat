@@ -26,45 +26,45 @@ import java.util.Map;
 @RequestMapping("/school")
 @Api(value = "学校接口", description = "学校接口")
 public class SchoolController extends BaseController<ISysProvider> {
-	public String getService() {
-		return "schoolService";
-	}
+    public String getService() {
+        return "schoolService";
+    }
 
-	@RequiresPermissions("sys.student.school.read")
-	@PutMapping(value = "/read/list")
-	@ApiOperation(value = "查询学校", produces = MediaType.APPLICATION_JSON_VALUE)
-	public Object query(HttpServletRequest request) {
-		Map<String, Object> param = WebUtil.getParameter(request);
-		return super.query(param);
-	}
-	@ApiOperation(value = "查询学校", produces = MediaType.APPLICATION_JSON_VALUE)
-	@RequiresPermissions("sys.student.school.read")
-	@PutMapping(value = "/read/page")
-	public Object query(ModelMap modelMap, @RequestBody Map<String, Object> param) {
-		return super.query(modelMap, param);
-	}
+    @RequiresPermissions("sys.student.school.read")
+    @PutMapping(value = "/read/list")
+    @ApiOperation(value = "查询学校", produces = MediaType.APPLICATION_JSON_VALUE)
+    public Object list(ModelMap modelMap, @RequestBody Map<String, Object> param) {
+        return super.queryList(modelMap, param);
+    }
 
-	@RequiresPermissions("sys.student.school.read")
-	@PutMapping(value = "/read/detail")
-	@ApiOperation(value = "学校详情", produces = MediaType.APPLICATION_JSON_VALUE)
-	public Object get(HttpServletRequest request) {
-		School param = WebUtil.getParameter(request, School.class);
-		return super.get(param);
-	}
+    @ApiOperation(value = "查询学校", produces = MediaType.APPLICATION_JSON_VALUE)
+    @RequiresPermissions("sys.student.school.read")
+    @PutMapping(value = "/read/page")
+    public Object query(ModelMap modelMap, @RequestBody Map<String, Object> param) {
+        return super.query(modelMap, param);
+    }
 
-	@PostMapping
-	@RequiresPermissions("sys.student.school.update")
-	@ApiOperation(value = "修改学校", produces = MediaType.APPLICATION_JSON_VALUE)
-	public Object update(HttpServletRequest request) {
-		School param = WebUtil.getParameter(request, School.class);
-		return super.update(param);
-	}
+    @RequiresPermissions("sys.student.school.read")
+    @PutMapping(value = "/read/detail")
+    @ApiOperation(value = "学校详情", produces = MediaType.APPLICATION_JSON_VALUE)
+    public Object get(HttpServletRequest request) {
+        School param = WebUtil.getParameter(request, School.class);
+        return super.get(param);
+    }
 
-	@DeleteMapping
-	@RequiresPermissions("sys.student.school.delete")
-	@ApiOperation(value = "删除学校", produces = MediaType.APPLICATION_JSON_VALUE)
-	public Object del(HttpServletRequest request) {
-		School param = WebUtil.getParameter(request, School.class);
-		return super.del(param);
-	}
+    @PostMapping
+    @RequiresPermissions("sys.student.school.update")
+    @ApiOperation(value = "修改学校", produces = MediaType.APPLICATION_JSON_VALUE)
+    public Object update(HttpServletRequest request) {
+        School param = WebUtil.getParameter(request, School.class);
+        return super.update(param);
+    }
+
+    @DeleteMapping
+    @RequiresPermissions("sys.student.school.delete")
+    @ApiOperation(value = "删除学校", produces = MediaType.APPLICATION_JSON_VALUE)
+    public Object del(HttpServletRequest request) {
+        School param = WebUtil.getParameter(request, School.class);
+        return super.del(param);
+    }
 }

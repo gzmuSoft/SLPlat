@@ -158,7 +158,7 @@ angular.module('app')
             function validate(userId) {
                 jQuery('form').validate({
                     rules: {
-                        className: {
+                        name: {
                             required: true,
                             stringCheck: [],
                             maxLengthB: [20]
@@ -178,7 +178,7 @@ angular.module('app')
                         }
                     },
                     messages: {
-                        className: {
+                        name: {
                             required: '请填写班级名称',
                             maxLengthB: "专业名称不得超过{0}个字符"
                         },

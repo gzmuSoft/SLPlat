@@ -32,22 +32,18 @@ public class TownController extends BaseController<ISysProvider> {
 		return "townService";
 	}
 
-	@ApiOperation(value = "根据县城Id修改乡镇")
-	@RequiresPermissions("sys.site.town.read")
-	@PutMapping(value = "/read/listByCountyId")
-	public Object listByCountyId(ModelMap modelMap, @RequestBody Map<String, Object> param) {
-		Parameter parameter = new Parameter(getService(), "queryListByCountyId", param);
-		logger.info("{} execute queryList start...", parameter.getNo());
-		List<?> list = (List<?>) provider.execute(parameter).getResult();
-		logger.info("{} execute queryList end.", parameter.getNo());
-		return setSuccessModelMap(modelMap, list);
-	}
 	@RequiresPermissions("sys.site.town.read")
 	@PutMapping(value = "/read/list")
 	@ApiOperation(value = "查询镇", produces = MediaType.APPLICATION_JSON_VALUE)
-	public Object query(HttpServletRequest request) {
-		Map<String, Object> param = WebUtil.getParameter(request);
-		return super.query(param);
+	public Object list(ModelMap modelMap, @RequestBody Map<String, Object> param) {
+		return super.queryList(modelMap, param);
+	}
+
+	@ApiOperation(value = "查询镇", produces = MediaType.APPLICATION_JSON_VALUE)
+	@RequiresPermissions("sys.site.town.read")
+	@PutMapping(value = "/read/page")
+	public Object query(ModelMap modelMap, @RequestBody Map<String, Object> param) {
+		return super.query(modelMap, param);
 	}
 
 	@RequiresPermissions("sys.site.town.read")
@@ -58,13 +54,6 @@ public class TownController extends BaseController<ISysProvider> {
 		return super.get(param);
 	}
 
-	@ApiOperation(value = "查询镇", produces = MediaType.APPLICATION_JSON_VALUE)
-	@RequiresPermissions("sys.site.town.read")
-	@PutMapping(value = "/read/page")
-	public Object query(ModelMap modelMap, @RequestBody Map<String, Object> param)
-	{
-		return super.query(modelMap, param);
-	}
 	@PostMapping
 	@RequiresPermissions("sys.site.town.update")
 	@ApiOperation(value = "修改镇", produces = MediaType.APPLICATION_JSON_VALUE)

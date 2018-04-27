@@ -25,10 +25,6 @@ public class CountyService extends BaseService<County> {
     @Autowired
     private CityService cityService;
 
-    public List<County> queryListByCityId(Map<String, Object> params) {
-        return super.queryList(params);
-    }
-
     @Override
     public County queryById(Long id) {
         County county = super.queryById(id);
@@ -58,6 +54,10 @@ public class CountyService extends BaseService<County> {
                     county.setCityName(city.getName());
                     county.setProvinceName(city.getProvinceName());
                     county.setProvinceId(city.getProvinceId());
+                }else {
+                    county.setCityName(null);
+                    county.setProvinceName(null);
+                    county.setProvinceId(null);
                 }
             }
         }
