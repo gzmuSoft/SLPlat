@@ -6,11 +6,14 @@ import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import org.apache.shiro.authz.annotation.RequiresPermissions;
 import org.springframework.http.MediaType;
+import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.*;
 import top.ibase4j.core.base.provider.BaseController;
+import top.ibase4j.core.base.provider.Parameter;
 import top.ibase4j.core.util.WebUtil;
 
 import javax.servlet.http.HttpServletRequest;
+import java.util.List;
 import java.util.Map;
 
 /**
@@ -29,15 +32,21 @@ public class TownController extends BaseController<ISysProvider> {
 		return "townService";
 	}
 
-	@RequiresPermissions("town.read")
+	@RequiresPermissions("sys.site.town.read")
 	@PutMapping(value = "/read/list")
 	@ApiOperation(value = "查询镇", produces = MediaType.APPLICATION_JSON_VALUE)
-	public Object query(HttpServletRequest request) {
-		Map<String, Object> param = WebUtil.getParameter(request);
-		return super.query(param);
+	public Object list(ModelMap modelMap, @RequestBody Map<String, Object> param) {
+		return super.queryList(modelMap, param);
 	}
 
-	@RequiresPermissions("town.read")
+	@ApiOperation(value = "查询镇", produces = MediaType.APPLICATION_JSON_VALUE)
+	@RequiresPermissions("sys.site.town.read")
+	@PutMapping(value = "/read/page")
+	public Object query(ModelMap modelMap, @RequestBody Map<String, Object> param) {
+		return super.query(modelMap, param);
+	}
+
+	@RequiresPermissions("sys.site.town.read")
 	@PutMapping(value = "/read/detail")
 	@ApiOperation(value = "镇详情", produces = MediaType.APPLICATION_JSON_VALUE)
 	public Object get(HttpServletRequest request) {
@@ -46,7 +55,7 @@ public class TownController extends BaseController<ISysProvider> {
 	}
 
 	@PostMapping
-	@RequiresPermissions("town.update")
+	@RequiresPermissions("sys.site.town.update")
 	@ApiOperation(value = "修改镇", produces = MediaType.APPLICATION_JSON_VALUE)
 	public Object update(HttpServletRequest request) {
 		Town param = WebUtil.getParameter(request, Town.class);
@@ -54,7 +63,7 @@ public class TownController extends BaseController<ISysProvider> {
 	}
 
 	@DeleteMapping
-	@RequiresPermissions("town.delete")
+	@RequiresPermissions("sys.site.town.delete")
 	@ApiOperation(value = "删除镇", produces = MediaType.APPLICATION_JSON_VALUE)
 	public Object del(HttpServletRequest request) {
 		Town param = WebUtil.getParameter(request, Town.class);

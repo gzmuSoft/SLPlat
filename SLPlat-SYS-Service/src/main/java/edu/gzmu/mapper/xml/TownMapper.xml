@@ -25,5 +25,6 @@
 		<if test="cm.sortAsc != null and cm.sortAsc != ''">
 			${cm.sortAsc}
 		</if>
+		ORDER BY county_id, sort_no
 	</select>
 </mapper>

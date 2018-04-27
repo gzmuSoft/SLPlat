@@ -1,49 +1,50 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="edu.gzmu.mapper.ClassMapper">
-	<select id="selectIdPage" resultType="java.lang.Long" useCache="false">
-		select id_ from class
-		<where>
-			<if test="cm.specialtyId != null and cm.specialtyId != ''">
-					and specialty_id=#{cm.specialtyId}
-			</if>
-			<if test="cm.adviserId != null and cm.adviserId != ''">
-					and adviser_id=#{cm.adviserId}
-			</if>
-			<if test="cm.monitorId != null and cm.monitorId != ''">
-					and monitor_id=#{cm.monitorId}
-			</if>
-			<if test="cm.secretaryId != null and cm.secretaryId != ''">
-					and secretary_id=#{cm.secretaryId}
-			</if>
-			<if test="cm.entranceDate != null and cm.entranceDate != ''">
-					and entrance_date=#{cm.entranceDate}
-			</if>
-			<if test="cm.studentsNumber != null and cm.studentsNumber != ''">
-					and students_number=#{cm.studentsNumber}
-			</if>
-			<if test="cm.remark != null and cm.remark != ''">
-					and remark_=#{cm.remark}
-			</if>
-			<if test="cm.keyword != null and cm.keyword != ''">
-				and (
-                	name_ like CONCAT('%','${cm.keyword}','%')
-                	or spell_ like CONCAT('%','${cm.keyword}','%')
-					or specialty_id like CONCAT('%','${cm.keyword}','%')
-					or adviser_id like CONCAT('%','${cm.keyword}','%')
-					or monitor_id like CONCAT('%','${cm.keyword}','%')
-					or secretary_id like CONCAT('%','${cm.keyword}','%')
-					or entrance_date like CONCAT('%','${cm.keyword}','%')
-					or students_number like CONCAT('%','${cm.keyword}','%')
-					or remark_ like CONCAT('%','${cm.keyword}','%')
-				)
-			</if>
-		</where>
-		<if test="cm.orderBy != null and cm.orderBy != ''">
-			order by ${cm.orderBy}
-		</if>
-		<if test="cm.sortAsc != null and cm.sortAsc != ''">
-			${cm.sortAsc}
-		</if>
-	</select>
+    <select id="selectIdPage" resultType="java.lang.Long" useCache="false">
+        select id_ from class
+        <where>
+            <if test="cm.specialtyId != null and cm.specialtyId != ''">
+                and specialty_id=#{cm.specialtyId}
+            </if>
+            <if test="cm.adviserId != null and cm.adviserId != ''">
+                and adviser_id=#{cm.adviserId}
+            </if>
+            <if test="cm.monitorId != null and cm.monitorId != ''">
+                and monitor_id=#{cm.monitorId}
+            </if>
+            <if test="cm.secretaryId != null and cm.secretaryId != ''">
+                and secretary_id=#{cm.secretaryId}
+            </if>
+            <if test="cm.entranceDate != null and cm.entranceDate != ''">
+                and entrance_date=#{cm.entranceDate}
+            </if>
+            <if test="cm.studentsNumber != null and cm.studentsNumber != ''">
+                and students_number=#{cm.studentsNumber}
+            </if>
+            <if test="cm.remark != null and cm.remark != ''">
+                and remark_=#{cm.remark}
+            </if>
+            <if test="cm.keyword != null and cm.keyword != ''">
+                and (
+                name_ like CONCAT('%','${cm.keyword}','%')
+                or spell_ like CONCAT('%','${cm.keyword}','%')
+                or specialty_id like CONCAT('%','${cm.keyword}','%')
+                or adviser_id like CONCAT('%','${cm.keyword}','%')
+                or monitor_id like CONCAT('%','${cm.keyword}','%')
+                or secretary_id like CONCAT('%','${cm.keyword}','%')
+                or entrance_date like CONCAT('%','${cm.keyword}','%')
+                or students_number like CONCAT('%','${cm.keyword}','%')
+                or remark_ like CONCAT('%','${cm.keyword}','%')
+                )
+            </if>
+        </where>
+        <if test="cm.orderBy != null and cm.orderBy != ''">
+            order by ${cm.orderBy}
+        </if>
+        <if test="cm.sortAsc != null and cm.sortAsc != ''">
+            ${cm.sortAsc}
+        </if>
+        ORDER BY specialty_id, sort_no
+    </select>
 </mapper>

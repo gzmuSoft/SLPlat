@@ -1,31 +1,22 @@
 <!-- 登录页面 -->
+<link rel="stylesheet" type="text/css" href="./style.css">
 <div class="container"><br/>
-	<div class="body-bg"></div>
-	<div class="login">
-		<div class="login-screen">
-			<div class="login-icon">
-				<img src="res/img/icon.png" title="Welcome to SLPlat" />
-				<h4>
-					Welcome to <small>&nbsp;&nbsp;&nbsp;SLPlat</small>
-				</h4>
-			</div>
-
-			<form class="login-form" ng-submit="login()">
-				<div class="form-group">
-					<input type="text" class="form-control login-field" ng-model="user.account" name="account"
-						placeholder="Enter your account" ng-maxlength="20" autofocus="autofocus" required />
-					<label class="login-field-icon fui-user" for="account"></label>
-				</div>
-				<div class="form-group">
-					<input type="password" class="form-control login-field" ng-model="user.password"
-						name="password" placeholder="Password" ng-maxlength="20" required />
-					<label class="login-field-icon fui-lock" for="password"></label>
-				</div>
-				<button class="btn btn-primary btn-lg btn-block" id="btn-login" type="submit">Log in</button>
-				<a class="login-link" href="#">Lost your password?</a>
-				<div class="has-error center"><label class="control-label">{{msg}}</label></div>
-			</form>
-		</div>
-	</div>
+    <div class="body-bg"></div>
+    <div id="xieyin1">在线考试系统—用户登录</div>
+    <div class="divForm">
+    <form class="login-form"id="form1" ng-submit="login()">
+        <div class="form-group">
+            <input type="text" class="test" ng-model="user.account" name="account"
+                   placeholder="请输入用户名" ng-maxlength="20" autofocus="autofocus" required/>
+            <label class="login-field-icon fui-user" for="account"></label>
+        </div>
+        <div class="form-group">
+            <input type="password" class="test" ng-model="user.password"
+                   name="password" placeholder="请输入用密码" ng-maxlength="20" required/>
+            <label class="login-field-icon fui-lock" for="password"></label>
+        </div>
+        <button id="btn1"type="submit">登录</button>
+        <button id="a1" ><a  href="#/repassword" style="color: white">找回密码</a></button>
+    </form>
+    </div>
 </div>
-<footer class="footer" data-ng-include=" 'src/tpl/footer.html' "></footer>

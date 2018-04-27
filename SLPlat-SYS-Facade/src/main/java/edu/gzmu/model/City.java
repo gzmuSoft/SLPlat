@@ -18,17 +18,24 @@ import io.swagger.annotations.ApiModelProperty;
 @SuppressWarnings("serial")
 public class City extends SLPlatBaseModel {
     @ApiModelProperty(value = "省份编号")
-	@TableField("province_id")
-	private Long provinceId;
+    @TableField("province_id")
+    private Long provinceId;
+    @TableField(exist = false)
+    private String provinceName;
 
-	public Long getProvinceId() {
-		return provinceId;
-	}
+	public Long getProvinceId() { return provinceId; }
 
 	public void setProvinceId(Long provinceId) {
 		this.provinceId = provinceId;
 	}
 
+    public String getProvinceName() {
+        return provinceName;
+    }
+
+    public void setProvinceName(String provinceName) {
+        this.provinceName = provinceName;
+    }
     /**
      * 返回当前对象信息的字符串表示，该信息能够直接转换成JSON数据
      */
