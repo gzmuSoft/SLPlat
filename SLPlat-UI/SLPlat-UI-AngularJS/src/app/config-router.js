@@ -31,7 +31,12 @@ var app = angular.module('app')
                 .state('main.sys', {
                     url: '/sys',
                     template: '<div ui-view class="fade-in-right-big smooth"></div>'
-                }) // 用户
+                })
+                .state('main.message', {
+                    url: '/message',
+                    template: '<div ui-view class="fade-in-right-big smooth"></div>'
+                })
+                // 用户
                 .state('main.sys.user', {
                     url: '/user',
                     template: '<div ui-view class="fade-in-right-big smooth"></div>'
@@ -111,7 +116,542 @@ var app = angular.module('app')
                             });
                         }]
                       }
-                }) // 菜单
+                })
+                //民族
+                .state('main.message.nation', {
+                    url: '/nation',
+                    template: '<div ui-view class="fade-in-right-big smooth"></div>'
+                })
+                .state('main.message.nation.list', {
+                    url: '/list',
+                    templateUrl: 'src/app/message/nation/nation.html',
+                    controller: 'nationController',
+                    resolve: {
+                        deps: ['uiLoad', '$ocLazyLoad', function(uiLoad, $ocLazyLoad) {
+                            return uiLoad.load('src/app/message/nation/nationController.js').then(function() {
+                                return $ocLazyLoad.load('toaster');
+                            });
+                        }]
+                    }
+                })
+                .state('main.message.nation.create', {
+                    url: '/create',
+                    templateUrl: 'src/app/message/nation/update.html',
+                    controller: 'nationUpdateController',
+                    resolve: {
+                        deps: ['uiLoad', '$ocLazyLoad', function(uiLoad, $ocLazyLoad) {
+                            return uiLoad.load('src/app/message/nation/updateController.js').then(function() {
+                                return $ocLazyLoad.load('toaster');
+                            });
+                        }]
+                    }
+                })
+                .state('main.message.nation.update', {
+                    url: '/update/{id}?params',
+                    templateUrl: 'src/app/message/nation/update.html',
+                    controller: 'nationUpdateController',
+                    resolve: {
+                        deps: ['uiLoad', '$ocLazyLoad', function(uiLoad, $ocLazyLoad) {
+                            return uiLoad.load('src/app/message/nation/updateController.js').then(function() {
+                                return $ocLazyLoad.load('toaster');
+                            });
+                        }]
+                    }
+                })
+                //性别
+                .state('main.message.gender', {
+                    url: '/gender',
+                    template: '<div ui-view class="fade-in-right-big smooth"></div>'
+                })
+                .state('main.message.gender.list', {
+                    url: '/list',
+                    templateUrl: 'src/app/message/gender/gender.html',
+                    controller: 'genderController',
+                    resolve: {
+                        deps: ['uiLoad', '$ocLazyLoad', function(uiLoad, $ocLazyLoad) {
+                            return uiLoad.load('src/app/message/gender/genderController.js').then(function() {
+                                return $ocLazyLoad.load('toaster');
+                            });
+                        }]
+                    }
+                })
+                .state('main.message.gender.create', {
+                    url: '/create',
+                    templateUrl: 'src/app/message/gender/update.html',
+                    controller: 'genderUpdateController',
+                    resolve: {
+                        deps: ['uiLoad', '$ocLazyLoad', function(uiLoad, $ocLazyLoad) {
+                            return uiLoad.load('src/app/message/gender/updateController.js').then(function() {
+                                return $ocLazyLoad.load('toaster');
+                            });
+                        }]
+                    }
+                })
+                .state('main.message.gender.update', {
+                    url: '/update/{id}?params',
+                    templateUrl: 'src/app/message/gender/update.html',
+                    controller: 'genderUpdateController',
+                    resolve: {
+                        deps: ['uiLoad', '$ocLazyLoad', function(uiLoad, $ocLazyLoad) {
+                            return uiLoad.load('src/app/message/gender/updateController.js').then(function() {
+                                return $ocLazyLoad.load('toaster');
+                            });
+                        }]
+                    }
+                })
+                //政治面貌
+                .state('main.message.politicalStatus', {
+                    url: '/politicalStatus',
+                    template: '<div ui-view class="fade-in-right-big smooth"></div>'
+                })
+                .state('main.message.politicalStatus.list', {
+                    url: '/list',
+                    templateUrl: 'src/app/message/politicalStatus/politicalStatus.html',
+                    controller: 'politicalStatusController',
+                    resolve: {
+                        deps: ['uiLoad', '$ocLazyLoad', function(uiLoad, $ocLazyLoad) {
+                            return uiLoad.load('src/app/message/politicalStatus/politicalStatusController.js').then(function() {
+                                return $ocLazyLoad.load('toaster');
+                            });
+                        }]
+                    }
+                })
+                .state('main.message.politicalStatus.create', {
+                    url: '/create',
+                    templateUrl: 'src/app/message/politicalStatus/update.html',
+                    controller: 'politicalStatusUpdateController',
+                    resolve: {
+                        deps: ['uiLoad', '$ocLazyLoad', function(uiLoad, $ocLazyLoad) {
+                            return uiLoad.load('src/app/message/politicalStatus/updateController.js').then(function() {
+                                return $ocLazyLoad.load('toaster');
+                            });
+                        }]
+                    }
+                })
+                .state('main.message.politicalStatus.update', {
+                    url: '/update/{id}?params',
+                    templateUrl: 'src/app/message/politicalStatus/update.html',
+                    controller: 'politicalStatusUpdateController',
+                    resolve: {
+                        deps: ['uiLoad', '$ocLazyLoad', function(uiLoad, $ocLazyLoad) {
+                            return uiLoad.load('src/app/message/politicalStatus/updateController.js').then(function() {
+                                return $ocLazyLoad.load('toaster');
+                            });
+                        }]
+                    }
+                })
+                //职称
+                .state('main.message.professionalTitle', {
+                    url: '/professionalTitle',
+                    template: '<div ui-view class="fade-in-right-big smooth"></div>'
+                })
+                .state('main.message.professionalTitle.list', {
+                    url: '/list',
+                    templateUrl: 'src/app/message/professionalTitle/professionalTitle.html',
+                    controller: 'professionalTitleController',
+                    resolve: {
+                        deps: ['uiLoad', '$ocLazyLoad', function(uiLoad, $ocLazyLoad) {
+                            return uiLoad.load('src/app/message/professionalTitle/professionalTitleController.js').then(function() {
+                                return $ocLazyLoad.load('toaster');
+                            });
+                        }]
+                    }
+                })
+                .state('main.message.professionalTitle.create', {
+                    url: '/create',
+                    templateUrl: 'src/app/message/professionalTitle/update.html',
+                    controller: 'professionalTitleUpdateController',
+                    resolve: {
+                        deps: ['uiLoad', '$ocLazyLoad', function(uiLoad, $ocLazyLoad) {
+                            return uiLoad.load('src/app/message/professionalTitle/updateController.js').then(function() {
+                                return $ocLazyLoad.load('toaster');
+                            });
+                        }]
+                    }
+                })
+                .state('main.message.professionalTitle.update', {
+                    url: '/update/{id}?params',
+                    templateUrl: 'src/app/message/professionalTitle/update.html',
+                    controller: 'professionalTitleUpdateController',
+                    resolve: {
+                        deps: ['uiLoad', '$ocLazyLoad', function(uiLoad, $ocLazyLoad) {
+                            return uiLoad.load('src/app/message/professionalTitle/updateController.js').then(function() {
+                                return $ocLazyLoad.load('toaster');
+                            });
+                        }]
+                    }
+                })
+                //行政职务
+                .state('main.message.administrativePost', {
+                    url: '/administrativePost',
+                    template: '<div ui-view class="fade-in-right-big smooth"></div>'
+                })
+                .state('main.message.administrativePost.list', {
+                    url: '/list',
+                    templateUrl: 'src/app/message/administrativePost/administrativePost.html',
+                    controller: 'administrativePostController',
+                    resolve: {
+                        deps: ['uiLoad', '$ocLazyLoad', function(uiLoad, $ocLazyLoad) {
+                            return uiLoad.load('src/app/message/administrativePost/administrativePostController.js').then(function() {
+                                return $ocLazyLoad.load('toaster');
+                            });
+                        }]
+                    }
+                })
+                .state('main.message.administrativePost.create', {
+                    url: '/create',
+                    templateUrl: 'src/app/message/administrativePost/update.html',
+                    controller: 'administrativePostUpdateController',
+                    resolve: {
+                        deps: ['uiLoad', '$ocLazyLoad', function(uiLoad, $ocLazyLoad) {
+                            return uiLoad.load('src/app/message/administrativePost/updateController.js').then(function() {
+                                return $ocLazyLoad.load('toaster');
+                            });
+                        }]
+                    }
+                })
+                .state('main.message.administrativePost.update', {
+                    url: '/update/{id}?params',
+                    templateUrl: 'src/app/message/administrativePost/update.html',
+                    controller: 'administrativePostUpdateController',
+                    resolve: {
+                        deps: ['uiLoad', '$ocLazyLoad', function(uiLoad, $ocLazyLoad) {
+                            return uiLoad.load('src/app/message/administrativePost/updateController.js').then(function() {
+                                return $ocLazyLoad.load('toaster');
+                            });
+                        }]
+                    }
+                })
+                //高中类别
+                .state('main.message.highSchoolCategory', {
+                    url: '/highSchoolCategory',
+                    template: '<div ui-view class="fade-in-right-big smooth"></div>'
+                })
+                .state('main.message.highSchoolCategory.list', {
+                    url: '/list',
+                    templateUrl: 'src/app/message/highSchoolCategory/highSchoolCategory.html',
+                    controller: 'highSchoolCategoryController',
+                    resolve: {
+                        deps: ['uiLoad', '$ocLazyLoad', function(uiLoad, $ocLazyLoad) {
+                            return uiLoad.load('src/app/message/highSchoolCategory/highSchoolCategoryController.js').then(function() {
+                                return $ocLazyLoad.load('toaster');
+                            });
+                        }]
+                    }
+                })
+                .state('main.message.highSchoolCategory.create', {
+                    url: '/create',
+                    templateUrl: 'src/app/message/highSchoolCategory/update.html',
+                    controller: 'highSchoolCategoryUpdateController',
+                    resolve: {
+                        deps: ['uiLoad', '$ocLazyLoad', function(uiLoad, $ocLazyLoad) {
+                            return uiLoad.load('src/app/message/highSchoolCategory/updateController.js').then(function() {
+                                return $ocLazyLoad.load('toaster');
+                            });
+                        }]
+                    }
+                })
+                .state('main.message.highSchoolCategory.update', {
+                    url: '/update/{id}?params',
+                    templateUrl: 'src/app/message/highSchoolCategory/update.html',
+                    controller: 'highSchoolCategoryUpdateController',
+                    resolve: {
+                        deps: ['uiLoad', '$ocLazyLoad', function(uiLoad, $ocLazyLoad) {
+                            return uiLoad.load('src/app/message/highSchoolCategory/updateController.js').then(function() {
+                                return $ocLazyLoad.load('toaster');
+                            });
+                        }]
+                    }
+                })
+                //考生类别
+                .state('main.message.examineeCategory', {
+                    url: '/examineeCategory',
+                    template: '<div ui-view class="fade-in-right-big smooth"></div>'
+                })
+                .state('main.message.examineeCategory.list', {
+                    url: '/list',
+                    templateUrl: 'src/app/message/examineeCategory/examineeCategory.html',
+                    controller: 'examineeCategoryController',
+                    resolve: {
+                        deps: ['uiLoad', '$ocLazyLoad', function(uiLoad, $ocLazyLoad) {
+                            return uiLoad.load('src/app/message/examineeCategory/examineeCategoryController.js').then(function() {
+                                return $ocLazyLoad.load('toaster');
+                            });
+                        }]
+                    }
+                })
+                .state('main.message.examineeCategory.create', {
+                    url: '/create',
+                    templateUrl: 'src/app/message/examineeCategory/update.html',
+                    controller: 'examineeCategoryUpdateController',
+                    resolve: {
+                        deps: ['uiLoad', '$ocLazyLoad', function(uiLoad, $ocLazyLoad) {
+                            return uiLoad.load('src/app/message/examineeCategory/updateController.js').then(function() {
+                                return $ocLazyLoad.load('toaster');
+                            });
+                        }]
+                    }
+                })
+                .state('main.message.examineeCategory.update', {
+                    url: '/update/{id}?params',
+                    templateUrl: 'src/app/message/examineeCategory/update.html',
+                    controller: 'examineeCategoryUpdateController',
+                    resolve: {
+                        deps: ['uiLoad', '$ocLazyLoad', function(uiLoad, $ocLazyLoad) {
+                            return uiLoad.load('src/app/message/examineeCategory/updateController.js').then(function() {
+                                return $ocLazyLoad.load('toaster');
+                            });
+                        }]
+                    }
+                })
+                //出版社
+                .state('main.message.publisher', {
+                    url: '/publisher',
+                    template: '<div ui-view class="fade-in-right-big smooth"></div>'
+                })
+                .state('main.message.publisher.list', {
+                    url: '/list',
+                    templateUrl: 'src/app/message/publisher/publisher.html',
+                    controller: 'publisherController',
+                    resolve: {
+                        deps: ['uiLoad', '$ocLazyLoad', function(uiLoad, $ocLazyLoad) {
+                            return uiLoad.load('src/app/message/publisher/publisherController.js').then(function() {
+                                return $ocLazyLoad.load('toaster');
+                            });
+                        }]
+                    }
+                })
+                .state('main.message.publisher.create', {
+                    url: '/create',
+                    templateUrl: 'src/app/message/publisher/update.html',
+                    controller: 'publisherUpdateController',
+                    resolve: {
+                        deps: ['uiLoad', '$ocLazyLoad', function(uiLoad, $ocLazyLoad) {
+                            return uiLoad.load('src/app/message/publisher/updateController.js').then(function() {
+                                return $ocLazyLoad.load('toaster');
+                            });
+                        }]
+                    }
+                })
+                .state('main.message.publisher.update', {
+                    url: '/update/{id}?params',
+                    templateUrl: 'src/app/message/publisher/update.html',
+                    controller: 'publisherUpdateController',
+                    resolve: {
+                        deps: ['uiLoad', '$ocLazyLoad', function(uiLoad, $ocLazyLoad) {
+                            return uiLoad.load('src/app/message/publisher/updateController.js').then(function() {
+                                return $ocLazyLoad.load('toaster');
+                            });
+                        }]
+                    }
+                })
+                //批次
+                .state('main.message.batch', {
+                    url: '/batch',
+                    template: '<div ui-view class="fade-in-right-big smooth"></div>'
+                })
+                .state('main.message.batch.list', {
+                    url: '/list',
+                    templateUrl: 'src/app/message/batch/batch.html',
+                    controller: 'batchController',
+                    resolve: {
+                        deps: ['uiLoad', '$ocLazyLoad', function(uiLoad, $ocLazyLoad) {
+                            return uiLoad.load('src/app/message/batch/batchController.js').then(function() {
+                                return $ocLazyLoad.load('toaster');
+                            });
+                        }]
+                    }
+                })
+                .state('main.message.batch.create', {
+                    url: '/create',
+                    templateUrl: 'src/app/message/batch/update.html',
+                    controller: 'batchUpdateController',
+                    resolve: {
+                        deps: ['uiLoad', '$ocLazyLoad', function(uiLoad, $ocLazyLoad) {
+                            return uiLoad.load('src/app/message/batch/updateController.js').then(function() {
+                                return $ocLazyLoad.load('toaster');
+                            });
+                        }]
+                    }
+                })
+                .state('main.message.batch.update', {
+                    url: '/update/{id}?params',
+                    templateUrl: 'src/app/message/batch/update.html',
+                    controller: 'batchUpdateController',
+                    resolve: {
+                        deps: ['uiLoad', '$ocLazyLoad', function(uiLoad, $ocLazyLoad) {
+                            return uiLoad.load('src/app/message/batch/updateController.js').then(function() {
+                                return $ocLazyLoad.load('toaster');
+                            });
+                        }]
+                    }
+                })
+                //附件类型
+                .state('main.message.attachmentType', {
+                    url: '/attachmentType',
+                    template: '<div ui-view class="fade-in-right-big smooth"></div>'
+                })
+                .state('main.message.attachmentType.list', {
+                    url: '/list',
+                    templateUrl: 'src/app/message/attachmentType/attachmentType.html',
+                    controller: 'attachmentTypeController',
+                    resolve: {
+                        deps: ['uiLoad', '$ocLazyLoad', function(uiLoad, $ocLazyLoad) {
+                            return uiLoad.load('src/app/message/attachmentType/attachmentTypeController.js').then(function() {
+                                return $ocLazyLoad.load('toaster');
+                            });
+                        }]
+                    }
+                })
+                .state('main.message.attachmentType.create', {
+                    url: '/create',
+                    templateUrl: 'src/app/message/attachmentType/update.html',
+                    controller: 'attachmentTypeUpdateController',
+                    resolve: {
+                        deps: ['uiLoad', '$ocLazyLoad', function(uiLoad, $ocLazyLoad) {
+                            return uiLoad.load('src/app/message/attachmentType/updateController.js').then(function() {
+                                return $ocLazyLoad.load('toaster');
+                            });
+                        }]
+                    }
+                })
+                .state('main.message.attachmentType.update', {
+                    url: '/update/{id}?params',
+                    templateUrl: 'src/app/message/attachmentType/update.html',
+                    controller: 'attachmentTypeUpdateController',
+                    resolve: {
+                        deps: ['uiLoad', '$ocLazyLoad', function(uiLoad, $ocLazyLoad) {
+                            return uiLoad.load('src/app/message/attachmentType/updateController.js').then(function() {
+                                return $ocLazyLoad.load('toaster');
+                            });
+                        }]
+                    }
+                })
+                //课程类型
+                .state('main.message.courseType', {
+                    url: '/courseType',
+                    template: '<div ui-view class="fade-in-right-big smooth"></div>'
+                })
+                .state('main.message.courseType.list', {
+                    url: '/list',
+                    templateUrl: 'src/app/message/courseType/courseType.html',
+                    controller: 'courseTypeController',
+                    resolve: {
+                        deps: ['uiLoad', '$ocLazyLoad', function(uiLoad, $ocLazyLoad) {
+                            return uiLoad.load('src/app/message/courseType/courseTypeController.js').then(function() {
+                                return $ocLazyLoad.load('toaster');
+                            });
+                        }]
+                    }
+                })
+                .state('main.message.courseType.create', {
+                    url: '/create',
+                    templateUrl: 'src/app/message/courseType/update.html',
+                    controller: 'courseTypeUpdateController',
+                    resolve: {
+                        deps: ['uiLoad', '$ocLazyLoad', function(uiLoad, $ocLazyLoad) {
+                            return uiLoad.load('src/app/message/courseType/updateController.js').then(function() {
+                                return $ocLazyLoad.load('toaster');
+                            });
+                        }]
+                    }
+                })
+                .state('main.message.courseType.update', {
+                    url: '/update/{id}?params',
+                    templateUrl: 'src/app/message/courseType/update.html',
+                    controller: 'courseTypeUpdateController',
+                    resolve: {
+                        deps: ['uiLoad', '$ocLazyLoad', function(uiLoad, $ocLazyLoad) {
+                            return uiLoad.load('src/app/message/courseType/updateController.js').then(function() {
+                                return $ocLazyLoad.load('toaster');
+                            });
+                        }]
+                    }
+                })
+                //学期
+                .state('main.message.semester', {
+                    url: '/semester',
+                    template: '<div ui-view class="fade-in-right-big smooth"></div>'
+                })
+                .state('main.message.semester.list', {
+                    url: '/list',
+                    templateUrl: 'src/app/message/semester/semester.html',
+                    controller: 'semesterController',
+                    resolve: {
+                        deps: ['uiLoad', '$ocLazyLoad', function(uiLoad, $ocLazyLoad) {
+                            return uiLoad.load('src/app/message/semester/semesterController.js').then(function() {
+                                return $ocLazyLoad.load('toaster');
+                            });
+                        }]
+                    }
+                })
+                .state('main.message.semester.create', {
+                    url: '/create',
+                    templateUrl: 'src/app/message/semester/update.html',
+                    controller: 'semesterUpdateController',
+                    resolve: {
+                        deps: ['uiLoad', '$ocLazyLoad', function(uiLoad, $ocLazyLoad) {
+                            return uiLoad.load('src/app/message/semester/updateController.js').then(function() {
+                                return $ocLazyLoad.load('toaster');
+                            });
+                        }]
+                    }
+                })
+                .state('main.message.semester.update', {
+                    url: '/update/{id}?params',
+                    templateUrl: 'src/app/message/semester/update.html',
+                    controller: 'semesterUpdateController',
+                    resolve: {
+                        deps: ['uiLoad', '$ocLazyLoad', function(uiLoad, $ocLazyLoad) {
+                            return uiLoad.load('src/app/message/semester/updateController.js').then(function() {
+                                return $ocLazyLoad.load('toaster');
+                            });
+                        }]
+                    }
+                })
+                //历年分数线
+                .state('main.message.ceeAnnualScore', {
+                    url: '/ceeAnnualScore',
+                    template: '<div ui-view class="fade-in-right-big smooth"></div>'
+                })
+                .state('main.message.ceeAnnualScore.list', {
+                    url: '/list',
+                    templateUrl: 'src/app/message/ceeAnnualScore/ceeAnnualScore.html',
+                    controller: 'ceeAnnualScoreController',
+                    resolve: {
+                        deps: ['uiLoad', '$ocLazyLoad', function(uiLoad, $ocLazyLoad) {
+                            return uiLoad.load('src/app/message/ceeAnnualScore/ceeAnnualScoreController.js').then(function() {
+                                return $ocLazyLoad.load('toaster');
+                            });
+                        }]
+                    }
+                })
+                .state('main.message.ceeAnnualScore.create', {
+                    url: '/create',
+                    templateUrl: 'src/app/message/ceeAnnualScore/update.html',
+                    controller: 'ceeAnnualScoreUpdateController',
+                    resolve: {
+                        deps: ['uiLoad', '$ocLazyLoad', function(uiLoad, $ocLazyLoad) {
+                            return uiLoad.load('src/app/message/ceeAnnualScore/updateController.js').then(function() {
+                                return $ocLazyLoad.load('toaster');
+                            });
+                        }]
+                    }
+                })
+                .state('main.message.ceeAnnualScore.update', {
+                    url: '/update/{id}?params',
+                    templateUrl: 'src/app/message/ceeAnnualScore/update.html',
+                    controller: 'ceeAnnualScoreUpdateController',
+                    resolve: {
+                        deps: ['uiLoad', '$ocLazyLoad', function(uiLoad, $ocLazyLoad) {
+                            return uiLoad.load('src/app/message/ceeAnnualScore/updateController.js').then(function() {
+                                return $ocLazyLoad.load('toaster');
+                            });
+                        }]
+                    }
+                })
+
+                // 菜单
                 .state('main.sys.menu', {
                     url: '/menu',
                     template: '<div ui-view class="fade-in-right-big smooth"></div>'
