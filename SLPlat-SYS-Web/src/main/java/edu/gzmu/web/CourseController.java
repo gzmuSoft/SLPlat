@@ -9,9 +9,9 @@ import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.*;
 import top.ibase4j.core.base.provider.BaseController;
 import top.ibase4j.core.util.WebUtil;
-
-import javax.servlet.http.HttpServletRequest;
 import java.util.Map;
+import javax.servlet.http.HttpServletRequest;
+import org.springframework.ui.ModelMap;
 
 /**
  * <p>
@@ -29,15 +29,21 @@ public class CourseController extends BaseController<ISysProvider> {
 		return "courseService";
 	}
 
-	@RequiresPermissions("course.read")
+	@RequiresPermissions("sys.message.course.read")
 	@PutMapping(value = "/read/list")
 	@ApiOperation(value = "查询课程", produces = MediaType.APPLICATION_JSON_VALUE)
-	public Object query(HttpServletRequest request) {
-		Map<String, Object> param = WebUtil.getParameter(request);
-		return super.query(param);
+	public Object list(ModelMap modelMap, @RequestBody Map<String, Object> param) {
+		return super.queryList(modelMap, param);
 	}
 
-	@RequiresPermissions("course.read")
+	@ApiOperation(value = "查询课程", produces = MediaType.APPLICATION_JSON_VALUE)
+	@RequiresPermissions("sys.message.course.read")
+	@PutMapping(value = "/read/page")
+	public Object query(ModelMap modelMap, @RequestBody Map<String, Object> param) {
+		return super.query(modelMap, param);
+	}
+
+	@RequiresPermissions("sys.message.course.read")
 	@PutMapping(value = "/read/detail")
 	@ApiOperation(value = "课程详情", produces = MediaType.APPLICATION_JSON_VALUE)
 	public Object get(HttpServletRequest request) {
@@ -46,7 +52,7 @@ public class CourseController extends BaseController<ISysProvider> {
 	}
 
 	@PostMapping
-	@RequiresPermissions("course.update")
+	@RequiresPermissions("sys.message.course.read")
 	@ApiOperation(value = "修改课程", produces = MediaType.APPLICATION_JSON_VALUE)
 	public Object update(HttpServletRequest request) {
 		Course param = WebUtil.getParameter(request, Course.class);
@@ -54,7 +60,7 @@ public class CourseController extends BaseController<ISysProvider> {
 	}
 
 	@DeleteMapping
-	@RequiresPermissions("course.delete")
+	@RequiresPermissions("sys.message.course.read")
 	@ApiOperation(value = "删除课程", produces = MediaType.APPLICATION_JSON_VALUE)
 	public Object del(HttpServletRequest request) {
 		Course param = WebUtil.getParameter(request, Course.class);

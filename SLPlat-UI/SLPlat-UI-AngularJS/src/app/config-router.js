@@ -982,7 +982,88 @@ var app = angular.module('app')
                         }]
                     }
                 })
-
+                //课程
+                .state('main.message.course', {
+                    url: '/course',
+                    template: '<div ui-view class="fade-in-right-big smooth"></div>'
+                })
+                .state('main.message.course.list', {
+                    url: '/list',
+                    templateUrl: 'src/app/message/course/course.html',
+                    controller: 'courseController',
+                    resolve: {
+                        deps: ['uiLoad', '$ocLazyLoad', function(uiLoad, $ocLazyLoad) {
+                            return uiLoad.load('src/app/message/course/courseController.js').then(function() {
+                                return $ocLazyLoad.load('toaster');
+                            });
+                        }]
+                    }
+                })
+                .state('main.message.course.create', {
+                    url: '/create',
+                    templateUrl: 'src/app/message/course/update.html',
+                    controller: 'courseUpdateController',
+                    resolve: {
+                        deps: ['uiLoad', '$ocLazyLoad', function(uiLoad, $ocLazyLoad) {
+                            return uiLoad.load('src/app/message/course/updateController.js').then(function() {
+                                return $ocLazyLoad.load('toaster');
+                            });
+                        }]
+                    }
+                })
+                .state('main.message.course.update', {
+                    url: '/update/{id}?params',
+                    templateUrl: 'src/app/message/course/update.html',
+                    controller: 'courseUpdateController',
+                    resolve: {
+                        deps: ['uiLoad', '$ocLazyLoad', function(uiLoad, $ocLazyLoad) {
+                            return uiLoad.load('src/app/message/course/updateController.js').then(function() {
+                                return $ocLazyLoad.load('toaster');
+                            });
+                        }]
+                    }
+                })
+                //课程教材
+                .state('main.message.courseMaterial', {
+                    url: '/courseMaterial',
+                    template: '<div ui-view class="fade-in-right-big smooth"></div>'
+                })
+                .state('main.message.courseMaterial.list', {
+                    url: '/list',
+                    templateUrl: 'src/app/message/courseMaterial/courseMaterial.html',
+                    controller: 'courseMaterialController',
+                    resolve: {
+                        deps: ['uiLoad', '$ocLazyLoad', function(uiLoad, $ocLazyLoad) {
+                            return uiLoad.load('src/app/message/courseMaterial/courseMaterialController.js').then(function() {
+                                return $ocLazyLoad.load('toaster');
+                            });
+                        }]
+                    }
+                })
+                .state('main.message.courseMaterial.create', {
+                    url: '/create',
+                    templateUrl: 'src/app/message/courseMaterial/update.html',
+                    controller: 'courseMaterialUpdateController',
+                    resolve: {
+                        deps: ['uiLoad', '$ocLazyLoad', function(uiLoad, $ocLazyLoad) {
+                            return uiLoad.load('src/app/message/courseMaterial/updateController.js').then(function() {
+                                return $ocLazyLoad.load('toaster');
+                            });
+                        }]
+                    }
+                })
+                .state('main.message.courseMaterial.update', {
+                    url: '/update/{id}?params',
+                    templateUrl: 'src/app/message/courseMaterial/update.html',
+                    controller: 'courseMaterialUpdateController',
+                    resolve: {
+                        deps: ['uiLoad', '$ocLazyLoad', function(uiLoad, $ocLazyLoad) {
+                            return uiLoad.load('src/app/message/courseMaterial/updateController.js').then(function() {
+                                return $ocLazyLoad.load('toaster');
+                            });
+                        }]
+                    }
+                })
                 // 菜单
                 .state('main.sys.menu', {
                     url: '/menu',

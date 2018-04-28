@@ -54,6 +54,24 @@ public class Course extends SLPlatBaseModel {
     @ApiModelProperty(value = "课程目标")
 	@TableField("target_")
 	private String target;
+	@TableField(exist = false)
+	private String specialtyName;
+	@TableField(exist = false)
+	private String typeName;
+
+	public String getSpecialtyName() {
+		return specialtyName;
+	}
+
+	public void setSpecialtyName(String specialtyName) {
+		this.specialtyName = specialtyName;
+	}
+
+	public String getTypeName() {
+		return typeName;
+	}
+
+	public void setTypeName(String typeName) { this.typeName = typeName; }
 
 	public Long getSpecialtyId() {
 		return specialtyId;
@@ -171,6 +189,8 @@ public class Course extends SLPlatBaseModel {
         sb.append(", isBoutiqueCourse=").append(isBoutiqueCourse);
         sb.append(", introduction=").append(introduction);
         sb.append(", target=").append(target);
+		sb.append(", specialtyName=").append(specialtyName);
+		sb.append(", typeName=").append(typeName);
         sb.append("]");
         return sb.toString();
     }
@@ -196,6 +216,8 @@ public class Course extends SLPlatBaseModel {
 					&& (this.getCourseProperty() == null ? other.getCourseProperty() == null : this.getCourseProperty().equals(other.getCourseProperty()))
 					&& (this.getBoutiqueCourse() == null ? other.getBoutiqueCourse() == null : this.getBoutiqueCourse().equals(other.getBoutiqueCourse()))
 					&& (this.getIntroduction() == null ? other.getIntroduction() == null : this.getIntroduction().equals(other.getIntroduction()))
+					&& (this.getSpecialtyName() == null ? other.getSpecialtyName() == null : this.getSpecialtyName().equals(other.getSpecialtyName()))
+					&& (this.getTypeName() == null ? other.getTypeName() == null : this.getTypeName().equals(other.getTypeName()))
 					&& (this.getTarget() == null ? other.getTarget() == null : this.getTarget().equals(other.getTarget()));
         }
     }
@@ -219,6 +241,8 @@ public class Course extends SLPlatBaseModel {
         result = prime * result + ((getBoutiqueCourse() == null) ? 0 : getBoutiqueCourse().hashCode());
         result = prime * result + ((getIntroduction() == null) ? 0 : getIntroduction().hashCode());
         result = prime * result + ((getTarget() == null) ? 0 : getTarget().hashCode());
+		result = prime * result + ((getSpecialtyName() == null) ? 0 : getSpecialtyName().hashCode());
+		result = prime * result + ((getTypeName() == null) ? 0 : getTypeName().hashCode());
         return result;
     }
 }

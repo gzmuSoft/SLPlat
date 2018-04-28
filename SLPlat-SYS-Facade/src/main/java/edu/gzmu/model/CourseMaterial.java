@@ -22,71 +22,81 @@ import java.util.Date;
 @SuppressWarnings("serial")
 public class CourseMaterial extends SLPlatBaseModel {
     @ApiModelProperty(value = "出版社编号")
-	@TableField("publisher_id")
-	private Long publisherId;
+    @TableField("publisher_id")
+    private Long publisherId;
     @ApiModelProperty(value = "编者")
-	@TableField("editor_")
-	private String editor;
+    @TableField("editor_")
+    private String editor;
     @ApiModelProperty(value = "ISBN")
-	@TableField("ISBN_")
-	private String isbn;
+    @TableField("ISBN_")
+    private String isbn;
     @ApiModelProperty(value = "定价")
-	@TableField("price_")
-	private BigDecimal price;
+    @TableField("price_")
+    private BigDecimal price;
     @ApiModelProperty(value = "教材特色")
-	@TableField("feature_")
-	private String feature;
+    @TableField("feature_")
+    private String feature;
     @ApiModelProperty(value = "出版日期")
-	@TableField("publish_date")
-	private Date publishDate;
+    @TableField("publish_date")
+    private Date publishDate;
+    @TableField(exist = false)
+    private String publisherName;
 
-	public Long getPublisherId() {
-		return publisherId;
-	}
+    public Long getPublisherId() {
+        return publisherId;
+    }
 
-	public void setPublisherId(Long publisherId) {
-		this.publisherId = publisherId;
-	}
+    public void setPublisherId(Long publisherId) {
+        this.publisherId = publisherId;
+    }
 
-	public String getEditor() {
-		return editor;
-	}
+    public String getPublisherName() {
+        return publisherName;
+    }
 
-	public void setEditor(String editor) {
-		this.editor = editor;
-	}
+    public void setPublisherName(String publisherName) {
+        this.publisherName = publisherName;
+    }
 
-	public String getIsbn() {
-		return isbn;
-	}
+    public String getEditor() {
+        return editor;
+    }
 
-	public void setIsbn(String isbn) {
-		this.isbn = isbn;
-	}
+    public void setEditor(String editor) {
+        this.editor = editor;
+    }
 
-	public BigDecimal getPrice() {
-		return price;
-	}
+    public String getIsbn() {
+        return isbn;
+    }
 
-	public void setPrice(BigDecimal price) {
-		this.price = price;
-	}
+    public void setIsbn(String isbn) {
+        this.isbn = isbn;
+    }
 
-	public String getFeature() {
-		return feature;
-	}
+    public BigDecimal getPrice() {
+        return price;
+    }
 
-	public void setFeature(String feature) {
-		this.feature = feature;
-	}
+    public void setPrice(BigDecimal price) {
+        this.price = price;
+    }
 
-	public Date getPublishDate() {
-		return publishDate;
-	}
+    public String getFeature() {
+        return feature;
+    }
 
-	public void setPublishDate(Date publishDate) {
-		this.publishDate = publishDate;
-	}
+    public void setFeature(String feature) {
+        this.feature = feature;
+    }
+
+    public Date getPublishDate() {
+        return publishDate;
+    }
+
+    public void setPublishDate(Date publishDate) {
+        this.publishDate = publishDate;
+    }
 
     /**
      * 返回当前对象信息的字符串表示，该信息能够直接转换成JSON数据
@@ -97,6 +107,7 @@ public class CourseMaterial extends SLPlatBaseModel {
         sb.append(getClass().getSimpleName());
         sb.append(super.getSubToString());
         sb.append(", publisherId=").append(publisherId);
+        sb.append(", publisherName=").append(publisherName);
         sb.append(", editor=").append(editor);
         sb.append(", isbn=").append(isbn);
         sb.append(", price=").append(price);
@@ -113,15 +124,15 @@ public class CourseMaterial extends SLPlatBaseModel {
     public boolean equals(Object that) {
         if (!super.equals(that)) {
             return false;
-        }
-        else {
+        } else {
             CourseMaterial other = (CourseMaterial) that;
             return (this.getPublisherId() == null ? other.getPublisherId() == null : this.getPublisherId().equals(other.getPublisherId()))
-					&& (this.getEditor() == null ? other.getEditor() == null : this.getEditor().equals(other.getEditor()))
-					&& (this.getIsbn() == null ? other.getIsbn() == null : this.getIsbn().equals(other.getIsbn()))
-					&& (this.getPrice() == null ? other.getPrice() == null : this.getPrice().equals(other.getPrice()))
-					&& (this.getFeature() == null ? other.getFeature() == null : this.getFeature().equals(other.getFeature()))
-					&& (this.getPublishDate() == null ? other.getPublishDate() == null : this.getPublishDate().equals(other.getPublishDate()));
+                    &&(this.getPublisherName() == null ? other.getPublisherName() == null : this.getPublisherName().equals(other.getPublisherName()))
+                    && (this.getEditor() == null ? other.getEditor() == null : this.getEditor().equals(other.getEditor()))
+                    && (this.getIsbn() == null ? other.getIsbn() == null : this.getIsbn().equals(other.getIsbn()))
+                    && (this.getPrice() == null ? other.getPrice() == null : this.getPrice().equals(other.getPrice()))
+                    && (this.getFeature() == null ? other.getFeature() == null : this.getFeature().equals(other.getFeature()))
+                    && (this.getPublishDate() == null ? other.getPublishDate() == null : this.getPublishDate().equals(other.getPublishDate()));
         }
     }
 
@@ -133,6 +144,7 @@ public class CourseMaterial extends SLPlatBaseModel {
         final int prime = 31;
         int result = super.hashCode();
         result = prime * result + ((getPublisherId() == null) ? 0 : getPublisherId().hashCode());
+        result = prime * result + ((getPublisherName() == null) ? 0 : getPublisherName().hashCode());
         result = prime * result + ((getEditor() == null) ? 0 : getEditor().hashCode());
         result = prime * result + ((getIsbn() == null) ? 0 : getIsbn().hashCode());
         result = prime * result + ((getPrice() == null) ? 0 : getPrice().hashCode());
