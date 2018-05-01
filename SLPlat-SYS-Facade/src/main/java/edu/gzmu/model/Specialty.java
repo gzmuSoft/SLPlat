@@ -6,6 +6,9 @@ import edu.gzmu.model.base.SLPlatBaseModel;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 
+import java.lang.Class;
+import java.util.List;
+
 /**
  * <p>
  * 专业
@@ -37,13 +40,28 @@ public class Specialty extends SLPlatBaseModel {
     @ApiModelProperty(value = "在校生人数")
     @TableField("students_number")
     private Long studentsNumber;
+    @ApiModelProperty(value = "当前专业所在的学院")
     @TableField(exist = false)
-    private String schoolName;
+    private College college;
+    @ApiModelProperty(value = "当前专业多有的班级")
     @TableField(exist = false)
-    private String collegeName;
-    @TableField(exist = false)
-    private Long schoolId;
+    private List<Class> classList;
 
+    public List<Class> getClassList() {
+        return classList;
+    }
+
+    public void setClassList(List<Class> classList) {
+        this.classList = classList;
+    }
+
+    public College getCollege() {
+        return college;
+    }
+
+    public void setCollege(College college) {
+        this.college = college;
+    }
 
     public String getMajorCode() {
         return majorCode;
@@ -59,14 +77,6 @@ public class Specialty extends SLPlatBaseModel {
 
     public void setCollegeId(Long collegeId) {
         this.collegeId = collegeId;
-    }
-
-    public Long getSchoolId() {
-        return schoolId;
-    }
-
-    public void setSchoolId(Long schoolId) {
-        this.schoolId = schoolId;
     }
 
     public Long getSchoolYear() {
@@ -109,20 +119,6 @@ public class Specialty extends SLPlatBaseModel {
         this.studentsNumber = studentsNumber;
     }
 
-    public String getSchoolName() { return schoolName; }
-
-    public void setSchoolName(String schoolName) { this.schoolName = schoolName; }
-
-    public String getCollegeName() {
-        return collegeName;
-    }
-
-    public void setCollegeName(String collegeName) {
-        this.collegeName = collegeName;
-    }
-
-
-
     /**
      * 返回当前对象信息的字符串表示，该信息能够直接转换成JSON数据
      */
@@ -133,14 +129,11 @@ public class Specialty extends SLPlatBaseModel {
         sb.append(super.getSubToString());
         sb.append(", majorCode=").append(majorCode);
         sb.append(", collegeId=").append(collegeId);
-        sb.append(", schoolId=").append(schoolId);
         sb.append(", schoolYear=").append(schoolYear);
         sb.append(", category=").append(category);
         sb.append(", majorLeaderId=").append(majorLeaderId);
         sb.append(", introduction=").append(introduction);
         sb.append(", studentsNumber=").append(studentsNumber);
-        sb.append(", schoolName=").append(schoolName);
-        sb.append(", collegeName=").append(collegeName);
         sb.append("]");
         return sb.toString();
     }
@@ -156,14 +149,11 @@ public class Specialty extends SLPlatBaseModel {
             Specialty other = (Specialty) that;
             return (this.getMajorCode() == null ? other.getMajorCode() == null : this.getMajorCode().equals(other.getMajorCode()))
                     && (this.getCollegeId() == null ? other.getCollegeId() == null : this.getCollegeId().equals(other.getCollegeId()))
-                    && (this.getSchoolId() == null ? other.getSchoolId() == null : this.getSchoolId().equals(other.getSchoolId()))
                     && (this.getSchoolYear() == null ? other.getSchoolYear() == null : this.getSchoolYear().equals(other.getSchoolYear()))
                     && (this.getCategory() == null ? other.getCategory() == null : this.getCategory().equals(other.getCategory()))
                     && (this.getMajorLeaderId() == null ? other.getMajorLeaderId() == null : this.getMajorLeaderId().equals(other.getMajorLeaderId()))
                     && (this.getIntroduction() == null ? other.getIntroduction() == null : this.getIntroduction().equals(other.getIntroduction()))
-                    && (this.getStudentsNumber() == null ? other.getStudentsNumber() == null : this.getStudentsNumber().equals(other.getStudentsNumber())
-                    && (this.getSchoolName() == null ? other.getSchoolName() == null : this.getSchoolName().equals(other.getSchoolName()))
-                    && (this.getCollegeName() == null ? other.getCollegeName() == null : this.getCollegeName().equals(other.getCollegeName())));
+                    && (this.getStudentsNumber() == null ? other.getStudentsNumber() == null : this.getStudentsNumber().equals(other.getStudentsNumber()));
         }
     }
 
@@ -176,14 +166,11 @@ public class Specialty extends SLPlatBaseModel {
         int result = super.hashCode();
         result = prime * result + ((getMajorCode() == null) ? 0 : getMajorCode().hashCode());
         result = prime * result + ((getCollegeId() == null) ? 0 : getCollegeId().hashCode());
-        result = prime * result + ((getSchoolId() == null) ? 0 : getSchoolId().hashCode());
         result = prime * result + ((getSchoolYear() == null) ? 0 : getSchoolYear().hashCode());
         result = prime * result + ((getCategory() == null) ? 0 : getCategory().hashCode());
         result = prime * result + ((getMajorLeaderId() == null) ? 0 : getMajorLeaderId().hashCode());
         result = prime * result + ((getIntroduction() == null) ? 0 : getIntroduction().hashCode());
         result = prime * result + ((getStudentsNumber() == null) ? 0 : getStudentsNumber().hashCode());
-        result = prime * result + ((getSchoolName() == null) ? 0 : getSchoolName().hashCode());
-        result = prime * result + ((getCollegeName() == null) ? 0 : getCollegeName().hashCode());
         return result;
     }
 }
