@@ -27,4 +27,53 @@
 		</if>
         ORDER BY sort_no
 	</select>
+
+	<resultMap id="collegeMap" type="edu.gzmu.model.School">
+		<id property="id" column="schoolId"/>
+		<result property="name" column="schoolName"/>
+		<result property="sortNo" column="sortNo"/>
+		<collection property="collegeList" javaType="list" ofType="College">
+			<id property="id" column="collegeId"/>
+			<result property="schoolId" column="schoolId"/>
+			<result property="name" column="collegeName"/>
+		</collection>
+	</resultMap>
+
+
+
+	<select id="queryHierarchy" resultMap="collegeMap">
+		SELECT
+			s.id_ schoolId,s.name_ schoolName,e.id_ collegeId,e.name_ collegeName,s.sort_no sortNo
+		FROM
+			school s
+			LEFT JOIN college e ON e.school_id = s.id_
+	</select>
+
+	<resultMap id="specialtyMap" type="edu.gzmu.model.School">
+		<id property="id" column="schoolId"/>
+		<result property="name" column="schoolName"/>
+		<result property="sortNo" column="sortNo"/>
+		<collection property="collegeList" javaType="list" ofType="edu.gzmu.model.College">
+			<id property="id" column="collegeId"/>
+			<result property="schoolId" column="schoolId"/>
+			<result property="name" column="collegeName"/>
+			<collection property="specialtyList" javaType="list" ofType="edu.gzmu.model.Specialty">
+				<id property="id" column="specialtyId"/>
+				<result property="name" column="specialtyName"/>
+				<result property="collegeId" column="collegeId"/>
+			</collection>
+		</collection>
+	</resultMap>
+
+	<select id="queryHierarchyTwo" resultMap="specialtyMap">
+		SELECT
+			s.id_ schoolId,s.name_ schoolName,e.id_ collegeId,e.name_ collegeName,
+			s2.id_ specialtyId,s2.name_ specialtyName,s.sort_no sortNo
+		FROM
+			school s
+			LEFT JOIN college e ON e.school_id = s.id_
+			LEFT JOIN specialty s2 ON e.id_ = s2.college_id;
+	</select>
+
+
 </mapper>
