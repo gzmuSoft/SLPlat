@@ -6,6 +6,8 @@ import edu.gzmu.model.base.SLPlatBaseModel;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 
+import java.util.List;
+
 /**
  * <p>
  * 学院
@@ -20,8 +22,6 @@ public class College extends SLPlatBaseModel {
     @ApiModelProperty(value = "学校编号")
     @TableField("school_id")
     private Long schoolId;
-    @TableField(exist = false)
-    private String schoolName;
     @ApiModelProperty(value = "学院概况")
     @TableField("college_profile")
     private String collegeProfile;
@@ -31,6 +31,20 @@ public class College extends SLPlatBaseModel {
     @ApiModelProperty(value = "在校生人数")
     @TableField("students_number")
     private Long studentsNumber;
+    @ApiModelProperty(value = "当前学院下的所有专业")
+    @TableField(exist = false)
+    private List<Specialty> specialtyList;
+    @ApiModelProperty(value = "当前学院所在的学校")
+    @TableField(exist = false)
+    private School school;
+
+    public School getSchool() {
+        return school;
+    }
+
+    public void setSchool(School school) {
+        this.school = school;
+    }
 
     public Long getSchoolId() {
         return schoolId;
@@ -40,12 +54,12 @@ public class College extends SLPlatBaseModel {
         this.schoolId = schoolId;
     }
 
-    public String getSchoolName() {
-        return schoolName;
+    public List<Specialty> getSpecialtyList() {
+        return specialtyList;
     }
 
-    public void setSchoolName(String schoolName) {
-        this.schoolName = schoolName;
+    public void setSpecialtyList(List<Specialty> specialtyList) {
+        this.specialtyList = specialtyList;
     }
 
     public String getCollegeProfile() {
@@ -81,7 +95,6 @@ public class College extends SLPlatBaseModel {
         sb.append(getClass().getSimpleName());
         sb.append(super.getSubToString());
         sb.append(", schoolId=").append(schoolId);
-        sb.append(", schoolName=").append(schoolName);
         sb.append(", collegeProfile=").append(collegeProfile);
         sb.append(", collegeCode=").append(collegeCode);
         sb.append(", studentsNumber=").append(studentsNumber);
@@ -99,7 +112,6 @@ public class College extends SLPlatBaseModel {
         } else {
             College other = (College) that;
             return (this.getSchoolId() == null ? other.getSchoolId() == null : this.getSchoolId().equals(other.getSchoolId()))
-                    && (this.getSchoolName() == null ? other.getSchoolName() == null : this.getSchoolName().equals(other.getSchoolName()))
                     && (this.getCollegeProfile() == null ? other.getCollegeProfile() == null : this.getCollegeProfile().equals(other.getCollegeProfile()))
                     && (this.getCollegeCode() == null ? other.getCollegeCode() == null : this.getCollegeCode().equals(other.getCollegeCode()))
                     && (this.getStudentsNumber() == null ? other.getStudentsNumber() == null : this.getStudentsNumber().equals(other.getStudentsNumber()));
@@ -114,7 +126,6 @@ public class College extends SLPlatBaseModel {
         final int prime = 31;
         int result = super.hashCode();
         result = prime * result + ((getSchoolId() == null) ? 0 : getSchoolId().hashCode());
-        result = prime * result + ((getSchoolName() == null) ? 0 : getSchoolName().hashCode());
         result = prime * result + ((getCollegeProfile() == null) ? 0 : getCollegeProfile().hashCode());
         result = prime * result + ((getCollegeCode() == null) ? 0 : getCollegeCode().hashCode());
         result = prime * result + ((getStudentsNumber() == null) ? 0 : getStudentsNumber().hashCode());
