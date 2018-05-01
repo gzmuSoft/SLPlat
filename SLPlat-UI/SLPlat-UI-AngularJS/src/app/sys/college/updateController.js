@@ -69,13 +69,11 @@ angular.module('app')
                     $scope.loading = false;
                     if (result.code == 200) {
                         $scope.schoolNames = result.rows;
-                        console.log($scope.schoolNames );
                         var i = 0;
                         if (id != null) {
                             for (var item in $scope.schoolNames) {
                                 if ($scope.record.schoolId != null && item == $scope.record.schoolId) {
                                     $scope.recordSchoolId = item;
-                                    console.log($scope.record.schoolId);
                                     break;
                                 }
                                 i++;

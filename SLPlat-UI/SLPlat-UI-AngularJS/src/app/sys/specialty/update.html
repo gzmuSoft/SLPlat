@@ -23,10 +23,10 @@
             <form class="form-horizontal"  name="user_form">
                 <!--学校名称-->
                 <div class="form-group">
-                    <label class="col-lg-2 col-sm-3 control-label" for="schoolName">
+                    <label class="col-lg-2 col-sm-3 control-label" for="schoolId">
                         <span class="text-danger wrapper-sm">*</span>学校名称</label>
                     <div class="col-sm-6">
-                        <select class="form-control" name="schoolName" id="schoolName" ng-model="recordSchoolId" ng-change="schoolChange()">
+                        <select class="form-control" name="schoolId" id="schoolId" ng-model="recordSchoolId" ng-change="schoolChange()">
                             <option value="0" >--请选择学校--</option>
                             <option ng-repeat="x in schoolNames" value="{{x.id}}">{{x.name}}</option>
                         </select>
@@ -36,10 +36,10 @@
                 <div class="line line-dashed b-b line-lg pull-in"></div>
                 <!--学院名称-->
                 <div class="form-group">
-                    <label class="col-lg-2 col-sm-3 control-label" for="collegeName">
+                    <label class="col-lg-2 col-sm-3 control-label" for="collegeId">
                         <span class="text-danger wrapper-sm">*</span>学院名称</label>
                     <div class="col-sm-6">
-                        <select class="form-control" name="collegeName" id="collegeName"
+                        <select class="form-control" name="collegeId" id="collegeId"
                                 ng-model="recordCollegeId">
                             <option value="0" >--请选择学院--</option>
                             <option ng-repeat="x in collegeNames" value="{{x.id}}">{{x.name}}</option>

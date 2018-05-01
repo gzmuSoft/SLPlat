@@ -12,7 +12,6 @@ angular.module('app')
                 var id = $state.params.id;
                 activate(id);
                 validate(id);
-                loadSchool(id);
             } else if ($state.includes('**.specialty.create')) {
                 title = "添加专业";
                 validate(null);
@@ -42,7 +41,7 @@ angular.module('app')
                     }).then(callback);
                 }
                 function callback(result) {
-                    if (result.code == 200) {//成功
+                    if (result.code === 200) {//成功
                         toaster.clear('*');
                         toaster.pop('success', '', "保存成功");
                         $timeout(function () {
@@ -62,12 +61,15 @@ angular.module('app')
                     type: 'PUT',
                     dataType: 'json',
                     contentType: 'application/json;charset=UTF-8',
-                    url: '/specialty/read/detail',
+                    url: '/specialty/read/infoOne',
                     data: angular.toJson({'id': id})
                 }).then(function (result) {
                     $scope.loading = false;
                     if (result.code == 200) {
                         $scope.record = result.data;
+                        $scope.record.collegeId = $scope.record.college.id;
+                        $scope.record.schoolId = $scope.record.college.school.id;
+                        loadSchool($scope.record.schoolId);
                     } else {
                         $scope.msg = result.msg;
                     }
@@ -81,8 +83,8 @@ angular.module('app')
                     type: 'PUT',
                     dataType: 'json',
                     contentType: 'application/json;charset=UTF-8',
-                    url: '/school/read/page',
-                    data: angular.toJson($scope.param)
+                    url: '/college/read/hierarchy',
+                    data: angular.toJson({'id': id})
                 }).then(function (result) {
                     $scope.loading = false;
                     if (result.code == 200) {
@@ -90,13 +92,11 @@ angular.module('app')
                         if (id == null) {
                             $scope.recordSchoolId = "0";
                             $scope.recordCollegeId = "0";
-                        }
-                        if (id != null) {
+                        } else {
                             $scope.recordSchoolId = $scope.record.schoolId;
                             $scope.schoolChange();
                             $scope.recordCollegeId = $scope.record.collegeId;
                         }
-                        console.log($scope.recordSchoolId);
                     } else {
                         $scope.msg = result.msg;
                     }
@@ -104,27 +104,18 @@ angular.module('app')
                 });
             }//加载学校信息
 
-            $scope.schoolChange = function () {
+            $scope.schoolChange = function() {
                 var schoolId = $scope.recordSchoolId;
                 $scope.loading = true;
-                if (schoolId != null) {
-                    $.ajax({
-                        type: 'PUT',
-                        dataType: 'json',
-                        contentType: 'application/json;charset=UTF-8',
-                        url: '/college/read/page',
-                        data: angular.toJson($scope.param)
-                    }).then(function (result) {
-                        $scope.loading = false;
-                        if (result.code == 200) {
-                            $scope.collegeNames = result.rows;
-                        }
-                        else {
-                            $scope.msg = result.msg;
-                        }
-                        $scope.$apply();
-                    })
-                }
+                $scope.collegeNames = null;
+                $scope.schoolNames.every(function (school) {
+                    if (school.id == schoolId && school.collegeList[0].name !== ''){
+                        $scope.collegeNames = school.collegeList;
+                        return false;
+                    }
+                    return true;
+                });
+                $scope.recordCollegeId = "0";
             };//加载学院信息
 
             function validate(userId) {

@@ -12,7 +12,6 @@ angular.module('app')
                 var id = $state.params.id;
                 activate(id);
                 validate(id);
-                loadSchool(id);
             } else if ($state.includes('**.class.create')) {
                 title = "添加班级";
                 validate(null);
@@ -62,12 +61,15 @@ angular.module('app')
                     type: 'PUT',
                     dataType: 'json',
                     contentType: 'application/json;charset=UTF-8',
-                    url: '/class/read/detail',
+                    url: '/class/read/infoOne',
                     data: angular.toJson({'id': id})
                 }).then(function (result) {
                     $scope.loading = false;
                     if (result.code == 200) {
                         $scope.record = result.data;
+                        $scope.record.collegeId = $scope.record.specialty.collegeId;
+                        $scope.record.schoolId = $scope.record.specialty.college.schoolId;
+                        loadSchool($scope.record.schoolId);
                     } else {
                         $scope.msg = result.msg;
                     }
@@ -81,7 +83,7 @@ angular.module('app')
                     type: 'PUT',
                     dataType: 'json',
                     contentType: 'application/json;charset=UTF-8',
-                    url: '/school/read/page',
+                    url: '/specialty/read/hierarchy',
                     data: angular.toJson($scope.param)
                 }).then(function (result) {
                     $scope.loading = false;
@@ -99,9 +101,6 @@ angular.module('app')
                             $scope.collegeChange();
                             $scope.recordSpecialtyId = $scope.record.specialtyId;
                         }
-                        console.log($scope.record.schoolId);
-                        console.log($scope.record.collegeId);
-                        console.log($scope.record.specialtyId);
                     } else {
                         $scope.msg = result.msg;
                     }
@@ -110,49 +109,31 @@ angular.module('app')
             }//加载学校信息
 
             $scope.schoolChange = function () {
+                $scope.collegeNames = null;
+                $scope.specialtyNames = null;
                 var schoolId = $scope.recordSchoolId;
-                $scope.loading = true;
-                if (schoolId != null) {
-                    $.ajax({
-                        type: 'PUT',
-                        dataType: 'json',
-                        contentType: 'application/json;charset=UTF-8',
-                        url: '/college/read/page',
-                        data: angular.toJson($scope.param)
-                    }).then(function (result) {
-                        $scope.loading = false;
-                        if (result.code == 200) {
-                            $scope.collegeNames = result.rows;
-                        }
-                        else {
-                            $scope.msg = result.msg;
-                        }
-                        $scope.$apply();
-                    })
-                }
+                $scope.schoolNames.every(function (school) {
+                    if (school.id == schoolId && school.collegeList[0].name !== ''){
+                        $scope.collegeNames = school.collegeList;
+                        return false;
+                    }
+                     return true;
+                });
+                $scope.recordCollegeId = "0";
+                $scope.recordSpecialtyId = "0";
             };//根据学校Id加载学院
 
             $scope.collegeChange = function () {
+                $scope.specialtyNames = null;
                 var collegeId = $scope.recordCollegeId;
-                $scope.loading = true;
-                if (collegeId != null) {
-                    $.ajax({
-                        type: 'PUT',
-                        dataType: 'json',
-                        contentType: 'application/json;charset=UTF-8',
-                        url: '/specialty/read/page',
-                        data: angular.toJson($scope.param)
-                    }).then(function (result) {
-                        $scope.loading = false;
-                        if (result.code == 200) {
-                            $scope.specialtyNames = result.rows;
-                        }
-                        else {
-                            $scope.msg = result.msg;
-                        }
-                        $scope.$apply();
-                    })
-                }
+                $scope.collegeNames.every(function (college) {
+                    if (collegeId == college.id && college.specialtyList[0].name !== ''){
+                        $scope.specialtyNames = college.specialtyList;
+                        return false;
+                    }
+                    return true;
+                });
+                $scope.recordSpecialtyId = "0";
             };//根据学院Id加载专业
 
             function validate(userId) {

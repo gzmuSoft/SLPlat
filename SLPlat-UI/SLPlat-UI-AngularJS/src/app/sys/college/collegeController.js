@@ -19,20 +19,20 @@ angular.module('app')
                     $scope.loading = false;
                     if (result.code == 200) {
                         $scope.pageInfo = result;
-                        console.log($scope.pageInfo.rows);
+                        console.log($scope.pageInfo);
                     } else {
                         $scope.msg = result.msg;
                     }
                     $scope.$apply();
                 });
-            }
+            };
 
             $scope.search();
 
             $scope.clearSearch = function() {
                 $scope.param.keyword= null;
                 $scope.search();
-            }
+            };
 
             $scope.disableItem = function(id, enable) {
                 this.item.enable = enable;//获取当前的记录信息并更新其enable的值
@@ -49,7 +49,7 @@ angular.module('app')
                         //不执行任何操作
                     }
                 });
-            }
+            };
 
             // 翻页
             $scope.pagination = function (page) {
