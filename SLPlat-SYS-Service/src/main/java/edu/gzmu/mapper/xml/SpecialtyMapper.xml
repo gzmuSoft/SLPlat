@@ -51,4 +51,33 @@
 		</if>
 		ORDER BY college_id, sort_no
 	</select>
+
+	<resultMap id="specialtyMap" type="edu.gzmu.model.Specialty">
+		<id property="id" column="specialtyId" />
+		<result property="name" column="specialtyName"/>
+		<result property="sortNo" column="sortNo"/>
+		<association property="college" javaType="edu.gzmu.model.College">
+			<id property="id" column="collegeId"/>
+			<result property="name" column="collegeName"/>
+			<association property="school" javaType="edu.gzmu.model.School">
+				<id property="id" column="schoolId"/>
+				<result property="name" column="schoolName"/>
+			</association>
+		</association>
+	</resultMap>
+
+	<select id="queryById" useCache="false" resultMap="specialtyMap">
+		SELECT
+			s.id_ specialtyId,s.name_ specialtyName,c.id_ collegeId,c.name_ collegeName,
+			sc.id_ schoolId,sc.name_ schoolName,s.sort_no sortNo
+		FROM
+			specialty s
+			LEFT JOIN college c ON s.college_id = c.id_
+			LEFT JOIN school sc ON c.school_id = sc.id_
+		<where>
+			<if test="cm.id != null and cm.id != ''">
+				and s.id_ = #{cm.id}
+			</if>
+		</where>
+	</select>
 </mapper>
