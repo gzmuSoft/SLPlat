@@ -6,6 +6,8 @@ import edu.gzmu.model.base.SLPlatBaseModel;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 
+import java.util.List;
+
 /**
  * <p>
  * 学校
@@ -20,8 +22,19 @@ public class School extends SLPlatBaseModel {
     @ApiModelProperty(value = "学校概况")
 	@TableField("school_profiles")
 	private String schoolProfiles;
+    @ApiModelProperty(value = "当前学校下的所有学院")
+    @TableField(exist = false)
+    private List<College> collegeList;
 
-	public String getSchoolProfiles() {
+    public List<College> getCollegeList() {
+        return collegeList;
+    }
+
+    public void setCollegeList(List<College> collegeList) {
+        this.collegeList = collegeList;
+    }
+
+    public String getSchoolProfiles() {
 		return schoolProfiles;
 	}
 
@@ -29,18 +42,6 @@ public class School extends SLPlatBaseModel {
 		this.schoolProfiles = schoolProfiles;
 	}
 
-    /**
-     * 返回当前对象信息的字符串表示，该信息能够直接转换成JSON数据
-     */
-    @Override
-    public String toString() {
-        StringBuilder sb = new StringBuilder();
-        sb.append(getClass().getSimpleName());
-        sb.append(super.getSubToString());
-        sb.append(", schoolProfiles=").append(schoolProfiles);
-        sb.append("]");
-        return sb.toString();
-    }
 
     /**
      * 判断两个对象是否相等
