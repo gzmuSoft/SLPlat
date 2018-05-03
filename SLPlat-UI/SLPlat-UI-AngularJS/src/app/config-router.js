@@ -636,11 +636,11 @@ var app = angular.module('app')
                 })
                 .state('main.baseInfo.nation.list', {
                     url: '/list',
-                    templateUrl: 'src/app/message/nation/nation.html',
+                    templateUrl: 'src/app/baseInfo/nation/nation.html',
                     controller: 'nationController',
                     resolve: {
                         deps: ['uiLoad', '$ocLazyLoad', function(uiLoad, $ocLazyLoad) {
-                            return uiLoad.load('src/app/message/nation/nationController.js').then(function() {
+                            return uiLoad.load('src/app/baseInfo/nation/nationController.js').then(function() {
                                 return $ocLazyLoad.load('toaster');
                             });
                         }]
@@ -648,11 +648,11 @@ var app = angular.module('app')
                 })
                 .state('main.baseInfo.nation.create', {
                     url: '/create',
-                    templateUrl: 'src/app/message/nation/update.html',
+                    templateUrl: 'src/app/baseInfo/nation/update.html',
                     controller: 'nationUpdateController',
                     resolve: {
                         deps: ['uiLoad', '$ocLazyLoad', function(uiLoad, $ocLazyLoad) {
-                            return uiLoad.load('src/app/message/nation/updateController.js').then(function() {
+                            return uiLoad.load('src/app/baseInfo/nation/updateController.js').then(function() {
                                 return $ocLazyLoad.load('toaster');
                             });
                         }]
@@ -660,11 +660,11 @@ var app = angular.module('app')
                 })
                 .state('main.baseInfo.nation.update', {
                     url: '/update/{id}?params',
-                    templateUrl: 'src/app/message/nation/update.html',
+                    templateUrl: 'src/app/baseInfo/nation/update.html',
                     controller: 'nationUpdateController',
                     resolve: {
                         deps: ['uiLoad', '$ocLazyLoad', function(uiLoad, $ocLazyLoad) {
-                            return uiLoad.load('src/app/message/nation/updateController.js').then(function() {
+                            return uiLoad.load('src/app/baseInfo/nation/updateController.js').then(function() {
                                 return $ocLazyLoad.load('toaster');
                             });
                         }]
@@ -677,11 +677,11 @@ var app = angular.module('app')
                 })
                 .state('main.baseInfo.gender.list', {
                     url: '/list',
-                    templateUrl: 'src/app/message/gender/gender.html',
+                    templateUrl: 'src/app/baseInfo/gender/gender.html',
                     controller: 'genderController',
                     resolve: {
                         deps: ['uiLoad', '$ocLazyLoad', function(uiLoad, $ocLazyLoad) {
-                            return uiLoad.load('src/app/message/gender/genderController.js').then(function() {
+                            return uiLoad.load('src/app/baseInfo/gender/genderController.js').then(function() {
                                 return $ocLazyLoad.load('toaster');
                             });
                         }]
@@ -689,11 +689,11 @@ var app = angular.module('app')
                 })
                 .state('main.baseInfo.gender.create', {
                     url: '/create',
-                    templateUrl: 'src/app/message/gender/update.html',
+                    templateUrl: 'src/app/baseInfo/gender/update.html',
                     controller: 'genderUpdateController',
                     resolve: {
                         deps: ['uiLoad', '$ocLazyLoad', function(uiLoad, $ocLazyLoad) {
-                            return uiLoad.load('src/app/message/gender/updateController.js').then(function() {
+                            return uiLoad.load('src/app/baseInfo/gender/updateController.js').then(function() {
                                 return $ocLazyLoad.load('toaster');
                             });
                         }]
@@ -701,11 +701,11 @@ var app = angular.module('app')
                 })
                 .state('main.baseInfo.gender.update', {
                     url: '/update/{id}?params',
-                    templateUrl: 'src/app/message/gender/update.html',
+                    templateUrl: 'src/app/baseInfo/gender/update.html',
                     controller: 'genderUpdateController',
                     resolve: {
                         deps: ['uiLoad', '$ocLazyLoad', function(uiLoad, $ocLazyLoad) {
-                            return uiLoad.load('src/app/message/gender/updateController.js').then(function() {
+                            return uiLoad.load('src/app/baseInfo/gender/updateController.js').then(function() {
                                 return $ocLazyLoad.load('toaster');
                             });
                         }]
@@ -718,11 +718,11 @@ var app = angular.module('app')
                 })
                 .state('main.baseInfo.politicalStatus.list', {
                     url: '/list',
-                    templateUrl: 'src/app/message/politicalStatus/politicalStatus.html',
+                    templateUrl: 'src/app/baseInfo/politicalStatus/politicalStatus.html',
                     controller: 'politicalStatusController',
                     resolve: {
                         deps: ['uiLoad', '$ocLazyLoad', function(uiLoad, $ocLazyLoad) {
-                            return uiLoad.load('src/app/message/politicalStatus/politicalStatusController.js').then(function() {
+                            return uiLoad.load('src/app/baseInfo/politicalStatus/politicalStatusController.js').then(function() {
                                 return $ocLazyLoad.load('toaster');
                             });
                         }]
@@ -730,11 +730,11 @@ var app = angular.module('app')
                 })
                 .state('main.baseInfo.politicalStatus.create', {
                     url: '/create',
-                    templateUrl: 'src/app/message/politicalStatus/update.html',
+                    templateUrl: 'src/app/baseInfo/politicalStatus/update.html',
                     controller: 'politicalStatusUpdateController',
                     resolve: {
                         deps: ['uiLoad', '$ocLazyLoad', function(uiLoad, $ocLazyLoad) {
-                            return uiLoad.load('src/app/message/politicalStatus/updateController.js').then(function() {
+                            return uiLoad.load('src/app/baseInfo/politicalStatus/updateController.js').then(function() {
                                 return $ocLazyLoad.load('toaster');
                             });
                         }]
@@ -742,11 +742,11 @@ var app = angular.module('app')
                 })
                 .state('main.baseInfo.politicalStatus.update', {
                     url: '/update/{id}?params',
-                    templateUrl: 'src/app/message/politicalStatus/update.html',
+                    templateUrl: 'src/app/baseInfo/politicalStatus/update.html',
                     controller: 'politicalStatusUpdateController',
                     resolve: {
                         deps: ['uiLoad', '$ocLazyLoad', function(uiLoad, $ocLazyLoad) {
-                            return uiLoad.load('src/app/message/politicalStatus/updateController.js').then(function() {
+                            return uiLoad.load('src/app/baseInfo/politicalStatus/updateController.js').then(function() {
                                 return $ocLazyLoad.load('toaster');
                             });
                         }]
@@ -759,11 +759,11 @@ var app = angular.module('app')
                 })
                 .state('main.baseInfo.professionalTitle.list', {
                     url: '/list',
-                    templateUrl: 'src/app/message/professionalTitle/professionalTitle.html',
+                    templateUrl: 'src/app/baseInfo/professionalTitle/professionalTitle.html',
                     controller: 'professionalTitleController',
                     resolve: {
                         deps: ['uiLoad', '$ocLazyLoad', function(uiLoad, $ocLazyLoad) {
-                            return uiLoad.load('src/app/message/professionalTitle/professionalTitleController.js').then(function() {
+                            return uiLoad.load('src/app/baseInfo/professionalTitle/professionalTitleController.js').then(function() {
                                 return $ocLazyLoad.load('toaster');
                             });
                         }]
@@ -771,11 +771,11 @@ var app = angular.module('app')
                 })
                 .state('main.baseInfo.professionalTitle.create', {
                     url: '/create',
-                    templateUrl: 'src/app/message/professionalTitle/update.html',
+                    templateUrl: 'src/app/baseInfo/professionalTitle/update.html',
                     controller: 'professionalTitleUpdateController',
                     resolve: {
                         deps: ['uiLoad', '$ocLazyLoad', function(uiLoad, $ocLazyLoad) {
-                            return uiLoad.load('src/app/message/professionalTitle/updateController.js').then(function() {
+                            return uiLoad.load('src/app/baseInfo/professionalTitle/updateController.js').then(function() {
                                 return $ocLazyLoad.load('toaster');
                             });
                         }]
@@ -783,11 +783,11 @@ var app = angular.module('app')
                 })
                 .state('main.baseInfo.professionalTitle.update', {
                     url: '/update/{id}?params',
-                    templateUrl: 'src/app/message/professionalTitle/update.html',
+                    templateUrl: 'src/app/baseInfo/professionalTitle/update.html',
                     controller: 'professionalTitleUpdateController',
                     resolve: {
                         deps: ['uiLoad', '$ocLazyLoad', function(uiLoad, $ocLazyLoad) {
-                            return uiLoad.load('src/app/message/professionalTitle/updateController.js').then(function() {
+                            return uiLoad.load('src/app/baseInfo/professionalTitle/updateController.js').then(function() {
                                 return $ocLazyLoad.load('toaster');
                             });
                         }]
@@ -800,11 +800,11 @@ var app = angular.module('app')
                 })
                 .state('main.baseInfo.administrativePost.list', {
                     url: '/list',
-                    templateUrl: 'src/app/message/administrativePost/administrativePost.html',
+                    templateUrl: 'src/app/baseInfo/administrativePost/administrativePost.html',
                     controller: 'administrativePostController',
                     resolve: {
                         deps: ['uiLoad', '$ocLazyLoad', function(uiLoad, $ocLazyLoad) {
-                            return uiLoad.load('src/app/message/administrativePost/administrativePostController.js').then(function() {
+                            return uiLoad.load('src/app/baseInfo/administrativePost/administrativePostController.js').then(function() {
                                 return $ocLazyLoad.load('toaster');
                             });
                         }]
@@ -812,11 +812,11 @@ var app = angular.module('app')
                 })
                 .state('main.baseInfo.administrativePost.create', {
                     url: '/create',
-                    templateUrl: 'src/app/message/administrativePost/update.html',
+                    templateUrl: 'src/app/baseInfo/administrativePost/update.html',
                     controller: 'administrativePostUpdateController',
                     resolve: {
                         deps: ['uiLoad', '$ocLazyLoad', function(uiLoad, $ocLazyLoad) {
-                            return uiLoad.load('src/app/message/administrativePost/updateController.js').then(function() {
+                            return uiLoad.load('src/app/baseInfo/administrativePost/updateController.js').then(function() {
                                 return $ocLazyLoad.load('toaster');
                             });
                         }]
@@ -824,11 +824,11 @@ var app = angular.module('app')
                 })
                 .state('main.baseInfo.administrativePost.update', {
                     url: '/update/{id}?params',
-                    templateUrl: 'src/app/message/administrativePost/update.html',
+                    templateUrl: 'src/app/baseInfo/administrativePost/update.html',
                     controller: 'administrativePostUpdateController',
                     resolve: {
                         deps: ['uiLoad', '$ocLazyLoad', function(uiLoad, $ocLazyLoad) {
-                            return uiLoad.load('src/app/message/administrativePost/updateController.js').then(function() {
+                            return uiLoad.load('src/app/baseInfo/administrativePost/updateController.js').then(function() {
                                 return $ocLazyLoad.load('toaster');
                             });
                         }]
@@ -841,11 +841,11 @@ var app = angular.module('app')
                 })
                 .state('main.baseInfo.highSchoolCategory.list', {
                     url: '/list',
-                    templateUrl: 'src/app/message/highSchoolCategory/highSchoolCategory.html',
+                    templateUrl: 'src/app/baseInfo/highSchoolCategory/highSchoolCategory.html',
                     controller: 'highSchoolCategoryController',
                     resolve: {
                         deps: ['uiLoad', '$ocLazyLoad', function(uiLoad, $ocLazyLoad) {
-                            return uiLoad.load('src/app/message/highSchoolCategory/highSchoolCategoryController.js').then(function() {
+                            return uiLoad.load('src/app/baseInfo/highSchoolCategory/highSchoolCategoryController.js').then(function() {
                                 return $ocLazyLoad.load('toaster');
                             });
                         }]
@@ -853,11 +853,11 @@ var app = angular.module('app')
                 })
                 .state('main.baseInfo.highSchoolCategory.create', {
                     url: '/create',
-                    templateUrl: 'src/app/message/highSchoolCategory/update.html',
+                    templateUrl: 'src/app/baseInfo/highSchoolCategory/update.html',
                     controller: 'highSchoolCategoryUpdateController',
                     resolve: {
                         deps: ['uiLoad', '$ocLazyLoad', function(uiLoad, $ocLazyLoad) {
-                            return uiLoad.load('src/app/message/highSchoolCategory/updateController.js').then(function() {
+                            return uiLoad.load('src/app/baseInfo/highSchoolCategory/updateController.js').then(function() {
                                 return $ocLazyLoad.load('toaster');
                             });
                         }]
@@ -865,11 +865,11 @@ var app = angular.module('app')
                 })
                 .state('main.baseInfo.highSchoolCategory.update', {
                     url: '/update/{id}?params',
-                    templateUrl: 'src/app/message/highSchoolCategory/update.html',
+                    templateUrl: 'src/app/baseInfo/highSchoolCategory/update.html',
                     controller: 'highSchoolCategoryUpdateController',
                     resolve: {
                         deps: ['uiLoad', '$ocLazyLoad', function(uiLoad, $ocLazyLoad) {
-                            return uiLoad.load('src/app/message/highSchoolCategory/updateController.js').then(function() {
+                            return uiLoad.load('src/app/baseInfo/highSchoolCategory/updateController.js').then(function() {
                                 return $ocLazyLoad.load('toaster');
                             });
                         }]
@@ -882,11 +882,11 @@ var app = angular.module('app')
                 })
                 .state('main.baseInfo.examineeCategory.list', {
                     url: '/list',
-                    templateUrl: 'src/app/message/examineeCategory/examineeCategory.html',
+                    templateUrl: 'src/app/baseInfo/examineeCategory/examineeCategory.html',
                     controller: 'examineeCategoryController',
                     resolve: {
                         deps: ['uiLoad', '$ocLazyLoad', function(uiLoad, $ocLazyLoad) {
-                            return uiLoad.load('src/app/message/examineeCategory/examineeCategoryController.js').then(function() {
+                            return uiLoad.load('src/app/baseInfo/examineeCategory/examineeCategoryController.js').then(function() {
                                 return $ocLazyLoad.load('toaster');
                             });
                         }]
@@ -894,11 +894,11 @@ var app = angular.module('app')
                 })
                 .state('main.baseInfo.examineeCategory.create', {
                     url: '/create',
-                    templateUrl: 'src/app/message/examineeCategory/update.html',
+                    templateUrl: 'src/app/baseInfo/examineeCategory/update.html',
                     controller: 'examineeCategoryUpdateController',
                     resolve: {
                         deps: ['uiLoad', '$ocLazyLoad', function(uiLoad, $ocLazyLoad) {
-                            return uiLoad.load('src/app/message/examineeCategory/updateController.js').then(function() {
+                            return uiLoad.load('src/app/baseInfo/examineeCategory/updateController.js').then(function() {
                                 return $ocLazyLoad.load('toaster');
                             });
                         }]
@@ -906,11 +906,11 @@ var app = angular.module('app')
                 })
                 .state('main.baseInfo.examineeCategory.update', {
                     url: '/update/{id}?params',
-                    templateUrl: 'src/app/message/examineeCategory/update.html',
+                    templateUrl: 'src/app/baseInfo/examineeCategory/update.html',
                     controller: 'examineeCategoryUpdateController',
                     resolve: {
                         deps: ['uiLoad', '$ocLazyLoad', function(uiLoad, $ocLazyLoad) {
-                            return uiLoad.load('src/app/message/examineeCategory/updateController.js').then(function() {
+                            return uiLoad.load('src/app/baseInfo/examineeCategory/updateController.js').then(function() {
                                 return $ocLazyLoad.load('toaster');
                             });
                         }]
@@ -923,11 +923,11 @@ var app = angular.module('app')
                 })
                 .state('main.baseInfo.publisher.list', {
                     url: '/list',
-                    templateUrl: 'src/app/message/publisher/publisher.html',
+                    templateUrl: 'src/app/baseInfo/publisher/publisher.html',
                     controller: 'publisherController',
                     resolve: {
                         deps: ['uiLoad', '$ocLazyLoad', function(uiLoad, $ocLazyLoad) {
-                            return uiLoad.load('src/app/message/publisher/publisherController.js').then(function() {
+                            return uiLoad.load('src/app/baseInfo/publisher/publisherController.js').then(function() {
                                 return $ocLazyLoad.load('toaster');
                             });
                         }]
@@ -935,11 +935,11 @@ var app = angular.module('app')
                 })
                 .state('main.baseInfo.publisher.create', {
                     url: '/create',
-                    templateUrl: 'src/app/message/publisher/update.html',
+                    templateUrl: 'src/app/baseInfo/publisher/update.html',
                     controller: 'publisherUpdateController',
                     resolve: {
                         deps: ['uiLoad', '$ocLazyLoad', function(uiLoad, $ocLazyLoad) {
-                            return uiLoad.load('src/app/message/publisher/updateController.js').then(function() {
+                            return uiLoad.load('src/app/baseInfo/publisher/updateController.js').then(function() {
                                 return $ocLazyLoad.load('toaster');
                             });
                         }]
@@ -947,11 +947,11 @@ var app = angular.module('app')
                 })
                 .state('main.baseInfo.publisher.update', {
                     url: '/update/{id}?params',
-                    templateUrl: 'src/app/message/publisher/update.html',
+                    templateUrl: 'src/app/baseInfo/publisher/update.html',
                     controller: 'publisherUpdateController',
                     resolve: {
                         deps: ['uiLoad', '$ocLazyLoad', function(uiLoad, $ocLazyLoad) {
-                            return uiLoad.load('src/app/message/publisher/updateController.js').then(function() {
+                            return uiLoad.load('src/app/baseInfo/publisher/updateController.js').then(function() {
                                 return $ocLazyLoad.load('toaster');
                             });
                         }]
@@ -964,11 +964,11 @@ var app = angular.module('app')
                 })
                 .state('main.baseInfo.batch.list', {
                     url: '/list',
-                    templateUrl: 'src/app/message/batch/batch.html',
+                    templateUrl: 'src/app/baseInfo/batch/batch.html',
                     controller: 'batchController',
                     resolve: {
                         deps: ['uiLoad', '$ocLazyLoad', function(uiLoad, $ocLazyLoad) {
-                            return uiLoad.load('src/app/message/batch/batchController.js').then(function() {
+                            return uiLoad.load('src/app/baseInfo/batch/batchController.js').then(function() {
                                 return $ocLazyLoad.load('toaster');
                             });
                         }]
@@ -976,11 +976,11 @@ var app = angular.module('app')
                 })
                 .state('main.baseInfo.batch.create', {
                     url: '/create',
-                    templateUrl: 'src/app/message/batch/update.html',
+                    templateUrl: 'src/app/baseInfo/batch/update.html',
                     controller: 'batchUpdateController',
                     resolve: {
                         deps: ['uiLoad', '$ocLazyLoad', function(uiLoad, $ocLazyLoad) {
-                            return uiLoad.load('src/app/message/batch/updateController.js').then(function() {
+                            return uiLoad.load('src/app/baseInfo/batch/updateController.js').then(function() {
                                 return $ocLazyLoad.load('toaster');
                             });
                         }]
@@ -988,11 +988,11 @@ var app = angular.module('app')
                 })
                 .state('main.baseInfo.batch.update', {
                     url: '/update/{id}?params',
-                    templateUrl: 'src/app/message/batch/update.html',
+                    templateUrl: 'src/app/baseInfo/batch/update.html',
                     controller: 'batchUpdateController',
                     resolve: {
                         deps: ['uiLoad', '$ocLazyLoad', function(uiLoad, $ocLazyLoad) {
-                            return uiLoad.load('src/app/message/batch/updateController.js').then(function() {
+                            return uiLoad.load('src/app/baseInfo/batch/updateController.js').then(function() {
                                 return $ocLazyLoad.load('toaster');
                             });
                         }]
@@ -1005,11 +1005,11 @@ var app = angular.module('app')
                 })
                 .state('main.baseInfo.attachmentType.list', {
                     url: '/list',
-                    templateUrl: 'src/app/message/attachmentType/attachmentType.html',
+                    templateUrl: 'src/app/baseInfo/attachmentType/attachmentType.html',
                     controller: 'attachmentTypeController',
                     resolve: {
                         deps: ['uiLoad', '$ocLazyLoad', function(uiLoad, $ocLazyLoad) {
-                            return uiLoad.load('src/app/message/attachmentType/attachmentTypeController.js').then(function() {
+                            return uiLoad.load('src/app/baseInfo/attachmentType/attachmentTypeController.js').then(function() {
                                 return $ocLazyLoad.load('toaster');
                             });
                         }]
@@ -1017,11 +1017,11 @@ var app = angular.module('app')
                 })
                 .state('main.baseInfo.attachmentType.create', {
                     url: '/create',
-                    templateUrl: 'src/app/message/attachmentType/update.html',
+                    templateUrl: 'src/app/baseInfo/attachmentType/update.html',
                     controller: 'attachmentTypeUpdateController',
                     resolve: {
                         deps: ['uiLoad', '$ocLazyLoad', function(uiLoad, $ocLazyLoad) {
-                            return uiLoad.load('src/app/message/attachmentType/updateController.js').then(function() {
+                            return uiLoad.load('src/app/baseInfo/attachmentType/updateController.js').then(function() {
                                 return $ocLazyLoad.load('toaster');
                             });
                         }]
@@ -1029,11 +1029,11 @@ var app = angular.module('app')
                 })
                 .state('main.baseInfo.attachmentType.update', {
                     url: '/update/{id}?params',
-                    templateUrl: 'src/app/message/attachmentType/update.html',
+                    templateUrl: 'src/app/baseInfo/attachmentType/update.html',
                     controller: 'attachmentTypeUpdateController',
                     resolve: {
                         deps: ['uiLoad', '$ocLazyLoad', function(uiLoad, $ocLazyLoad) {
-                            return uiLoad.load('src/app/message/attachmentType/updateController.js').then(function() {
+                            return uiLoad.load('src/app/baseInfo/attachmentType/updateController.js').then(function() {
                                 return $ocLazyLoad.load('toaster');
                             });
                         }]
@@ -1046,11 +1046,11 @@ var app = angular.module('app')
                 })
                 .state('main.baseInfo.courseType.list', {
                     url: '/list',
-                    templateUrl: 'src/app/message/courseType/courseType.html',
+                    templateUrl: 'src/app/baseInfo/courseType/courseType.html',
                     controller: 'courseTypeController',
                     resolve: {
                         deps: ['uiLoad', '$ocLazyLoad', function(uiLoad, $ocLazyLoad) {
-                            return uiLoad.load('src/app/message/courseType/courseTypeController.js').then(function() {
+                            return uiLoad.load('src/app/baseInfo/courseType/courseTypeController.js').then(function() {
                                 return $ocLazyLoad.load('toaster');
                             });
                         }]
@@ -1058,11 +1058,11 @@ var app = angular.module('app')
                 })
                 .state('main.baseInfo.courseType.create', {
                     url: '/create',
-                    templateUrl: 'src/app/message/courseType/update.html',
+                    templateUrl: 'src/app/baseInfo/courseType/update.html',
                     controller: 'courseTypeUpdateController',
                     resolve: {
                         deps: ['uiLoad', '$ocLazyLoad', function(uiLoad, $ocLazyLoad) {
-                            return uiLoad.load('src/app/message/courseType/updateController.js').then(function() {
+                            return uiLoad.load('src/app/baseInfo/courseType/updateController.js').then(function() {
                                 return $ocLazyLoad.load('toaster');
                             });
                         }]
@@ -1070,11 +1070,11 @@ var app = angular.module('app')
                 })
                 .state('main.baseInfo.courseType.update', {
                     url: '/update/{id}?params',
-                    templateUrl: 'src/app/message/courseType/update.html',
+                    templateUrl: 'src/app/baseInfo/courseType/update.html',
                     controller: 'courseTypeUpdateController',
                     resolve: {
                         deps: ['uiLoad', '$ocLazyLoad', function(uiLoad, $ocLazyLoad) {
-                            return uiLoad.load('src/app/message/courseType/updateController.js').then(function() {
+                            return uiLoad.load('src/app/baseInfo/courseType/updateController.js').then(function() {
                                 return $ocLazyLoad.load('toaster');
                             });
                         }]
@@ -1087,11 +1087,11 @@ var app = angular.module('app')
                 })
                 .state('main.baseInfo.semester.list', {
                     url: '/list',
-                    templateUrl: 'src/app/message/semester/semester.html',
+                    templateUrl: 'src/app/baseInfo/semester/semester.html',
                     controller: 'semesterController',
                     resolve: {
                         deps: ['uiLoad', '$ocLazyLoad', function(uiLoad, $ocLazyLoad) {
-                            return uiLoad.load('src/app/message/semester/semesterController.js').then(function() {
+                            return uiLoad.load('src/app/baseInfo/semester/semesterController.js').then(function() {
                                 return $ocLazyLoad.load('toaster');
                             });
                         }]
@@ -1099,11 +1099,11 @@ var app = angular.module('app')
                 })
                 .state('main.baseInfo.semester.create', {
                     url: '/create',
-                    templateUrl: 'src/app/message/semester/update.html',
+                    templateUrl: 'src/app/baseInfo/semester/update.html',
                     controller: 'semesterUpdateController',
                     resolve: {
                         deps: ['uiLoad', '$ocLazyLoad', function(uiLoad, $ocLazyLoad) {
-                            return uiLoad.load('src/app/message/semester/updateController.js').then(function() {
+                            return uiLoad.load('src/app/baseInfo/semester/updateController.js').then(function() {
                                 return $ocLazyLoad.load('toaster');
                             });
                         }]
@@ -1111,11 +1111,11 @@ var app = angular.module('app')
                 })
                 .state('main.baseInfo.semester.update', {
                     url: '/update/{id}?params',
-                    templateUrl: 'src/app/message/semester/update.html',
+                    templateUrl: 'src/app/baseInfo/semester/update.html',
                     controller: 'semesterUpdateController',
                     resolve: {
                         deps: ['uiLoad', '$ocLazyLoad', function(uiLoad, $ocLazyLoad) {
-                            return uiLoad.load('src/app/message/semester/updateController.js').then(function() {
+                            return uiLoad.load('src/app/baseInfo/semester/updateController.js').then(function() {
                                 return $ocLazyLoad.load('toaster');
                             });
                         }]
@@ -1128,11 +1128,11 @@ var app = angular.module('app')
                 })
                 .state('main.baseInfo.ceeAnnualScore.list', {
                     url: '/list',
-                    templateUrl: 'src/app/message/ceeAnnualScore/ceeAnnualScore.html',
+                    templateUrl: 'src/app/baseInfo/ceeAnnualScore/ceeAnnualScore.html',
                     controller: 'ceeAnnualScoreController',
                     resolve: {
                         deps: ['uiLoad', '$ocLazyLoad', function(uiLoad, $ocLazyLoad) {
-                            return uiLoad.load('src/app/message/ceeAnnualScore/ceeAnnualScoreController.js').then(function() {
+                            return uiLoad.load('src/app/baseInfo/ceeAnnualScore/ceeAnnualScoreController.js').then(function() {
                                 return $ocLazyLoad.load('toaster');
                             });
                         }]
@@ -1140,11 +1140,11 @@ var app = angular.module('app')
                 })
                 .state('main.baseInfo.ceeAnnualScore.create', {
                     url: '/create',
-                    templateUrl: 'src/app/message/ceeAnnualScore/update.html',
+                    templateUrl: 'src/app/baseInfo/ceeAnnualScore/update.html',
                     controller: 'ceeAnnualScoreUpdateController',
                     resolve: {
                         deps: ['uiLoad', '$ocLazyLoad', function(uiLoad, $ocLazyLoad) {
-                            return uiLoad.load('src/app/message/ceeAnnualScore/updateController.js').then(function() {
+                            return uiLoad.load('src/app/baseInfo/ceeAnnualScore/updateController.js').then(function() {
                                 return $ocLazyLoad.load('toaster');
                             });
                         }]
@@ -1152,11 +1152,11 @@ var app = angular.module('app')
                 })
                 .state('main.baseInfo.ceeAnnualScore.update', {
                     url: '/update/{id}?params',
-                    templateUrl: 'src/app/message/ceeAnnualScore/update.html',
+                    templateUrl: 'src/app/baseInfo/ceeAnnualScore/update.html',
                     controller: 'ceeAnnualScoreUpdateController',
                     resolve: {
                         deps: ['uiLoad', '$ocLazyLoad', function(uiLoad, $ocLazyLoad) {
-                            return uiLoad.load('src/app/message/ceeAnnualScore/updateController.js').then(function() {
+                            return uiLoad.load('src/app/baseInfo/ceeAnnualScore/updateController.js').then(function() {
                                 return $ocLazyLoad.load('toaster');
                             });
                         }]
@@ -1169,11 +1169,11 @@ var app = angular.module('app')
                 })
                 .state('main.baseInfo.course.list', {
                     url: '/list',
-                    templateUrl: 'src/app/message/course/course.html',
+                    templateUrl: 'src/app/baseInfo/course/course.html',
                     controller: 'courseController',
                     resolve: {
                         deps: ['uiLoad', '$ocLazyLoad', function(uiLoad, $ocLazyLoad) {
-                            return uiLoad.load('src/app/message/course/courseController.js').then(function() {
+                            return uiLoad.load('src/app/baseInfo/course/courseController.js').then(function() {
                                 return $ocLazyLoad.load('toaster');
                             });
                         }]
@@ -1181,11 +1181,11 @@ var app = angular.module('app')
                 })
                 .state('main.baseInfo.course.create', {
                     url: '/create',
-                    templateUrl: 'src/app/message/course/update.html',
+                    templateUrl: 'src/app/baseInfo/course/update.html',
                     controller: 'courseUpdateController',
                     resolve: {
                         deps: ['uiLoad', '$ocLazyLoad', function(uiLoad, $ocLazyLoad) {
-                            return uiLoad.load('src/app/message/course/updateController.js').then(function() {
+                            return uiLoad.load('src/app/baseInfo/course/updateController.js').then(function() {
                                 return $ocLazyLoad.load('toaster');
                             });
                         }]
@@ -1193,11 +1193,11 @@ var app = angular.module('app')
                 })
                 .state('main.baseInfo.course.update', {
                     url: '/update/{id}?params',
-                    templateUrl: 'src/app/message/course/update.html',
+                    templateUrl: 'src/app/baseInfo/course/update.html',
                     controller: 'courseUpdateController',
                     resolve: {
                         deps: ['uiLoad', '$ocLazyLoad', function(uiLoad, $ocLazyLoad) {
-                            return uiLoad.load('src/app/message/course/updateController.js').then(function() {
+                            return uiLoad.load('src/app/baseInfo/course/updateController.js').then(function() {
                                 return $ocLazyLoad.load('toaster');
                             });
                         }]
@@ -1210,11 +1210,11 @@ var app = angular.module('app')
                 })
                 .state('main.baseInfo.courseMaterial.list', {
                     url: '/list',
-                    templateUrl: 'src/app/message/courseMaterial/courseMaterial.html',
+                    templateUrl: 'src/app/baseInfo/courseMaterial/courseMaterial.html',
                     controller: 'courseMaterialController',
                     resolve: {
                         deps: ['uiLoad', '$ocLazyLoad', function(uiLoad, $ocLazyLoad) {
-                            return uiLoad.load('src/app/message/courseMaterial/courseMaterialController.js').then(function() {
+                            return uiLoad.load('src/app/baseInfo/courseMaterial/courseMaterialController.js').then(function() {
                                 return $ocLazyLoad.load('toaster');
                             });
                         }]
@@ -1222,11 +1222,11 @@ var app = angular.module('app')
                 })
                 .state('main.baseInfo.courseMaterial.create', {
                     url: '/create',
-                    templateUrl: 'src/app/message/courseMaterial/update.html',
+                    templateUrl: 'src/app/baseInfo/courseMaterial/update.html',
                     controller: 'courseMaterialUpdateController',
                     resolve: {
                         deps: ['uiLoad', '$ocLazyLoad', function(uiLoad, $ocLazyLoad) {
-                            return uiLoad.load('src/app/message/courseMaterial/updateController.js').then(function() {
+                            return uiLoad.load('src/app/baseInfo/courseMaterial/updateController.js').then(function() {
                                 return $ocLazyLoad.load('toaster');
                             });
                         }]
@@ -1234,11 +1234,11 @@ var app = angular.module('app')
                 })
                 .state('main.baseInfo.courseMaterial.update', {
                     url: '/update/{id}?params',
-                    templateUrl: 'src/app/message/courseMaterial/update.html',
+                    templateUrl: 'src/app/baseInfo/courseMaterial/update.html',
                     controller: 'courseMaterialUpdateController',
                     resolve: {
                         deps: ['uiLoad', '$ocLazyLoad', function(uiLoad, $ocLazyLoad) {
-                            return uiLoad.load('src/app/message/courseMaterial/updateController.js').then(function() {
+                            return uiLoad.load('src/app/baseInfo/courseMaterial/updateController.js').then(function() {
                                 return $ocLazyLoad.load('toaster');
                             });
                         }]
