@@ -31,7 +31,7 @@ public class CollegeController extends BaseController<ISysProvider> {
 	@Override
 	public String getService() { return "collegeService"; }
 
-	@RequiresPermissions("sys.student.college.read")
+	@RequiresPermissions("sys.baseInfo.college.read")
 	@PutMapping(value = "/read/list")
 	@ApiOperation(value = "查询学院", produces = MediaType.APPLICATION_JSON_VALUE)
 	public Object list(ModelMap modelMap, @RequestBody Map<String, Object> param) {
@@ -40,13 +40,13 @@ public class CollegeController extends BaseController<ISysProvider> {
 
 	@Override
 	@ApiOperation(value = "查询学院", produces = MediaType.APPLICATION_JSON_VALUE)
-	@RequiresPermissions("sys.student.college.read")
+	@RequiresPermissions("sys.baseInfo.college.read")
 	@PutMapping(value = "/read/page")
 	public Object query(ModelMap modelMap, @RequestBody Map<String, Object> param) {
 		return super.query(modelMap, param);
 	}
 
-	@RequiresPermissions("sys.student.college.read")
+	@RequiresPermissions("sys.baseInfo.college.read")
 	@PutMapping(value = "/read/detail")
 	@ApiOperation(value = "学院详情", produces = MediaType.APPLICATION_JSON_VALUE)
 	public Object get(HttpServletRequest request) {
@@ -59,7 +59,7 @@ public class CollegeController extends BaseController<ISysProvider> {
 	 * @param modelMap 消息体
 	 * @return 成功或失败代码以及数据
 	 */
-	@RequiresPermissions("sys.student.college.read")
+	@RequiresPermissions("sys.baseInfo.college.read")
 	@PutMapping(value = "/read/hierarchy")
 	@ApiOperation(value = "二级联动", produces = MediaType.APPLICATION_JSON_VALUE)
 	public Object queryOne(ModelMap modelMap) {
@@ -71,7 +71,7 @@ public class CollegeController extends BaseController<ISysProvider> {
 
 
     @PostMapping
-	@RequiresPermissions("sys.student.college.update")
+	@RequiresPermissions("sys.baseInfo.college.update")
 	@ApiOperation(value = "修改学院", produces = MediaType.APPLICATION_JSON_VALUE)
 	public Object update(HttpServletRequest request) {
 		College param = WebUtil.getParameter(request, College.class);
@@ -79,7 +79,7 @@ public class CollegeController extends BaseController<ISysProvider> {
 	}
 
 	@DeleteMapping
-	@RequiresPermissions("sys.student.college.delete")
+	@RequiresPermissions("sys.baseInfo.college.delete")
 	@ApiOperation(value = "删除学院", produces = MediaType.APPLICATION_JSON_VALUE)
 	public Object del(HttpServletRequest request) {
 		College param = WebUtil.getParameter(request, College.class);

@@ -16,7 +16,7 @@ public class Member implements Serializable {
 	private String locationCountry = "ZHCN";
 	@ApiModelProperty(value = "省份")
 	private String locationProvince;
-	@ApiModelProperty(value = "城市")
+	@ApiModelProperty(value = "市")
 	private String locationCity;
 	@ApiModelProperty(value = "地区")
 	private String locationArea;

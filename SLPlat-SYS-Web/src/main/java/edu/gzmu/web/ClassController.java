@@ -32,7 +32,7 @@ public class ClassController extends BaseController<ISysProvider> {
 		return "classService";
 	}
 
-	@RequiresPermissions("sys.student.class.read")
+	@RequiresPermissions("sys.baseInfo.class.read")
 	@PutMapping(value = "/read/list")
 	@ApiOperation(value = "查询班级", produces = MediaType.APPLICATION_JSON_VALUE)
 	public Object list(ModelMap modelMap, @RequestBody Map<String, Object> param) {
@@ -45,7 +45,7 @@ public class ClassController extends BaseController<ISysProvider> {
 	 * @param param 前台传递过来的json参数自动解析为map结合
 	 * @return 成功或失败代码以及数据
 	 */
-	@RequiresPermissions("sys.student.class.read")
+	@RequiresPermissions("sys.baseInfo.class.read")
 	@PutMapping(value = "/read/infoOne")
 	@ApiOperation(value = "班级信息", produces = MediaType.APPLICATION_JSON_VALUE)
 	public Object queryById(ModelMap modelMap, @RequestBody Map<String, Object> param) {
@@ -56,13 +56,13 @@ public class ClassController extends BaseController<ISysProvider> {
 
 	@Override
 	@ApiOperation(value = "查询班级", produces = MediaType.APPLICATION_JSON_VALUE)
-	@RequiresPermissions("sys.student.class.read")
+	@RequiresPermissions("sys.baseInfo.class.read")
 	@PutMapping(value = "/read/page")
 	public Object query(ModelMap modelMap, @RequestBody Map<String, Object> param) {
 		return super.query(modelMap, param);
 	}
 
-	@RequiresPermissions("sys.student.class.read")
+	@RequiresPermissions("sys.baseInfo.class.read")
 	@PutMapping(value = "/read/detail")
 	@ApiOperation(value = "班级详情", produces = MediaType.APPLICATION_JSON_VALUE)
 	public Object get(HttpServletRequest request) {
@@ -71,7 +71,7 @@ public class ClassController extends BaseController<ISysProvider> {
 	}
 
 	@PostMapping
-	@RequiresPermissions("sys.student.class.update")
+	@RequiresPermissions("sys.baseInfo.class.update")
 	@ApiOperation(value = "修改班级", produces = MediaType.APPLICATION_JSON_VALUE)
 	public Object update(HttpServletRequest request) {
 		Class param = WebUtil.getParameter(request, Class.class);
@@ -79,7 +79,7 @@ public class ClassController extends BaseController<ISysProvider> {
 	}
 
 	@DeleteMapping
-	@RequiresPermissions("sys.student.class.delete")
+	@RequiresPermissions("sys.baseInfo.class.delete")
 	@ApiOperation(value = "删除班级", produces = MediaType.APPLICATION_JSON_VALUE)
 	public Object del(HttpServletRequest request) {
 		Class param = WebUtil.getParameter(request, Class.class);

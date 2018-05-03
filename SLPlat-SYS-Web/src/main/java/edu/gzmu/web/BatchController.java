@@ -30,7 +30,7 @@ public class BatchController extends BaseController<ISysProvider> {
 		return "batchService";
 	}
 
-	@RequiresPermissions("sys.message.batch.read")
+	@RequiresPermissions("sys.baseInfo.batch.read")
 	@PutMapping(value = "/read/list")
 	@ApiOperation(value = "查询批次", produces = MediaType.APPLICATION_JSON_VALUE)
 	public Object query(HttpServletRequest request) {
@@ -39,13 +39,13 @@ public class BatchController extends BaseController<ISysProvider> {
 	}
 
 	@ApiOperation(value = "查询批次", produces = MediaType.APPLICATION_JSON_VALUE)
-	@RequiresPermissions("sys.message.batch.read")
+	@RequiresPermissions("sys.baseInfo.batch.read")
 	@PutMapping(value = "/read/page")
 	public Object query(ModelMap modelMap, @RequestBody Map<String, Object> param) {
 		return super.query(modelMap, param);
 	}
 
-	@RequiresPermissions("sys.message.batch.read")
+	@RequiresPermissions("sys.baseInfo.batch.read")
 	@PutMapping(value = "/read/detail")
 	@ApiOperation(value = "批次详情", produces = MediaType.APPLICATION_JSON_VALUE)
 	public Object get(HttpServletRequest request) {
@@ -54,7 +54,7 @@ public class BatchController extends BaseController<ISysProvider> {
 	}
 
 	@PostMapping
-	@RequiresPermissions("sys.message.batch.update")
+	@RequiresPermissions("sys.baseInfo.batch.update")
 	@ApiOperation(value = "修改批次", produces = MediaType.APPLICATION_JSON_VALUE)
 	public Object update(HttpServletRequest request) {
 		Batch param = WebUtil.getParameter(request, Batch.class);
@@ -62,7 +62,7 @@ public class BatchController extends BaseController<ISysProvider> {
 	}
 
 	@DeleteMapping
-	@RequiresPermissions("sys.message.batch.delete")
+	@RequiresPermissions("sys.baseInfo.batch.delete")
 	@ApiOperation(value = "删除批次", produces = MediaType.APPLICATION_JSON_VALUE)
 	public Object del(HttpServletRequest request) {
 		Batch param = WebUtil.getParameter(request, Batch.class);

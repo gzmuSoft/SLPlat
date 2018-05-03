@@ -31,12 +31,12 @@ public class College extends SLPlatBaseModel {
     @ApiModelProperty(value = "在校生人数")
     @TableField("students_number")
     private Long studentsNumber;
-    @ApiModelProperty(value = "当前学院下的所有专业")
-    @TableField(exist = false)
-    private List<Specialty> specialtyList;
     @ApiModelProperty(value = "当前学院所在的学校")
     @TableField(exist = false)
     private School school;
+    @ApiModelProperty(value = "当前学院下的所有专业")
+    @TableField(exist = false)
+    private List<Specialty> specialtyList;
 
     public School getSchool() {
         return school;

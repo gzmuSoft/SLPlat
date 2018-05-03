@@ -30,7 +30,7 @@ public class GenderController extends BaseController<ISysProvider> {
 		return "genderService";
 	}
 
-	@RequiresPermissions("sys.message.gender.read")
+	@RequiresPermissions("sys.baseInfo.gender.read")
 	@PutMapping(value = "/read/list")
 	@ApiOperation(value = "查询性别", produces = MediaType.APPLICATION_JSON_VALUE)
 	public Object query(HttpServletRequest request) {
@@ -39,13 +39,13 @@ public class GenderController extends BaseController<ISysProvider> {
 	}
 
 	@ApiOperation(value = "查询性别", produces = MediaType.APPLICATION_JSON_VALUE)
-	@RequiresPermissions("sys.message.gender.read")
+	@RequiresPermissions("sys.baseInfo.gender.read")
 	@PutMapping(value = "/read/page")
 	public Object query(ModelMap modelMap, @RequestBody Map<String, Object> param) {
 		return super.query(modelMap, param);
 	}
 
-	@RequiresPermissions("sys.message.gender.read")
+	@RequiresPermissions("sys.baseInfo.gender.read")
 	@PutMapping(value = "/read/detail")
 	@ApiOperation(value = "性别详情", produces = MediaType.APPLICATION_JSON_VALUE)
 	public Object get(HttpServletRequest request) {
@@ -54,7 +54,7 @@ public class GenderController extends BaseController<ISysProvider> {
 	}
 
 	@PostMapping
-	@RequiresPermissions("sys.message.gender.update")
+	@RequiresPermissions("sys.baseInfo.gender.update")
 	@ApiOperation(value = "修改性别", produces = MediaType.APPLICATION_JSON_VALUE)
 	public Object update(HttpServletRequest request) {
 		Gender param = WebUtil.getParameter(request, Gender.class);
@@ -62,7 +62,7 @@ public class GenderController extends BaseController<ISysProvider> {
 	}
 
 	@DeleteMapping
-	@RequiresPermissions("sys.message.gender.delete")
+	@RequiresPermissions("sys.baseInfo.gender.delete")
 	@ApiOperation(value = "删除性别", produces = MediaType.APPLICATION_JSON_VALUE)
 	public Object del(HttpServletRequest request) {
 		Gender param = WebUtil.getParameter(request, Gender.class);

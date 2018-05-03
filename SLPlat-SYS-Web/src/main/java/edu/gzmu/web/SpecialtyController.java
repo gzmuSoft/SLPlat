@@ -33,7 +33,7 @@ public class SpecialtyController extends BaseController<ISysProvider> {
         return "specialtyService";
     }
 
-    @RequiresPermissions("sys.student.specialty.read")
+    @RequiresPermissions("sys.baseInfo.specialty.read")
     @PutMapping(value = "/read/list")
     @ApiOperation(value = "查询专业", produces = MediaType.APPLICATION_JSON_VALUE)
     public Object list(ModelMap modelMap, @RequestBody Map<String, Object> param) {
@@ -42,7 +42,7 @@ public class SpecialtyController extends BaseController<ISysProvider> {
 
     @Override
     @ApiOperation(value = "查询专业", produces = MediaType.APPLICATION_JSON_VALUE)
-    @RequiresPermissions("sys.student.specialty.read")
+    @RequiresPermissions("sys.baseInfo.specialty.read")
     @PutMapping(value = "/read/page")
     public Object query(ModelMap modelMap, @RequestBody Map<String, Object> param) {
         return super.query(modelMap, param);
@@ -50,7 +50,7 @@ public class SpecialtyController extends BaseController<ISysProvider> {
 
 
 
-    @RequiresPermissions("sys.student.specialty.read")
+    @RequiresPermissions("sys.baseInfo.specialty.read")
     @PutMapping(value = "/read/detail")
     @ApiOperation(value = "专业详情", produces = MediaType.APPLICATION_JSON_VALUE)
     public Object get(HttpServletRequest request) {
@@ -65,7 +65,7 @@ public class SpecialtyController extends BaseController<ISysProvider> {
      * @param param 前台传参
      * @return 成功或失败代码以及数据
      */
-    @RequiresPermissions("sys.student.specialty.read")
+    @RequiresPermissions("sys.baseInfo.specialty.read")
     @PutMapping(value = "/read/infoOne")
     @ApiOperation(value = "查询专业", produces = MediaType.APPLICATION_JSON_VALUE)
     public Object queryById(ModelMap modelMap, @RequestBody Map<String, Object> param) {
@@ -79,7 +79,7 @@ public class SpecialtyController extends BaseController<ISysProvider> {
      * @param modelMap 消息体
      * @return 成功或失败代码以及数据
      */
-    @RequiresPermissions("sys.student.college.read")
+    @RequiresPermissions("sys.baseInfo.specialty.read")
     @PutMapping(value = "/read/hierarchy")
     @ApiOperation(value = "三级联动", produces = MediaType.APPLICATION_JSON_VALUE)
     public Object queryOne(ModelMap modelMap) {
@@ -90,7 +90,7 @@ public class SpecialtyController extends BaseController<ISysProvider> {
 
 
     @PostMapping
-    @RequiresPermissions("sys.student.specialty.update")
+    @RequiresPermissions("sys.baseInfo.specialty.update")
     @ApiOperation(value = "修改专业", produces = MediaType.APPLICATION_JSON_VALUE)
     public Object update(HttpServletRequest request) {
         Specialty param = WebUtil.getParameter(request, Specialty.class);
@@ -98,7 +98,7 @@ public class SpecialtyController extends BaseController<ISysProvider> {
     }
 
     @DeleteMapping
-    @RequiresPermissions("sys.student.specialty.delete")
+    @RequiresPermissions("sys.baseInfo.specialty.delete")
     @ApiOperation(value = "删除专业", produces = MediaType.APPLICATION_JSON_VALUE)
     public Object del(HttpServletRequest request) {
         Specialty param = WebUtil.getParameter(request, Specialty.class);

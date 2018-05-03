@@ -32,7 +32,7 @@ public class TownController extends BaseController<ISysProvider> {
 		return "townService";
 	}
 
-	@RequiresPermissions("sys.site.town.read")
+	@RequiresPermissions("sys.baseInfo.town.read")
 	@PutMapping(value = "/read/list")
 	@ApiOperation(value = "查询镇", produces = MediaType.APPLICATION_JSON_VALUE)
 	public Object list(ModelMap modelMap, @RequestBody Map<String, Object> param) {
@@ -40,13 +40,13 @@ public class TownController extends BaseController<ISysProvider> {
 	}
 
 	@ApiOperation(value = "查询镇", produces = MediaType.APPLICATION_JSON_VALUE)
-	@RequiresPermissions("sys.site.town.read")
+	@RequiresPermissions("sys.baseInfo.town.read")
 	@PutMapping(value = "/read/page")
 	public Object query(ModelMap modelMap, @RequestBody Map<String, Object> param) {
 		return super.query(modelMap, param);
 	}
 
-	@RequiresPermissions("sys.site.town.read")
+	@RequiresPermissions("sys.baseInfo.town.read")
 	@PutMapping(value = "/read/detail")
 	@ApiOperation(value = "镇详情", produces = MediaType.APPLICATION_JSON_VALUE)
 	public Object get(HttpServletRequest request) {
@@ -55,7 +55,7 @@ public class TownController extends BaseController<ISysProvider> {
 	}
 
 	@PostMapping
-	@RequiresPermissions("sys.site.town.update")
+	@RequiresPermissions("sys.baseInfo.town.update")
 	@ApiOperation(value = "修改镇", produces = MediaType.APPLICATION_JSON_VALUE)
 	public Object update(HttpServletRequest request) {
 		Town param = WebUtil.getParameter(request, Town.class);
@@ -63,7 +63,7 @@ public class TownController extends BaseController<ISysProvider> {
 	}
 
 	@DeleteMapping
-	@RequiresPermissions("sys.site.town.delete")
+	@RequiresPermissions("sys.baseInfo.town.delete")
 	@ApiOperation(value = "删除镇", produces = MediaType.APPLICATION_JSON_VALUE)
 	public Object del(HttpServletRequest request) {
 		Town param = WebUtil.getParameter(request, Town.class);

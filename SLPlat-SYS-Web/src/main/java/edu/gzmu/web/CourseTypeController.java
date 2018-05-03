@@ -30,7 +30,7 @@ public class CourseTypeController extends BaseController<ISysProvider> {
 		return "courseTypeService";
 	}
 
-	@RequiresPermissions("sys.message.courseType.read")
+	@RequiresPermissions("sys.baseInfo.courseType.read")
 	@PutMapping(value = "/read/list")
 	@ApiOperation(value = "查询课程类型", produces = MediaType.APPLICATION_JSON_VALUE)
 	public Object query(HttpServletRequest request) {
@@ -39,13 +39,13 @@ public class CourseTypeController extends BaseController<ISysProvider> {
 	}
 
 	@ApiOperation(value = "查询课程类型", produces = MediaType.APPLICATION_JSON_VALUE)
-	@RequiresPermissions("sys.message.courseType.read")
+	@RequiresPermissions("sys.baseInfo.courseType.read")
 	@PutMapping(value = "/read/page")
 	public Object query(ModelMap modelMap, @RequestBody Map<String, Object> param) {
 		return super.query(modelMap, param);
 	}
 
-	@RequiresPermissions("sys.message.courseType.read")
+	@RequiresPermissions("sys.baseInfo.courseType.read")
 	@PutMapping(value = "/read/detail")
 	@ApiOperation(value = "课程类型详情", produces = MediaType.APPLICATION_JSON_VALUE)
 	public Object get(HttpServletRequest request) {
@@ -54,7 +54,7 @@ public class CourseTypeController extends BaseController<ISysProvider> {
 	}
 
 	@PostMapping
-	@RequiresPermissions("sys.message.courseType.update")
+	@RequiresPermissions("sys.baseInfo.courseType.update")
 	@ApiOperation(value = "修改课程类型", produces = MediaType.APPLICATION_JSON_VALUE)
 	public Object update(HttpServletRequest request) {
 		CourseType param = WebUtil.getParameter(request, CourseType.class);
@@ -62,7 +62,7 @@ public class CourseTypeController extends BaseController<ISysProvider> {
 	}
 
 	@DeleteMapping
-	@RequiresPermissions("sys.message.courseType.delete")
+	@RequiresPermissions("sys.baseInfo.courseType.delete")
 	@ApiOperation(value = "删除课程类型", produces = MediaType.APPLICATION_JSON_VALUE)
 	public Object del(HttpServletRequest request) {
 		CourseType param = WebUtil.getParameter(request, CourseType.class);

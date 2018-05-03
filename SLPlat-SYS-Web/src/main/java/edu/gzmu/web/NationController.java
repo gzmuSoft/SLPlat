@@ -30,7 +30,7 @@ public class NationController extends BaseController<ISysProvider> {
 		return "nationService";
 	}
 
-	@RequiresPermissions("sys.message.nation.read")
+	@RequiresPermissions("sys.baseInfo.nation.read")
 	@PutMapping(value = "/read/list")
 	@ApiOperation(value = "查询民族", produces = MediaType.APPLICATION_JSON_VALUE)
 	public Object query(HttpServletRequest request) {
@@ -39,13 +39,13 @@ public class NationController extends BaseController<ISysProvider> {
 	}
 
 	@ApiOperation(value = "查询民族", produces = MediaType.APPLICATION_JSON_VALUE)
-	@RequiresPermissions("sys.message.nation.read")
+	@RequiresPermissions("sys.baseInfo.nation.read")
 	@PutMapping(value = "/read/page")
 	public Object query(ModelMap modelMap, @RequestBody Map<String, Object> param) {
 		return super.query(modelMap, param);
 	}
 
-	@RequiresPermissions("sys.message.nation.read")
+	@RequiresPermissions("sys.baseInfo.nation.read")
 	@PutMapping(value = "/read/detail")
 	@ApiOperation(value = "民族详情", produces = MediaType.APPLICATION_JSON_VALUE)
 	public Object get(HttpServletRequest request) {
@@ -54,7 +54,7 @@ public class NationController extends BaseController<ISysProvider> {
 	}
 
 	@PostMapping
-	@RequiresPermissions("sys.message.nation.update")
+	@RequiresPermissions("sys.baseInfo.nation.update")
 	@ApiOperation(value = "修改民族", produces = MediaType.APPLICATION_JSON_VALUE)
 	public Object update(HttpServletRequest request) {
 		Nation param = WebUtil.getParameter(request, Nation.class);
@@ -62,7 +62,7 @@ public class NationController extends BaseController<ISysProvider> {
 	}
 
 	@DeleteMapping
-	@RequiresPermissions("sys.message.nation.delete")
+	@RequiresPermissions("sys.baseInfo.nation.delete")
 	@ApiOperation(value = "删除民族", produces = MediaType.APPLICATION_JSON_VALUE)
 	public Object del(HttpServletRequest request) {
 		Nation param = WebUtil.getParameter(request, Nation.class);

@@ -31,7 +31,7 @@ public class CountyController extends BaseController<ISysProvider> {
 		return "countyService";
 	}
 
-	@RequiresPermissions("sys.site.county.read")
+	@RequiresPermissions("sys.baseInfo.county.read")
 	@PutMapping(value = "/read/list")
 	@ApiOperation(value = "查询区县", produces = MediaType.APPLICATION_JSON_VALUE)
 	public Object list(ModelMap modelMap, @RequestBody Map<String, Object> param) {
@@ -39,13 +39,13 @@ public class CountyController extends BaseController<ISysProvider> {
 	}
 
 	@ApiOperation(value = "查询区县", produces = MediaType.APPLICATION_JSON_VALUE)
-	@RequiresPermissions("sys.site.county.read")
+	@RequiresPermissions("sys.baseInfo.county.read")
 	@PutMapping(value = "/read/page")
 	public Object query(ModelMap modelMap, @RequestBody Map<String, Object> param) {
 		return super.query(modelMap, param);
 	}
 
-	@RequiresPermissions("sys.site.county.read")
+	@RequiresPermissions("sys.baseInfo.county.read")
 	@PutMapping(value = "/read/detail")
 	@ApiOperation(value = "区县详情", produces = MediaType.APPLICATION_JSON_VALUE)
 	public Object get(HttpServletRequest request) {
@@ -54,7 +54,7 @@ public class CountyController extends BaseController<ISysProvider> {
 	}
 
 	@PostMapping
-	@RequiresPermissions("sys.site.county.update")
+	@RequiresPermissions("sys.baseInfo.county.update")
 	@ApiOperation(value = "修改区县", produces = MediaType.APPLICATION_JSON_VALUE)
 	public Object update(HttpServletRequest request) {
 		County param = WebUtil.getParameter(request, County.class);
@@ -62,7 +62,7 @@ public class CountyController extends BaseController<ISysProvider> {
 	}
 
 	@DeleteMapping
-	@RequiresPermissions("sys.site.county.delete")
+	@RequiresPermissions("sys.baseInfo.county.delete")
 	@ApiOperation(value = "删除区县", produces = MediaType.APPLICATION_JSON_VALUE)
 	public Object del(HttpServletRequest request) {
 		County param = WebUtil.getParameter(request, County.class);

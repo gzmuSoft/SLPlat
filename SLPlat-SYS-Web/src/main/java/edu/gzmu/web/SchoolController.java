@@ -30,7 +30,7 @@ public class SchoolController extends BaseController<ISysProvider> {
         return "schoolService";
     }
 
-    @RequiresPermissions("sys.student.school.read")
+    @RequiresPermissions("sys.baseInfo.school.read")
     @PutMapping(value = "/read/list")
     @ApiOperation(value = "查询学校", produces = MediaType.APPLICATION_JSON_VALUE)
     public Object list(ModelMap modelMap, @RequestBody Map<String, Object> param) {
@@ -38,13 +38,13 @@ public class SchoolController extends BaseController<ISysProvider> {
     }
 
     @ApiOperation(value = "查询学校", produces = MediaType.APPLICATION_JSON_VALUE)
-    @RequiresPermissions("sys.student.school.read")
+    @RequiresPermissions("sys.baseInfo.school.read")
     @PutMapping(value = "/read/page")
     public Object query(ModelMap modelMap, @RequestBody Map<String, Object> param) {
         return super.query(modelMap, param);
     }
 
-    @RequiresPermissions("sys.student.school.read")
+    @RequiresPermissions("sys.baseInfo.school.read")
     @PutMapping(value = "/read/detail")
     @ApiOperation(value = "学校详情", produces = MediaType.APPLICATION_JSON_VALUE)
     public Object get(HttpServletRequest request) {
@@ -53,7 +53,7 @@ public class SchoolController extends BaseController<ISysProvider> {
     }
 
     @PostMapping
-    @RequiresPermissions("sys.student.school.update")
+    @RequiresPermissions("sys.baseInfo.school.update")
     @ApiOperation(value = "修改学校", produces = MediaType.APPLICATION_JSON_VALUE)
     public Object update(HttpServletRequest request) {
         School param = WebUtil.getParameter(request, School.class);
@@ -61,7 +61,7 @@ public class SchoolController extends BaseController<ISysProvider> {
     }
 
     @DeleteMapping
-    @RequiresPermissions("sys.student.school.delete")
+    @RequiresPermissions("sys.baseInfo.school.delete")
     @ApiOperation(value = "删除学校", produces = MediaType.APPLICATION_JSON_VALUE)
     public Object del(HttpServletRequest request) {
         School param = WebUtil.getParameter(request, School.class);

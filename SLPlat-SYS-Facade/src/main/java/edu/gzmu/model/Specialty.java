@@ -43,17 +43,9 @@ public class Specialty extends SLPlatBaseModel {
     @ApiModelProperty(value = "当前专业所在的学院")
     @TableField(exist = false)
     private College college;
-    @ApiModelProperty(value = "当前专业多有的班级")
+    @ApiModelProperty(value = "当前专业所有的班级")
     @TableField(exist = false)
     private List<Class> classList;
-
-    public List<Class> getClassList() {
-        return classList;
-    }
-
-    public void setClassList(List<Class> classList) {
-        this.classList = classList;
-    }
 
     public College getCollege() {
         return college;
@@ -61,6 +53,14 @@ public class Specialty extends SLPlatBaseModel {
 
     public void setCollege(College college) {
         this.college = college;
+    }
+
+    public List<Class> getClassList() {
+        return classList;
+    }
+
+    public void setClassList(List<Class> classList) {
+        this.classList = classList;
     }
 
     public String getMajorCode() {

@@ -30,7 +30,7 @@ public class SemesterController extends BaseController<ISysProvider> {
 		return "semesterService";
 	}
 
-	@RequiresPermissions("sys.message.semester.read")
+	@RequiresPermissions("sys.baseInfo.semester.read")
 	@PutMapping(value = "/read/list")
 	@ApiOperation(value = "查询学期", produces = MediaType.APPLICATION_JSON_VALUE)
 	public Object query(HttpServletRequest request) {
@@ -39,13 +39,13 @@ public class SemesterController extends BaseController<ISysProvider> {
 	}
 
 	@ApiOperation(value = "查询学期", produces = MediaType.APPLICATION_JSON_VALUE)
-	@RequiresPermissions("sys.message.semester.read")
+	@RequiresPermissions("sys.baseInfo.semester.read")
 	@PutMapping(value = "/read/page")
 	public Object query(ModelMap modelMap, @RequestBody Map<String, Object> param) {
 		return super.query(modelMap, param);
 	}
 
-	@RequiresPermissions("sys.message.semester.read")
+	@RequiresPermissions("sys.baseInfo.semester.read")
 	@PutMapping(value = "/read/detail")
 	@ApiOperation(value = "学期详情", produces = MediaType.APPLICATION_JSON_VALUE)
 	public Object get(HttpServletRequest request) {
@@ -54,7 +54,7 @@ public class SemesterController extends BaseController<ISysProvider> {
 	}
 
 	@PostMapping
-	@RequiresPermissions("sys.message.semester.update")
+	@RequiresPermissions("sys.baseInfo.semester.update")
 	@ApiOperation(value = "修改学期", produces = MediaType.APPLICATION_JSON_VALUE)
 	public Object update(HttpServletRequest request) {
 		Semester param = WebUtil.getParameter(request, Semester.class);
@@ -62,7 +62,7 @@ public class SemesterController extends BaseController<ISysProvider> {
 	}
 
 	@DeleteMapping
-	@RequiresPermissions("sys.message.semester.delete")
+	@RequiresPermissions("sys.baseInfo.semester.delete")
 	@ApiOperation(value = "删除学期", produces = MediaType.APPLICATION_JSON_VALUE)
 	public Object del(HttpServletRequest request) {
 		Semester param = WebUtil.getParameter(request, Semester.class);

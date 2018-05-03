@@ -30,7 +30,7 @@ public class AdministrativePostController extends BaseController<ISysProvider> {
 		return "administrativePostService";
 	}
 
-	@RequiresPermissions("sys.message.administrativePost.read")
+	@RequiresPermissions("sys.baseInfo.administrativePost.read")
 	@PutMapping(value = "/read/list")
 	@ApiOperation(value = "查询行政职务", produces = MediaType.APPLICATION_JSON_VALUE)
 	public Object query(HttpServletRequest request) {
@@ -39,13 +39,13 @@ public class AdministrativePostController extends BaseController<ISysProvider> {
 	}
 
 	@ApiOperation(value = "查询行政职务", produces = MediaType.APPLICATION_JSON_VALUE)
-	@RequiresPermissions("sys.message.administrativePost.read")
+	@RequiresPermissions("sys.baseInfo.administrativePost.read")
 	@PutMapping(value = "/read/page")
 	public Object query(ModelMap modelMap, @RequestBody Map<String, Object> param) {
 		return super.query(modelMap, param);
 	}
 
-	@RequiresPermissions("sys.message.administrativePost.read")
+	@RequiresPermissions("sys.baseInfo.administrativePost.read")
 	@PutMapping(value = "/read/detail")
 	@ApiOperation(value = "行政职务详情", produces = MediaType.APPLICATION_JSON_VALUE)
 	public Object get(HttpServletRequest request) {
@@ -54,7 +54,7 @@ public class AdministrativePostController extends BaseController<ISysProvider> {
 	}
 
 	@PostMapping
-	@RequiresPermissions("sys.message.administrativePost.update")
+	@RequiresPermissions("sys.baseInfo.administrativePost.update")
 	@ApiOperation(value = "修改行政职务", produces = MediaType.APPLICATION_JSON_VALUE)
 	public Object update(HttpServletRequest request) {
 		AdministrativePost param = WebUtil.getParameter(request, AdministrativePost.class);
@@ -62,7 +62,7 @@ public class AdministrativePostController extends BaseController<ISysProvider> {
 	}
 
 	@DeleteMapping
-	@RequiresPermissions("sys.message.administrativePost.delete")
+	@RequiresPermissions("sys.baseInfo.administrativePost.delete")
 	@ApiOperation(value = "删除行政职务", produces = MediaType.APPLICATION_JSON_VALUE)
 	public Object del(HttpServletRequest request) {
 		AdministrativePost param = WebUtil.getParameter(request, AdministrativePost.class);

@@ -31,7 +31,7 @@ public class ProvinceController extends BaseController<ISysProvider> {
         return "provinceService";
     }
 
-    @RequiresPermissions("sys.site.province.read")
+    @RequiresPermissions("sys.baseInfo.province.read")
     @PutMapping(value = "/read/list")
     @ApiOperation(value = "查询省份", produces = MediaType.APPLICATION_JSON_VALUE)
     public Object list(ModelMap modelMap, @RequestBody Map<String, Object> param) {
@@ -39,13 +39,13 @@ public class ProvinceController extends BaseController<ISysProvider> {
     }
 
     @ApiOperation(value = "查询省份", produces = MediaType.APPLICATION_JSON_VALUE)
-    @RequiresPermissions("sys.site.province.read")
+    @RequiresPermissions("sys.baseInfo.province.read")
     @PutMapping(value = "/read/page")
     public Object query(ModelMap modelMap, @RequestBody Map<String, Object> param) {
         return super.query(modelMap, param);
     }
 
-    @RequiresPermissions("sys.site.province.read")
+    @RequiresPermissions("sys.baseInfo.province.read")
     @PutMapping(value = "/read/detail")
     @ApiOperation(value = "省份详情", produces = MediaType.APPLICATION_JSON_VALUE)
     public Object get(HttpServletRequest request) {
@@ -54,7 +54,7 @@ public class ProvinceController extends BaseController<ISysProvider> {
     }
 
     @PostMapping
-    @RequiresPermissions("sys.site.province.update")
+    @RequiresPermissions("sys.baseInfo.province.update")
     @ApiOperation(value = "修改省份", produces = MediaType.APPLICATION_JSON_VALUE)
     public Object update(HttpServletRequest request) {
         Province param = WebUtil.getParameter(request, Province.class);
@@ -62,7 +62,7 @@ public class ProvinceController extends BaseController<ISysProvider> {
     }
 
     @DeleteMapping
-    @RequiresPermissions("sys.site.province.delete")
+    @RequiresPermissions("sys.baseInfo.province.delete")
     @ApiOperation(value = "删除省份", produces = MediaType.APPLICATION_JSON_VALUE)
     public Object del(HttpServletRequest request) {
         Province param = WebUtil.getParameter(request, Province.class);

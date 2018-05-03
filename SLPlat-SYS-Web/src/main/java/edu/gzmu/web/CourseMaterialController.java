@@ -30,7 +30,7 @@ public class CourseMaterialController extends BaseController<ISysProvider> {
 		return "courseMaterialService";
 	}
 
-	@RequiresPermissions("sys.message.courseMaterial.read")
+	@RequiresPermissions("sys.baseInfo.courseMaterial.read")
 	@PutMapping(value = "/read/list")
 	@ApiOperation(value = "查询课程教材", produces = MediaType.APPLICATION_JSON_VALUE)
 	public Object list(ModelMap modelMap, @RequestBody Map<String, Object> param) {
@@ -38,13 +38,13 @@ public class CourseMaterialController extends BaseController<ISysProvider> {
 	}
 
 	@ApiOperation(value = "查询课程教材", produces = MediaType.APPLICATION_JSON_VALUE)
-	@RequiresPermissions("sys.message.courseMaterial.read")
+	@RequiresPermissions("sys.baseInfo.courseMaterial.read")
 	@PutMapping(value = "/read/page")
 	public Object query(ModelMap modelMap, @RequestBody Map<String, Object> param) {
 		return super.query(modelMap, param);
 	}
 
-	@RequiresPermissions("sys.message.courseMaterial.read")
+	@RequiresPermissions("sys.baseInfo.courseMaterial.read")
 	@PutMapping(value = "/read/detail")
 	@ApiOperation(value = "课程教材详情", produces = MediaType.APPLICATION_JSON_VALUE)
 	public Object get(HttpServletRequest request) {
@@ -53,7 +53,7 @@ public class CourseMaterialController extends BaseController<ISysProvider> {
 	}
 
 	@PostMapping
-	@RequiresPermissions("sys.message.courseMaterial.update")
+	@RequiresPermissions("sys.baseInfo.courseMaterial.update")
 	@ApiOperation(value = "修改课程教材", produces = MediaType.APPLICATION_JSON_VALUE)
 	public Object update(HttpServletRequest request) {
 		CourseMaterial param = WebUtil.getParameter(request, CourseMaterial.class);
@@ -61,7 +61,7 @@ public class CourseMaterialController extends BaseController<ISysProvider> {
 	}
 
 	@DeleteMapping
-	@RequiresPermissions("sys.message.courseMaterial.delete")
+	@RequiresPermissions("sys.baseInfo.courseMaterial.delete")
 	@ApiOperation(value = "删除课程教材", produces = MediaType.APPLICATION_JSON_VALUE)
 	public Object del(HttpServletRequest request) {
 		CourseMaterial param = WebUtil.getParameter(request, CourseMaterial.class);

@@ -10,10 +10,8 @@ import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.*;
 import top.ibase4j.core.base.provider.BaseController;
 import top.ibase4j.core.util.WebUtil;
-import top.ibase4j.core.base.provider.Parameter;
 
 import javax.servlet.http.HttpServletRequest;
-import java.util.List;
 import java.util.Map;
 
 /**
@@ -32,7 +30,7 @@ public class CityController extends BaseController<ISysProvider> {
         return "cityService";
     }
 
-    @RequiresPermissions("sys.site.city.read")
+    @RequiresPermissions("sys.baseInfo.city.read")
     @PutMapping(value = "/read/list")
     @ApiOperation(value = "查询市", produces = MediaType.APPLICATION_JSON_VALUE)
     public Object list(ModelMap modelMap, @RequestBody Map<String, Object> param) {
@@ -40,13 +38,13 @@ public class CityController extends BaseController<ISysProvider> {
     }
 
     @ApiOperation(value = "查询市", produces = MediaType.APPLICATION_JSON_VALUE)
-    @RequiresPermissions("sys.site.city.read")
+    @RequiresPermissions("sys.baseInfo.city.read")
     @PutMapping(value = "/read/page")
     public Object query(ModelMap modelMap, @RequestBody Map<String, Object> param) {
         return super.query(modelMap, param);
     }
 
-    @RequiresPermissions("sys.site.city.read")
+    @RequiresPermissions("sys.baseInfo.city.read")
     @PutMapping(value = "/read/detail")
     @ApiOperation(value = "市详情", produces = MediaType.APPLICATION_JSON_VALUE)
     public Object get(HttpServletRequest request) {
@@ -55,7 +53,7 @@ public class CityController extends BaseController<ISysProvider> {
     }
 
     @PostMapping
-    @RequiresPermissions("sys.site.city.update")
+    @RequiresPermissions("sys.baseInfo.city.update")
     @ApiOperation(value = "修改市", produces = MediaType.APPLICATION_JSON_VALUE)
     public Object update(HttpServletRequest request) {
         City param = WebUtil.getParameter(request, City.class);
@@ -63,7 +61,7 @@ public class CityController extends BaseController<ISysProvider> {
     }
 
     @DeleteMapping
-    @RequiresPermissions("sys.site.city.delete")
+    @RequiresPermissions("sys.baseInfo.city.delete")
     @ApiOperation(value = "删除市", produces = MediaType.APPLICATION_JSON_VALUE)
     public Object del(HttpServletRequest request) {
         City param = WebUtil.getParameter(request, City.class);

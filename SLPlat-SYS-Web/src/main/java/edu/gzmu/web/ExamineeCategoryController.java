@@ -30,7 +30,7 @@ public class ExamineeCategoryController extends BaseController<ISysProvider> {
 		return "examineeCategoryService";
 	}
 
-	@RequiresPermissions("sys.message.examineeCategory.read")
+	@RequiresPermissions("sys.baseInfo.examineeCategory.read")
 	@PutMapping(value = "/read/list")
 	@ApiOperation(value = "查询考生类别", produces = MediaType.APPLICATION_JSON_VALUE)
 	public Object query(HttpServletRequest request) {
@@ -39,13 +39,13 @@ public class ExamineeCategoryController extends BaseController<ISysProvider> {
 	}
 
 	@ApiOperation(value = "查询考生类别", produces = MediaType.APPLICATION_JSON_VALUE)
-	@RequiresPermissions("sys.message.examineeCategory.read")
+	@RequiresPermissions("sys.baseInfo.examineeCategory.read")
 	@PutMapping(value = "/read/page")
 	public Object query(ModelMap modelMap, @RequestBody Map<String, Object> param) {
 		return super.query(modelMap, param);
 	}
 
-	@RequiresPermissions("sys.message.examineeCategory.read")
+	@RequiresPermissions("sys.baseInfo.examineeCategory.read")
 	@PutMapping(value = "/read/detail")
 	@ApiOperation(value = "考生类别详情", produces = MediaType.APPLICATION_JSON_VALUE)
 	public Object get(HttpServletRequest request) {
@@ -54,7 +54,7 @@ public class ExamineeCategoryController extends BaseController<ISysProvider> {
 	}
 
 	@PostMapping
-	@RequiresPermissions("sys.message.examineeCategory.update")
+	@RequiresPermissions("sys.baseInfo.examineeCategory.update")
 	@ApiOperation(value = "修改考生类别", produces = MediaType.APPLICATION_JSON_VALUE)
 	public Object update(HttpServletRequest request) {
 		ExamineeCategory param = WebUtil.getParameter(request, ExamineeCategory.class);
@@ -62,7 +62,7 @@ public class ExamineeCategoryController extends BaseController<ISysProvider> {
 	}
 
 	@DeleteMapping
-	@RequiresPermissions("sys.message.examineeCategory.delete")
+	@RequiresPermissions("sys.baseInfo.examineeCategory.delete")
 	@ApiOperation(value = "删除考生类别", produces = MediaType.APPLICATION_JSON_VALUE)
 	public Object del(HttpServletRequest request) {
 		ExamineeCategory param = WebUtil.getParameter(request, ExamineeCategory.class);

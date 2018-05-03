@@ -30,7 +30,7 @@ public class HighSchoolCategoryController extends BaseController<ISysProvider> {
 		return "highSchoolCategoryService";
 	}
 
-	@RequiresPermissions("sys.message.highSchoolCategory.read")
+	@RequiresPermissions("sys.baseInfo.highSchoolCategory.read")
 	@PutMapping(value = "/read/list")
 	@ApiOperation(value = "查询高中类别", produces = MediaType.APPLICATION_JSON_VALUE)
 	public Object query(HttpServletRequest request) {
@@ -39,13 +39,13 @@ public class HighSchoolCategoryController extends BaseController<ISysProvider> {
 	}
 
 	@ApiOperation(value = "查询高中类别", produces = MediaType.APPLICATION_JSON_VALUE)
-	@RequiresPermissions("sys.message.highSchoolCategory.read")
+	@RequiresPermissions("sys.baseInfo.highSchoolCategory.read")
 	@PutMapping(value = "/read/page")
 	public Object query(ModelMap modelMap, @RequestBody Map<String, Object> param) {
 		return super.query(modelMap, param);
 	}
 
-	@RequiresPermissions("sys.message.highSchoolCategory.read")
+	@RequiresPermissions("sys.baseInfo.highSchoolCategory.read")
 	@PutMapping(value = "/read/detail")
 	@ApiOperation(value = "高中类别详情", produces = MediaType.APPLICATION_JSON_VALUE)
 	public Object get(HttpServletRequest request) {
@@ -54,7 +54,7 @@ public class HighSchoolCategoryController extends BaseController<ISysProvider> {
 	}
 
 	@PostMapping
-	@RequiresPermissions("sys.message.highSchoolCategory.update")
+	@RequiresPermissions("sys.baseInfo.highSchoolCategory.update")
 	@ApiOperation(value = "修改高中类别", produces = MediaType.APPLICATION_JSON_VALUE)
 	public Object update(HttpServletRequest request) {
 		HighSchoolCategory param = WebUtil.getParameter(request, HighSchoolCategory.class);
@@ -62,7 +62,7 @@ public class HighSchoolCategoryController extends BaseController<ISysProvider> {
 	}
 
 	@DeleteMapping
-	@RequiresPermissions("sys.message.highSchoolCategory.delete")
+	@RequiresPermissions("sys.baseInfo.highSchoolCategory.delete")
 	@ApiOperation(value = "删除高中类别", produces = MediaType.APPLICATION_JSON_VALUE)
 	public Object del(HttpServletRequest request) {
 		HighSchoolCategory param = WebUtil.getParameter(request, HighSchoolCategory.class);

@@ -30,7 +30,7 @@ public class AttachmentTypeController extends BaseController<ISysProvider> {
 		return "attachmentTypeService";
 	}
 
-	@RequiresPermissions("sys.message.attachmentType.read")
+	@RequiresPermissions("sys.baseInfo.attachmentType.read")
 	@PutMapping(value = "/read/list")
 	@ApiOperation(value = "查询附件类型", produces = MediaType.APPLICATION_JSON_VALUE)
 	public Object query(HttpServletRequest request) {
@@ -39,13 +39,13 @@ public class AttachmentTypeController extends BaseController<ISysProvider> {
 	}
 
 	@ApiOperation(value = "查询附件类型", produces = MediaType.APPLICATION_JSON_VALUE)
-	@RequiresPermissions("sys.message.attachmentType.read")
+	@RequiresPermissions("sys.baseInfo.attachmentType.read")
 	@PutMapping(value = "/read/page")
 	public Object query(ModelMap modelMap, @RequestBody Map<String, Object> param) {
 		return super.query(modelMap, param);
 	}
 
-	@RequiresPermissions("sys.message.attachmentType.read")
+	@RequiresPermissions("sys.baseInfo.attachmentType.read")
 	@PutMapping(value = "/read/detail")
 	@ApiOperation(value = "附件类型详情", produces = MediaType.APPLICATION_JSON_VALUE)
 	public Object get(HttpServletRequest request) {
@@ -54,7 +54,7 @@ public class AttachmentTypeController extends BaseController<ISysProvider> {
 	}
 
 	@PostMapping
-	@RequiresPermissions("sys.message.attachmentType.update")
+	@RequiresPermissions("sys.baseInfo.attachmentType.update")
 	@ApiOperation(value = "修改附件类型", produces = MediaType.APPLICATION_JSON_VALUE)
 	public Object update(HttpServletRequest request) {
 		AttachmentType param = WebUtil.getParameter(request, AttachmentType.class);
@@ -62,7 +62,7 @@ public class AttachmentTypeController extends BaseController<ISysProvider> {
 	}
 
 	@DeleteMapping
-	@RequiresPermissions("sys.message.attachmentType.delete")
+	@RequiresPermissions("sys.baseInfo.attachmentType.delete")
 	@ApiOperation(value = "删除附件类型", produces = MediaType.APPLICATION_JSON_VALUE)
 	public Object del(HttpServletRequest request) {
 		AttachmentType param = WebUtil.getParameter(request, AttachmentType.class);
