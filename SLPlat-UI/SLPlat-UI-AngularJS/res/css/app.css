@@ -725,6 +725,7 @@ body {
 
 .app-aside {
     overflow-y: auto;
+
     float: left;
     position: fixed;
     margin-top: 55px;
