@@ -25,12 +25,18 @@ public class CeeAnnualScore extends SLPlatBaseModel {
     @ApiModelProperty(value = "省份编号")
 	@TableField("province_id")
 	private Long provinceId;
+    @TableField(exist = false)
+    private String provinceName;
     @ApiModelProperty(value = "考生类别编号")
 	@TableField("category_id")
 	private Long categoryId;
+    @TableField(exist = false)
+    private String categoryName;
     @ApiModelProperty(value = "批次编号")
 	@TableField("batch_id")
 	private Long batchId;
+    @TableField(exist = false)
+    private String batchName;
     @ApiModelProperty(value = "最低分数线")
 	@TableField("min_score_line")
 	private Float minScoreLine;
@@ -51,6 +57,14 @@ public class CeeAnnualScore extends SLPlatBaseModel {
 		this.provinceId = provinceId;
 	}
 
+	public String getProvinceName() {
+	    return provinceName;
+	}
+
+	public void setProvinceName(String provinceName) {
+	    this.provinceName = provinceName;
+    }
+
 	public Long getCategoryId() {
 		return categoryId;
 	}
@@ -59,6 +73,14 @@ public class CeeAnnualScore extends SLPlatBaseModel {
 		this.categoryId = categoryId;
 	}
 
+	public String getCategoryName() {
+	    return categoryName;
+    }
+
+    public void setCategoryName(String categoryName) {
+	    this.categoryName = categoryName;
+    }
+
 	public Long getBatchId() {
 		return batchId;
 	}
@@ -66,6 +88,14 @@ public class CeeAnnualScore extends SLPlatBaseModel {
 	public void setBatchId(Long batchId) {
 		this.batchId = batchId;
 	}
+
+	public String getBatchName() {
+	    return batchName;
+    }
+
+    public void setBatchName(String batchName) {
+	    this.batchName = batchName;
+    }
 
 	public Float getMinScoreLine() {
 		return minScoreLine;

@@ -70,7 +70,7 @@
         function validate(userId){
             jQuery('form').validate({
                 rules: {
-                	nationName: {
+                	name: {
                         required: true,
                         stringCheck:[],
                         maxLengthB:[20]
@@ -80,7 +80,7 @@
                     }
                 },
                 messages: {
-                	nationName: {
+                	name: {
                         required: '请填写民族名称',
                         maxLengthB:"民族名称不得超过{0}个字符"
                     },

@@ -70,7 +70,7 @@
         function validate(userId){
             jQuery('form').validate({
                 rules: {
-                    batchName: {
+                    name: {
                         required: true,
                         stringCheck:[],
                         maxLengthB:[20]
@@ -80,7 +80,7 @@
                     }
                 },
                 messages: {
-                    batchName: {
+                    name: {
                         required: '请填写批次名称',
                         maxLengthB:"批次名称不得超过{0}个字符"
                     },

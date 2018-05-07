@@ -70,7 +70,7 @@
         function validate(userId){
             jQuery('form').validate({
                 rules: {
-                    genderName: {
+                    name: {
                         required: true,
                         stringCheck:[],
                         maxLengthB:[20]
@@ -80,7 +80,7 @@
                     }
                 },
                 messages: {
-                    genderName: {
+                    name: {
                         required: '请填写性别名称',
                         maxLengthB:"性别名称不得超过{0}个字符"
                     },

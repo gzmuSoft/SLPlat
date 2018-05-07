@@ -70,7 +70,7 @@
         function validate(userId){
             jQuery('form').validate({
                 rules: {
-                    administrativePostName: {
+                    name: {
                         required: true,
                         stringCheck:[],
                         maxLengthB:[20]
@@ -80,7 +80,7 @@
                     }
                 },
                 messages: {
-                    administrativePostName: {
+                    name: {
                         required: '请填写行政职务名称',
                         maxLengthB:"行政职务名称不得超过{0}个字符"
                     },

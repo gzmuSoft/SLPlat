@@ -31,10 +31,64 @@
                     </div>
                     <div class="line line-dashed b-b line-lg pull-in"></div>
                     <!--年份-->
+                    <div class="form-group">
+                        <label class="col-lg-2 col-sm-3 control-label" for="name">
+                            <span class="text-danger wrapper-sm">*</span>年份</label>
+                        <div class="col-sm-6">
+                            <input type="text" class="form-control" name="year" id="year" placeholder="请输入年份..." ng-model="record.year">
+                        </div>
+                    </div>
+                    <div class="line line-dashed b-b line-lg pull-in"></div>
                     <!--省份-->
+                    <div class="form-group">
+                        <label class="col-lg-2 col-sm-3 control-label" for="provinceName">
+                            <span class="text-danger wrapper-sm">*</span>省份</label>
+                        <div class="col-sm-6">
+                            <select class="form-control" name="provinceName" id="provinceName"
+                                    ng-model="recordProvinceId">
+                                <option value="0" >--请选择省份--</option>
+                                <option ng-repeat="x in provinceNames" value="{{x.id}}">{{x.name}}</option>
+                            </select>
+                            <span class="help-block m-b-none"></span>
+                        </div>
+                    </div>
+                    <div class="line line-dashed b-b line-lg pull-in"></div>
                     <!--考生类别-->
+                    <div class="form-group">
+                        <label class="col-lg-2 col-sm-3 control-label" for="categoryName">
+                            <span class="text-danger wrapper-sm">*</span>考生类别</label>
+                        <div class="col-sm-6">
+                            <select class="form-control" name="categoryName" id="categoryName"
+                                    ng-model="recordCategoryId">
+                                <option value="0" >--请选择考生类别--</option>
+                                <option ng-repeat="x in categoryNames" value="{{x.id}}">{{x.name}}</option>
+                            </select>
+                            <span class="help-block m-b-none"></span>
+                        </div>
+                    </div>
+                    <div class="line line-dashed b-b line-lg pull-in"></div>
                     <!--批次-->
+                    <div class="form-group">
+                        <label class="col-lg-2 col-sm-3 control-label" for="batchName">
+                            <span class="text-danger wrapper-sm">*</span>批次</label>
+                        <div class="col-sm-6">
+                            <select class="form-control" name="batchName" id="batchName"
+                                    ng-model="recordBatchId">
+                                <option value="0" >--请选择批次--</option>
+                                <option ng-repeat="x in batchNames" value="{{x.id}}">{{x.name}}</option>
+                            </select>
+                            <span class="help-block m-b-none"></span>
+                        </div>
+                    </div>
                     <!--最低分数线-->
+                    <div class="form-group">
+                        <label class="col-lg-2 col-sm-3 control-label" for="name">
+                            <span class="text-danger wrapper-sm">*</span>最低分数线</label>
+                        <div class="col-sm-6">
+                            <input type="text" class="form-control" name="minScoreLine" id="minScoreLine" placeholder="请输入最低分数线..." ng-model="record.minScoreLine">
+                        </div>
+                    </div>
+                    <div class="line line-dashed b-b line-lg pull-in"></div>
                     <!--排序-->
                     <div class="form-group">
                         <label class="col-lg-2 col-sm-3 control-label" for="sortNo">排序</label>

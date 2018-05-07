@@ -104,7 +104,7 @@
         function validate(userId){
             jQuery('form').validate({
                 rules: {
-                	deptName: {
+                	name: {
                         required: true,
                         stringCheck:[],
                         maxLengthB:[20]
@@ -114,7 +114,7 @@
                     }
                 },
                 messages: {
-                	deptName: {
+                	name: {
                         required: '请填写部门名称',
                         maxLengthB:"部门名称不得超过{0}个字符"
                     },

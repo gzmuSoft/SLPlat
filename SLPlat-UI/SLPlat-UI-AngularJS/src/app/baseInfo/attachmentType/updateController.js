@@ -70,7 +70,7 @@
         function validate(userId){
             jQuery('form').validate({
                 rules: {
-                    attachmentTypeName: {
+                    name: {
                         required: true,
                         stringCheck:[],
                         maxLengthB:[20]
@@ -80,7 +80,7 @@
                     }
                 },
                 messages: {
-                    attachmentTypeName: {
+                    name: {
                         required: '请填写附件类型名称',
                         maxLengthB:"附件类型名称不得超过{0}个字符"
                     },

@@ -70,7 +70,7 @@
         function validate(userId){
             jQuery('form').validate({
                 rules: {
-                    professionalTitleName: {
+                    name: {
                         required: true,
                         stringCheck:[],
                         maxLengthB:[20]
@@ -80,7 +80,7 @@
                     }
                 },
                 messages: {
-                    professionalTitleName: {
+                    name: {
                         required: '请填写职称名称',
                         maxLengthB:"职称名称不得超过{0}个字符"
                     },

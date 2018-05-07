@@ -70,7 +70,7 @@
         function validate(userId){
             jQuery('form').validate({
                 rules: {
-                    politicalStatusName: {
+                    name: {
                         required: true,
                         stringCheck:[],
                         maxLengthB:[20]
@@ -80,7 +80,7 @@
                     }
                 },
                 messages: {
-                    politicalStatusName: {
+                    name: {
                         required: '请填写政治面貌名称',
                         maxLengthB:"政治面貌名称不得超过{0}个字符"
                     },

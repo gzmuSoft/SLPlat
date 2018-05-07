@@ -70,7 +70,7 @@
         function validate(userId){
             jQuery('form').validate({
                 rules: {
-                    examineeCategoryName: {
+                    name: {
                         required: true,
                         stringCheck:[],
                         maxLengthB:[20]
@@ -80,7 +80,7 @@
                     }
                 },
                 messages: {
-                    examineeCategoryName: {
+                    name: {
                         required: '请填写考生类别名称',
                         maxLengthB:"考生类别名称不得超过{0}个字符"
                     },

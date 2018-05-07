@@ -16,4 +16,8 @@ import top.ibase4j.core.base.BaseService;
 @Service
 @CacheConfig(cacheNames = "Province")
 public class ProvinceService extends BaseService<Province> {
+    public Province queryById(Long id){
+        Province province = super.queryById(id);
+        return province;
+    }
 }
