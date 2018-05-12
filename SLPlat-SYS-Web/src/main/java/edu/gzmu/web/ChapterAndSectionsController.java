@@ -29,7 +29,7 @@ public class ChapterAndSectionsController extends BaseController<ISysProvider> {
 		return "chapterAndSectionsService";
 	}
 
-	@RequiresPermissions("chapterAndSections.read")
+	@RequiresPermissions("sys.baseInfo.chapterAndSections.read")
 	@PutMapping(value = "/read/list")
 	@ApiOperation(value = "查询章节", produces = MediaType.APPLICATION_JSON_VALUE)
 	public Object query(HttpServletRequest request) {
@@ -37,7 +37,7 @@ public class ChapterAndSectionsController extends BaseController<ISysProvider> {
 		return super.query(param);
 	}
 
-	@RequiresPermissions("chapterAndSections.read")
+	@RequiresPermissions("sys.baseInfo.chapterAndSections.read")
 	@PutMapping(value = "/read/detail")
 	@ApiOperation(value = "章节详情", produces = MediaType.APPLICATION_JSON_VALUE)
 	public Object get(HttpServletRequest request) {
@@ -46,7 +46,7 @@ public class ChapterAndSectionsController extends BaseController<ISysProvider> {
 	}
 
 	@PostMapping
-	@RequiresPermissions("chapterAndSections.update")
+	@RequiresPermissions("sys.baseInfo.chapterAndSections.update")
 	@ApiOperation(value = "修改章节", produces = MediaType.APPLICATION_JSON_VALUE)
 	public Object update(HttpServletRequest request) {
 		ChapterAndSections param = WebUtil.getParameter(request, ChapterAndSections.class);
@@ -54,7 +54,7 @@ public class ChapterAndSectionsController extends BaseController<ISysProvider> {
 	}
 
 	@DeleteMapping
-	@RequiresPermissions("chapterAndSections.delete")
+	@RequiresPermissions("sys.baseInfo.chapterAndSections.delete")
 	@ApiOperation(value = "删除章节", produces = MediaType.APPLICATION_JSON_VALUE)
 	public Object del(HttpServletRequest request) {
 		ChapterAndSections param = WebUtil.getParameter(request, ChapterAndSections.class);

@@ -28,6 +28,8 @@ public class ChapterAndSections extends SLPlatBaseModel {
     @ApiModelProperty(value = "所属父章节编号")
 	@TableField("parent_id")
 	private Long parentId;
+    @TableField(exist=false)
+    private String courseName;
 
 	public Long getCourseId() {
 		return courseId;
@@ -53,6 +55,13 @@ public class ChapterAndSections extends SLPlatBaseModel {
 		this.parentId = parentId;
 	}
 
+    public String getCourseName() {
+        return courseName;
+    }
+
+    public void setCourseName(String courseName) {
+        this.courseName = courseName;
+    }
     /**
      * 返回当前对象信息的字符串表示，该信息能够直接转换成JSON数据
      */
@@ -62,6 +71,7 @@ public class ChapterAndSections extends SLPlatBaseModel {
         sb.append(getClass().getSimpleName());
         sb.append(super.getSubToString());
         sb.append(", courseId=").append(courseId);
+        sb.append(", courseName=").append(courseId);
         sb.append(", overview=").append(overview);
         sb.append(", parentId=").append(parentId);
         sb.append("]");
@@ -79,6 +89,7 @@ public class ChapterAndSections extends SLPlatBaseModel {
         else {
             ChapterAndSections other = (ChapterAndSections) that;
             return (this.getCourseId() == null ? other.getCourseId() == null : this.getCourseId().equals(other.getCourseId()))
+                    && (this.getCourseName() == null ? other.getCourseName() == null : this.getCourseName().equals(other.getCourseName()))
                     && (this.getOverview() == null ? other.getOverview() == null : this.getOverview().equals(other.getOverview()))
                     && (this.getParentId() == null ? other.getParentId() == null : this.getParentId().equals(other.getParentId()));
         }
@@ -92,6 +103,7 @@ public class ChapterAndSections extends SLPlatBaseModel {
         final int prime = 31;
         int result = super.hashCode();
         result = prime * result + ((getCourseId() == null) ? 0 : getCourseId().hashCode());
+        result = prime * result + ((getCourseName() == null) ? 0 : getCourseName().hashCode());
         result = prime * result + ((getOverview() == null) ? 0 : getOverview().hashCode());
         result = prime * result + ((getParentId() == null) ? 0 : getParentId().hashCode());
         return result;

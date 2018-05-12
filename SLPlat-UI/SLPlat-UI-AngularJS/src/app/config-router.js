@@ -1244,6 +1244,47 @@ var app = angular.module('app')
                         }]
                     }
                 })
+                //章节
+                .state('main.baseInfo.chapterAndSections', {
+                    url: '/chapterAndSections',
+                    template: '<div ui-view class="fade-in-right-big smooth"></div>'
+                })
+                .state('main.baseInfo.chapterAndSections.list', {
+                    url: '/list',
+                    templateUrl: 'src/app/baseInfo/chapterAndSections/chapterAndSections.html',
+                    controller: 'chapterAndSectionsController',
+                    resolve: {
+                        deps: ['uiLoad', '$ocLazyLoad', function(uiLoad, $ocLazyLoad) {
+                            return uiLoad.load('src/app/baseInfo/chapterAndSections/chapterAndSectionsController.js').then(function() {
+                                return $ocLazyLoad.load('toaster');
+                            });
+                        }]
+                    }
+                })
+                .state('main.baseInfo.chapterAndSections.create', {
+                    url: '/create',
+                    templateUrl: 'src/app/baseInfo/chapterAndSections/update.html',
+                    controller: 'chapterAndSectionsUpdateController',
+                    resolve: {
+                        deps: ['uiLoad', '$ocLazyLoad', function(uiLoad, $ocLazyLoad) {
+                            return uiLoad.load('src/app/baseInfo/chapterAndSections/updateController.js').then(function() {
+                                return $ocLazyLoad.load('toaster');
+                            });
+                        }]
+                    }
+                })
+                .state('main.baseInfo.chapterAndSections.update', {
+                    url: '/update/{id}?params',
+                    templateUrl: 'src/app/baseInfo/chapterAndSections/update.html',
+                    controller: 'chapterAndSectionsUpdateController',
+                    resolve: {
+                        deps: ['uiLoad', '$ocLazyLoad', function(uiLoad, $ocLazyLoad) {
+                            return uiLoad.load('src/app/baseInfo/chapterAndSections/updateController.js').then(function() {
+                                return $ocLazyLoad.load('toaster');
+                            });
+                        }]
+                    }
+                })
 
                 // 调度管理（任务）
                 .state('main.task', {
