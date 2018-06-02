@@ -1285,6 +1285,48 @@ var app = angular.module('app')
                         }]
                     }
                 })
+                //编程题
+                .state('main.baseInfo.program', {
+                    url: '/program',
+                    template: '<div ui-view class="fade-in-right-big smooth"></div>'
+                })
+                .state('main.baseInfo.program.list', {
+                    url: '/list',
+                    templateUrl: 'src/app/baseInfo/program/program.html',
+                    controller: 'programController',
+                    resolve: {
+                        deps: ['uiLoad', '$ocLazyLoad', function(uiLoad, $ocLazyLoad) {
+                            return uiLoad.load('src/app/baseInfo/program/programController.js').then(function() {
+                                return $ocLazyLoad.load('toaster');
+                            });
+                        }]
+                    }
+                })
+                .state('main.baseInfo.program.create', {
+                    url: '/create',
+                    templateUrl: 'src/app/baseInfo/program/update.html',
+                    controller: 'programUpdateController',
+                    resolve: {
+                        deps: ['uiLoad', '$ocLazyLoad', function(uiLoad, $ocLazyLoad) {
+                            return uiLoad.load('src/app/baseInfo/program/updateController.js').then(function() {
+                                return $ocLazyLoad.load('toaster');
+                            });
+                        }]
+                    }
+                })
+                .state('main.baseInfo.program.update', {
+                    url: '/update/{id}?params',
+                    templateUrl: 'src/app/baseInfo/program/update.html',
+                    controller: 'programUpdateController',
+                    resolve: {
+                        deps: ['uiLoad', '$ocLazyLoad', function(uiLoad, $ocLazyLoad) {
+                            return uiLoad.load('src/app/baseInfo/program/updateController.js').then(function() {
+                                return $ocLazyLoad.load('toaster');
+                            });
+                        }]
+                    }
+                })
+
 
                 // 调度管理（任务）
                 .state('main.task', {

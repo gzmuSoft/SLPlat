@@ -6,6 +6,7 @@ import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import org.apache.shiro.authz.annotation.RequiresPermissions;
 import org.springframework.http.MediaType;
+import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.*;
 import top.ibase4j.core.base.provider.BaseController;
 import top.ibase4j.core.util.WebUtil;
@@ -29,15 +30,21 @@ public class ProgramController extends BaseController<ISysProvider> {
 		return "programService";
 	}
 
-	@RequiresPermissions("program.read")
+	@RequiresPermissions("sys.baseInfo.program.read")
 	@PutMapping(value = "/read/list")
 	@ApiOperation(value = "查询编程题", produces = MediaType.APPLICATION_JSON_VALUE)
-	public Object query(HttpServletRequest request) {
-		Map<String, Object> param = WebUtil.getParameter(request);
-		return super.query(param);
+	public Object list(ModelMap modelMap, @RequestBody Map<String, Object> param) {
+		return super.queryList(modelMap, param);
 	}
 
-	@RequiresPermissions("program.read")
+//	@ApiOperation(value = "查询编程题", produces = MediaType.APPLICATION_JSON_VALUE)
+//	@RequiresPermissions("sys.baseInfo.program.read")
+//	@PutMapping(value = "/read/page")
+//	public Object query(ModelMap modelMap, @RequestBody Map<String, Object> param) {
+//		return super.query(modelMap, param);
+//	}
+
+	@RequiresPermissions("sys.baseInfo.program.read")
 	@PutMapping(value = "/read/detail")
 	@ApiOperation(value = "编程题详情", produces = MediaType.APPLICATION_JSON_VALUE)
 	public Object get(HttpServletRequest request) {
@@ -46,7 +53,7 @@ public class ProgramController extends BaseController<ISysProvider> {
 	}
 
 	@PostMapping
-	@RequiresPermissions("program.update")
+	@RequiresPermissions("sys.baseInfo.program.update")
 	@ApiOperation(value = "修改编程题", produces = MediaType.APPLICATION_JSON_VALUE)
 	public Object update(HttpServletRequest request) {
 		Program param = WebUtil.getParameter(request, Program.class);
@@ -54,7 +61,7 @@ public class ProgramController extends BaseController<ISysProvider> {
 	}
 
 	@DeleteMapping
-	@RequiresPermissions("program.delete")
+	@RequiresPermissions("sys.baseInfo.program.delete")
 	@ApiOperation(value = "删除编程题", produces = MediaType.APPLICATION_JSON_VALUE)
 	public Object del(HttpServletRequest request) {
 		Program param = WebUtil.getParameter(request, Program.class);
