@@ -149,6 +149,11 @@ logs/
 
 # gulp
 /SLPlat-UI/SLPlat-UI-AdminLTE/vendor/
-/SLPlat-UI/SLPlat-UI-AdminLTE/app/
 /SLPlat-UI/SLPlat-UI-AdminLTE/index.html
 
+# static
+/SLPlat-UI/SLPlat-UI-AdminLTE/app/css/
+/SLPlat-UI/SLPlat-UI-AdminLTE/app/js/
+/SLPlat-UI/SLPlat-UI-AdminLTE/app/pages/
+/SLPlat-UI/SLPlat-UI-AdminLTE/app/vendor/
+/SLPlat-UI/SLPlat-UI-AdminLTE/app/views/
