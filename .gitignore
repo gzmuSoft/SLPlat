@@ -157,3 +157,6 @@ logs/
 /SLPlat-UI/SLPlat-UI-AdminLTE/app/pages/
 /SLPlat-UI/SLPlat-UI-AdminLTE/app/vendor/
 /SLPlat-UI/SLPlat-UI-AdminLTE/app/views/
+
+# npm
+/SLPlat-UI/SLPlat-UI-AdminLTE/master/package-lock.json
