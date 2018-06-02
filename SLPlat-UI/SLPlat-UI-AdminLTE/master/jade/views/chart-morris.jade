@@ -1,0 +1,25 @@
+h3 Morris.js
+
+.container-fluid(ng-controller='ChartMorrisController')
+  .row
+    .col-md-6
+      .panel.panel-default
+        .panel-heading Line
+        .panel-body
+          div(morris-line="", morris-data='chartdata', morris-options="lineOptions")
+    .col-md-6
+      .panel.panel-default
+        .panel-heading Area
+        .panel-body
+          div(morris-area="", morris-data='chartdata', morris-options="areaOptions")
+  .row
+    .col-md-6
+      .panel.panel-default
+        .panel-heading Bar
+        .panel-body
+          div(morris-bar="", morris-data='chartdata', morris-options="barOptions")
+    .col-md-6
+      .panel.panel-default
+        .panel-heading Donut
+        .panel-body
+          div(morris-donut="", morris-data='donutdata', morris-options="donutOptions")

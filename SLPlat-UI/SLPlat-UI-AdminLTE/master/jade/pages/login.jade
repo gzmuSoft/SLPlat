@@ -1,0 +1,39 @@
+.block-center.mt-xl.wd-xl(ng-controller="LoginFormController")
+  // START panel
+  .panel.panel-dark.panel-flat
+    .panel-heading.text-center
+      a(href="#")
+        img.block-center.img-rounded(src='app/img/logo.png', alt='Image')
+    .panel-body
+      p.text-center.pv SIGN IN TO SLPLAT.
+      form.form-validate(role='form', ng-submit="login()", name='loginForm', novalidate='').mb-lg
+        .form-group.has-feedback
+          input#exampleInputEmail1.form-control(type='text', name="account" placeholder='Enter Account', autocomplete="off", ng-model="user.account", required='')
+          span.fa.fa-envelope.form-control-feedback.text-muted
+          span.text-danger(ng-show="loginForm.account.$dirty && loginForm.account.$error.required") This field is required
+        .form-group.has-feedback
+          input#exampleInputPassword1.form-control(type='password', name="password" placeholder='Password', ng-model="user.password", required='')
+          span.fa.fa-lock.form-control-feedback.text-muted
+          span.text-danger(ng-show="loginForm.password.$dirty && loginForm.password.$error.required") This field is required
+        .clearfix
+          .checkbox.c-checkbox.pull-left.mt0
+            label
+              input(type='checkbox', value='', name="account_remember", ng-model="account.remember")
+              span.fa.fa-check
+              |  Remember Me
+          .pull-right
+            a.text-muted(ui-sref="page.recover") Forgot your password?
+        
+        button.btn.btn-block.btn-primary.mt-lg(type='submit') Login
+      
+      .alert.alert-danger.text-center(ng-show='authMsg') {{authMsg}}
+      p.pt-lg.text-center Need to Signup?
+      a(ui-sref="page.register").btn.btn-block.btn-default Register Now
+  // END panel
+  .p-lg.text-center
+    span &copy; 
+    span(ng-bind="app.year") 
+    span  - 
+    span(ng-bind="app.name")
+    br
+    span(ng-bind="app.description")

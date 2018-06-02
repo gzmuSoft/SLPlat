@@ -1,0 +1,90 @@
+h3 Interaction
+  small Advanced bootstrap components for user interaction
+
+
+.row
+  .col-lg-6
+    h3.page-header.mt0 Carousel
+    div(ng-controller='CarouselDemoCtrl', animate-enabled="false")
+      div
+        carousel(interval='myInterval')
+          slide(ng-repeat='slide in slides', active='slide.active')
+            img(ng-src='{{slide.image}}', style='margin: auto;', alt="")
+            .carousel-caption
+              h4 Slide {{$index}}
+              p {{slide.text}}
+      .row.pv
+        .col-lg-6
+          p Interval, in milliseconds:
+          input.form-control(type='number', ng-model='myInterval')
+        .col-lg-6
+          p Add a slide with a random image
+          button.btn.btn-info(type='button', ng-click='addSlide()') Add Slide
+
+  .col-lg-6
+    h3.page-header.mt0 Typeahead
+
+    script(type="text/ng-template", id="customTemplate.html")
+      a
+        img(ng-src='http://upload.wikimedia.org/wikipedia/commons/thumb/{{match.model.flag}}', width='16', alt="")
+        span(bind-html-unsafe='match.label | typeaheadHighlight:query')
+
+    .typeahead-ctrl(ng-controller='TypeaheadCtrl')
+      h5 Static arrays
+      .well.well-sm Model: {{selected | json}}        
+      input.form-control(type='text', ng-model='selected', typeahead='state for state in states | filter:$viewValue | limitTo:8')
+      h5 Asynchronous results
+      .well.well-sm Model: {{asyncSelected | json}}        
+      input.form-control(type='text', ng-model='asyncSelected', placeholder='Locations loaded via $http', typeahead='address for address in getLocation($viewValue)', typeahead-loading='loadingLocations')
+      i.glyphicon.glyphicon-refresh(ng-show='loadingLocations')
+      h5 Custom templates for results
+      .well.well-sm Model: {{customSelected | json}}        
+      input.form-control(type='text', ng-model='customSelected', placeholder='Custom template', typeahead='state as state.name for state in statesWithFlags | filter:{name:$viewValue}', typeahead-template-url='customTemplate.html')
+
+.row
+  .col-lg-6
+    h3.page-header Calendar
+    div(ng-controller='DatepickerDemoCtrl')
+      .well.well-sm
+        p.m0 Selected date is: 
+         em {{dt | date:'fullDate' }}
+      .row
+        .col-md-6
+          h5 Inline
+          datepicker.ui-datepicker.well.well-sm(ng-model='dt', min-date='minDate', show-weeks='true')
+        .col-md-6
+          h5 Popup
+          .row
+            .col-md-12
+              p.input-group
+                input.form-control(type='text', datepicker-popup='{{format}}', ng-model='dt', is-open='opened', min-date='minDate', max-date="'2015-06-22'", datepicker-options='dateOptions', date-disabled='disabled(date, mode)', ng-required='true', close-text='Close')
+                span.input-group-btn
+                  button.btn.btn-default(type='button', ng-click='open($event)')
+                    em.fa.fa-calendar
+          .row
+            .col-md-12
+              label Format:
+              select.form-control(ng-model='format', ng-options='f for f in formats')
+                option
+          hr
+          button.btn.btn-sm.btn-info(type='button', ng-click='today()') Today
+          button.btn.btn-sm.btn-default(type='button', ng-click="dt = '2009-08-24'") 2009-08-24
+          button.btn.btn-sm.btn-danger(type='button', ng-click='clear()') Clear
+          button.btn.btn-sm.btn-default(type='button', ng-click='toggleMin()', tooltip='After today restriction') Min date
+  .col-lg-6
+    h3.page-header Time picker
+    div(ng-controller='TimepickerDemoCtrl')
+      timepicker(ng-model='mytime', ng-change='changed()', hour-step='hstep', minute-step='mstep', show-meridian='ismeridian')
+      pre.alert.alert-info.
+        Time is: {{mytime | date:'shortTime' }}        
+      .row
+        .col-xs-6
+          | Hours step is:
+          select.form-control(ng-model='hstep', ng-options='opt for opt in options.hstep')
+        .col-xs-6
+          | Minutes step is:
+          select.form-control(ng-model='mstep', ng-options='opt for opt in options.mstep')
+      hr
+      button.btn.btn-info(ng-click='toggleMode()') 12H / 24H
+      button.btn.btn-default(ng-click='update()') Set to 14:00
+      button.btn.btn-danger(ng-click='clear()') Clear

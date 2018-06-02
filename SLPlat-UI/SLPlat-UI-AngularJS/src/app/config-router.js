@@ -1360,7 +1360,11 @@ var app = angular.module('app')
 			url : '/user/read/promission',
 			success : function(result) {
 				if (result.code == 200) {
-					$rootScope.userInfo = result.user;
+				    console.log(result);
+				    console.log(result.user);
+				    console.log(result.menu);
+
+                    $rootScope.userInfo = result.user;
 					$rootScope.menuList = result.menus;
 					$rootScope.$apply();
 				}
