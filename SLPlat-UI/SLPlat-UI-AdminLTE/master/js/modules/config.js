@@ -46,12 +46,6 @@ function ($stateProvider, $locationProvider, $urlRouterProvider, helper) {
         templateUrl: helper.basepath('dashboard_v3.html'),
         resolve: helper.resolveFor('flot-chart','flot-chart-plugins')
     })
-//  .state('app.widgets', {
-//      url: '/widgets',
-//      title: 'Widgets',
-//      templateUrl: helper.basepath('widgets.html'),
-////      resolve: helper.resolveFor('loadGoogleMapsJS', function() { return loadGoogleMaps(); }, 'ui.map')
-//  })
     .state('app.buttons', {
         url: '/buttons',
         title: 'Buttons',
@@ -144,19 +138,6 @@ function ($stateProvider, $locationProvider, $urlRouterProvider, helper) {
         templateUrl: helper.basepath('portlets.html'),
         resolve: helper.resolveFor('jquery-ui', 'jquery-ui-widgets')
     })
-//  .state('app.maps-google', {
-//      url: '/maps-google',
-//      title: 'Maps Google',
-//      templateUrl: helper.basepath('maps-google.html'),
-//      resolve: helper.resolveFor('loadGoogleMapsJS', function() { return loadGoogleMaps(); }, 'ui.map')
-//  })
-//  .state('app.maps-vector', {
-//      url: '/maps-vector',
-//      title: 'Maps Vector',
-//      templateUrl: helper.basepath('maps-vector.html'),
-//      controller: 'VectorMapController',
-//      resolve: helper.resolveFor('vector-map', 'vector-map-maps')
-//  })
     .state('app.grid', {
         url: '/grid',
         title: 'Grid',
@@ -257,24 +238,12 @@ function ($stateProvider, $locationProvider, $urlRouterProvider, helper) {
         templateUrl: helper.basepath('chart-js.html'),
         resolve: helper.resolveFor('chartjs')
     })
-//  .state('app.chart-rickshaw', {
-//      url: '/chart-rickshaw',
-//      title: 'Chart Rickshaw',
-//      templateUrl: helper.basepath('chart-rickshaw.html'),
-//      resolve: helper.resolveFor('angular-rickshaw')
-//  })
     .state('app.chart-morris', {
         url: '/chart-morris',
         title: 'Chart Morris',
         templateUrl: helper.basepath('chart-morris.html'),
         resolve: helper.resolveFor('morris')
     })
-//  .state('app.chart-chartist', {
-//      url: '/chart-chartist',
-//      title: 'Chart Chartist',
-//      templateUrl: helper.basepath('chart-chartist.html'),
-//      resolve: helper.resolveFor('angular-chartist')
-//  })    
     .state('app.table-standard', {
         url: '/table-standard',
         title: 'Table Standard',
@@ -296,21 +265,6 @@ function ($stateProvider, $locationProvider, $urlRouterProvider, helper) {
         templateUrl: helper.basepath('table-xeditable.html'),
         resolve: helper.resolveFor('xeditable')
     })
-//  .state('app.table-ngtable', {
-//      url: '/table-ngtable',
-//      templateUrl: helper.basepath('table-ngtable.html'),
-//      resolve: helper.resolveFor('ngTable', 'ngTableExport')
-//  })
-//  .state('app.table-nggrid', {
-//      url: '/table-nggrid',
-//      templateUrl: helper.basepath('table-ng-grid.html'),
-//      resolve: helper.resolveFor('ngGrid')
-//  })
-//  .state('app.table-uigrid', {
-//      url: '/table-uigrid',
-//      templateUrl: helper.basepath('table-uigrid.html'),
-//      resolve: helper.resolveFor('ui.grid')
-//  })
     .state('app.table-angulargrid', {
         url: '/table-angulargrid',
         templateUrl: helper.basepath('table-angulargrid.html'),
