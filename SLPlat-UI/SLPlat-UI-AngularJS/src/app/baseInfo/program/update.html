@@ -6,7 +6,7 @@
 <div class="bg-white bread-crumb">
     <ul class="breadcrumb b-a m-b-n-xs lter b-b wrapper-md">
         <li><a ui-sref="main"><i class="fa fa-home"></i> 首页</a></li>
-        <li><a ui-sref="main.baseInfo.county.list">区/县管理</a></li>
+        <li><a ui-sref="main.baseInfo.program.list">编程题管理</a></li>
         <li class="active" ng-bind="title"></li>
     </ul>
 </div>
@@ -16,20 +16,20 @@
     <div class="panel panel-default">
         <!-- 头部 -->
         <div class="panel-heading font-bold">{{title}}
-            <a class="btn btn-sm btn-icon btn-rounded btn-default pull-right m-t-n-xs" ui-sref="main.baseInfo.county.list"><i class="text-md fa fa-times text-muted"></i></a>
+            <a class="btn btn-sm btn-icon btn-rounded btn-default pull-right m-t-n-xs" ui-sref="main.baseInfo.program.list"><i class="text-md fa fa-times text-muted"></i></a>
         </div>
         <!--表单-->
         <div class="panel-body">
             <form class="form-horizontal"  name="user_form">
                 <!--省名称-->
                 <div class="form-group">
-                    <label class="col-lg-2 col-sm-3 control-label" for="provinceName">
-                        <span class="text-danger wrapper-sm">*</span>省名称</label>
+                    <label class="col-lg-2 col-sm-3 control-label" for="courseName">
+                        <span class="text-danger wrapper-sm">*</span>课程名称</label>
                     <div class="col-sm-6">
-                        <select class="form-control" name="provinceName" id="provinceName"
-                                ng-model="recordProvinceId" ng-change="provinceChange()">
-                            <option value="0" >--请选择省--</option>
-                            <option ng-repeat="x in provinceNames" value="{{x.id}}">{{x.name}}</option>
+                        <select class="form-control" name="courseName" id="courseName"
+                                ng-model="recordCourseId" ng-change="courseChange()">
+                            <option value="0" >--请选择课程--</option>
+                            <option ng-repeat="x in courseNames" value="{{x.id}}">{{x.name}}</option>
                         </select>
                         <span class="help-block m-b-none"></span>
                     </div>
@@ -37,13 +37,13 @@
                 <div class="line line-dashed b-b line-lg pull-in"></div>
                 <!--学院名称-->
                 <div class="form-group">
-                    <label class="col-lg-2 col-sm-3 control-label" for="cityName">
-                        <span class="text-danger wrapper-sm">*</span>市名称</label>
+                    <label class="col-lg-2 col-sm-3 control-label" for="sectionName">
+                        <span class="text-danger wrapper-sm">*</span>章节名称</label>
                     <div class="col-sm-6">
-                        <select class="form-control" name="cityName" id="cityName"
-                                ng-model="recordCityId">
-                            <option value="0" >--请选择市--</option>
-                            <option ng-repeat="x in cityNames" value="{{x.id}}">{{x.name}}</option>
+                        <select class="form-control" name="sectionName" id="sectionName"
+                                ng-model="recordSectionId">
+                            <option value="0" >--请选择章节--</option>
+                            <option ng-repeat="x in sectionNames" value="{{x.id}}">{{x.name}}</option>
                         </select>
                         <span class="help-block m-b-none"></span>
                     </div>
@@ -51,10 +51,10 @@
                 <div class="line line-dashed b-b line-lg pull-in"></div>
                 <!--专业名称-->
                 <div class="form-group">
-                    <label class="col-lg-2 col-sm-3 control-label" for="countyName">
-                        <span class="text-danger wrapper-sm">*</span>区/县名称</label>
+                    <label class="col-lg-2 col-sm-3 control-label" for="Name">
+                        <span class="text-danger wrapper-sm">*</span>题目内容</label>
                     <div class="col-sm-6">
-                        <input type="text" class="form-control" name="countyName" id="countyName" placeholder="请输入区/县名称..." ng-model="record.name">
+                        <textarea name="" class="form-control" name="Name" id="Name" placeholder="请输入题目内容..." ng-model="record.name"></textarea>
                     </div>
                 </div>
                 <div class="line line-dashed b-b line-lg pull-in"></div>

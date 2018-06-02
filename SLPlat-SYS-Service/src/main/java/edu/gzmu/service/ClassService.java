@@ -49,7 +49,7 @@ public class ClassService extends BaseService<Class> {
     }
 
 
-//TODO 带确定是否删除
+//TODO 待确定是否删除
 //    @Autowired
 //    private SpecialtyService specialtyService;
 //    private Specialty specialty;

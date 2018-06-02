@@ -29,14 +29,16 @@ public class Program extends SLPlatBaseModel {
     @ApiModelProperty(value = "所属章节")
 	@TableField("section_id")
 	private Long sectionId;
+    @TableField(exist = false)
+    private String sectionName;
+    @TableField(exist = false)
+    private String courseName;
+    @TableField(exist = false)
+    private Long courseId;
 
-	public String getAnswer() {
-		return answer;
-	}
+	public String getAnswer() { return answer; }
 
-	public void setAnswer(String answer) {
-		this.answer = answer;
-	}
+	public void setAnswer(String answer) { this.answer = answer; }
 
 	public Long getDifficultDegree() {
 		return difficultDegree;
@@ -62,6 +64,29 @@ public class Program extends SLPlatBaseModel {
 		this.sectionId = sectionId;
 	}
 
+    public String getSectionName() {
+        return sectionName;
+    }
+
+    public void setSectionName(String sectionName) {
+        this.sectionName = sectionName;
+    }
+
+    public String getCourseName() {
+        return courseName;
+    }
+
+    public void setCourseName(String courseName) {
+        this.courseName = courseName;
+    }
+
+    public Long getCourseId() {
+        return courseId;
+    }
+
+    public void setCourseId(Long courseId) {
+        this.courseId = courseId;
+    }
     /**
      * 返回当前对象信息的字符串表示，该信息能够直接转换成JSON数据
      */
@@ -74,6 +99,9 @@ public class Program extends SLPlatBaseModel {
         sb.append(", difficultDegree=").append(difficultDegree);
         sb.append(", isRequired=").append(isRequired);
         sb.append(", sectionId=").append(sectionId);
+        sb.append(", sectionName=").append(sectionName);
+        sb.append(", CourseName=").append(courseName);
+        sb.append(", CourseId=").append(courseId);
         sb.append("]");
         return sb.toString();
     }
@@ -91,7 +119,10 @@ public class Program extends SLPlatBaseModel {
             return (this.getAnswer() == null ? other.getAnswer() == null : this.getAnswer().equals(other.getAnswer()))
                     && (this.getDifficultDegree() == null ? other.getDifficultDegree() == null : this.getDifficultDegree().equals(other.getDifficultDegree()))
                     && (this.getRequired() == null ? other.getRequired() == null : this.getRequired().equals(other.getRequired()))
-                    && (this.getSectionId() == null ? other.getSectionId() == null : this.getSectionId().equals(other.getSectionId()));
+                    && (this.getSectionId() == null ? other.getSectionId() == null : this.getSectionId().equals(other.getSectionId()))
+                    && (this.getSectionName() == null ? other.getSectionName() == null : this.getSectionName().equals(other.getSectionName()))
+                    && (this.getCourseName() == null ? other.getCourseName() == null : this.getCourseName().equals(other.getCourseName()))
+                    && (this.getCourseId() == null ? other.getCourseId() == null : this.getCourseId().equals(other.getCourseId()));
         }
     }
 
@@ -106,6 +137,9 @@ public class Program extends SLPlatBaseModel {
         result = prime * result + ((getDifficultDegree() == null) ? 0 : getDifficultDegree().hashCode());
         result = prime * result + ((getRequired() == null) ? 0 : getRequired().hashCode());
         result = prime * result + ((getSectionId() == null) ? 0 : getSectionId().hashCode());
+        result = prime * result + ((getSectionName() == null) ? 0 : getSectionName().hashCode());
+        result = prime * result + ((getCourseName() == null) ? 0 : getCourseName().hashCode());
+        result = prime * result + ((getCourseId() == null) ? 0 : getCourseId().hashCode());
         return result;
     }
 }
