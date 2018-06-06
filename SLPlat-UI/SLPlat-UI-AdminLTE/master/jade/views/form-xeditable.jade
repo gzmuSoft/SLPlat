@@ -1,0 +1,108 @@
+h3 Form xEditable
+  small Edit in place for AngularJS
+
+.row(ng-controller='FormxEditableController')
+  .col-md-6
+    .panel.panel-default
+      .panel-heading HTML5 Inputs
+      .panel-body
+        .form-horizontal
+          .form-group.m0
+            label.col-sm-4.control-label Email: 
+            .col-sm-8
+              p.form-control-static
+                a(href='#', editable-email='user.email') {{ user.email || &apos;empty&apos; }}
+          .form-group.m0
+            label.col-sm-4.control-label Tel: 
+            .col-sm-8
+              p.form-control-static
+                a(href='#', editable-tel='user.tel', e-pattern='\\d{3}\-\\d{2}\-\\d{2}', e-title='xxx-xx-xx') {{ user.tel || &apos;empty&apos; }}
+          .form-group.m0
+            label.col-sm-4.control-label Number: 
+            .col-sm-8
+              p.form-control-static
+                a(href='#', editable-number='user.number', e-min='18') {{ user.number || &apos;empty&apos; }}
+          .form-group.m0
+            label.col-sm-4.control-label Range: 
+            .col-sm-8
+              p.form-control-static
+                a(href='#', editable-range='user.range', e-step='5') {{ user.range || &apos;empty&apos; }}
+
+          .form-group.m0
+            label.col-sm-4.control-label Url: 
+            .col-sm-8
+              p.form-control-static
+                a(href='#', editable-url='user.url') {{ user.url || &apos;empty&apos; }}
+
+          .form-group.m0
+            label.col-sm-4.control-label Search: 
+            .col-sm-8
+              p.form-control-static
+                a(href='#', editable-search='user.search') {{ user.search || &apos;empty&apos; }}
+
+          .form-group.m0
+            label.col-sm-4.control-label Color: 
+            .col-sm-8
+              p.form-control-static
+                a(href='#', editable-color='user.color') {{ user.color || &apos;empty&apos; }}
+
+          .form-group.m0
+            label.col-sm-4.control-label Date: 
+            .col-sm-8
+              p.form-control-static
+                a(href='#', editable-date='user.date') {{ user.date || &apos;empty&apos; }}
+
+          .form-group.m0
+            label.col-sm-4.control-label Time: 
+            .col-sm-8
+              p.form-control-static
+                a(href='#', editable-time='user.time') {{ user.time || &apos;empty&apos; }}
+
+          .form-group.m0
+            label.col-sm-4.control-label Datetime: 
+            .col-sm-8
+              p.form-control-static
+                a(href='#', editable-datetime='user.datetime') {{ user.datetime || &apos;empty&apos; }}
+
+          .form-group.m0
+            label.col-sm-4.control-label Month: 
+            .col-sm-8
+              p.form-control-static
+                a(href='#', editable-month='user.month') {{ user.month || &apos;empty&apos; }}
+
+          .form-group.m0
+            label.col-sm-4.control-label Week: 
+            .col-sm-8
+              p.form-control-static
+                a(href='#', editable-week='user.week') {{ user.week || &apos;empty&apos; }}
+  .col-md-6
+    .panel.panel-default
+      .panel-heading Controls
+      .panel-body
+        .form-horizontal
+          .form-group.m0
+            label.col-sm-4.control-label Text
+            .col-sm-8
+              p.form-control-static
+                a(href='#', editable-text='user.name') {{ user.name || &apos;empty&apos; }}
+          .form-group.m0
+            label.col-sm-4.control-label Local Select
+            .col-sm-8
+              p.form-control-static
+                a(href='#', editable-select='user2.status', e-ng-options='s.value as s.text for s in statuses') {{ showStatus() }}
+          .form-group.m0
+            label.col-sm-4.control-label Remote Select
+            .col-sm-8
+              p.form-control-static
+                a(href='#', editable-select='user3.text', ng-init='loadGroups()', e-ng-options='g.text as g.text for g in groups') {{ user3.text || &apos;not set&apos; }}  
+          .form-group.m0
+            label.col-sm-4.control-label Textarea
+            .col-sm-8
+              p.form-control-static
+                a(href='#', editable-textarea='user.desc', e-rows='3', e-cols='30') {{ user.desc || 'no description' }}    
+          .form-group.m0
+            label.col-sm-4.control-label Typeahead
+            .col-sm-8
+              p.form-control-static
+                a(href='#', editable-text='user4.state', e-typeahead='state for state in states | filter:$viewValue | limitTo:8') {{ user4.state || &apos;empty&apos; }}  
+

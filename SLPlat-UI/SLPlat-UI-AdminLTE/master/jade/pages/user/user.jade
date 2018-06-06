@@ -1,0 +1,57 @@
+h1 用户管理
+
+// START panel
+.panel.panel-default
+  .panel-heading
+    | Demo Table #1
+  // START table-responsive
+  .table-responsive
+    table#table-ext-1.table.table-bordered.table-hover
+      thead
+        tr
+          th UID
+          th Picture
+          th Username
+          th First Name
+          th Last Name
+          th Email
+          th Profile
+          th Last Login
+      tbody
+        tr
+          td 1
+          td
+            .media
+              img.img-responsive.img-circle(src="app/img/user/01.jpg", alt="Image")
+          td @twitter
+          td Larry
+          td the Bird
+          td mail@example.com
+          td.text-center
+            .radial-bar.radial-bar-25.radial-bar-xs(data-label="25%")
+          td 1 week
+        tr
+          td 2
+          td
+            .media
+              img.img-responsive.img-circle(src="app/img/user/02.jpg", alt="Image")
+          td @mdo
+          td Mark
+          td Otto
+          td mail@example.com
+          td.text-center
+            .radial-bar.radial-bar-50.radial-bar-xs(data-label="50%")
+          td 25 minutes
+        tr
+          td 3
+          td
+            .media
+              img.img-responsive.img-circle(src="app/img/user/03.jpg", alt="Image")
+          td @fat
+          td Jacob
+          td Thornton
+          td mail@example.com
+          td.text-center
+            .radial-bar.radial-bar-80.radial-bar-xs(data-label="80%")
+          td 10 hours
+  // END table-responsive

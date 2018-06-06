@@ -26,7 +26,7 @@
                     <label class="col-lg-2 col-sm-3 control-label" for="provinceName">
                         <span class="text-danger wrapper-sm">*</span>省名称</label>
                     <div class="col-sm-6">
-                        <select class="form-control" name="provinceNames" id="provinceNames"
+                        <select class="form-control" name="provinceName" id="provinceName"
                                 ng-model="recordProvinceId" ng-change="provinceChange()">
                             <option value="0" >--请选择省--</option>
                             <option ng-repeat="x in provinceNames" value="{{x.id}}">{{x.name}}</option>

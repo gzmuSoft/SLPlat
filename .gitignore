@@ -142,3 +142,21 @@ logs/
 # IntelliJ IDEA
 *.iml
 .idea/
+
+# bower
+/SLPlat-UI/SLPlat-UI-AdminLTE/master/node_modules/
+/SLPlat-UI/SLPlat-UI-AdminLTE/master/bower_components/
+
+# gulp
+/SLPlat-UI/SLPlat-UI-AdminLTE/vendor/
+/SLPlat-UI/SLPlat-UI-AdminLTE/index.html
+
+# static
+/SLPlat-UI/SLPlat-UI-AdminLTE/app/css/
+/SLPlat-UI/SLPlat-UI-AdminLTE/app/js/
+/SLPlat-UI/SLPlat-UI-AdminLTE/app/pages/
+/SLPlat-UI/SLPlat-UI-AdminLTE/app/vendor/
+/SLPlat-UI/SLPlat-UI-AdminLTE/app/views/
+
+# npm
+/SLPlat-UI/SLPlat-UI-AdminLTE/master/package-lock.json
