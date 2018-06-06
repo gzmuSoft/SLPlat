@@ -25,6 +25,13 @@ public class EducationProgram extends SLPlatBaseModel {
     @ApiModelProperty(value = "专业编号")
 	@TableField("specialty_id")
 	private Long specialtyId;
+
+	@ApiModelProperty(value = "当前培养方案所属专业")
+	@TableField(exist = false)
+	private Specialty specialty;
+
+
+
     @ApiModelProperty(value = "理论教学学分")
 	@TableField("theoretical_teaching_credit")
 	private Long theoreticalTeachingCredit;
@@ -37,7 +44,8 @@ public class EducationProgram extends SLPlatBaseModel {
     @ApiModelProperty(value = "附件文档")
 	@TableField("attachment_id")
 	private Long attachmentId;
-
+	@TableField(exist = false)
+	private String attachmentname;
 	public Long getYear() {
 		return year;
 	}
@@ -86,7 +94,24 @@ public class EducationProgram extends SLPlatBaseModel {
 		this.attachmentId = attachmentId;
 	}
 
-    /**
+
+	public Specialty getSpecialty() {
+		return specialty;
+	}
+
+	public void setSpecialty(Specialty specialty) {
+		this.specialty = specialty;
+	}
+
+	public String getAttachmentname() {
+		return attachmentname;
+	}
+
+	public void setAttachmentname(String attachmentname) {
+		this.attachmentname = attachmentname;
+	}
+
+	/**
      * 返回当前对象信息的字符串表示，该信息能够直接转换成JSON数据
      */
     @Override

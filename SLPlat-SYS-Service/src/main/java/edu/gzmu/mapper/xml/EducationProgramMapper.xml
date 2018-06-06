@@ -46,4 +46,42 @@
 			${cm.sortAsc}
 		</if>
 	</select>
+
+
+	<resultMap id="educationProgramMap" type="edu.gzmu.model.EducationProgram">
+		<id property="id" column="educationProgramId"/>
+		<result property="name" column="educationProgramName"/>
+		<result property="specialtyId" column="specialtyId"/>
+		<result property="sortNo" column="sortNo"/>
+		<association property="specialty" javaType="edu.gzmu.model.Specialty">
+			<id property="id" column="specialtyId"/>
+			<result property="name" column="specialtyName"/>
+			<result property="collegeId" column="collegeId"/>
+			<association property="college" javaType="edu.gzmu.model.College">
+				<id property="id" column="collegeId"/>
+				<result property="name" column="collegeName"/>
+				<result property="schoolId" column="schoolId"/>
+				<association property="school" javaType="edu.gzmu.model.School">
+					<id property="id" column="schoolId"/>
+					<result property="name" column="schoolName"/>
+				</association>
+			</association>
+		</association>
+	</resultMap>
+	<select id="queryById" resultMap="educationProgramMap">
+		SELECT
+		cl.id_ educationProgramId,cl.name_ educationProgramName,s.id_ specialtyId,s.name_ specialtyName,
+		c.id_ collegeId,c.name_ collegeName,sc.id_ schoolId,sc.name_ schoolName,
+		cl.sort_no sortNo
+		FROM
+		educationProgram cl
+		LEFT JOIN specialty s ON cl.specialty_id = s.id_
+		LEFT JOIN college c ON s.college_id = c.id_
+		LEFT JOIN school sc ON c.school_id = sc.id_
+		<where>
+			<if test="cm.id != null and cm.id != ''">
+				and cl.id_ = #{cm.id}
+			</if>
+		</where>
+	</select>
 </mapper>

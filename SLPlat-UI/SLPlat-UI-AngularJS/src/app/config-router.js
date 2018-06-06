@@ -464,6 +464,50 @@ var app = angular.module('app')
                         }]
                     }
                 })
+                //培养方案
+                .state('main.baseInfo.educationProgram', {
+                    url: '/educationProgram',
+                    template: '<div ui-view class="fade-in-right-big smooth"></div>'
+                })
+                .state('main.baseInfo.educationProgram.list', {
+                    url: '/list',
+                    templateUrl: 'src/app/baseInfo/educationProgram/educationProgram.html',
+                    controller: 'educationProgramController',
+                    resolve: {
+                        deps: ['uiLoad', '$ocLazyLoad', function (uiLoad, $ocLazyLoad) {
+                            return uiLoad.load('src/app/baseInfo/educationProgram/educationProgramController.js').then(function () {
+                                return $ocLazyLoad.load('toaster');
+                            });
+                        }]
+                    }
+                })
+                .state('main.baseInfo.educationProgram.create', {
+                    url: '/create',
+                    templateUrl: 'src/app/baseInfo/educationProgram/update.html',
+                    controller: 'educationProgramUpdateController',
+                    resolve: {
+                        deps: ['uiLoad', '$ocLazyLoad', function (uiLoad, $ocLazyLoad) {
+                            return uiLoad.load('src/app/baseInfo/educationProgram/updateController.js').then(function () {
+                                return $ocLazyLoad.load('toaster');
+                            });
+                        }]
+                    }
+                })
+                .state('main.baseInfo.educationProgram.update', {
+                    url: '/update/{id}?params',
+                    templateUrl: 'src/app/baseInfo/educationProgram/update.html',
+                    controller: 'educationProgramUpdateController',
+                    resolve: {
+                        deps: ['uiLoad', '$ocLazyLoad', function (uiLoad, $ocLazyLoad) {
+                            return uiLoad.load('src/app/baseInfo/educationProgram/updateController.js').then(function () {
+                                return $ocLazyLoad.load('toaster');
+                            });
+                        }]
+                    }
+                })
+
+
+
                 // 省
                 .state('main.baseInfo.province', {
                     url: '/province',
