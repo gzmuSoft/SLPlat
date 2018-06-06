@@ -1,7 +1,7 @@
 // Inline template with sidebar items markup and ng-directives
 script(type='text/ng-template', id="sidebar-renderer.html")
   span(ng-if="item.heading") {{(item.translate | translate) || item.name}}
-  a(ng-if="!item.heading", ng-href="{{$state.href(item.permission, item.params)}}", title="{{item.name}}")
+  a(ng-if="!item.heading", ng-href="{{$state.href(item.request, item.params)}}", title="{{item.name}}")
     em(class="{{item.icon}}", ng-if="item.icon")
     .pull-right(ng-if="item.alert", ng-class="item.label || 'label label-success'") {{item.alert}}
     span {{(item.translate | translate) || item.name}}

@@ -506,20 +506,28 @@ function ($stateProvider, $locationProvider, $urlRouterProvider, helper) {
 
     .state('main', {
       abstract: true,
-      url: ''
+      url: '',
+      templateUrl: helper.basepath('app.html'),
+      controller: 'AppController',
+      resolve: helper.resolveFor('fastclick', 'modernizr', 'icons', 'screenfull', 'animo', 'sparklines', 'slimscroll', 'classyloader', 'toaster', 'whirl')
     })
     .state('main.sys', {
-      url: '/sys'
+      url: '/sys',
+      title: 'sys',
+      template: '<div >' + '<div ui-view=""></div> </div>'
     })
     // 用户
     .state('main.sys.user', {
-      url: '/user'
+      url: '/user',
+      title: 'user',
+      template: '<div>' + '<div ui-view=""></div> </div>'
     })
     .state('main.sys.user.list', {
       url: '/list',
       title: "user list",
-      templateUrl: helper.basepath('app/pages/baseInfo/user/user.html')
+      templateUrl: helper.basepath('user.html')
     })
+
 
 
 
