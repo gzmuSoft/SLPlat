@@ -525,7 +525,7 @@ function ($stateProvider, $locationProvider, $urlRouterProvider, helper) {
     .state('main.sys.user.list', {
       url: '/list',
       title: "user list",
-      templateUrl: helper.basepath('user.html')
+      templateUrl: helper.basepath('baseInfo/user/user.html')
     })
 
 
