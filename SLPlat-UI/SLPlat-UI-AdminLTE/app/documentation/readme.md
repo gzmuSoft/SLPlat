@@ -560,6 +560,7 @@ Credits
 -------
 <div class="row">
 <div class="col-lg-3">
+
 [Angular](https://angularjs.org/)  
 [Angular Docs](https://docs.angularjs.org/guide/)  
 [ocLazyLoad](https://github.com/ocombe/ocLazyLoad)  
@@ -583,6 +584,7 @@ Credits
 [CSSRadialBar](http://codepen.io/geedmo/pen/InFfd)  
 </div>
 <div class="col-lg-3">
+
 [Modernizr](http://modernizr.com/)  
 [MomentJs](http://momentjs.com/)  
 [Parsley](http://parsleyjs.org/)  
@@ -599,9 +601,11 @@ Credits
 [jQueryUI](http://jqueryui.com/sortable/)  
 [UiKit Upload](http://www.getuikit.com/docs/addons_upload.html)  
 [UiKit Notify](http://www.getuikit.com/docs/addons_notify.html)  
-[UiKit MarkdownArea](http://www.getuikit.com/docs/addons_markdownarea.html)  
+[UiKit MarkdownArea](http://www.getuikit.com/docs/addons_markdownarea.html)
+  
 </div>
 <div class="col-lg-3">
+
 Icons  
 
 [Font Awesome](http://fortawesome.github.io/Font-Awesome/)  
